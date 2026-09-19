@@ -1,0 +1,710 @@
+{
+  "schema_version": "1.0",
+  "category": "twelvelabs",
+  "component_count": 7,
+  "components": [
+    {
+      "id": "twelvelabs.ConvertAstraToTwelveLabs",
+      "category": "twelvelabs",
+      "component_type": "ConvertAstraToTwelveLabs",
+      "display_name": "Convert Astra DB to Pegasus Input",
+      "description": "Converts Astra DB search results to inputs compatible with TwelveLabs Pegasus.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "astra_results",
+          "display_name": "Astra DB Results",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Search results from Astra DB component"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "index_id",
+          "display_name": "Index ID",
+          "method": "get_index_id",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "video_id",
+          "display_name": "Video ID",
+          "method": "get_video_id",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "twelvelabs.SplitVideo",
+      "category": "twelvelabs",
+      "component_type": "SplitVideo",
+      "display_name": "Split Video",
+      "description": "Split a video into multiple clips of specified duration.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "clip_duration",
+          "display_name": "Clip Duration (seconds)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Duration of each clip in seconds"
+        },
+        {
+          "name": "include_original",
+          "display_name": "Include Original Video",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Whether to include the original video in the output"
+        },
+        {
+          "name": "last_clip_handling",
+          "display_name": "Last Clip Handling",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "How to handle the final clip when it would be shorter than the specified duration:\n- Truncate: Skip the final clip entirely if it's shorter than the specified duration\n- Overlap Previous: Start the final clip earlier to maintain full duration, overlapping with previous clip\n- Keep Short: Keep the final clip at its natural length, even if shorter than specified duration",
+          "options": [
+            "Truncate",
+            "Overlap Previous",
+            "Keep Short"
+          ]
+        },
+        {
+          "name": "videodata",
+          "display_name": "Video Data",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Input video data from VideoFile component"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "clips",
+          "display_name": "Video Clips",
+          "method": "process",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "twelvelabs.TwelveLabsPegasus",
+      "category": "twelvelabs",
+      "component_type": "TwelveLabsPegasus",
+      "display_name": "TwelveLabs Pegasus",
+      "description": "Chat with videos using TwelveLabs Pegasus API.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "TwelveLabs API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Enter your TwelveLabs API Key."
+        },
+        {
+          "name": "index_id",
+          "display_name": "Index ID",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "ID of an existing index to use. If provided, index_name will be ignored."
+        },
+        {
+          "name": "index_name",
+          "display_name": "Index Name",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Name of the index to use. If the index doesn't exist, it will be created."
+        },
+        {
+          "name": "message",
+          "display_name": "Prompt",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Message to chat with the video."
+        },
+        {
+          "name": "model_name",
+          "display_name": "Model",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Pegasus model to use for indexing",
+          "options": [
+            "pegasus1.2"
+          ]
+        },
+        {
+          "name": "temperature",
+          "display_name": "Temperature",
+          "input_type": "SliderInput",
+          "value_type": "slider",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Controls randomness in responses. Lower values are more deterministic, higher values are more creative."
+        },
+        {
+          "name": "video_id",
+          "display_name": "Pegasus Video ID",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Enter a Video ID for a previously indexed video."
+        },
+        {
+          "name": "videodata",
+          "display_name": "Video Data",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Video Data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "display_name": "Message",
+          "method": "process_video",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "processed_video_id",
+          "display_name": "Video ID",
+          "method": "get_video_id",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "twelvelabs.TwelveLabsPegasusIndexVideo",
+      "category": "twelvelabs",
+      "component_type": "TwelveLabsPegasusIndexVideo",
+      "display_name": "TwelveLabs Pegasus Index Video",
+      "description": "Index videos using TwelveLabs and add the video_id to metadata.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "TwelveLabs API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Enter your TwelveLabs API Key."
+        },
+        {
+          "name": "index_id",
+          "display_name": "Index ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "ID of an existing index to use. If provided, index_name will be ignored."
+        },
+        {
+          "name": "index_name",
+          "display_name": "Index Name",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Name of the index to use. If the index doesn't exist, it will be created."
+        },
+        {
+          "name": "model_name",
+          "display_name": "Model",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Pegasus model to use for indexing",
+          "options": [
+            "pegasus1.2"
+          ]
+        },
+        {
+          "name": "videodata",
+          "display_name": "Video Data",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Video Data objects (from VideoFile or SplitVideo)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "indexed_data",
+          "display_name": "Indexed Data",
+          "method": "index_videos",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "twelvelabs.TwelveLabsTextEmbeddings",
+      "category": "twelvelabs",
+      "component_type": "TwelveLabsTextEmbeddings",
+      "display_name": "TwelveLabs Text Embeddings",
+      "description": "Generate embeddings using TwelveLabs text embedding models.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Embeddings"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "TwelveLabs API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "max_retries",
+          "display_name": "Max Retries",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "model",
+          "display_name": "Model",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "Marengo-retrieval-2.7"
+          ]
+        },
+        {
+          "name": "request_timeout",
+          "display_name": "Request Timeout",
+          "input_type": "FloatInput",
+          "value_type": "float",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "embeddings",
+          "display_name": "Embedding Model",
+          "method": "build_embeddings",
+          "types": [
+            "Embeddings"
+          ],
+          "selected": "Embeddings",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "twelvelabs.TwelveLabsVideoEmbeddings",
+      "category": "twelvelabs",
+      "component_type": "TwelveLabsVideoEmbeddings",
+      "display_name": "TwelveLabs Video Embeddings",
+      "description": "Generate embeddings from videos using TwelveLabs video embedding models.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Embeddings"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "TwelveLabs API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "model_name",
+          "display_name": "Model",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "Marengo-retrieval-2.7"
+          ]
+        },
+        {
+          "name": "request_timeout",
+          "display_name": "Request Timeout",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "embeddings",
+          "display_name": "Embedding Model",
+          "method": "build_embeddings",
+          "types": [
+            "Embeddings"
+          ],
+          "selected": "Embeddings",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "twelvelabs.VideoFile",
+      "category": "twelvelabs",
+      "component_type": "VideoFile",
+      "display_name": "Video File",
+      "description": "Load a video file in common video formats.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "file_path",
+          "display_name": "Video File",
+          "input_type": "FileInput",
+          "value_type": "file",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Upload a video file in any common video format supported by ffmpeg"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dataframe",
+          "display_name": "Files",
+          "method": "load_files",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,229 @@
+{
+  "schema_version": "1.0",
+  "category": "unstructured",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "unstructured.Unstructured",
+      "category": "unstructured",
+      "component_type": "Unstructured",
+      "display_name": "Unstructured API",
+      "description": "Uses Unstructured.io API to extract clean text from raw source documents. Supports a wide range of file types.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "Unstructured.io Serverless API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Unstructured API Key. Create at: https://app.unstructured.io/"
+        },
+        {
+          "name": "api_url",
+          "display_name": "Unstructured.io API URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Unstructured API URL."
+        },
+        {
+          "name": "chunking_strategy",
+          "display_name": "Chunking Strategy",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Chunking strategy to use, see https://docs.unstructured.io/api-reference/api-services/chunking",
+          "options": [
+            "",
+            "basic",
+            "by_title",
+            "by_page",
+            "by_similarity"
+          ]
+        },
+        {
+          "name": "delete_server_file_after_processing",
+          "display_name": "Delete Server File After Processing",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If true, the Server File Path will be deleted after processing."
+        },
+        {
+          "name": "file_path",
+          "display_name": "Server File Path",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON",
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Data object with a 'file_path' property pointing to server file or a Message object with a path to the file. Supercedes 'Path' but supports same file types."
+        },
+        {
+          "name": "ignore_unspecified_files",
+          "display_name": "Ignore Unspecified Files",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If true, Data with no 'file_path' property will be ignored."
+        },
+        {
+          "name": "ignore_unsupported_extensions",
+          "display_name": "Ignore Unsupported Extensions",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If true, files with unsupported extensions will not be processed."
+        },
+        {
+          "name": "path",
+          "display_name": "Files",
+          "input_type": "FileInput",
+          "value_type": "file",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "Supported file extensions: bmp, csv, doc, docx, eml, epub, heic, html, jpeg, png, md, msg, odt, org, p7s, pdf, png, ppt, pptx, rst, rtf, tiff, txt, tsv, xls, xlsx, xml; optionally bundled in file extensions: zip, tar, tgz, bz2, gz"
+        },
+        {
+          "name": "separator",
+          "display_name": "Separator",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Specify the separator to use between multiple outputs in Message format."
+        },
+        {
+          "name": "silent_errors",
+          "display_name": "Silent Errors",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If true, errors will not raise an exception."
+        },
+        {
+          "name": "unstructured_args",
+          "display_name": "Additional Arguments",
+          "input_type": "NestedDictInput",
+          "value_type": "NestedDict",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional dictionary of additional arguments to the Loader. See https://docs.unstructured.io/api-reference/api-services/api-parameters for more information."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dataframe",
+          "display_name": "Files",
+          "method": "load_files",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

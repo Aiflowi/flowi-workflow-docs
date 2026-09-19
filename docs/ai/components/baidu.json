@@ -1,0 +1,246 @@
+{
+  "schema_version": "1.0",
+  "category": "baidu",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "baidu.BaiduQianfanChatModel",
+      "category": "baidu",
+      "component_type": "BaiduQianfanChatModel",
+      "display_name": "Qianfan",
+      "description": "Generate text using Baidu Qianfan LLMs.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "LanguageModel",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "endpoint",
+          "display_name": "Endpoint",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Endpoint of the Qianfan LLM, required if custom model used."
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "model",
+          "display_name": "Model Name",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "https://python.langchain.com/docs/integrations/chat/baidu_qianfan_endpoint",
+          "options": [
+            "EB-turbo-AppBuilder",
+            "Llama-2-70b-chat",
+            "ERNIE-Bot-turbo-AI",
+            "ERNIE-Lite-8K-0308",
+            "ERNIE-Speed",
+            "Qianfan-Chinese-Llama-2-13B",
+            "ERNIE-3.5-8K",
+            "BLOOMZ-7B",
+            "Qianfan-Chinese-Llama-2-7B",
+            "XuanYuan-70B-Chat-4bit",
+            "AquilaChat-7B",
+            "ERNIE-Bot-4",
+            "Llama-2-13b-chat",
+            "ChatGLM2-6B-32K",
+            "ERNIE-Bot",
+            "ERNIE-Speed-128k",
+            "ERNIE-4.0-8K",
+            "Qianfan-BLOOMZ-7B-compressed",
+            "ERNIE Speed",
+            "Llama-2-7b-chat",
+            "Mixtral-8x7B-Instruct",
+            "ERNIE 3.5",
+            "ERNIE Speed-AppBuilder",
+            "ERNIE-Speed-8K",
+            "Yi-34B-Chat"
+          ]
+        },
+        {
+          "name": "penalty_score",
+          "display_name": "Penalty Score",
+          "input_type": "FloatInput",
+          "value_type": "float",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Model params, only supported in ERNIE-Bot and ERNIE-Bot-turbo"
+        },
+        {
+          "name": "qianfan_ak",
+          "display_name": "Qianfan Ak",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "which you could get from  https://cloud.baidu.com/product/wenxinworkshop"
+        },
+        {
+          "name": "qianfan_sk",
+          "display_name": "Qianfan Sk",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "which you could get from  https://cloud.baidu.com/product/wenxinworkshop"
+        },
+        {
+          "name": "stream",
+          "display_name": "Stream",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Stream the response from the model. Streaming works only in Chat."
+        },
+        {
+          "name": "system_message",
+          "display_name": "System Message",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "System message to pass to the model."
+        },
+        {
+          "name": "temperature",
+          "display_name": "Temperature",
+          "input_type": "FloatInput",
+          "value_type": "float",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Model params, only supported in ERNIE-Bot and ERNIE-Bot-turbo"
+        },
+        {
+          "name": "top_p",
+          "display_name": "Top p",
+          "input_type": "FloatInput",
+          "value_type": "float",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Model params, only supported in ERNIE-Bot and ERNIE-Bot-turbo"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "display_name": "Model Response",
+          "method": "text_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "model_output",
+          "display_name": "Language Model",
+          "method": "build_model",
+          "types": [
+            "LanguageModel"
+          ],
+          "selected": "LanguageModel",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

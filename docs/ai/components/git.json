@@ -1,0 +1,254 @@
+{
+  "schema_version": "1.0",
+  "category": "git",
+  "component_count": 2,
+  "components": [
+    {
+      "id": "git.GitLoaderComponent",
+      "category": "git",
+      "component_type": "GitLoaderComponent",
+      "display_name": "Git",
+      "description": "Load and filter documents from a local or remote Git repository. Use a local repo path or clone from a remote URL.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "branch",
+          "display_name": "Branch",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The branch to load files from. Defaults to 'main'."
+        },
+        {
+          "name": "clone_url",
+          "display_name": "Clone URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The URL of the Git repository to clone (used if 'Clone' is selected)."
+        },
+        {
+          "name": "content_filter",
+          "display_name": "Content Filter",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "A regex pattern to filter files based on their content."
+        },
+        {
+          "name": "file_filter",
+          "display_name": "File Filter",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Patterns to filter files. For example:\nInclude only .py files: '*.py'\nExclude .py files: '!*.py'\nMultiple patterns can be separated by commas."
+        },
+        {
+          "name": "repo_path",
+          "display_name": "Local Repository Path",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The local path to the existing Git repository (used if 'Local' is selected)."
+        },
+        {
+          "name": "repo_source",
+          "display_name": "Repository Source",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select whether to use a local repo path or clone from a remote URL.",
+          "options": [
+            "Local",
+            "Remote"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "method": "load_documents",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "git.GitExtractorComponent",
+      "category": "git",
+      "component_type": "GitExtractorComponent",
+      "display_name": "GitExtractor",
+      "description": "Analyzes a Git repository and returns file contents and complete repository information",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "repository_url",
+          "display_name": "Repository URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "URL of the Git repository (e.g., https://github.com/username/repo)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_based_file_contents",
+          "display_name": "Text-Based File Contents",
+          "method": "get_text_based_file_contents",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "directory_structure",
+          "display_name": "Directory Structure",
+          "method": "get_directory_structure",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "repository_info",
+          "display_name": "Repository Info",
+          "method": "get_repository_info",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "statistics",
+          "display_name": "Statistics",
+          "method": "get_statistics",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "files_content",
+          "display_name": "Files Content",
+          "method": "get_files_content",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

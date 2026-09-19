@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "category": "yahoosearch",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "yahoosearch.YfinanceComponent",
+      "category": "yahoosearch",
+      "component_type": "YfinanceComponent",
+      "display_name": "Yahoo! Finance",
+      "description": "Uses [yfinance](https://pypi.org/project/yfinance/) (unofficial package) to access financial data and market information from Yahoo! Finance.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "method",
+          "display_name": "Data Method",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The type of data to retrieve.",
+          "options": [
+            "get_info",
+            "get_news",
+            "get_actions",
+            "get_analysis",
+            "get_balance_sheet",
+            "get_calendar",
+            "get_cashflow",
+            "get_institutional_holders",
+            "get_recommendations",
+            "get_sustainability",
+            "get_major_holders",
+            "get_mutualfund_holders",
+            "get_insider_purchases",
+            "get_insider_transactions",
+            "get_insider_roster_holders",
+            "get_dividends",
+            "get_capital_gains",
+            "get_splits",
+            "get_shares",
+            "get_fast_info",
+            "get_sec_filings",
+            "get_recommendations_summary",
+            "get_upgrades_downgrades",
+            "get_earnings",
+            "get_income_stmt"
+          ]
+        },
+        {
+          "name": "num_news",
+          "display_name": "Number of News",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The number of news articles to retrieve (only applicable for get_news)."
+        },
+        {
+          "name": "symbol",
+          "display_name": "Stock Symbol",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The stock symbol to retrieve data for (e.g., AAPL, GOOG)."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dataframe",
+          "display_name": "Table",
+          "method": "fetch_content_dataframe",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

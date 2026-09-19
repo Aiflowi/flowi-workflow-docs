@@ -1,0 +1,179 @@
+{
+  "schema_version": "1.0",
+  "category": "notdiamond",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "notdiamond.NotDiamond",
+      "category": "notdiamond",
+      "component_type": "NotDiamond",
+      "display_name": "Not Diamond Router",
+      "description": "Call the right model at the right time with the world's most powerful AI model router.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message",
+        "Text"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "Not Diamond API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The Not Diamond API Key to use for routing."
+        },
+        {
+          "name": "hash_content",
+          "display_name": "Hash Content",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Whether to hash the content before being sent to the NotDiamond API."
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "models",
+          "display_name": "Language Models",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Link the models you want to route between."
+        },
+        {
+          "name": "preference_id",
+          "display_name": "Preference ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The ID of the router preference that was configured via the Dashboard."
+        },
+        {
+          "name": "system_message",
+          "display_name": "System Message",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "System message to pass to the model."
+        },
+        {
+          "name": "tradeoff",
+          "display_name": "Tradeoff",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The tradeoff between cost and latency for the router to determine the best LLM for a given query.",
+          "options": [
+            "quality",
+            "cost",
+            "latency"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "display_name": "Output",
+          "method": "model_select",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "selected_model",
+          "display_name": "Selected Model",
+          "method": "get_selected_model",
+          "types": [
+            "Text"
+          ],
+          "selected": "Text",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true,
+          "required_inputs": [
+            "output"
+          ]
+        }
+      ]
+    }
+  ]
+}

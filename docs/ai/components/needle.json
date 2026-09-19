@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "category": "needle",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "needle.needle",
+      "category": "needle",
+      "component_type": "needle",
+      "display_name": "Needle Retriever",
+      "description": "A retriever that uses the Needle API to search collections.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "collection_id",
+          "display_name": "Collection ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The ID of the Needle collection."
+        },
+        {
+          "name": "needle_api_key",
+          "display_name": "Needle API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your Needle API key."
+        },
+        {
+          "name": "query",
+          "display_name": "User Query",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "Enter your question here. In tool mode, you can also specify top_k parameter (min: 20)."
+        },
+        {
+          "name": "top_k",
+          "display_name": "Top K Results",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Number of search results to return (min: 20)."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "run",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

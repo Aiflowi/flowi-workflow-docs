@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "last_audited": "2026-09-18",
+  "classification": "DOCUMENTED_FLOWI_EXTENSION",
+  "definition": "Publicly documented Flowi extension components are supported Flowi-specific components that are not part of the audited built-in component catalog. AI assistants must label them as extensions, not built-ins.",
+  "extensions": [
+    {
+      "integration": "Telegram Bot",
+      "status": "AVAILABLE",
+      "built_in": false,
+      "documentation": "../integrations/telegram/index.md",
+      "components": [
+        {
+          "display_name": "Telegram Webhook Setup",
+          "component_name": "TelegramWebhookSetup",
+          "role": "One-time/administrative registration of a Flowi webhook URL with the Telegram Bot API",
+          "inputs": [
+            {
+              "name": "bot_token",
+              "display_name": "Telegram Bot Token",
+              "secret": true,
+              "required": true,
+              "value_type": "secret/string"
+            },
+            {
+              "name": "webhook_url",
+              "display_name": "Flowi Webhook URL",
+              "secret": false,
+              "required": true,
+              "value_type": "string",
+              "requirements": [
+                "public HTTPS URL"
+              ]
+            },
+            {
+              "name": "langflow_api_key",
+              "display_name": "Flowi API Key",
+              "secret": true,
+              "required": false,
+              "value_type": "secret/string"
+            },
+            {
+              "name": "drop_pending_updates",
+              "display_name": "Drop Old Pending Messages",
+              "secret": false,
+              "required": false,
+              "value_type": "boolean",
+              "documented_default": true
+            }
+          ],
+          "outputs": [
+            {
+              "name": "setup_result",
+              "display_name": "Webhook Setup Result",
+              "types": [
+                "Data"
+              ]
+            }
+          ],
+          "verified_behavior": [
+            "Registers the supplied Flowi webhook URL with Telegram Bot API setWebhook.",
+            "The current implementation requests message and callback_query updates.",
+            "Can drop pending updates during registration.",
+            "Checks registration status using getWebhookInfo.",
+            "Does not return the Flowi API key as a dedicated field. Treat any returned webhook URL as sensitive if credentials are embedded by the deployment."
+          ]
+        },
+        {
+          "display_name": "Telegram Update Parser",
+          "component_name": "NOT_PUBLISHED_IN_CURRENT_PUBLIC_SOURCE",
+          "role": "Parses an incoming Telegram Bot API update into commonly used message fields",
+          "inputs": [
+            {
+              "name": "telegram_update",
+              "display_name": "Telegram Update",
+              "required": true,
+              "verified_edge_from": "input_output.Webhook.output_data"
+            }
+          ],
+          "outputs": [
+            {
+              "display_name": "Parsed Telegram Message",
+              "types": [
+                "NOT_PUBLISHED"
+              ]
+            }
+          ],
+          "documented_fields": [
+            "chat_id",
+            "user_id",
+            "username",
+            "text",
+            "command"
+          ],
+          "verification_note": "The UI and runtime architecture verify the Webhook JSON to Telegram Update Parser connection and the listed parsed fields. The parser's internal implementation and exact public type metadata were not supplied for this documentation build."
+        }
+      ],
+      "runtime_architecture": [
+        "Telegram Bot API",
+        "Flowi Webhook (built-in)",
+        "Telegram Update Parser (documented Flowi extension)",
+        "workflow logic / AI / business actions"
+      ]
+    }
+  ]
+}

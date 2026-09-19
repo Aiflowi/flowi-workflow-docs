@@ -1,0 +1,236 @@
+{
+  "schema_version": "1.0",
+  "category": "deepseek",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "deepseek.DeepSeekModelComponent",
+      "category": "deepseek",
+      "component_type": "DeepSeekModelComponent",
+      "display_name": "DeepSeek",
+      "description": "Generate text using DeepSeek LLMs.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "LanguageModel",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_base",
+          "display_name": "DeepSeek API Base",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Base URL for API requests. Defaults to https://api.deepseek.com"
+        },
+        {
+          "name": "api_key",
+          "display_name": "DeepSeek API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The DeepSeek API Key"
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "json_mode",
+          "display_name": "JSON Mode",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If True, it will output JSON regardless of passing a schema."
+        },
+        {
+          "name": "max_tokens",
+          "display_name": "Max Tokens",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Maximum number of tokens to generate. Set to 0 for unlimited."
+        },
+        {
+          "name": "model_kwargs",
+          "display_name": "Model Kwargs",
+          "input_type": "DictInput",
+          "value_type": "dict",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Additional keyword arguments to pass to the model."
+        },
+        {
+          "name": "model_name",
+          "display_name": "Model Name",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "DeepSeek model to use",
+          "options": [
+            "deepseek-chat"
+          ]
+        },
+        {
+          "name": "seed",
+          "display_name": "Seed",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The seed controls the reproducibility of the job."
+        },
+        {
+          "name": "stream",
+          "display_name": "Stream",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Stream the response from the model. Streaming works only in Chat."
+        },
+        {
+          "name": "system_message",
+          "display_name": "System Message",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "System message to pass to the model."
+        },
+        {
+          "name": "temperature",
+          "display_name": "Temperature",
+          "input_type": "SliderInput",
+          "value_type": "slider",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Controls randomness in responses"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "display_name": "Model Response",
+          "method": "text_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "model_output",
+          "display_name": "Language Model",
+          "method": "build_model",
+          "types": [
+            "LanguageModel"
+          ],
+          "selected": "LanguageModel",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

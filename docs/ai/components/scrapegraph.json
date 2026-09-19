@@ -1,0 +1,226 @@
+{
+  "schema_version": "1.0",
+  "category": "scrapegraph",
+  "component_count": 3,
+  "components": [
+    {
+      "id": "scrapegraph.ScrapeGraphMarkdownifyApi",
+      "category": "scrapegraph",
+      "component_type": "ScrapeGraphMarkdownifyApi",
+      "display_name": "ScrapeGraph Markdownify API",
+      "description": "Given a URL, it will return the markdownified content of the website.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "ScrapeGraph API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The API key to use ScrapeGraph API."
+        },
+        {
+          "name": "url",
+          "display_name": "URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The URL to markdownify."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "method": "scrape",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "scrapegraph.ScrapeGraphSearchApi",
+      "category": "scrapegraph",
+      "component_type": "ScrapeGraphSearchApi",
+      "display_name": "ScrapeGraph Search API",
+      "description": "Given a search prompt, it will return search results using ScrapeGraph's search functionality.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "ScrapeGraph API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The API key to use ScrapeGraph API."
+        },
+        {
+          "name": "user_prompt",
+          "display_name": "Search Prompt",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The search prompt to use."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "method": "search",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "scrapegraph.ScrapeGraphSmartScraperApi",
+      "category": "scrapegraph",
+      "component_type": "ScrapeGraphSmartScraperApi",
+      "display_name": "ScrapeGraph Smart Scraper API",
+      "description": "Given a URL, it will return the structured data of the website.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "ScrapeGraph API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The API key to use ScrapeGraph API."
+        },
+        {
+          "name": "prompt",
+          "display_name": "Prompt",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The prompt to use for the smart scraper."
+        },
+        {
+          "name": "url",
+          "display_name": "URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The URL to scrape."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "method": "scrape",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

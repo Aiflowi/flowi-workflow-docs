@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0",
+  "last_audited": "2026-09-18",
+  "purpose": "Route a user's workflow-learning or building request to the smallest relevant public documentation set before searching the full catalog.",
+  "routes": [
+    {
+      "intent": [
+        "first workflow",
+        "playground",
+        "chat input output",
+        "beginner AI chat"
+      ],
+      "docs": [
+        "../tutorials/first-playground-workflow.md"
+      ],
+      "component_categories": [
+        "input_output",
+        "deepseek",
+        "openai",
+        "models_and_agents"
+      ]
+    },
+    {
+      "intent": [
+        "if else",
+        "condition",
+        "deterministic routing",
+        "branch"
+      ],
+      "docs": [
+        "../tutorials/if-else-routing.md"
+      ],
+      "component_categories": [
+        "flow_controls",
+        "input_output"
+      ]
+    },
+    {
+      "intent": [
+        "llm selector",
+        "model routing",
+        "route between models",
+        "quality speed cost balanced"
+      ],
+      "docs": [
+        "../tutorials/llm-selector-routing.md"
+      ],
+      "component_categories": [
+        "llm_operations",
+        "models_and_agents"
+      ]
+    },
+    {
+      "intent": [
+        "webhook to google sheets",
+        "form to sheet",
+        "json to sheet",
+        "AI extraction to sheets"
+      ],
+      "docs": [
+        "../tutorials/webhook-to-google-sheets.md",
+        "../use-cases/google-sheets-ai-automation.md"
+      ],
+      "component_categories": [
+        "input_output",
+        "processing",
+        "llm_operations",
+        "google_sheets"
+      ]
+    },
+    {
+      "intent": [
+        "telegram",
+        "telegram bot",
+        "telegram webhook",
+        "telegram message"
+      ],
+      "docs": [
+        "../integrations/telegram/index.md",
+        "../integrations/telegram/telegram-ai-bot.md"
+      ],
+      "component_categories": [
+        "input_output",
+        "data_source"
+      ],
+      "extension_index": "EXTENSION_COMPONENT_INDEX.json"
+    },
+    {
+      "intent": [
+        "whatsapp",
+        "meta whatsapp"
+      ],
+      "docs": [
+        "../use-cases/whatsapp-ai-automation.md"
+      ],
+      "component_categories": [
+        "input_output",
+        "processing"
+      ]
+    },
+    {
+      "intent": [
+        "api",
+        "http request",
+        "call external api"
+      ],
+      "docs": [
+        "../use-cases/api-webhook-automation.md"
+      ],
+      "component_categories": [
+        "data_source",
+        "input_output"
+      ]
+    },
+    {
+      "intent": [
+        "error",
+        "debug",
+        "not working",
+        "connection problem"
+      ],
+      "docs": [
+        "../troubleshooting/index.md",
+        "../troubleshooting/common-errors.md"
+      ],
+      "component_categories": []
+    },
+    {
+      "intent": [
+        "what is flowi",
+        "flowi features",
+        "evaluate flowi",
+        "workflow software"
+      ],
+      "docs": [
+        "../getting-started/what-is-flowi.md",
+        "../evaluate/when-flowi-fits.md",
+        "../reference/feature-status.md"
+      ],
+      "component_categories": []
+    }
+  ]
+}

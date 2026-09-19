@@ -1,0 +1,6641 @@
+{
+  "schema_version": "1.0",
+  "category": "google_docs",
+  "component_count": 43,
+  "components": [
+    {
+      "id": "google_docs.GoogleDocsAppendText",
+      "category": "google_docs",
+      "component_type": "GoogleDocsAppendText",
+      "display_name": "Append Text",
+      "description": "Appends text to the end of a Google Doc or selected tab.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional. Leave blank to use the default tab."
+        },
+        {
+          "name": "text",
+          "display_name": "Text",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "append_text",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsCreateDocument",
+      "category": "google_docs",
+      "component_type": "GoogleDocsCreateDocument",
+      "display_name": "Create Document",
+      "description": "Creates a Google Doc and optionally inserts initial text.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "initial_text",
+          "display_name": "Initial Text",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "title",
+          "display_name": "Document Title",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "document",
+          "display_name": "Document",
+          "method": "create_document",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsCreateFooter",
+      "category": "google_docs",
+      "component_type": "GoogleDocsCreateFooter",
+      "display_name": "Create Footer",
+      "description": "Creates the default document footer and optionally inserts text.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "initial_text",
+          "display_name": "Initial Text",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "footer",
+          "display_name": "Footer",
+          "method": "create_footer",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsCreateFootnote",
+      "category": "google_docs",
+      "component_type": "GoogleDocsCreateFootnote",
+      "display_name": "Create Footnote",
+      "description": "Creates a footnote reference and optionally inserts footnote text.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "initial_text",
+          "display_name": "Footnote Text",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "insertion_index",
+          "display_name": "Insertion Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Used only when Placement is AT_INDEX. Named insertion_index avoids Langflow's index() method collision."
+        },
+        {
+          "name": "placement",
+          "display_name": "Placement",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "APPEND",
+            "AT_INDEX"
+          ]
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "footnote",
+          "display_name": "Footnote",
+          "method": "create_footnote",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsCreateHeader",
+      "category": "google_docs",
+      "component_type": "GoogleDocsCreateHeader",
+      "display_name": "Create Header",
+      "description": "Creates the default document header and optionally inserts text.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "initial_text",
+          "display_name": "Initial Text",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "header",
+          "display_name": "Header",
+          "method": "create_header",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsCreateList",
+      "category": "google_docs",
+      "component_type": "GoogleDocsCreateList",
+      "display_name": "Create List",
+      "description": "Applies a bulleted or numbered list preset to paragraphs in a range.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "bullet_preset",
+          "display_name": "List Preset",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "BULLET_DISC_CIRCLE_SQUARE",
+            "BULLET_CHECKBOX",
+            "NUMBERED_DECIMAL_ALPHA_ROMAN",
+            "NUMBERED_DECIMAL_ALPHA_ROMAN_PARENS",
+            "NUMBERED_DECIMAL_NESTED"
+          ]
+        },
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "end_index",
+          "display_name": "End Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "start_index",
+          "display_name": "Start Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "create_list",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsCreateNamedRange",
+      "category": "google_docs",
+      "component_type": "GoogleDocsCreateNamedRange",
+      "display_name": "Create Named Range",
+      "description": "Creates a named range over a Google Docs character range.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "end_index",
+          "display_name": "End Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "range_name",
+          "display_name": "Named Range Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "start_index",
+          "display_name": "Start Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "named_range",
+          "display_name": "Named Range",
+          "method": "create_named_range",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsDeleteContent",
+      "category": "google_docs",
+      "component_type": "GoogleDocsDeleteContent",
+      "display_name": "Delete Content",
+      "description": "Deletes document content between two Google Docs indexes.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "confirm_delete",
+          "display_name": "Confirm Delete",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "end_index",
+          "display_name": "End Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "End-exclusive: content before this index is deleted."
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "start_index",
+          "display_name": "Start Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional. Leave blank to use the default tab."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "delete_content",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsDeleteFooter",
+      "category": "google_docs",
+      "component_type": "GoogleDocsDeleteFooter",
+      "display_name": "Delete Footer",
+      "description": "Deletes a Google Docs footer by its footer ID.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "confirm_delete",
+          "display_name": "Confirm Delete",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "footer_id",
+          "display_name": "Footer ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "delete_footer",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsDeleteHeader",
+      "category": "google_docs",
+      "component_type": "GoogleDocsDeleteHeader",
+      "display_name": "Delete Header",
+      "description": "Deletes a Google Docs header by its header ID.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "confirm_delete",
+          "display_name": "Confirm Delete",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "header_id",
+          "display_name": "Header ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "delete_header",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsDeleteNamedRange",
+      "category": "google_docs",
+      "component_type": "GoogleDocsDeleteNamedRange",
+      "display_name": "Delete Named Range",
+      "description": "Deletes a named range by ID, or all ranges sharing a name.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "confirm_delete",
+          "display_name": "Confirm Delete",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "reference",
+          "display_name": "Named Range ID / Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "reference_type",
+          "display_name": "Reference Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "BY_ID",
+            "BY_NAME"
+          ]
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "delete_named_range",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsDeleteTable",
+      "category": "google_docs",
+      "component_type": "GoogleDocsDeleteTable",
+      "display_name": "Delete Table",
+      "description": "Deletes an entire Google Docs table by its 1-based Table Number.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "confirm_delete",
+          "display_name": "Confirm Delete",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "table_number",
+          "display_name": "Table Number",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "delete_table",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsDeleteTableColumn",
+      "category": "google_docs",
+      "component_type": "GoogleDocsDeleteTableColumn",
+      "display_name": "Delete Table Column",
+      "description": "Deletes the table column spanning a selected reference cell.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "column_number",
+          "display_name": "Column Number",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "confirm_delete",
+          "display_name": "Confirm Delete",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "row_number",
+          "display_name": "Reference Row",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "table_number",
+          "display_name": "Table Number",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "delete_table_column",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsDeleteTableRow",
+      "category": "google_docs",
+      "component_type": "GoogleDocsDeleteTableRow",
+      "display_name": "Delete Table Row",
+      "description": "Deletes the table row spanning a selected reference cell.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "column_number",
+          "display_name": "Reference Column",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "confirm_delete",
+          "display_name": "Confirm Delete",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "row_number",
+          "display_name": "Row Number",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "table_number",
+          "display_name": "Table Number",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "delete_table_row",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsFormatDocument",
+      "category": "google_docs",
+      "component_type": "GoogleDocsFormatDocument",
+      "display_name": "Format Document",
+      "description": "Updates common document-level page, margin, and background settings.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "background_color",
+          "display_name": "Background Color",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional hex color such as #FFFFFF."
+        },
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "margin_bottom",
+          "display_name": "Bottom Margin (pt)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "-1 means unchanged."
+        },
+        {
+          "name": "margin_left",
+          "display_name": "Left Margin (pt)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "-1 means unchanged."
+        },
+        {
+          "name": "margin_right",
+          "display_name": "Right Margin (pt)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "-1 means unchanged."
+        },
+        {
+          "name": "margin_top",
+          "display_name": "Top Margin (pt)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "-1 means unchanged."
+        },
+        {
+          "name": "page_height",
+          "display_name": "Page Height (pt)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "0 means unchanged. Width and Height must be supplied together."
+        },
+        {
+          "name": "page_number_start",
+          "display_name": "Page Number Start",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "0 means unchanged."
+        },
+        {
+          "name": "page_width",
+          "display_name": "Page Width (pt)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "0 means unchanged. Width and Height must be supplied together."
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "format_document",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsFormatParagraph",
+      "category": "google_docs",
+      "component_type": "GoogleDocsFormatParagraph",
+      "display_name": "Format Paragraph",
+      "description": "Applies paragraph style, alignment, and spacing to a range.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "alignment",
+          "display_name": "Alignment",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "UNCHANGED",
+            "START",
+            "CENTER",
+            "END",
+            "JUSTIFIED"
+          ]
+        },
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "end_index",
+          "display_name": "End Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "line_spacing",
+          "display_name": "Line Spacing (%)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "0 means unchanged. Google Docs uses 100 for normal."
+        },
+        {
+          "name": "named_style_type",
+          "display_name": "Named Style",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "UNCHANGED",
+            "NORMAL_TEXT",
+            "TITLE",
+            "SUBTITLE",
+            "HEADING_1",
+            "HEADING_2",
+            "HEADING_3",
+            "HEADING_4",
+            "HEADING_5",
+            "HEADING_6"
+          ]
+        },
+        {
+          "name": "space_above",
+          "display_name": "Space Above (pt)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "-1 means unchanged; 0 explicitly removes spacing."
+        },
+        {
+          "name": "space_below",
+          "display_name": "Space Below (pt)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "-1 means unchanged; 0 explicitly removes spacing."
+        },
+        {
+          "name": "start_index",
+          "display_name": "Start Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "format_paragraph",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsFormatSection",
+      "category": "google_docs",
+      "component_type": "GoogleDocsFormatSection",
+      "display_name": "Format Section",
+      "description": "Updates margins and page numbering for sections overlapping a range.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "end_index",
+          "display_name": "End Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "margin_bottom",
+          "display_name": "Bottom Margin (pt)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "-1 means unchanged."
+        },
+        {
+          "name": "margin_footer",
+          "display_name": "Footer Margin (pt)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "-1 means unchanged."
+        },
+        {
+          "name": "margin_header",
+          "display_name": "Header Margin (pt)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "-1 means unchanged."
+        },
+        {
+          "name": "margin_left",
+          "display_name": "Left Margin (pt)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "-1 means unchanged."
+        },
+        {
+          "name": "margin_right",
+          "display_name": "Right Margin (pt)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "-1 means unchanged."
+        },
+        {
+          "name": "margin_top",
+          "display_name": "Top Margin (pt)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "-1 means unchanged."
+        },
+        {
+          "name": "page_number_start",
+          "display_name": "Page Number Start",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "0 means unchanged."
+        },
+        {
+          "name": "start_index",
+          "display_name": "Start Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "format_section",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsFormatTableCells",
+      "category": "google_docs",
+      "component_type": "GoogleDocsFormatTableCells",
+      "display_name": "Format Table Cells",
+      "description": "Sets fill color, vertical alignment, or padding for table cells.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "background_color",
+          "display_name": "Background Color",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional hex color such as #FFF2CC."
+        },
+        {
+          "name": "column_number",
+          "display_name": "Start Column",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "column_span",
+          "display_name": "Column Span",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "content_alignment",
+          "display_name": "Vertical Alignment",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "UNCHANGED",
+            "TOP",
+            "MIDDLE",
+            "BOTTOM"
+          ]
+        },
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "padding_points",
+          "display_name": "Cell Padding (pt)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "-1 means unchanged."
+        },
+        {
+          "name": "row_number",
+          "display_name": "Start Row",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "row_span",
+          "display_name": "Row Span",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "table_number",
+          "display_name": "Table Number",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "format_table_cells",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsFormatText",
+      "category": "google_docs",
+      "component_type": "GoogleDocsFormatText",
+      "display_name": "Format Text",
+      "description": "Applies character-level formatting to a Google Docs range.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "background_color",
+          "display_name": "Background Color",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional hex color, for example #FFF2CC."
+        },
+        {
+          "name": "bold",
+          "display_name": "Bold",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "UNCHANGED",
+            "ON",
+            "OFF"
+          ]
+        },
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "end_index",
+          "display_name": "End Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "font_family",
+          "display_name": "Font Family",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "font_size",
+          "display_name": "Font Size (pt)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "foreground_color",
+          "display_name": "Text Color",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional hex color, for example #336699."
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "italic",
+          "display_name": "Italic",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "UNCHANGED",
+            "ON",
+            "OFF"
+          ]
+        },
+        {
+          "name": "start_index",
+          "display_name": "Start Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "strikethrough",
+          "display_name": "Strikethrough",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "UNCHANGED",
+            "ON",
+            "OFF"
+          ]
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "underline",
+          "display_name": "Underline",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "UNCHANGED",
+            "ON",
+            "OFF"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "format_text",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsGetDocument",
+      "category": "google_docs",
+      "component_type": "GoogleDocsGetDocument",
+      "display_name": "Get Document",
+      "description": "Returns the Google Docs API representation of a document.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "include_tabs_content",
+          "display_name": "Include All Tabs",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "document",
+          "display_name": "Document",
+          "method": "get_document",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsGetText",
+      "category": "google_docs",
+      "component_type": "GoogleDocsGetText",
+      "display_name": "Get Text",
+      "description": "Extracts plain text from all tabs in a Google Doc.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_data",
+          "display_name": "Text Data",
+          "method": "get_text",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsInsertHeading",
+      "category": "google_docs",
+      "component_type": "GoogleDocsInsertHeading",
+      "display_name": "Insert Heading",
+      "description": "Inserts heading text and applies a Google Docs named heading style.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "heading_level",
+          "display_name": "Heading Style",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "TITLE",
+            "SUBTITLE",
+            "HEADING_1",
+            "HEADING_2",
+            "HEADING_3",
+            "HEADING_4",
+            "HEADING_5",
+            "HEADING_6"
+          ]
+        },
+        {
+          "name": "index",
+          "display_name": "Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Google Docs character index used only when Placement is AT_INDEX. The first normal body position is usually 1."
+        },
+        {
+          "name": "placement",
+          "display_name": "Placement",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "APPEND",
+            "AT_INDEX"
+          ]
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "text",
+          "display_name": "Heading Text",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "insert_heading",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsInsertImage",
+      "category": "google_docs",
+      "component_type": "GoogleDocsInsertImage",
+      "display_name": "Insert Image",
+      "description": "Inserts an inline image from a publicly accessible image URL.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "height_points",
+          "display_name": "Height (pt)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional image height in points. Use 0 to let Google determine the height automatically."
+        },
+        {
+          "name": "image_url",
+          "display_name": "Image URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Must be a publicly accessible PNG, JPEG, or GIF URL."
+        },
+        {
+          "name": "index",
+          "display_name": "Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Google Docs character index used only when Placement is AT_INDEX. The first normal body position is usually 1."
+        },
+        {
+          "name": "placement",
+          "display_name": "Placement",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "APPEND",
+            "AT_INDEX"
+          ]
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional. Leave blank to use the default document tab."
+        },
+        {
+          "name": "width_points",
+          "display_name": "Width (pt)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional image width in points. Use 0 to let Google determine the width automatically."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "insert_image",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsInsertPageBreak",
+      "category": "google_docs",
+      "component_type": "GoogleDocsInsertPageBreak",
+      "display_name": "Insert Page Break",
+      "description": "Inserts a page break at an index or at the end of the document.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "index",
+          "display_name": "Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Google Docs character index used only when Placement is AT_INDEX. The first normal body position is usually 1."
+        },
+        {
+          "name": "placement",
+          "display_name": "Placement",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "APPEND",
+            "AT_INDEX"
+          ]
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "insert_page_break",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsInsertSectionBreak",
+      "category": "google_docs",
+      "component_type": "GoogleDocsInsertSectionBreak",
+      "display_name": "Insert Section Break",
+      "description": "Inserts a continuous or next-page section break.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "insertion_index",
+          "display_name": "Insertion Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Used only when Placement is AT_INDEX. The section break must be inside an existing body paragraph."
+        },
+        {
+          "name": "placement",
+          "display_name": "Placement",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "APPEND",
+            "AT_INDEX"
+          ]
+        },
+        {
+          "name": "section_type",
+          "display_name": "Section Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "NEXT_PAGE",
+            "CONTINUOUS"
+          ]
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "insert_section_break",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsInsertTable",
+      "category": "google_docs",
+      "component_type": "GoogleDocsInsertTable",
+      "display_name": "Insert Table",
+      "description": "Inserts an empty table at an index or at the end of a Google Doc.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "columns",
+          "display_name": "Columns",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "index",
+          "display_name": "Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Google Docs character index used only when Placement is AT_INDEX. The first normal body position is usually 1."
+        },
+        {
+          "name": "placement",
+          "display_name": "Placement",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "APPEND",
+            "AT_INDEX"
+          ]
+        },
+        {
+          "name": "rows",
+          "display_name": "Rows",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "insert_table",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsInsertTableColumn",
+      "category": "google_docs",
+      "component_type": "GoogleDocsInsertTableColumn",
+      "display_name": "Insert Table Column",
+      "description": "Inserts a table column left or right of a reference column.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "column_number",
+          "display_name": "Reference Column",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "position",
+          "display_name": "Position",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "LEFT",
+            "RIGHT"
+          ]
+        },
+        {
+          "name": "row_number",
+          "display_name": "Reference Row",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "table_number",
+          "display_name": "Table Number",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "insert_table_column",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsInsertTableRow",
+      "category": "google_docs",
+      "component_type": "GoogleDocsInsertTableRow",
+      "display_name": "Insert Table Row",
+      "description": "Inserts a table row above or below a reference row.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "column_number",
+          "display_name": "Reference Column",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "position",
+          "display_name": "Position",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "ABOVE",
+            "BELOW"
+          ]
+        },
+        {
+          "name": "row_number",
+          "display_name": "Reference Row",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "table_number",
+          "display_name": "Table Number",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "insert_table_row",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsInsertText",
+      "category": "google_docs",
+      "component_type": "GoogleDocsInsertText",
+      "display_name": "Insert Text",
+      "description": "Inserts text at a specific Google Docs character index.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "index",
+          "display_name": "Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Google Docs character index. Indexes are UTF-16 code units."
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional. Leave blank to use the default tab."
+        },
+        {
+          "name": "text",
+          "display_name": "Text",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "insert_text",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsListNamedRanges",
+      "category": "google_docs",
+      "component_type": "GoogleDocsListNamedRanges",
+      "display_name": "List Named Ranges",
+      "description": "Lists Google Docs named ranges across all tabs or one selected tab.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Leave blank to list named ranges from all tabs."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "named_ranges",
+          "display_name": "Named Ranges",
+          "method": "list_named_ranges",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsListTables",
+      "category": "google_docs",
+      "component_type": "GoogleDocsListTables",
+      "display_name": "List Tables",
+      "description": "Lists tables in document order for the selected/default tab.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "tables",
+          "display_name": "Tables",
+          "method": "list_tables",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsMergeTableCells",
+      "category": "google_docs",
+      "component_type": "GoogleDocsMergeTableCells",
+      "display_name": "Merge Table Cells",
+      "description": "Merges a rectangular table-cell range into its upper-left cell.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "column_number",
+          "display_name": "Start Column",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "column_span",
+          "display_name": "Column Span",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "row_number",
+          "display_name": "Start Row",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "row_span",
+          "display_name": "Row Span",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "table_number",
+          "display_name": "Table Number",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "merge_table_cells",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsPinTableHeaderRows",
+      "category": "google_docs",
+      "component_type": "GoogleDocsPinTableHeaderRows",
+      "display_name": "Pin Table Header Rows",
+      "description": "Sets how many leading table rows repeat as table headers.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "header_row_count",
+          "display_name": "Header Row Count",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Use 0 to unpin all header rows."
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "table_number",
+          "display_name": "Table Number",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "pin_table_header_rows",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsPopulateTable",
+      "category": "google_docs",
+      "component_type": "GoogleDocsPopulateTable",
+      "display_name": "Populate Table",
+      "description": "Populates an existing Google Docs table from object or array rows.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "auto_resize",
+          "display_name": "Auto Resize Table",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Automatically adds rows/columns when the table is too small."
+        },
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "include_object_headers",
+          "display_name": "Include Object Headers",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "For object rows, writes field names as the first output row."
+        },
+        {
+          "name": "rows_data",
+          "display_name": "Rows Data",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Accepts array-of-objects, array-of-arrays, or {\"values\": [...]} wrapped in Data."
+        },
+        {
+          "name": "start_column",
+          "display_name": "Start Column",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "start_row",
+          "display_name": "Start Row",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "table_number",
+          "display_name": "Table Number",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "1-based table number from List Tables."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "populate_table",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsRemoveList",
+      "category": "google_docs",
+      "component_type": "GoogleDocsRemoveList",
+      "display_name": "Remove List",
+      "description": "Removes bullets or numbering from paragraphs overlapping a range.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "end_index",
+          "display_name": "End Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "start_index",
+          "display_name": "Start Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "remove_list",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsReplaceImage",
+      "category": "google_docs",
+      "component_type": "GoogleDocsReplaceImage",
+      "display_name": "Replace Image",
+      "description": "Replaces an existing Google Docs inline image by object ID.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "image_object_id",
+          "display_name": "Image Object ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "image_url",
+          "display_name": "New Image URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Must be a publicly accessible PNG, JPEG, or GIF URL."
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "replace_image",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsReplaceNamedRangeContent",
+      "category": "google_docs",
+      "component_type": "GoogleDocsReplaceNamedRangeContent",
+      "display_name": "Replace Named Range Content",
+      "description": "Replaces the content of a named range by ID or name.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "reference",
+          "display_name": "Named Range ID / Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "reference_type",
+          "display_name": "Reference Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "BY_ID",
+            "BY_NAME"
+          ]
+        },
+        {
+          "name": "replacement_text",
+          "display_name": "Replacement Text",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional. When using BY_NAME, this can restrict replacement to one tab."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "replace_named_range_content",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsReplaceText",
+      "category": "google_docs",
+      "component_type": "GoogleDocsReplaceText",
+      "display_name": "Replace Text",
+      "description": "Replaces every matching text occurrence in a Google Doc.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "find_text",
+          "display_name": "Find",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "match_case",
+          "display_name": "Match Case",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "replacement_text",
+          "display_name": "Replace With",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "search_by_regex",
+          "display_name": "Use Regular Expression",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional. Leave blank to replace across all tabs."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "replace_text",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsSetTableCellText",
+      "category": "google_docs",
+      "component_type": "GoogleDocsSetTableCellText",
+      "display_name": "Set Table Cell Text",
+      "description": "Replaces the text in one table cell using 1-based coordinates.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "column_number",
+          "display_name": "Column Number",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "row_number",
+          "display_name": "Row Number",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "table_number",
+          "display_name": "Table Number",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "1-based table number from List Tables."
+        },
+        {
+          "name": "text",
+          "display_name": "Text",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Leave empty to clear the cell's text."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "set_table_cell_text",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsSetTableColumnWidth",
+      "category": "google_docs",
+      "component_type": "GoogleDocsSetTableColumnWidth",
+      "display_name": "Set Table Column Width",
+      "description": "Sets a fixed width for one table column in points.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "column_number",
+          "display_name": "Column Number",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "table_number",
+          "display_name": "Table Number",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "width_points",
+          "display_name": "Width (pt)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "set_table_column_width",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsSetTableRowHeight",
+      "category": "google_docs",
+      "component_type": "GoogleDocsSetTableRowHeight",
+      "display_name": "Set Table Row Height",
+      "description": "Sets the minimum height of one table row in points.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "min_height_points",
+          "display_name": "Minimum Height (pt)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "row_number",
+          "display_name": "Row Number",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "table_number",
+          "display_name": "Table Number",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "set_table_row_height",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsTemplateMerge",
+      "category": "google_docs",
+      "component_type": "GoogleDocsTemplateMerge",
+      "display_name": "Template Merge",
+      "description": "Replaces multiple template placeholders in one Google Docs batch.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "match_case",
+          "display_name": "Match Case",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "prefix",
+          "display_name": "Placeholder Prefix",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "suffix",
+          "display_name": "Placeholder Suffix",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional. Leave blank to merge across all tabs."
+        },
+        {
+          "name": "values",
+          "display_name": "Template Values",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Example: {\"customer_name\": \"Jessica\", \"amount\": 500}"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "template_merge",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_docs.GoogleDocsUnmergeTableCells",
+      "category": "google_docs",
+      "component_type": "GoogleDocsUnmergeTableCells",
+      "display_name": "Unmerge Table Cells",
+      "description": "Unmerges merged cells intersecting a rectangular table range.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "column_number",
+          "display_name": "Start Column",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "column_span",
+          "display_name": "Column Span",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "row_number",
+          "display_name": "Start Row",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "row_span",
+          "display_name": "Row Span",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tab_id",
+          "display_name": "Tab ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "table_number",
+          "display_name": "Table Number",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "unmerge_table_cells",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

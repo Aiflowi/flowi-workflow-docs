@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "last_audited": "2026-09-18",
+  "triggers": [
+    {
+      "component_id": "input_output.UniversalWebhook",
+      "status": "AVAILABLE",
+      "role": "HTTP trigger",
+      "notes": [
+        "Verified methods: GET, POST, PUT, PATCH, DELETE.",
+        "Supports production/test behavior."
+      ]
+    },
+    {
+      "component_id": "input_output.ScheduleTrigger",
+      "status": "AVAILABLE",
+      "role": "schedule trigger",
+      "notes": []
+    },
+    {
+      "component_id": "input_output.Webhook",
+      "status": "AVAILABLE",
+      "role": "legacy/general webhook entry",
+      "notes": [
+        "Exists in current catalog; prefer feature-specific documentation when choosing between webhook variants."
+      ]
+    },
+    {
+      "component_id": "input_output.Webhook2",
+      "status": "AVAILABLE",
+      "role": "POST webhook",
+      "notes": []
+    },
+    {
+      "component_id": "input_output.UChatSubFlowTrigger",
+      "status": "AVAILABLE",
+      "role": "UChat sub-flow trigger",
+      "notes": []
+    }
+  ],
+  "response_component": {
+    "component_id": "input_output.WebhookResponse",
+    "status": "AVAILABLE",
+    "notes": [
+      "Used with Universal Webhook From Flow response mode."
+    ]
+  },
+  "integration_notes": [
+    {
+      "integration": "Telegram Bot",
+      "entry_component": "input_output.Webhook",
+      "extension_setup": "Telegram Webhook Setup",
+      "extension_parser": "Telegram Update Parser",
+      "documentation": "../integrations/telegram/index.md"
+    }
+  ]
+}

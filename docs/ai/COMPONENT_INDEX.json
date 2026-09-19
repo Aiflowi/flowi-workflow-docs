@@ -1,0 +1,624 @@
+{
+  "schema_version": "1.0",
+  "last_audited": "2026-09-18",
+  "summary": {
+    "categories": 101,
+    "components": 514,
+    "status_counts": {
+      "AVAILABLE": 429,
+      "BETA": 14,
+      "LEGACY": 71
+    },
+    "legacy_with_replacement": 41,
+    "legacy_without_replacement": 30
+  },
+  "usage": "Use this file to identify the relevant category file before loading the full built-in catalog.",
+  "categories": [
+    {
+      "category": "FAISS",
+      "component_count": 1,
+      "json": "components/FAISS.json",
+      "documentation": "../components/categories/FAISS.md"
+    },
+    {
+      "category": "Notion",
+      "component_count": 8,
+      "json": "components/Notion.json",
+      "documentation": "../components/categories/Notion.md"
+    },
+    {
+      "category": "agentics",
+      "component_count": 3,
+      "json": "components/agentics.json",
+      "documentation": "../components/categories/agentics.md"
+    },
+    {
+      "category": "agentql",
+      "component_count": 1,
+      "json": "components/agentql.json",
+      "documentation": "../components/categories/agentql.md"
+    },
+    {
+      "category": "aiml",
+      "component_count": 2,
+      "json": "components/aiml.json",
+      "documentation": "../components/categories/aiml.md"
+    },
+    {
+      "category": "altk",
+      "component_count": 1,
+      "json": "components/altk.json",
+      "documentation": "../components/categories/altk.md"
+    },
+    {
+      "category": "amazon",
+      "component_count": 4,
+      "json": "components/amazon.json",
+      "documentation": "../components/categories/amazon.md"
+    },
+    {
+      "category": "anthropic",
+      "component_count": 1,
+      "json": "components/anthropic.json",
+      "documentation": "../components/categories/anthropic.md"
+    },
+    {
+      "category": "apify",
+      "component_count": 1,
+      "json": "components/apify.json",
+      "documentation": "../components/categories/apify.md"
+    },
+    {
+      "category": "arxiv",
+      "component_count": 1,
+      "json": "components/arxiv.json",
+      "documentation": "../components/categories/arxiv.md"
+    },
+    {
+      "category": "assemblyai",
+      "component_count": 5,
+      "json": "components/assemblyai.json",
+      "documentation": "../components/categories/assemblyai.md"
+    },
+    {
+      "category": "azure",
+      "component_count": 2,
+      "json": "components/azure.json",
+      "documentation": "../components/categories/azure.md"
+    },
+    {
+      "category": "baidu",
+      "component_count": 1,
+      "json": "components/baidu.json",
+      "documentation": "../components/categories/baidu.md"
+    },
+    {
+      "category": "bing",
+      "component_count": 1,
+      "json": "components/bing.json",
+      "documentation": "../components/categories/bing.md"
+    },
+    {
+      "category": "cassandra",
+      "component_count": 3,
+      "json": "components/cassandra.json",
+      "documentation": "../components/categories/cassandra.md"
+    },
+    {
+      "category": "chroma",
+      "component_count": 1,
+      "json": "components/chroma.json",
+      "documentation": "../components/categories/chroma.md"
+    },
+    {
+      "category": "cleanlab",
+      "component_count": 3,
+      "json": "components/cleanlab.json",
+      "documentation": "../components/categories/cleanlab.md"
+    },
+    {
+      "category": "clickhouse",
+      "component_count": 1,
+      "json": "components/clickhouse.json",
+      "documentation": "../components/categories/clickhouse.md"
+    },
+    {
+      "category": "cloudflare",
+      "component_count": 1,
+      "json": "components/cloudflare.json",
+      "documentation": "../components/categories/cloudflare.md"
+    },
+    {
+      "category": "cohere",
+      "component_count": 3,
+      "json": "components/cohere.json",
+      "documentation": "../components/categories/cohere.md"
+    },
+    {
+      "category": "cometapi",
+      "component_count": 1,
+      "json": "components/cometapi.json",
+      "documentation": "../components/categories/cometapi.md"
+    },
+    {
+      "category": "composio",
+      "component_count": 63,
+      "json": "components/composio.json",
+      "documentation": "../components/categories/composio.md"
+    },
+    {
+      "category": "confluence",
+      "component_count": 1,
+      "json": "components/confluence.json",
+      "documentation": "../components/categories/confluence.md"
+    },
+    {
+      "category": "couchbase",
+      "component_count": 1,
+      "json": "components/couchbase.json",
+      "documentation": "../components/categories/couchbase.md"
+    },
+    {
+      "category": "crewai",
+      "component_count": 6,
+      "json": "components/crewai.json",
+      "documentation": "../components/categories/crewai.md"
+    },
+    {
+      "category": "cuga",
+      "component_count": 1,
+      "json": "components/cuga.json",
+      "documentation": "../components/categories/cuga.md"
+    },
+    {
+      "category": "custom_component",
+      "component_count": 1,
+      "json": "components/custom_component.json",
+      "documentation": "../components/categories/custom_component.md"
+    },
+    {
+      "category": "data_source",
+      "component_count": 9,
+      "json": "components/data_source.json",
+      "documentation": "../components/categories/data_source.md"
+    },
+    {
+      "category": "datastax",
+      "component_count": 10,
+      "json": "components/datastax.json",
+      "documentation": "../components/categories/datastax.md"
+    },
+    {
+      "category": "deepseek",
+      "component_count": 1,
+      "json": "components/deepseek.json",
+      "documentation": "../components/categories/deepseek.md"
+    },
+    {
+      "category": "docling",
+      "component_count": 4,
+      "json": "components/docling.json",
+      "documentation": "../components/categories/docling.md"
+    },
+    {
+      "category": "duckduckgo",
+      "component_count": 1,
+      "json": "components/duckduckgo.json",
+      "documentation": "../components/categories/duckduckgo.md"
+    },
+    {
+      "category": "elastic",
+      "component_count": 3,
+      "json": "components/elastic.json",
+      "documentation": "../components/categories/elastic.md"
+    },
+    {
+      "category": "embeddings",
+      "component_count": 2,
+      "json": "components/embeddings.json",
+      "documentation": "../components/categories/embeddings.md"
+    },
+    {
+      "category": "exa",
+      "component_count": 1,
+      "json": "components/exa.json",
+      "documentation": "../components/categories/exa.md"
+    },
+    {
+      "category": "files_and_knowledge",
+      "component_count": 5,
+      "json": "components/files_and_knowledge.json",
+      "documentation": "../components/categories/files_and_knowledge.md"
+    },
+    {
+      "category": "firecrawl",
+      "component_count": 4,
+      "json": "components/firecrawl.json",
+      "documentation": "../components/categories/firecrawl.md"
+    },
+    {
+      "category": "flow_controls",
+      "component_count": 11,
+      "json": "components/flow_controls.json",
+      "documentation": "../components/categories/flow_controls.md"
+    },
+    {
+      "category": "git",
+      "component_count": 2,
+      "json": "components/git.json",
+      "documentation": "../components/categories/git.md"
+    },
+    {
+      "category": "glean",
+      "component_count": 1,
+      "json": "components/glean.json",
+      "documentation": "../components/categories/glean.md"
+    },
+    {
+      "category": "google",
+      "component_count": 7,
+      "json": "components/google.json",
+      "documentation": "../components/categories/google.md"
+    },
+    {
+      "category": "google_docs",
+      "component_count": 43,
+      "json": "components/google_docs.json",
+      "documentation": "../components/categories/google_docs.md"
+    },
+    {
+      "category": "google_drive",
+      "component_count": 15,
+      "json": "components/google_drive.json",
+      "documentation": "../components/categories/google_drive.md"
+    },
+    {
+      "category": "google_sheets",
+      "component_count": 23,
+      "json": "components/google_sheets.json",
+      "documentation": "../components/categories/google_sheets.md"
+    },
+    {
+      "category": "google_slides",
+      "component_count": 55,
+      "json": "components/google_slides.json",
+      "documentation": "../components/categories/google_slides.md"
+    },
+    {
+      "category": "groq",
+      "component_count": 1,
+      "json": "components/groq.json",
+      "documentation": "../components/categories/groq.md"
+    },
+    {
+      "category": "homeassistant",
+      "component_count": 2,
+      "json": "components/homeassistant.json",
+      "documentation": "../components/categories/homeassistant.md"
+    },
+    {
+      "category": "huggingface",
+      "component_count": 2,
+      "json": "components/huggingface.json",
+      "documentation": "../components/categories/huggingface.md"
+    },
+    {
+      "category": "ibm",
+      "component_count": 2,
+      "json": "components/ibm.json",
+      "documentation": "../components/categories/ibm.md"
+    },
+    {
+      "category": "icosacomputing",
+      "component_count": 1,
+      "json": "components/icosacomputing.json",
+      "documentation": "../components/categories/icosacomputing.md"
+    },
+    {
+      "category": "input_output",
+      "component_count": 14,
+      "json": "components/input_output.json",
+      "documentation": "../components/categories/input_output.md"
+    },
+    {
+      "category": "jigsawstack",
+      "component_count": 11,
+      "json": "components/jigsawstack.json",
+      "documentation": "../components/categories/jigsawstack.md"
+    },
+    {
+      "category": "langchain_utilities",
+      "component_count": 26,
+      "json": "components/langchain_utilities.json",
+      "documentation": "../components/categories/langchain_utilities.md"
+    },
+    {
+      "category": "langwatch",
+      "component_count": 1,
+      "json": "components/langwatch.json",
+      "documentation": "../components/categories/langwatch.md"
+    },
+    {
+      "category": "litellm",
+      "component_count": 1,
+      "json": "components/litellm.json",
+      "documentation": "../components/categories/litellm.md"
+    },
+    {
+      "category": "llm_operations",
+      "component_count": 6,
+      "json": "components/llm_operations.json",
+      "documentation": "../components/categories/llm_operations.md"
+    },
+    {
+      "category": "lmstudio",
+      "component_count": 2,
+      "json": "components/lmstudio.json",
+      "documentation": "../components/categories/lmstudio.md"
+    },
+    {
+      "category": "maritalk",
+      "component_count": 1,
+      "json": "components/maritalk.json",
+      "documentation": "../components/categories/maritalk.md"
+    },
+    {
+      "category": "mem0",
+      "component_count": 1,
+      "json": "components/mem0.json",
+      "documentation": "../components/categories/mem0.md"
+    },
+    {
+      "category": "milvus",
+      "component_count": 1,
+      "json": "components/milvus.json",
+      "documentation": "../components/categories/milvus.md"
+    },
+    {
+      "category": "mistral",
+      "component_count": 2,
+      "json": "components/mistral.json",
+      "documentation": "../components/categories/mistral.md"
+    },
+    {
+      "category": "models_and_agents",
+      "component_count": 7,
+      "json": "components/models_and_agents.json",
+      "documentation": "../components/categories/models_and_agents.md"
+    },
+    {
+      "category": "mongodb",
+      "component_count": 1,
+      "json": "components/mongodb.json",
+      "documentation": "../components/categories/mongodb.md"
+    },
+    {
+      "category": "needle",
+      "component_count": 1,
+      "json": "components/needle.json",
+      "documentation": "../components/categories/needle.md"
+    },
+    {
+      "category": "notdiamond",
+      "component_count": 1,
+      "json": "components/notdiamond.json",
+      "documentation": "../components/categories/notdiamond.md"
+    },
+    {
+      "category": "novita",
+      "component_count": 1,
+      "json": "components/novita.json",
+      "documentation": "../components/categories/novita.md"
+    },
+    {
+      "category": "nvidia",
+      "component_count": 5,
+      "json": "components/nvidia.json",
+      "documentation": "../components/categories/nvidia.md"
+    },
+    {
+      "category": "olivya",
+      "component_count": 1,
+      "json": "components/olivya.json",
+      "documentation": "../components/categories/olivya.md"
+    },
+    {
+      "category": "ollama",
+      "component_count": 2,
+      "json": "components/ollama.json",
+      "documentation": "../components/categories/ollama.md"
+    },
+    {
+      "category": "openai",
+      "component_count": 5,
+      "json": "components/openai.json",
+      "documentation": "../components/categories/openai.md"
+    },
+    {
+      "category": "openrouter",
+      "component_count": 1,
+      "json": "components/openrouter.json",
+      "documentation": "../components/categories/openrouter.md"
+    },
+    {
+      "category": "perplexity",
+      "component_count": 1,
+      "json": "components/perplexity.json",
+      "documentation": "../components/categories/perplexity.md"
+    },
+    {
+      "category": "pgvector",
+      "component_count": 1,
+      "json": "components/pgvector.json",
+      "documentation": "../components/categories/pgvector.md"
+    },
+    {
+      "category": "pinecone",
+      "component_count": 1,
+      "json": "components/pinecone.json",
+      "documentation": "../components/categories/pinecone.md"
+    },
+    {
+      "category": "processing",
+      "component_count": 37,
+      "json": "components/processing.json",
+      "documentation": "../components/categories/processing.md"
+    },
+    {
+      "category": "prototypes",
+      "component_count": 1,
+      "json": "components/prototypes.json",
+      "documentation": "../components/categories/prototypes.md"
+    },
+    {
+      "category": "qdrant",
+      "component_count": 1,
+      "json": "components/qdrant.json",
+      "documentation": "../components/categories/qdrant.md"
+    },
+    {
+      "category": "redis",
+      "component_count": 2,
+      "json": "components/redis.json",
+      "documentation": "../components/categories/redis.md"
+    },
+    {
+      "category": "sambanova",
+      "component_count": 1,
+      "json": "components/sambanova.json",
+      "documentation": "../components/categories/sambanova.md"
+    },
+    {
+      "category": "scrapegraph",
+      "component_count": 3,
+      "json": "components/scrapegraph.json",
+      "documentation": "../components/categories/scrapegraph.md"
+    },
+    {
+      "category": "searchapi",
+      "component_count": 1,
+      "json": "components/searchapi.json",
+      "documentation": "../components/categories/searchapi.md"
+    },
+    {
+      "category": "serpapi",
+      "component_count": 1,
+      "json": "components/serpapi.json",
+      "documentation": "../components/categories/serpapi.md"
+    },
+    {
+      "category": "supabase",
+      "component_count": 1,
+      "json": "components/supabase.json",
+      "documentation": "../components/categories/supabase.md"
+    },
+    {
+      "category": "tavily",
+      "component_count": 2,
+      "json": "components/tavily.json",
+      "documentation": "../components/categories/tavily.md"
+    },
+    {
+      "category": "tools",
+      "component_count": 12,
+      "json": "components/tools.json",
+      "documentation": "../components/categories/tools.md"
+    },
+    {
+      "category": "twelvelabs",
+      "component_count": 7,
+      "json": "components/twelvelabs.json",
+      "documentation": "../components/categories/twelvelabs.md"
+    },
+    {
+      "category": "unstructured",
+      "component_count": 1,
+      "json": "components/unstructured.json",
+      "documentation": "../components/categories/unstructured.md"
+    },
+    {
+      "category": "upstash",
+      "component_count": 1,
+      "json": "components/upstash.json",
+      "documentation": "../components/categories/upstash.md"
+    },
+    {
+      "category": "utilities",
+      "component_count": 4,
+      "json": "components/utilities.json",
+      "documentation": "../components/categories/utilities.md"
+    },
+    {
+      "category": "vectara",
+      "component_count": 2,
+      "json": "components/vectara.json",
+      "documentation": "../components/categories/vectara.md"
+    },
+    {
+      "category": "vectorstores",
+      "component_count": 1,
+      "json": "components/vectorstores.json",
+      "documentation": "../components/categories/vectorstores.md"
+    },
+    {
+      "category": "vertexai",
+      "component_count": 2,
+      "json": "components/vertexai.json",
+      "documentation": "../components/categories/vertexai.md"
+    },
+    {
+      "category": "vllm",
+      "component_count": 2,
+      "json": "components/vllm.json",
+      "documentation": "../components/categories/vllm.md"
+    },
+    {
+      "category": "vlmrun",
+      "component_count": 1,
+      "json": "components/vlmrun.json",
+      "documentation": "../components/categories/vlmrun.md"
+    },
+    {
+      "category": "weaviate",
+      "component_count": 1,
+      "json": "components/weaviate.json",
+      "documentation": "../components/categories/weaviate.md"
+    },
+    {
+      "category": "wikipedia",
+      "component_count": 2,
+      "json": "components/wikipedia.json",
+      "documentation": "../components/categories/wikipedia.md"
+    },
+    {
+      "category": "wolframalpha",
+      "component_count": 1,
+      "json": "components/wolframalpha.json",
+      "documentation": "../components/categories/wolframalpha.md"
+    },
+    {
+      "category": "xai",
+      "component_count": 1,
+      "json": "components/xai.json",
+      "documentation": "../components/categories/xai.md"
+    },
+    {
+      "category": "yahoosearch",
+      "component_count": 1,
+      "json": "components/yahoosearch.json",
+      "documentation": "../components/categories/yahoosearch.md"
+    },
+    {
+      "category": "youtube",
+      "component_count": 7,
+      "json": "components/youtube.json",
+      "documentation": "../components/categories/youtube.md"
+    },
+    {
+      "category": "zep",
+      "component_count": 1,
+      "json": "components/zep.json",
+      "documentation": "../components/categories/zep.md"
+    }
+  ]
+}

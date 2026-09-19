@@ -1,0 +1,65 @@
+name: Validate Documentation
+
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate JSON
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          for p in pathlib.Path("docs/ai").rglob("*.json"):
+              json.loads(p.read_text(encoding="utf-8"))
+              print("OK", p)
+          PY
+
+      - name: Guard against common secret and product-source leakage
+        run: |
+          set -e
+          if grep -RIlE 'template\.code\.value|sk_live_[A-Za-z0-9]{16,}|AKIA[0-9A-Z]{16}|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----' docs; then
+            echo "Potential sensitive implementation/secret material found."
+            exit 1
+          fi
+          if grep -RIlE '[0-9]{6,12}:[A-Za-z0-9_-]{30,60}' docs; then
+            echo "Potential Telegram bot token found."
+            exit 1
+          fi
+          if grep -RIlE 'x-api-key=[A-Za-z0-9_-]{12,}' docs; then
+            echo "Potential API key in URL found."
+            exit 1
+          fi
+
+      - name: Validate core AI reference links
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          required = [
+              'docs/AI_START_HERE.md',
+              'docs/ai/TASK_ROUTING_INDEX.json',
+              'docs/ai/VERIFIED_WORKFLOW_RECIPES.json',
+              'docs/ai/COMPONENT_INDEX.json',
+              'docs/ai/BUILTIN_NODE_INDEX.json',
+              'docs/ai/EXTENSION_COMPONENT_INDEX.json',
+              'docs/integrations/telegram/index.md',
+              'docs/getting-started/ai-tutor-mode.md',
+          ]
+          missing=[x for x in required if not Path(x).exists()]
+          if missing:
+              raise SystemExit('Missing core docs: '+', '.join(missing))
+          print('Core AI references present')
+          PY
+
+      - name: Build docs
+        run: |
+          pip install -r requirements.txt
+          mkdocs build --strict

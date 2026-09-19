@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0",
+  "category": "olivya",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "olivya.OlivyaComponent",
+      "category": "olivya",
+      "component_type": "OlivyaComponent",
+      "display_name": "Place Call",
+      "description": "A component to create an outbound call request from Olivya's platform.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "Olivya API Key",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your API key for authentication"
+        },
+        {
+          "name": "conversation_history",
+          "display_name": "Conversation History",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The summary of the conversation"
+        },
+        {
+          "name": "first_message",
+          "display_name": "First Message",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The Agent's introductory message"
+        },
+        {
+          "name": "from_number",
+          "display_name": "From Number",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The Agent's phone number"
+        },
+        {
+          "name": "system_prompt",
+          "display_name": "System Prompt",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The system prompt to guide the interaction"
+        },
+        {
+          "name": "to_number",
+          "display_name": "To Number",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The recipient's phone number"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "display_name": "Output",
+          "method": "build_output",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

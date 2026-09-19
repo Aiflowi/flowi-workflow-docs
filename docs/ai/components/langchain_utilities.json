@@ -1,0 +1,3773 @@
+{
+  "schema_version": "1.0",
+  "category": "langchain_utilities",
+  "component_count": 26,
+  "components": [
+    {
+      "id": "langchain_utilities.CharacterTextSplitter",
+      "category": "langchain_utilities",
+      "component_type": "CharacterTextSplitter",
+      "display_name": "Character Text Splitter",
+      "description": "Split text by number of characters.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "chunk_overlap",
+          "display_name": "Chunk Overlap",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The amount of overlap between chunks."
+        },
+        {
+          "name": "chunk_size",
+          "display_name": "Chunk Size",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum length of each chunk."
+        },
+        {
+          "name": "data_input",
+          "display_name": "Input",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Document",
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The texts to split."
+        },
+        {
+          "name": "separator",
+          "display_name": "Separator",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The characters to split on.\nIf left empty defaults to \"\\n\\n\"."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "method": "transform_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.CSVAgent",
+      "category": "langchain_utilities",
+      "component_type": "CSVAgent",
+      "display_name": "CSV Agent",
+      "description": "Construct a CSV agent from a CSV and tools.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "AgentExecutor",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "agent_description",
+          "display_name": "Agent Description [Deprecated]",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The description of the agent. This is only used when in Tool Mode. Defaults to 'A helpful assistant with access to the following tools:' and tools are added dynamically. This feature is deprecated and will be removed in future versions."
+        },
+        {
+          "name": "agent_type",
+          "display_name": "Agent Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "zero-shot-react-description",
+            "openai-functions",
+            "openai-tools"
+          ]
+        },
+        {
+          "name": "allow_dangerous_code",
+          "display_name": "Allow Dangerous Code",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "SECURITY WARNING: Enabling this allows the agent to execute arbitrary Python code on the server, which can lead to remote code execution vulnerabilities. Only enable this if you fully trust the input sources and understand the security implications. When disabled, the agent can still analyze CSV data but cannot execute custom Python code."
+        },
+        {
+          "name": "api_key",
+          "display_name": "API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Overrides global provider settings. Leave blank to use your pre-configured API Key."
+        },
+        {
+          "name": "base_url_ibm_watsonx",
+          "display_name": "watsonx API Endpoint",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "The base URL of the API (IBM watsonx.ai only)",
+          "options": [
+            "https://us-south.ml.cloud.ibm.com",
+            "https://eu-de.ml.cloud.ibm.com",
+            "https://eu-gb.ml.cloud.ibm.com",
+            "https://au-syd.ml.cloud.ibm.com",
+            "https://jp-tok.ml.cloud.ibm.com",
+            "https://ca-tor.ml.cloud.ibm.com"
+          ]
+        },
+        {
+          "name": "handle_parsing_errors",
+          "display_name": "Handle Parse Errors",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Should the Agent fix errors when reading user input for better processing?"
+        },
+        {
+          "name": "input_value",
+          "display_name": "Text",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Text to be passed as input and extract info from the CSV File."
+        },
+        {
+          "name": "max_iterations",
+          "display_name": "Max Iterations",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum number of attempts the agent can make to complete its task before it stops."
+        },
+        {
+          "name": "model",
+          "display_name": "Language Model",
+          "input_type": "ModelInput",
+          "value_type": "model",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select your model provider or connect a Language Model component."
+        },
+        {
+          "name": "pandas_kwargs",
+          "display_name": "Pandas Kwargs",
+          "input_type": "DictInput",
+          "value_type": "dict",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Pandas Kwargs to be passed to the agent."
+        },
+        {
+          "name": "path",
+          "display_name": "File Path",
+          "input_type": "FileInput",
+          "value_type": "file",
+          "accepts": [
+            "str",
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "A CSV File or File Path."
+        },
+        {
+          "name": "project_id",
+          "display_name": "watsonx Project ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The project ID associated with the foundation model (IBM watsonx.ai only)"
+        },
+        {
+          "name": "verbose",
+          "display_name": "Verbose",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "display_name": "Response",
+          "method": "build_agent_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "agent",
+          "display_name": "Agent",
+          "method": "build_agent",
+          "types": [
+            "AgentExecutor"
+          ],
+          "selected": "AgentExecutor",
+          "tool_mode": false,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true,
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.LangChainFakeEmbeddings",
+      "category": "langchain_utilities",
+      "component_type": "LangChainFakeEmbeddings",
+      "display_name": "Fake Embeddings",
+      "description": "Generate fake embeddings, useful for initial testing and connecting components.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Embeddings"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "dimensions",
+          "display_name": "Dimensions",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The number of dimensions the resulting output embeddings should have."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "embeddings",
+          "display_name": "Embedding Model",
+          "method": "build_embeddings",
+          "types": [
+            "Embeddings"
+          ],
+          "selected": "Embeddings",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.HtmlLinkExtractor",
+      "category": "langchain_utilities",
+      "component_type": "HtmlLinkExtractor",
+      "display_name": "HTML Link Extractor",
+      "description": "Extract hyperlinks from HTML content.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "data_input",
+          "display_name": "Input",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Document",
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The texts from which to extract links."
+        },
+        {
+          "name": "drop_fragments",
+          "display_name": "Drop URL fragments",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "kind",
+          "display_name": "Kind of edge",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "method": "transform_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.LanguageRecursiveTextSplitter",
+      "category": "langchain_utilities",
+      "component_type": "LanguageRecursiveTextSplitter",
+      "display_name": "Language Recursive Text Splitter",
+      "description": "Split text into chunks of a specified length based on language.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "chunk_overlap",
+          "display_name": "Chunk Overlap",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The amount of overlap between chunks."
+        },
+        {
+          "name": "chunk_size",
+          "display_name": "Chunk Size",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum length of each chunk."
+        },
+        {
+          "name": "code_language",
+          "display_name": "Code Language",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "cpp",
+            "go",
+            "java",
+            "kotlin",
+            "js",
+            "ts",
+            "php",
+            "proto",
+            "python",
+            "r",
+            "rst",
+            "ruby",
+            "rust",
+            "scala",
+            "swift",
+            "markdown",
+            "latex",
+            "html",
+            "sol",
+            "csharp",
+            "cobol",
+            "c",
+            "lua",
+            "perl",
+            "haskell",
+            "elixir",
+            "powershell",
+            "visualbasic6"
+          ]
+        },
+        {
+          "name": "data_input",
+          "display_name": "Input",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Document",
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The texts to split."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "method": "transform_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.NaturalLanguageTextSplitter",
+      "category": "langchain_utilities",
+      "component_type": "NaturalLanguageTextSplitter",
+      "display_name": "Natural Language Text Splitter",
+      "description": "Split text based on natural language boundaries, optimized for a specified language.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "chunk_overlap",
+          "display_name": "Chunk Overlap",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The number of characters that overlap between consecutive chunks."
+        },
+        {
+          "name": "chunk_size",
+          "display_name": "Chunk Size",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum number of characters in each chunk after splitting."
+        },
+        {
+          "name": "data_input",
+          "display_name": "Input",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Document",
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The text data to be split."
+        },
+        {
+          "name": "language",
+          "display_name": "Language",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The language of the text. Default is \"English\". Supports multiple languages for better text boundary recognition."
+        },
+        {
+          "name": "separator",
+          "display_name": "Separator",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The character(s) to use as a delimiter when splitting text.\nDefaults to \"\\n\\n\" if left empty."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "method": "transform_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.OpenAIToolsAgent",
+      "category": "langchain_utilities",
+      "component_type": "OpenAIToolsAgent",
+      "display_name": "OpenAI Tools Agent",
+      "description": "Agent that uses tools via openai-tools.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "AgentExecutor",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "agent_description",
+          "display_name": "Agent Description [Deprecated]",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The description of the agent. This is only used when in Tool Mode. Defaults to 'A helpful assistant with access to the following tools:' and tools are added dynamically. This feature is deprecated and will be removed in future versions."
+        },
+        {
+          "name": "api_key",
+          "display_name": "API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Overrides global provider settings. Leave blank to use your pre-configured API Key."
+        },
+        {
+          "name": "base_url_ibm_watsonx",
+          "display_name": "watsonx API Endpoint",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "The base URL of the API (IBM watsonx.ai only)",
+          "options": [
+            "https://us-south.ml.cloud.ibm.com",
+            "https://eu-de.ml.cloud.ibm.com",
+            "https://eu-gb.ml.cloud.ibm.com",
+            "https://au-syd.ml.cloud.ibm.com",
+            "https://jp-tok.ml.cloud.ibm.com",
+            "https://ca-tor.ml.cloud.ibm.com"
+          ]
+        },
+        {
+          "name": "chat_history",
+          "display_name": "Chat History",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "handle_parsing_errors",
+          "display_name": "Handle Parse Errors",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Should the Agent fix errors when reading user input for better processing?"
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The input provided by the user for the agent to process."
+        },
+        {
+          "name": "max_iterations",
+          "display_name": "Max Iterations",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum number of attempts the agent can make to complete its task before it stops."
+        },
+        {
+          "name": "model",
+          "display_name": "Language Model",
+          "input_type": "ModelInput",
+          "value_type": "model",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select your model provider or connect a Language Model component."
+        },
+        {
+          "name": "project_id",
+          "display_name": "watsonx Project ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The project ID associated with the foundation model (IBM watsonx.ai only)"
+        },
+        {
+          "name": "system_prompt",
+          "display_name": "System Prompt",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "System prompt for the agent."
+        },
+        {
+          "name": "tools",
+          "display_name": "Tools",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Tool"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "These are the tools that the agent can use to help with tasks."
+        },
+        {
+          "name": "user_prompt",
+          "display_name": "Prompt",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "This prompt must contain 'input' key."
+        },
+        {
+          "name": "verbose",
+          "display_name": "Verbose",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "display_name": "Response",
+          "method": "message_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "agent",
+          "display_name": "Agent",
+          "method": "build_agent",
+          "types": [
+            "AgentExecutor"
+          ],
+          "selected": "AgentExecutor",
+          "tool_mode": false,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.OpenAPIAgent",
+      "category": "langchain_utilities",
+      "component_type": "OpenAPIAgent",
+      "display_name": "OpenAPI Agent",
+      "description": "Agent to interact with OpenAPI API.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "AgentExecutor",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "agent_description",
+          "display_name": "Agent Description [Deprecated]",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The description of the agent. This is only used when in Tool Mode. Defaults to 'A helpful assistant with access to the following tools:' and tools are added dynamically. This feature is deprecated and will be removed in future versions."
+        },
+        {
+          "name": "allow_dangerous_requests",
+          "display_name": "Allow Dangerous Requests",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "api_key",
+          "display_name": "API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Overrides global provider settings. Leave blank to use your pre-configured API Key."
+        },
+        {
+          "name": "base_url_ibm_watsonx",
+          "display_name": "watsonx API Endpoint",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "The base URL of the API (IBM watsonx.ai only)",
+          "options": [
+            "https://us-south.ml.cloud.ibm.com",
+            "https://eu-de.ml.cloud.ibm.com",
+            "https://eu-gb.ml.cloud.ibm.com",
+            "https://au-syd.ml.cloud.ibm.com",
+            "https://jp-tok.ml.cloud.ibm.com",
+            "https://ca-tor.ml.cloud.ibm.com"
+          ]
+        },
+        {
+          "name": "handle_parsing_errors",
+          "display_name": "Handle Parse Errors",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Should the Agent fix errors when reading user input for better processing?"
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The input provided by the user for the agent to process."
+        },
+        {
+          "name": "max_iterations",
+          "display_name": "Max Iterations",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum number of attempts the agent can make to complete its task before it stops."
+        },
+        {
+          "name": "model",
+          "display_name": "Language Model",
+          "input_type": "ModelInput",
+          "value_type": "model",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select your model provider or connect a Language Model component."
+        },
+        {
+          "name": "path",
+          "display_name": "File Path",
+          "input_type": "FileInput",
+          "value_type": "file",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "project_id",
+          "display_name": "watsonx Project ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The project ID associated with the foundation model (IBM watsonx.ai only)"
+        },
+        {
+          "name": "verbose",
+          "display_name": "Verbose",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "display_name": "Response",
+          "method": "message_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "agent",
+          "display_name": "Agent",
+          "method": "build_agent",
+          "types": [
+            "AgentExecutor"
+          ],
+          "selected": "AgentExecutor",
+          "tool_mode": false,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.RecursiveCharacterTextSplitter",
+      "category": "langchain_utilities",
+      "component_type": "RecursiveCharacterTextSplitter",
+      "display_name": "Recursive Character Text Splitter",
+      "description": "Split text trying to keep all related text together.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "chunk_overlap",
+          "display_name": "Chunk Overlap",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The amount of overlap between chunks."
+        },
+        {
+          "name": "chunk_size",
+          "display_name": "Chunk Size",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum length of each chunk."
+        },
+        {
+          "name": "data_input",
+          "display_name": "Input",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Document",
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The texts to split."
+        },
+        {
+          "name": "separators",
+          "display_name": "Separators",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The characters to split on.\nIf left empty defaults to [\"\\n\\n\", \"\\n\", \" \", \"\"]."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "method": "transform_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.SpiderTool",
+      "category": "langchain_utilities",
+      "component_type": "SpiderTool",
+      "display_name": "Spider Web Crawler & Scraper",
+      "description": "Spider API for web crawling and scraping.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "blacklist",
+          "display_name": "Blacklist",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Blacklist paths that you do not want to crawl. Use Regex patterns."
+        },
+        {
+          "name": "depth",
+          "display_name": "Depth",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The crawl limit for maximum depth. If 0, no limit will be applied."
+        },
+        {
+          "name": "limit",
+          "display_name": "Limit",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum amount of pages allowed to crawl per website. Set to 0 to crawl all pages."
+        },
+        {
+          "name": "metadata",
+          "display_name": "Metadata",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Include metadata in the response."
+        },
+        {
+          "name": "mode",
+          "display_name": "Mode",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The mode of operation: scrape or crawl",
+          "options": [
+            "scrape",
+            "crawl"
+          ]
+        },
+        {
+          "name": "params",
+          "display_name": "Additional Parameters",
+          "input_type": "DictInput",
+          "value_type": "dict",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Additional parameters to pass to the API. If provided, other inputs will be ignored."
+        },
+        {
+          "name": "readability",
+          "display_name": "Use Readability",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Use readability to pre-process the content for reading."
+        },
+        {
+          "name": "request_timeout",
+          "display_name": "Request Timeout",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Timeout for the request in seconds."
+        },
+        {
+          "name": "spider_api_key",
+          "display_name": "Spider API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The Spider API Key, get it from https://spider.cloud"
+        },
+        {
+          "name": "url",
+          "display_name": "URL",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The URL to scrape or crawl"
+        },
+        {
+          "name": "whitelist",
+          "display_name": "Whitelist",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Whitelist paths that you want to crawl, ignoring all other routes. Use Regex patterns."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "display_name": "Markdown",
+          "method": "crawl",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.SQLAgent",
+      "category": "langchain_utilities",
+      "component_type": "SQLAgent",
+      "display_name": "SQLAgent",
+      "description": "Construct an SQL agent from an LLM and tools.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "AgentExecutor",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "agent_description",
+          "display_name": "Agent Description [Deprecated]",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The description of the agent. This is only used when in Tool Mode. Defaults to 'A helpful assistant with access to the following tools:' and tools are added dynamically. This feature is deprecated and will be removed in future versions."
+        },
+        {
+          "name": "api_key",
+          "display_name": "API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Overrides global provider settings. Leave blank to use your pre-configured API Key."
+        },
+        {
+          "name": "base_url_ibm_watsonx",
+          "display_name": "watsonx API Endpoint",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "The base URL of the API (IBM watsonx.ai only)",
+          "options": [
+            "https://us-south.ml.cloud.ibm.com",
+            "https://eu-de.ml.cloud.ibm.com",
+            "https://eu-gb.ml.cloud.ibm.com",
+            "https://au-syd.ml.cloud.ibm.com",
+            "https://jp-tok.ml.cloud.ibm.com",
+            "https://ca-tor.ml.cloud.ibm.com"
+          ]
+        },
+        {
+          "name": "database_uri",
+          "display_name": "Database URI",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "extra_tools",
+          "display_name": "Extra Tools",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Tool"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "handle_parsing_errors",
+          "display_name": "Handle Parse Errors",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Should the Agent fix errors when reading user input for better processing?"
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The input provided by the user for the agent to process."
+        },
+        {
+          "name": "max_iterations",
+          "display_name": "Max Iterations",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum number of attempts the agent can make to complete its task before it stops."
+        },
+        {
+          "name": "model",
+          "display_name": "Language Model",
+          "input_type": "ModelInput",
+          "value_type": "model",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select your model provider or connect a Language Model component."
+        },
+        {
+          "name": "project_id",
+          "display_name": "watsonx Project ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The project ID associated with the foundation model (IBM watsonx.ai only)"
+        },
+        {
+          "name": "verbose",
+          "display_name": "Verbose",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "display_name": "Response",
+          "method": "message_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "agent",
+          "display_name": "Agent",
+          "method": "build_agent",
+          "types": [
+            "AgentExecutor"
+          ],
+          "selected": "AgentExecutor",
+          "tool_mode": false,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.SQLDatabase",
+      "category": "langchain_utilities",
+      "component_type": "SQLDatabase",
+      "display_name": "SQLDatabase",
+      "description": "SQL Database",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "SQLDatabase"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "uri",
+          "display_name": "URI",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "URI to the database."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SQLDatabase",
+          "display_name": "SQLDatabase",
+          "method": "build_sqldatabase",
+          "types": [
+            "SQLDatabase"
+          ],
+          "selected": "SQLDatabase",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.ToolCallingAgent",
+      "category": "langchain_utilities",
+      "component_type": "ToolCallingAgent",
+      "display_name": "Tool Calling Agent",
+      "description": "An agent designed to utilize various tools seamlessly within workflows.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "AgentExecutor",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "agent_description",
+          "display_name": "Agent Description [Deprecated]",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The description of the agent. This is only used when in Tool Mode. Defaults to 'A helpful assistant with access to the following tools:' and tools are added dynamically. This feature is deprecated and will be removed in future versions."
+        },
+        {
+          "name": "api_key",
+          "display_name": "API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Overrides global provider settings. Leave blank to use your pre-configured API Key."
+        },
+        {
+          "name": "base_url_ibm_watsonx",
+          "display_name": "watsonx API Endpoint",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "The base URL of the API (IBM watsonx.ai only)",
+          "options": [
+            "https://us-south.ml.cloud.ibm.com",
+            "https://eu-de.ml.cloud.ibm.com",
+            "https://eu-gb.ml.cloud.ibm.com",
+            "https://au-syd.ml.cloud.ibm.com",
+            "https://jp-tok.ml.cloud.ibm.com",
+            "https://ca-tor.ml.cloud.ibm.com"
+          ]
+        },
+        {
+          "name": "chat_history",
+          "display_name": "Chat Memory",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "This input stores the chat history, allowing the agent to remember previous conversations."
+        },
+        {
+          "name": "handle_parsing_errors",
+          "display_name": "Handle Parse Errors",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Should the Agent fix errors when reading user input for better processing?"
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The input provided by the user for the agent to process."
+        },
+        {
+          "name": "max_iterations",
+          "display_name": "Max Iterations",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum number of attempts the agent can make to complete its task before it stops."
+        },
+        {
+          "name": "model",
+          "display_name": "Language Model",
+          "input_type": "ModelInput",
+          "value_type": "model",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select your model provider or connect a Language Model component."
+        },
+        {
+          "name": "project_id",
+          "display_name": "watsonx Project ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The project ID associated with the foundation model (IBM watsonx.ai only)"
+        },
+        {
+          "name": "system_prompt",
+          "display_name": "System Prompt",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "System prompt to guide the agent's behavior."
+        },
+        {
+          "name": "tools",
+          "display_name": "Tools",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Tool"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "These are the tools that the agent can use to help with tasks."
+        },
+        {
+          "name": "verbose",
+          "display_name": "Verbose",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "display_name": "Response",
+          "method": "message_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "agent",
+          "display_name": "Agent",
+          "method": "build_agent",
+          "types": [
+            "AgentExecutor"
+          ],
+          "selected": "AgentExecutor",
+          "tool_mode": false,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.LangChain Hub Prompt",
+      "category": "langchain_utilities",
+      "component_type": "LangChain Hub Prompt",
+      "display_name": "Prompt Hub",
+      "description": "Prompt Component that uses LangChain Hub prompts",
+      "status": "BETA",
+      "legacy": false,
+      "beta": true,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "langchain_api_key",
+          "display_name": "LangChain API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The LangChain API Key to use."
+        },
+        {
+          "name": "langchain_hub_prompt",
+          "display_name": "LangChain Hub Prompt",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The LangChain Hub prompt to use, i.e., 'efriis/my-first-prompt'"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "prompt",
+          "display_name": "Build Prompt",
+          "method": "build_prompt",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.RunnableExecutor",
+      "category": "langchain_utilities",
+      "component_type": "RunnableExecutor",
+      "display_name": "Runnable Executor",
+      "description": "Execute a runnable. It will try to guess the input and output keys.",
+      "status": "BETA",
+      "legacy": false,
+      "beta": true,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "input_key",
+          "display_name": "Input Key",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "output_key",
+          "display_name": "Output Key",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "runnable",
+          "display_name": "Agent Executor",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Chain",
+            "AgentExecutor",
+            "Agent",
+            "Runnable"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "use_stream",
+          "display_name": "Stream",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "display_name": "Message",
+          "method": "build_executor",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.SemanticTextSplitter",
+      "category": "langchain_utilities",
+      "component_type": "SemanticTextSplitter",
+      "display_name": "Semantic Text Splitter",
+      "description": "Split text into semantically meaningful chunks using semantic similarity.",
+      "status": "BETA",
+      "legacy": false,
+      "beta": true,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "breakpoint_threshold_amount",
+          "display_name": "Breakpoint Threshold Amount",
+          "input_type": "FloatInput",
+          "value_type": "float",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Numerical amount for the breakpoint threshold."
+        },
+        {
+          "name": "breakpoint_threshold_type",
+          "display_name": "Breakpoint Threshold Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Method to determine breakpoints. Options: 'percentile', 'standard_deviation', 'interquartile'. Defaults to 'percentile'.",
+          "options": [
+            "percentile",
+            "standard_deviation",
+            "interquartile"
+          ]
+        },
+        {
+          "name": "buffer_size",
+          "display_name": "Buffer Size",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Size of the buffer."
+        },
+        {
+          "name": "data_inputs",
+          "display_name": "Data Inputs",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "List of Data objects containing text and metadata to split."
+        },
+        {
+          "name": "embeddings",
+          "display_name": "Embeddings",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Embeddings"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Embeddings model to use for semantic similarity. Required."
+        },
+        {
+          "name": "number_of_chunks",
+          "display_name": "Number of Chunks",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Number of chunks to split the text into."
+        },
+        {
+          "name": "sentence_split_regex",
+          "display_name": "Sentence Split Regex",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Regular expression to split sentences. Optional."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "chunks",
+          "display_name": "Chunks",
+          "method": "split_text",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.XMLAgent",
+      "category": "langchain_utilities",
+      "component_type": "XMLAgent",
+      "display_name": "XML Agent",
+      "description": "Agent that uses tools formatting instructions as xml to the Language Model.",
+      "status": "BETA",
+      "legacy": false,
+      "beta": true,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "AgentExecutor",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "agent_description",
+          "display_name": "Agent Description [Deprecated]",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The description of the agent. This is only used when in Tool Mode. Defaults to 'A helpful assistant with access to the following tools:' and tools are added dynamically. This feature is deprecated and will be removed in future versions."
+        },
+        {
+          "name": "api_key",
+          "display_name": "API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Overrides global provider settings. Leave blank to use your pre-configured API Key."
+        },
+        {
+          "name": "base_url_ibm_watsonx",
+          "display_name": "watsonx API Endpoint",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "The base URL of the API (IBM watsonx.ai only)",
+          "options": [
+            "https://us-south.ml.cloud.ibm.com",
+            "https://eu-de.ml.cloud.ibm.com",
+            "https://eu-gb.ml.cloud.ibm.com",
+            "https://au-syd.ml.cloud.ibm.com",
+            "https://jp-tok.ml.cloud.ibm.com",
+            "https://ca-tor.ml.cloud.ibm.com"
+          ]
+        },
+        {
+          "name": "chat_history",
+          "display_name": "Chat History",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "handle_parsing_errors",
+          "display_name": "Handle Parse Errors",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Should the Agent fix errors when reading user input for better processing?"
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The input provided by the user for the agent to process."
+        },
+        {
+          "name": "max_iterations",
+          "display_name": "Max Iterations",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum number of attempts the agent can make to complete its task before it stops."
+        },
+        {
+          "name": "model",
+          "display_name": "Language Model",
+          "input_type": "ModelInput",
+          "value_type": "model",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select your model provider or connect a Language Model component."
+        },
+        {
+          "name": "project_id",
+          "display_name": "watsonx Project ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The project ID associated with the foundation model (IBM watsonx.ai only)"
+        },
+        {
+          "name": "system_prompt",
+          "display_name": "System Prompt",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "System prompt for the agent."
+        },
+        {
+          "name": "tools",
+          "display_name": "Tools",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Tool"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "These are the tools that the agent can use to help with tasks."
+        },
+        {
+          "name": "user_prompt",
+          "display_name": "Prompt",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "This prompt must contain 'input' key."
+        },
+        {
+          "name": "verbose",
+          "display_name": "Verbose",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "display_name": "Response",
+          "method": "message_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "agent",
+          "display_name": "Agent",
+          "method": "build_agent",
+          "types": [
+            "AgentExecutor"
+          ],
+          "selected": "AgentExecutor",
+          "tool_mode": false,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.ConversationChain",
+      "category": "langchain_utilities",
+      "component_type": "ConversationChain",
+      "display_name": "ConversationChain",
+      "description": "Chain to have a conversation and load context from memory.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The input value to pass to the chain."
+        },
+        {
+          "name": "llm",
+          "display_name": "Language Model",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "memory",
+          "display_name": "Memory",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "BaseChatMemory"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "display_name": "Text",
+          "method": "invoke_chain",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.JsonAgent",
+      "category": "langchain_utilities",
+      "component_type": "JsonAgent",
+      "display_name": "JsonAgent",
+      "description": "Construct a json agent from an LLM and tools.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "AgentExecutor",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "agent_description",
+          "display_name": "Agent Description [Deprecated]",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The description of the agent. This is only used when in Tool Mode. Defaults to 'A helpful assistant with access to the following tools:' and tools are added dynamically. This feature is deprecated and will be removed in future versions."
+        },
+        {
+          "name": "handle_parsing_errors",
+          "display_name": "Handle Parse Errors",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Should the Agent fix errors when reading user input for better processing?"
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The input provided by the user for the agent to process."
+        },
+        {
+          "name": "llm",
+          "display_name": "Language Model",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "max_iterations",
+          "display_name": "Max Iterations",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum number of attempts the agent can make to complete its task before it stops."
+        },
+        {
+          "name": "path",
+          "display_name": "File Path",
+          "input_type": "FileInput",
+          "value_type": "file",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "verbose",
+          "display_name": "Verbose",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "display_name": "Response",
+          "method": "message_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "agent",
+          "display_name": "Agent",
+          "method": "build_agent",
+          "types": [
+            "AgentExecutor"
+          ],
+          "selected": "AgentExecutor",
+          "tool_mode": false,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.LLMCheckerChain",
+      "category": "langchain_utilities",
+      "component_type": "LLMCheckerChain",
+      "display_name": "LLMCheckerChain",
+      "description": "Chain for question-answering with self-verification.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The input value to pass to the chain."
+        },
+        {
+          "name": "llm",
+          "display_name": "Language Model",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "display_name": "Text",
+          "method": "invoke_chain",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.LLMMathChain",
+      "category": "langchain_utilities",
+      "component_type": "LLMMathChain",
+      "display_name": "LLMMathChain",
+      "description": "Chain that interprets a prompt and executes python code to do math.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The input value to pass to the chain."
+        },
+        {
+          "name": "llm",
+          "display_name": "Language Model",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "display_name": "Message",
+          "method": "invoke_chain",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.SQLGenerator",
+      "category": "langchain_utilities",
+      "component_type": "SQLGenerator",
+      "display_name": "Natural Language to SQL",
+      "description": "Generate SQL from natural language.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "db",
+          "display_name": "SQLDatabase",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "SQLDatabase"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The input value to pass to the chain."
+        },
+        {
+          "name": "llm",
+          "display_name": "Language Model",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "prompt",
+          "display_name": "Prompt",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The prompt must contain `{question}`."
+        },
+        {
+          "name": "top_k",
+          "display_name": "Top K",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The number of results per select statement to return."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "display_name": "Message",
+          "method": "invoke_chain",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.RetrievalQA",
+      "category": "langchain_utilities",
+      "component_type": "RetrievalQA",
+      "display_name": "Retrieval QA",
+      "description": "Chain for question-answering querying sources from a retriever.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "chain_type",
+          "display_name": "Chain Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Chain type to use.",
+          "options": [
+            "Stuff",
+            "Map Reduce",
+            "Refine",
+            "Map Rerank"
+          ]
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The input value to pass to the chain."
+        },
+        {
+          "name": "llm",
+          "display_name": "Language Model",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "memory",
+          "display_name": "Memory",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "BaseChatMemory"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "retriever",
+          "display_name": "Retriever",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Retriever"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "return_source_documents",
+          "display_name": "Return Source Documents",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "display_name": "Text",
+          "method": "invoke_chain",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.SelfQueryRetriever",
+      "category": "langchain_utilities",
+      "component_type": "SelfQueryRetriever",
+      "display_name": "Self Query Retriever",
+      "description": "Retriever that uses a vector store and an LLM to generate the vector store queries.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "attribute_infos",
+          "display_name": "Metadata Field Info",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Metadata Field Info to be passed as input."
+        },
+        {
+          "name": "document_content_description",
+          "display_name": "Document Content Description",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Document Content Description to be passed as input."
+        },
+        {
+          "name": "llm",
+          "display_name": "LLM",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "LLM to be passed as input."
+        },
+        {
+          "name": "query",
+          "display_name": "Query",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Query to be passed as input."
+        },
+        {
+          "name": "vectorstore",
+          "display_name": "Vector Store",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "VectorStore"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Vector Store to be passed as input."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "documents",
+          "display_name": "Retrieved Documents",
+          "method": "retrieve_documents",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.VectorStoreInfo",
+      "category": "langchain_utilities",
+      "component_type": "VectorStoreInfo",
+      "display_name": "VectorStoreInfo",
+      "description": "Information about a VectorStore",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "VectorStoreInfo"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "input_vectorstore",
+          "display_name": "Vector Store",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "VectorStore"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "vectorstore_description",
+          "display_name": "Description",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Description of the VectorStore"
+        },
+        {
+          "name": "vectorstore_name",
+          "display_name": "Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Name of the VectorStore"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "info",
+          "display_name": "Vector Store Info",
+          "method": "build_info",
+          "types": [
+            "VectorStoreInfo"
+          ],
+          "selected": "VectorStoreInfo",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "langchain_utilities.VectorStoreRouterAgent",
+      "category": "langchain_utilities",
+      "component_type": "VectorStoreRouterAgent",
+      "display_name": "VectorStoreRouterAgent",
+      "description": "Construct an agent from a Vector Store Router.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "AgentExecutor",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "agent_description",
+          "display_name": "Agent Description [Deprecated]",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The description of the agent. This is only used when in Tool Mode. Defaults to 'A helpful assistant with access to the following tools:' and tools are added dynamically. This feature is deprecated and will be removed in future versions."
+        },
+        {
+          "name": "handle_parsing_errors",
+          "display_name": "Handle Parse Errors",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Should the Agent fix errors when reading user input for better processing?"
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The input provided by the user for the agent to process."
+        },
+        {
+          "name": "llm",
+          "display_name": "Language Model",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "max_iterations",
+          "display_name": "Max Iterations",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum number of attempts the agent can make to complete its task before it stops."
+        },
+        {
+          "name": "vectorstores",
+          "display_name": "Vector Stores",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "VectorStoreInfo"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "verbose",
+          "display_name": "Verbose",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "display_name": "Response",
+          "method": "message_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "agent",
+          "display_name": "Agent",
+          "method": "build_agent",
+          "types": [
+            "AgentExecutor"
+          ],
+          "selected": "AgentExecutor",
+          "tool_mode": false,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

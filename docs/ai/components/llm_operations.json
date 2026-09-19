@@ -1,0 +1,1022 @@
+{
+  "schema_version": "1.0",
+  "category": "llm_operations",
+  "component_count": 6,
+  "components": [
+    {
+      "id": "llm_operations.BatchRunComponent",
+      "category": "llm_operations",
+      "component_type": "BatchRunComponent",
+      "display_name": "Batch Run",
+      "description": "Runs an LLM on each row of a DataFrame column. If no column is specified, all columns are used.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Overrides global provider settings. Leave blank to use your pre-configured API Key."
+        },
+        {
+          "name": "base_url_ibm_watsonx",
+          "display_name": "watsonx API Endpoint",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "The base URL of the API (IBM watsonx.ai only)",
+          "options": [
+            "https://us-south.ml.cloud.ibm.com",
+            "https://eu-de.ml.cloud.ibm.com",
+            "https://eu-gb.ml.cloud.ibm.com",
+            "https://au-syd.ml.cloud.ibm.com",
+            "https://jp-tok.ml.cloud.ibm.com",
+            "https://ca-tor.ml.cloud.ibm.com"
+          ]
+        },
+        {
+          "name": "column_name",
+          "display_name": "Column Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The name of the DataFrame column to treat as text messages. If empty, all columns will be formatted in TOML."
+        },
+        {
+          "name": "df",
+          "display_name": "Table",
+          "input_type": "DataFrameInput",
+          "value_type": "other",
+          "accepts": [
+            "DataFrame",
+            "Table"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The DataFrame whose column (specified by 'column_name') we'll treat as text messages."
+        },
+        {
+          "name": "enable_metadata",
+          "display_name": "Enable Metadata",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If True, add metadata to the output DataFrame."
+        },
+        {
+          "name": "model",
+          "display_name": "Language Model",
+          "input_type": "ModelInput",
+          "value_type": "model",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select your model provider"
+        },
+        {
+          "name": "output_column_name",
+          "display_name": "Output Column Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Name of the column where the model's response will be stored."
+        },
+        {
+          "name": "project_id",
+          "display_name": "watsonx Project ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The project ID associated with the foundation model (IBM watsonx.ai only)"
+        },
+        {
+          "name": "system_message",
+          "display_name": "Instructions",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Multi-line system instruction for all rows in the DataFrame."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "batch_results",
+          "display_name": "LLM Results",
+          "method": "run_batch",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "llm_operations.GuardrailValidator",
+      "category": "llm_operations",
+      "component_type": "GuardrailValidator",
+      "display_name": "Guardrails",
+      "description": "Validates input text against multiple security and safety guardrails using LLM-based detection.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Overrides global provider settings. Leave blank to use your pre-configured API Key."
+        },
+        {
+          "name": "custom_guardrail_explanation",
+          "display_name": "Custom Guardrail Description",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Describe what the custom guardrail should check for. This description will be used by the LLM to validate the input. Be specific and clear about what you want to detect. Examples: 'Detect if the input contains medical terminology or health-related information', 'Check if the text mentions financial transactions or banking details', 'Identify if the content discusses legal matters or contains legal advice'. The LLM will analyze the input text against your custom criteria and return YES if detected, NO otherwise."
+        },
+        {
+          "name": "enable_custom_guardrail",
+          "display_name": "Enable Custom Guardrail",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Enable a custom guardrail with your own validation criteria."
+        },
+        {
+          "name": "enabled_guardrails",
+          "display_name": "Guardrails",
+          "input_type": "MultiselectInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Select one or more security guardrails to validate the input against.",
+          "options": [
+            "PII",
+            "Tokens/Passwords",
+            "Jailbreak",
+            "Offensive Content",
+            "Malicious Code",
+            "Prompt Injection"
+          ]
+        },
+        {
+          "name": "heuristic_threshold",
+          "display_name": "Heuristic Detection Threshold",
+          "input_type": "SliderInput",
+          "value_type": "slider",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Score threshold (0.0-1.0) for heuristic jailbreak/prompt injection detection. Strong patterns (e.g., 'ignore instructions', 'jailbreak') have high weights, while weak patterns (e.g., 'bypass', 'act as') have low weights. If the cumulative score meets or exceeds this threshold, the input fails immediately. Lower values are more strict; higher values defer more cases to LLM validation."
+        },
+        {
+          "name": "input_text",
+          "display_name": "Input Text",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The text to validate against guardrails."
+        },
+        {
+          "name": "model",
+          "display_name": "Language Model",
+          "input_type": "ModelInput",
+          "value_type": "model",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select your model provider"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "pass_result",
+          "display_name": "Pass",
+          "method": "process_check",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": true,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "failed_result",
+          "display_name": "Fail",
+          "method": "process_check",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": true,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "llm_operations.LLMSelectorComponent",
+      "category": "llm_operations",
+      "component_type": "LLMSelectorComponent",
+      "display_name": "LLM Selector",
+      "description": "Routes the input to the most appropriate LLM based on OpenRouter model specifications",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Data",
+        "JSON",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "fallback_to_first",
+          "display_name": "Fallback to First Model",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Use first model as fallback when routing fails"
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The input message to be routed"
+        },
+        {
+          "name": "judge_llm",
+          "display_name": "Judge LLM",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "LLM that will evaluate and select the most appropriate model"
+        },
+        {
+          "name": "models",
+          "display_name": "Language Models",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "List of LLMs to route between"
+        },
+        {
+          "name": "optimization",
+          "display_name": "Optimization",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optimization preference for model selection",
+          "options": [
+            "quality",
+            "speed",
+            "cost",
+            "balanced"
+          ]
+        },
+        {
+          "name": "timeout",
+          "display_name": "API Timeout",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Timeout for API requests in seconds"
+        },
+        {
+          "name": "use_openrouter_specs",
+          "display_name": "Use OpenRouter Specs",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Fetch model specifications from OpenRouter API for enhanced routing decisions. If false, only model names will be used."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "display_name": "Output",
+          "method": "route_to_model",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "selected_model_info",
+          "display_name": "Selected Model Info",
+          "method": "get_selected_model_info",
+          "types": [
+            "Data",
+            "JSON"
+          ],
+          "selected": "Data",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "routing_decision",
+          "display_name": "Routing Decision",
+          "method": "get_routing_decision",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "llm_operations.SmartRouter",
+      "category": "llm_operations",
+      "component_type": "SmartRouter",
+      "display_name": "Smart Router",
+      "description": "Routes an input message using LLM-based categorization.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Overrides global provider settings. Leave blank to use your pre-configured API Key."
+        },
+        {
+          "name": "custom_prompt",
+          "display_name": "Additional Instructions",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Additional instructions for LLM-based categorization. These will be added to the base prompt. Use {input_text} for the input text and {routes} for the available categories."
+        },
+        {
+          "name": "enable_else_output",
+          "display_name": "Include Else Output",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Include an Else output for cases that don't match any route."
+        },
+        {
+          "name": "input_text",
+          "display_name": "Input",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The primary text input for the operation."
+        },
+        {
+          "name": "message",
+          "display_name": "Override Output",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional override message that will replace both the Input and Output Value for all routes when filled."
+        },
+        {
+          "name": "model",
+          "display_name": "Language Model",
+          "input_type": "ModelInput",
+          "value_type": "model",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select your model provider"
+        },
+        {
+          "name": "routes",
+          "display_name": "Routes",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "DataFrame",
+            "Table"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Define the categories for routing. Each row should have a route/category name and optionally a custom output value."
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "llm_operations.Smart Transform",
+      "category": "llm_operations",
+      "component_type": "Smart Transform",
+      "display_name": "Smart Transform",
+      "description": "Uses an LLM to generate a function for filtering or transforming structured data and messages.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON",
+        "Message",
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Overrides global provider settings. Leave blank to use your pre-configured API Key."
+        },
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON",
+            "DataFrame",
+            "Table",
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The structured data or text messages to filter or transform using a lambda function."
+        },
+        {
+          "name": "filter_instruction",
+          "display_name": "Instructions",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Natural language instructions for how to filter or transform the data using a lambda function. Examples: 'Filter the data to only include items where status is active', 'Convert the text to uppercase', 'Keep only first 100 characters'"
+        },
+        {
+          "name": "max_size",
+          "display_name": "Max Size",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Number of characters for the data to be considered large."
+        },
+        {
+          "name": "model",
+          "display_name": "Language Model",
+          "input_type": "ModelInput",
+          "value_type": "model",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select your model provider"
+        },
+        {
+          "name": "sample_size",
+          "display_name": "Sample Size",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "For large datasets, number of items to sample from head/tail."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data_output",
+          "display_name": "Output",
+          "method": "process_as_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "dataframe_output",
+          "display_name": "Output",
+          "method": "process_as_dataframe",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "message_output",
+          "display_name": "Output",
+          "method": "process_as_message",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "llm_operations.StructuredOutput",
+      "category": "llm_operations",
+      "component_type": "StructuredOutput",
+      "display_name": "Structured Output",
+      "description": "Uses an LLM to generate structured data. Ideal for extraction and consistency.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON",
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Overrides global provider settings. Leave blank to use your pre-configured API Key."
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input Message",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The input message to the language model."
+        },
+        {
+          "name": "model",
+          "display_name": "Language Model",
+          "input_type": "ModelInput",
+          "value_type": "model",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select your model provider"
+        },
+        {
+          "name": "output_schema",
+          "display_name": "Output Schema",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "DataFrame",
+            "Table"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Define the structure and data types for the model's output."
+        },
+        {
+          "name": "schema_name",
+          "display_name": "Schema Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Provide a name for the output data schema."
+        },
+        {
+          "name": "system_prompt",
+          "display_name": "Format Instructions",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The instructions to the language model for formatting the output."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "structured_output",
+          "display_name": "Structured Output",
+          "method": "build_structured_output",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "dataframe_output",
+          "display_name": "Structured Output",
+          "method": "build_structured_dataframe",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

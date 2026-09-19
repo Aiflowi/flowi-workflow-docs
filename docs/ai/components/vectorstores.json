@@ -1,0 +1,235 @@
+{
+  "schema_version": "1.0",
+  "category": "vectorstores",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "vectorstores.LocalDB",
+      "category": "vectorstores",
+      "component_type": "LocalDB",
+      "display_name": "Local DB",
+      "description": "Local Vector Store with search capabilities",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "allow_duplicates",
+          "display_name": "Allow Duplicates",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If false, will not add documents that are already in the Vector Store."
+        },
+        {
+          "name": "collection_name",
+          "display_name": "Collection Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "embedding",
+          "display_name": "Embedding",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Embeddings"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "existing_collections",
+          "display_name": "Existing Collections",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Select a previously created collection to search through its stored data.",
+          "options": []
+        },
+        {
+          "name": "ingest_data",
+          "display_name": "Ingest Data",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON",
+            "DataFrame",
+            "Table"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Data to store. It will be embedded and indexed for semantic search."
+        },
+        {
+          "name": "limit",
+          "display_name": "Limit",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Limit the number of records to compare when Allow Duplicates is False."
+        },
+        {
+          "name": "mode",
+          "display_name": "Mode",
+          "input_type": "TabInput",
+          "value_type": "tab",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select the operation mode",
+          "options": [
+            "Ingest",
+            "Retrieve"
+          ]
+        },
+        {
+          "name": "number_of_results",
+          "display_name": "Number of Results",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Number of results to return."
+        },
+        {
+          "name": "persist_directory",
+          "display_name": "Persist Directory",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Custom base directory to save the vector store. Collections will be stored under '{directory}/vector_stores/{collection_name}'. If not specified, it will use your system's cache folder."
+        },
+        {
+          "name": "search_query",
+          "display_name": "Search Query",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "Enter text to search for similar content in the selected collection."
+        },
+        {
+          "name": "search_type",
+          "display_name": "Search Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "Similarity",
+            "MMR"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dataframe",
+          "display_name": "Table",
+          "method": "perform_search",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

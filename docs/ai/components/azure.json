@@ -1,0 +1,358 @@
+{
+  "schema_version": "1.0",
+  "category": "azure",
+  "component_count": 2,
+  "components": [
+    {
+      "id": "azure.AzureOpenAIModel",
+      "category": "azure",
+      "component_type": "AzureOpenAIModel",
+      "display_name": "Azure OpenAI",
+      "description": "Generate text using Azure OpenAI LLMs.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "LanguageModel",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "Azure Chat OpenAI API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "api_version",
+          "display_name": "API Version",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "2025-02-01-preview",
+            "2025-01-01-preview",
+            "2024-12-01-preview",
+            "2024-10-01-preview",
+            "2024-09-01-preview",
+            "2024-08-01-preview",
+            "2024-07-01-preview",
+            "2024-06-01",
+            "2024-03-01-preview",
+            "2024-02-15-preview",
+            "2023-12-01-preview",
+            "2023-05-15"
+          ]
+        },
+        {
+          "name": "azure_deployment",
+          "display_name": "Deployment Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "azure_endpoint",
+          "display_name": "Azure Endpoint",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your Azure endpoint, including the resource. Example: `https://example-resource.azure.openai.com/`"
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "max_tokens",
+          "display_name": "Max Tokens",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum number of tokens to generate. Set to 0 for unlimited tokens."
+        },
+        {
+          "name": "stream",
+          "display_name": "Stream",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Stream the response from the model. Streaming works only in Chat."
+        },
+        {
+          "name": "system_message",
+          "display_name": "System Message",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "System message to pass to the model."
+        },
+        {
+          "name": "temperature",
+          "display_name": "Temperature",
+          "input_type": "SliderInput",
+          "value_type": "slider",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Controls randomness. Lower values are more deterministic, higher values are more creative."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "display_name": "Model Response",
+          "method": "text_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "model_output",
+          "display_name": "Language Model",
+          "method": "build_model",
+          "types": [
+            "LanguageModel"
+          ],
+          "selected": "LanguageModel",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "azure.AzureOpenAIEmbeddings",
+      "category": "azure",
+      "component_type": "AzureOpenAIEmbeddings",
+      "display_name": "Azure OpenAI Embeddings",
+      "description": "Generate embeddings using Azure OpenAI models.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Embeddings"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "Azure OpenAI API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "api_version",
+          "display_name": "API Version",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "2022-12-01",
+            "2023-03-15-preview",
+            "2023-05-15",
+            "2023-06-01-preview",
+            "2023-07-01-preview",
+            "2023-08-01-preview"
+          ]
+        },
+        {
+          "name": "azure_deployment",
+          "display_name": "Deployment Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "azure_endpoint",
+          "display_name": "Azure Endpoint",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your Azure endpoint, including the resource. Example: `https://example-resource.azure.openai.com/`"
+        },
+        {
+          "name": "dimensions",
+          "display_name": "Dimensions",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The number of dimensions the resulting output embeddings should have. Only supported by certain models."
+        },
+        {
+          "name": "model",
+          "display_name": "Model",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "text-embedding-3-small",
+            "text-embedding-3-large",
+            "text-embedding-ada-002"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "embeddings",
+          "display_name": "Embeddings",
+          "method": "build_embeddings",
+          "types": [
+            "Embeddings"
+          ],
+          "selected": "Embeddings",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

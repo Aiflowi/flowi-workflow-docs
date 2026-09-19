@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0",
+  "category": "exa",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "exa.ExaSearch",
+      "category": "exa",
+      "component_type": "ExaSearch",
+      "display_name": "Exa Search",
+      "description": "Exa Search toolkit for search and content retrieval",
+      "status": "BETA",
+      "legacy": false,
+      "beta": true,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Tool"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "metaphor_api_key",
+          "display_name": "Exa Search API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "search_num_results",
+          "display_name": "Search Number of Results",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "similar_num_results",
+          "display_name": "Similar Number of Results",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "use_autoprompt",
+          "display_name": "Use Autoprompt",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "tools",
+          "display_name": "Tools",
+          "method": "build_toolkit",
+          "types": [
+            "Tool"
+          ],
+          "selected": "Tool",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

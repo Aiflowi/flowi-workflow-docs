@@ -1,0 +1,157 @@
+{
+  "schema_version": "1.0",
+  "category": "confluence",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "confluence.Confluence",
+      "category": "confluence",
+      "component_type": "Confluence",
+      "display_name": "Confluence",
+      "description": "Confluence wiki collaboration platform",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "Confluence API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Atlassian Key. Create at: https://id.atlassian.com/manage-profile/security/api-tokens"
+        },
+        {
+          "name": "cloud",
+          "display_name": "Use Cloud?",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": true,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "content_format",
+          "display_name": "Content Format",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Specify content format, defaults to ContentFormat.STORAGE",
+          "options": [
+            "body.editor",
+            "body.export_view",
+            "body.anonymous_export_view",
+            "body.storage",
+            "body.view"
+          ]
+        },
+        {
+          "name": "max_pages",
+          "display_name": "Max Pages",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Maximum number of pages to retrieve in total, defaults 1000"
+        },
+        {
+          "name": "space_key",
+          "display_name": "Space Key",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "url",
+          "display_name": "Site URL",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The base URL of the Confluence Space. Example: https://<company>.atlassian.net/wiki."
+        },
+        {
+          "name": "username",
+          "display_name": "Username",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Atlassian User E-mail. Example: email@example.com"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "method": "load_documents",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.0",
+  "category": "embeddings",
+  "component_count": 2,
+  "components": [
+    {
+      "id": "embeddings.EmbeddingSimilarityComponent",
+      "category": "embeddings",
+      "component_type": "EmbeddingSimilarityComponent",
+      "display_name": "Embedding Similarity",
+      "description": "Compute selected form of similarity between two embedding vectors.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['datastax.AstraDB']"
+      ],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "embedding_vectors",
+          "display_name": "Embedding Vectors",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "A list containing exactly two data objects with embedding vectors to compare."
+        },
+        {
+          "name": "similarity_metric",
+          "display_name": "Similarity Metric",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Select the similarity metric to use.",
+          "options": [
+            "Cosine Similarity",
+            "Euclidean Distance",
+            "Manhattan Distance"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "similarity_data",
+          "display_name": "Similarity Data",
+          "method": "compute_similarity",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "embeddings.TextEmbedderComponent",
+      "category": "embeddings",
+      "component_type": "TextEmbedderComponent",
+      "display_name": "Text Embedder",
+      "description": "Generate embeddings for a given message using the specified embedding model.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['models.EmbeddingModel']"
+      ],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "embedding_model",
+          "display_name": "Embedding Model",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Embeddings"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The embedding model to use for generating embeddings."
+        },
+        {
+          "name": "message",
+          "display_name": "Message",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The message to generate embeddings for."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "embeddings",
+          "display_name": "Embedding Data",
+          "method": "generate_embeddings",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

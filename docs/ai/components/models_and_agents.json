@@ -1,0 +1,1441 @@
+{
+  "schema_version": "1.0",
+  "category": "models_and_agents",
+  "component_count": 7,
+  "components": [
+    {
+      "id": "models_and_agents.Agent",
+      "category": "models_and_agents",
+      "component_type": "Agent",
+      "display_name": "Agent",
+      "description": "Define the agent's instructions, then enter a task to complete using tools.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "add_current_date_tool",
+          "display_name": "Current Date",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If true, will add a tool to the agent that returns the current date."
+        },
+        {
+          "name": "agent_description",
+          "display_name": "Agent Description [Deprecated]",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The description of the agent. This is only used when in Tool Mode. Defaults to 'A helpful assistant with access to the following tools:' and tools are added dynamically. This feature is deprecated and will be removed in future versions."
+        },
+        {
+          "name": "api_key",
+          "display_name": "API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Overrides global provider settings. Leave blank to use your pre-configured API Key."
+        },
+        {
+          "name": "base_url_ibm_watsonx",
+          "display_name": "watsonx API Endpoint",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "The base URL of the API (IBM watsonx.ai only)",
+          "options": [
+            "https://us-south.ml.cloud.ibm.com",
+            "https://eu-de.ml.cloud.ibm.com",
+            "https://eu-gb.ml.cloud.ibm.com",
+            "https://au-syd.ml.cloud.ibm.com",
+            "https://jp-tok.ml.cloud.ibm.com",
+            "https://ca-tor.ml.cloud.ibm.com"
+          ]
+        },
+        {
+          "name": "context_id",
+          "display_name": "Context ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The context ID of the chat. Adds an extra layer to the local memory."
+        },
+        {
+          "name": "format_instructions",
+          "display_name": "Output Format Instructions",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Generic Template for structured output formatting. Valid only with Structured response."
+        },
+        {
+          "name": "handle_parsing_errors",
+          "display_name": "Handle Parse Errors",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Should the Agent fix errors when reading user input for better processing?"
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The input provided by the user for the agent to process."
+        },
+        {
+          "name": "max_iterations",
+          "display_name": "Max Iterations",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum number of attempts the agent can make to complete its task before it stops."
+        },
+        {
+          "name": "max_tokens",
+          "display_name": "Max Tokens",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Maximum number of tokens to generate. Field name varies by provider."
+        },
+        {
+          "name": "model",
+          "display_name": "Language Model",
+          "input_type": "ModelInput",
+          "value_type": "model",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select your model provider"
+        },
+        {
+          "name": "n_messages",
+          "display_name": "Number of Chat History Messages",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Number of chat history messages to retrieve."
+        },
+        {
+          "name": "output_schema",
+          "display_name": "Output Schema",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "DataFrame",
+            "Table"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Schema Validation: Define the structure and data types for structured output. No validation if no output schema."
+        },
+        {
+          "name": "project_id",
+          "display_name": "watsonx Project ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The project ID associated with the foundation model (IBM watsonx.ai only)"
+        },
+        {
+          "name": "system_prompt",
+          "display_name": "Agent Instructions",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "System Prompt: Initial instructions and context provided to guide the agent's behavior."
+        },
+        {
+          "name": "tools",
+          "display_name": "Tools",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Tool"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "These are the tools that the agent can use to help with tasks."
+        },
+        {
+          "name": "verbose",
+          "display_name": "Verbose",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "display_name": "Response",
+          "method": "message_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "models_and_agents.EmbeddingModel",
+      "category": "models_and_agents",
+      "component_type": "EmbeddingModel",
+      "display_name": "Embedding Model",
+      "description": "Generate embeddings using a specified provider.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Embeddings"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_base",
+          "display_name": "API Base URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Base URL for the API. Leave empty for default."
+        },
+        {
+          "name": "api_key",
+          "display_name": "API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Overrides global provider settings. Leave blank to use your pre-configured API Key."
+        },
+        {
+          "name": "base_url_ibm_watsonx",
+          "display_name": "watsonx API Endpoint",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "The base URL of the API (IBM watsonx.ai only)",
+          "options": [
+            "https://us-south.ml.cloud.ibm.com",
+            "https://eu-de.ml.cloud.ibm.com",
+            "https://eu-gb.ml.cloud.ibm.com",
+            "https://au-syd.ml.cloud.ibm.com",
+            "https://jp-tok.ml.cloud.ibm.com",
+            "https://ca-tor.ml.cloud.ibm.com"
+          ]
+        },
+        {
+          "name": "chunk_size",
+          "display_name": "Chunk Size",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "dimensions",
+          "display_name": "Dimensions",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The number of dimensions the resulting output embeddings should have. Only supported by certain models."
+        },
+        {
+          "name": "input_text",
+          "display_name": "Include the original text in the output",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "max_retries",
+          "display_name": "Max Retries",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "model",
+          "display_name": "Embedding Model",
+          "input_type": "ModelInput",
+          "value_type": "model",
+          "accepts": [
+            "Embeddings"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select your model provider"
+        },
+        {
+          "name": "model_kwargs",
+          "display_name": "Model Kwargs",
+          "input_type": "DictInput",
+          "value_type": "dict",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Additional keyword arguments to pass to the model. Only used by providers that support this parameter (e.g. OpenAI, Google Generative AI). Ignored for providers that do not include it in their parameter mapping."
+        },
+        {
+          "name": "ollama_base_url",
+          "display_name": "Ollama API URL",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Endpoint of the Ollama API (Ollama only). Defaults to http://localhost:11434"
+        },
+        {
+          "name": "project_id",
+          "display_name": "Project ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "IBM watsonx.ai Project ID (required for IBM watsonx.ai)"
+        },
+        {
+          "name": "request_timeout",
+          "display_name": "Request Timeout",
+          "input_type": "FloatInput",
+          "value_type": "float",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "show_progress_bar",
+          "display_name": "Show Progress Bar",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "truncate_input_tokens",
+          "display_name": "Truncate Input Tokens",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "embeddings",
+          "display_name": "Embedding Model",
+          "method": "build_embeddings",
+          "types": [
+            "Embeddings"
+          ],
+          "selected": "Embeddings",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "models_and_agents.LanguageModelComponent",
+      "category": "models_and_agents",
+      "component_type": "LanguageModelComponent",
+      "display_name": "Language Model",
+      "description": "Runs a language model given a specified provider.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "LanguageModel",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Overrides global provider settings. Leave blank to use your pre-configured API Key."
+        },
+        {
+          "name": "base_url_ibm_watsonx",
+          "display_name": "watsonx API Endpoint",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "The base URL of the API (IBM watsonx.ai only)",
+          "options": [
+            "https://us-south.ml.cloud.ibm.com",
+            "https://eu-de.ml.cloud.ibm.com",
+            "https://eu-gb.ml.cloud.ibm.com",
+            "https://au-syd.ml.cloud.ibm.com",
+            "https://jp-tok.ml.cloud.ibm.com",
+            "https://ca-tor.ml.cloud.ibm.com"
+          ]
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The input text to send to the model"
+        },
+        {
+          "name": "max_tokens",
+          "display_name": "Max Tokens",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Maximum number of tokens to generate. Field name varies by provider."
+        },
+        {
+          "name": "model",
+          "display_name": "Language Model",
+          "input_type": "ModelInput",
+          "value_type": "model",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select your model provider"
+        },
+        {
+          "name": "ollama_base_url",
+          "display_name": "Ollama API URL",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Endpoint of the Ollama API (Ollama only). Defaults to http://localhost:11434"
+        },
+        {
+          "name": "project_id",
+          "display_name": "watsonx Project ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The project ID associated with the foundation model (IBM watsonx.ai only)"
+        },
+        {
+          "name": "stream",
+          "display_name": "Stream",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Whether to stream the response"
+        },
+        {
+          "name": "system_message",
+          "display_name": "System Message",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "A system message that helps set the behavior of the assistant"
+        },
+        {
+          "name": "temperature",
+          "display_name": "Temperature",
+          "input_type": "SliderInput",
+          "value_type": "slider",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Controls randomness in responses"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "display_name": "Model Response",
+          "method": "text_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "model_output",
+          "display_name": "Language Model",
+          "method": "build_model",
+          "types": [
+            "LanguageModel"
+          ],
+          "selected": "LanguageModel",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "models_and_agents.MCPTools",
+      "category": "models_and_agents",
+      "component_type": "MCPTools",
+      "display_name": "MCP Tools",
+      "description": "Connect to an MCP server to use its tools.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "headers",
+          "display_name": "Headers",
+          "input_type": "DictInput",
+          "value_type": "dict",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "HTTP headers to include with MCP server requests. Useful for authentication (e.g., Authorization header). These headers override any headers configured in the MCP server settings."
+        },
+        {
+          "name": "mcp_server",
+          "display_name": "MCP Server",
+          "input_type": "McpInput",
+          "value_type": "mcp",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select the MCP Server that will be used by this component"
+        },
+        {
+          "name": "tool",
+          "display_name": "Tool",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select the tool to execute",
+          "options": []
+        },
+        {
+          "name": "tool_placeholder",
+          "display_name": "Tool Placeholder",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Placeholder for the tool"
+        },
+        {
+          "name": "use_cache",
+          "display_name": "Use Cached Server",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Enable caching of MCP Server and tools to improve performance. Disable to always fetch fresh tools and server updates."
+        },
+        {
+          "name": "verify_ssl",
+          "display_name": "Verify SSL Certificate",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Enable SSL certificate verification for HTTPS connections. Disable only for development/testing with self-signed certificates."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "display_name": "Response",
+          "method": "build_output",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "models_and_agents.Memory",
+      "category": "models_and_agents",
+      "component_type": "Memory",
+      "display_name": "Message History",
+      "description": "Stores or retrieves stored chat messages from AI Flowi Workflow tables or an external memory.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message",
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "context_id",
+          "display_name": "Context ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The context ID of the chat. Adds an extra layer to the local memory."
+        },
+        {
+          "name": "memory",
+          "display_name": "External Memory",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Memory"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Retrieve messages from an external memory. If empty, it will use the AI Flowi Workflow tables."
+        },
+        {
+          "name": "message",
+          "display_name": "Message",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The chat message to be stored."
+        },
+        {
+          "name": "mode",
+          "display_name": "Mode",
+          "input_type": "TabInput",
+          "value_type": "tab",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Operation mode: Store messages or Retrieve messages.",
+          "options": [
+            "Retrieve",
+            "Store"
+          ]
+        },
+        {
+          "name": "n_messages",
+          "display_name": "Number of Messages",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Number of messages to retrieve."
+        },
+        {
+          "name": "order",
+          "display_name": "Order",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "Order of the messages.",
+          "options": [
+            "Ascending",
+            "Descending"
+          ]
+        },
+        {
+          "name": "sender",
+          "display_name": "Sender",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The sender of the message. Might be Machine or User. If empty, the current sender parameter will be used."
+        },
+        {
+          "name": "sender_name",
+          "display_name": "Sender Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Filter by sender name."
+        },
+        {
+          "name": "sender_type",
+          "display_name": "Sender Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Filter by sender type.",
+          "options": [
+            "Machine",
+            "User",
+            "Machine and User"
+          ]
+        },
+        {
+          "name": "session_id",
+          "display_name": "Session ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The session ID of the chat. If empty, the current session ID parameter will be used."
+        },
+        {
+          "name": "template",
+          "display_name": "Template",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The template to use for formatting the data. It can contain the keys {text}, {sender} or any other key in the message data."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "messages_text",
+          "display_name": "Messages",
+          "method": "retrieve_messages_as_text",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "dataframe",
+          "display_name": "Table",
+          "method": "retrieve_messages_dataframe",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "models_and_agents.Prompt Template",
+      "category": "models_and_agents",
+      "component_type": "Prompt Template",
+      "display_name": "Prompt Template",
+      "description": "Create a prompt template with dynamic variables.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "template",
+          "display_name": "Template",
+          "input_type": "PromptInput",
+          "value_type": "prompt",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tool_placeholder",
+          "display_name": "Tool Placeholder",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "A placeholder input for tool mode."
+        },
+        {
+          "name": "use_double_brackets",
+          "display_name": "Use Double Brackets",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Use {{variable}} syntax instead of {variable}."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "prompt",
+          "display_name": "Prompt",
+          "method": "build_prompt",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "models_and_agents.policies",
+      "category": "models_and_agents",
+      "component_type": "policies",
+      "display_name": "Policies",
+      "description": "Component for building tool protection code from textual business policies and instructions.\nPowered by [ALTK ToolGuard](https://github.com/AgentToolkit/toolguard )",
+      "status": "BETA",
+      "legacy": false,
+      "beta": true,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Tool"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Model Provider API key"
+        },
+        {
+          "name": "enabled",
+          "display_name": "Enabled",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If `true` - guards tool calls. If `false`, skip policy validation."
+        },
+        {
+          "name": "in_tools",
+          "display_name": "Tools",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Tool"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "These are the tools that the agent can use to help with tasks."
+        },
+        {
+          "name": "mode",
+          "display_name": "Activity",
+          "input_type": "TabInput",
+          "value_type": "tab",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": true,
+          "info": "Generate new guard code or apply existing guard. Review generated files in the details panel on the right.",
+          "options": [
+            "🛠️ Generate",
+            "🛡️ Guard"
+          ]
+        },
+        {
+          "name": "model",
+          "display_name": "Language Model",
+          "input_type": "ModelInput",
+          "value_type": "model",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select LLM for Policies buildtime. We recommend using Anthropic Claude-Sonnet series for this task."
+        },
+        {
+          "name": "policies",
+          "display_name": "Policies",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "One or more clear, well-defined and self-contained business policies"
+        },
+        {
+          "name": "project",
+          "display_name": "Policies Project",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Folder name of the generated code"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "guarded_tools",
+          "display_name": "Guarded Tools",
+          "method": "guard_tools",
+          "types": [
+            "Tool"
+          ],
+          "selected": "Tool",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

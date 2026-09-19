@@ -1,0 +1,223 @@
+{
+  "schema_version": "1.0",
+  "category": "groq",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "groq.GroqModel",
+      "category": "groq",
+      "component_type": "GroqModel",
+      "display_name": "Groq",
+      "description": "Generate text using Groq.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "LanguageModel",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "Groq API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "API key for the Groq API."
+        },
+        {
+          "name": "base_url",
+          "display_name": "Groq API Base",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Base URL path for API requests, leave blank if not using a proxy or service emulator."
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "max_tokens",
+          "display_name": "Max Output Tokens",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum number of tokens to generate."
+        },
+        {
+          "name": "model_name",
+          "display_name": "Model",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The name of the model to use. Add your Groq API key to access additional available models.",
+          "options": [
+            "llama-3.1-8b-instant",
+            "llama-3.3-70b-versatile"
+          ]
+        },
+        {
+          "name": "n",
+          "display_name": "N",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Number of chat completions to generate for each prompt. Note that the API may not return the full n completions if duplicates are generated."
+        },
+        {
+          "name": "stream",
+          "display_name": "Stream",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Stream the response from the model. Streaming works only in Chat."
+        },
+        {
+          "name": "system_message",
+          "display_name": "System Message",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "System message to pass to the model."
+        },
+        {
+          "name": "temperature",
+          "display_name": "Temperature",
+          "input_type": "SliderInput",
+          "value_type": "slider",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Run inference with this temperature. Must by in the closed interval [0.0, 1.0]."
+        },
+        {
+          "name": "tool_model_enabled",
+          "display_name": "Enable Tool Models",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select if you want to use models that can work with tools. If yes, only those models will be shown."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "display_name": "Model Response",
+          "method": "text_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "model_output",
+          "display_name": "Language Model",
+          "method": "build_model",
+          "types": [
+            "LanguageModel"
+          ],
+          "selected": "LanguageModel",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

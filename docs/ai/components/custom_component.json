@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "category": "custom_component",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "custom_component.CustomComponent",
+      "category": "custom_component",
+      "component_type": "CustomComponent",
+      "display_name": "Custom Component",
+      "description": "Use as a template to create your own component.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "input_value",
+          "display_name": "Input Value",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "This is a custom component Input"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "display_name": "Output",
+          "method": "build_output",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "category": "prototypes",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "prototypes.PythonFunction",
+      "category": "prototypes",
+      "component_type": "PythonFunction",
+      "display_name": "Python Function",
+      "description": "Define and execute a Python function that returns a Data object or a Message.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "Callable",
+        "JSON",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "function_code",
+          "display_name": "Function Code",
+          "input_type": "CodeInput",
+          "value_type": "code",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The code for the function."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "function_output",
+          "display_name": "Function Callable",
+          "method": "get_function_callable",
+          "types": [
+            "Callable"
+          ],
+          "selected": "Callable",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "function_output_data",
+          "display_name": "Function Output (JSON)",
+          "method": "execute_function_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "function_output_str",
+          "display_name": "Function Output (Message)",
+          "method": "execute_function_message",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

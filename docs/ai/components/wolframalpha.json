@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "category": "wolframalpha",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "wolframalpha.WolframAlphaAPI",
+      "category": "wolframalpha",
+      "component_type": "WolframAlphaAPI",
+      "display_name": "WolframAlpha API",
+      "description": "Enables queries to WolframAlpha for computational data, facts, and calculations across various topics, delivering structured responses.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "app_id",
+          "display_name": "WolframAlpha App ID",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input Query",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Example query: 'What is the population of France?'"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dataframe",
+          "display_name": "Table",
+          "method": "fetch_content_dataframe",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

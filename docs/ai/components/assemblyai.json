@@ -1,0 +1,717 @@
+{
+  "schema_version": "1.0",
+  "category": "assemblyai",
+  "component_count": 5,
+  "components": [
+    {
+      "id": "assemblyai.AssemblyAIGetSubtitles",
+      "category": "assemblyai",
+      "component_type": "AssemblyAIGetSubtitles",
+      "display_name": "AssemblyAI Get Subtitles",
+      "description": "Export your transcript in SRT or VTT format for subtitles and closed captions",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "Assembly API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your AssemblyAI API key. You can get one from https://www.assemblyai.com/"
+        },
+        {
+          "name": "chars_per_caption",
+          "display_name": "Characters per Caption",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum number of characters per caption (0 for no limit)"
+        },
+        {
+          "name": "subtitle_format",
+          "display_name": "Subtitle Format",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The format of the captions (SRT or VTT)",
+          "options": [
+            "srt",
+            "vtt"
+          ]
+        },
+        {
+          "name": "transcription_result",
+          "display_name": "Transcription Result",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The transcription result from AssemblyAI"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "subtitles",
+          "display_name": "Subtitles",
+          "method": "get_subtitles",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "assemblyai.AssemblyAILeMUR",
+      "category": "assemblyai",
+      "component_type": "AssemblyAILeMUR",
+      "display_name": "AssemblyAI LeMUR",
+      "description": "Apply Large Language Models to spoken data using the AssemblyAI LeMUR framework",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "Assembly API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your AssemblyAI API key. You can get one from https://www.assemblyai.com/"
+        },
+        {
+          "name": "endpoint",
+          "display_name": "Endpoint",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The LeMUR endpoint to use. For 'summary' and 'question-answer', no prompt input is needed. See https://www.assemblyai.com/docs/api-reference/lemur/ for more info.",
+          "options": [
+            "task",
+            "summary",
+            "question-answer"
+          ]
+        },
+        {
+          "name": "final_model",
+          "display_name": "Final Model",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The model that is used for the final prompt after compression is performed",
+          "options": [
+            "claude3_5_sonnet",
+            "claude3_opus",
+            "claude3_haiku",
+            "claude3_sonnet"
+          ]
+        },
+        {
+          "name": "max_output_size",
+          "display_name": " Max Output Size",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Max output size in tokens, up to 4000"
+        },
+        {
+          "name": "prompt",
+          "display_name": "Input Prompt",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The text to prompt the model"
+        },
+        {
+          "name": "questions",
+          "display_name": "Questions",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Comma-separated list of your questions. Only used if Endpoint is 'question-answer'"
+        },
+        {
+          "name": "temperature",
+          "display_name": "Temperature",
+          "input_type": "FloatInput",
+          "value_type": "float",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The temperature to use for the model"
+        },
+        {
+          "name": "transcript_ids",
+          "display_name": "Transcript IDs",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Comma-separated list of transcript IDs. LeMUR can perform actions over multiple transcripts. If provided, the Transcription Result is ignored."
+        },
+        {
+          "name": "transcription_result",
+          "display_name": "Transcription Result",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The transcription result from AssemblyAI"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "lemur_response",
+          "display_name": "LeMUR Response",
+          "method": "run_lemur",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "assemblyai.AssemblyAIListTranscripts",
+      "category": "assemblyai",
+      "component_type": "AssemblyAIListTranscripts",
+      "display_name": "AssemblyAI List Transcripts",
+      "description": "Retrieve a list of transcripts from AssemblyAI with filtering options",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "Assembly API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your AssemblyAI API key. You can get one from https://www.assemblyai.com/"
+        },
+        {
+          "name": "created_on",
+          "display_name": "Created On",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Only get transcripts created on this date (YYYY-MM-DD)"
+        },
+        {
+          "name": "limit",
+          "display_name": "Limit",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Maximum number of transcripts to retrieve (default: 20, use 0 for all)"
+        },
+        {
+          "name": "status_filter",
+          "display_name": "Status Filter",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Filter by transcript status",
+          "options": [
+            "all",
+            "queued",
+            "processing",
+            "completed",
+            "error"
+          ]
+        },
+        {
+          "name": "throttled_only",
+          "display_name": "Throttled Only",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Only get throttled transcripts, overrides the status filter"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "transcript_list",
+          "display_name": "Transcript List",
+          "method": "list_transcripts",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "assemblyai.AssemblyAITranscriptionJobPoller",
+      "category": "assemblyai",
+      "component_type": "AssemblyAITranscriptionJobPoller",
+      "display_name": "AssemblyAI Poll Transcript",
+      "description": "Poll for the status of a transcription job using AssemblyAI",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "Assembly API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your AssemblyAI API key. You can get one from https://www.assemblyai.com/"
+        },
+        {
+          "name": "polling_interval",
+          "display_name": "Polling Interval",
+          "input_type": "FloatInput",
+          "value_type": "float",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The polling interval in seconds"
+        },
+        {
+          "name": "transcript_id",
+          "display_name": "Transcript ID",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The ID of the transcription job to poll"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "transcription_result",
+          "display_name": "Transcription Result",
+          "method": "poll_transcription_job",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "assemblyai.AssemblyAITranscriptionJobCreator",
+      "category": "assemblyai",
+      "component_type": "AssemblyAITranscriptionJobCreator",
+      "display_name": "AssemblyAI Start Transcript",
+      "description": "Create a transcription job for an audio file using AssemblyAI with advanced options",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "Assembly API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your AssemblyAI API key. You can get one from https://www.assemblyai.com/"
+        },
+        {
+          "name": "audio_file",
+          "display_name": "Audio File",
+          "input_type": "FileInput",
+          "value_type": "file",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The audio file to transcribe"
+        },
+        {
+          "name": "audio_file_url",
+          "display_name": "Audio File URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The URL of the audio file to transcribe (Can be used instead of a File)"
+        },
+        {
+          "name": "format_text",
+          "display_name": "Format Text",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Enable text formatting"
+        },
+        {
+          "name": "language_code",
+          "display_name": "Language",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The language of the audio file. Can be set manually if automatic language detection is disabled.\n            See https://www.assemblyai.com/docs/getting-started/supported-languages for a list of supported language codes."
+        },
+        {
+          "name": "language_detection",
+          "display_name": "Automatic Language Detection",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Enable automatic language detection"
+        },
+        {
+          "name": "punctuate",
+          "display_name": "Punctuate",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Enable automatic punctuation"
+        },
+        {
+          "name": "speaker_labels",
+          "display_name": "Enable Speaker Labels",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Enable speaker diarization"
+        },
+        {
+          "name": "speakers_expected",
+          "display_name": "Expected Number of Speakers",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Set the expected number of speakers (optional, enter a number)"
+        },
+        {
+          "name": "speech_model",
+          "display_name": "Speech Model",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The speech model to use for the transcription",
+          "options": [
+            "best",
+            "nano"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "transcript_id",
+          "display_name": "Transcript ID",
+          "method": "create_transcription_job",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

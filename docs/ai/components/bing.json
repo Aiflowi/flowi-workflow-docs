@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "category": "bing",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "bing.BingSearchAPI",
+      "category": "bing",
+      "component_type": "BingSearchAPI",
+      "display_name": "Bing Search API",
+      "description": "Call the Bing Search API.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table",
+        "Tool"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "bing_search_url",
+          "display_name": "Bing Search URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "bing_subscription_key",
+          "display_name": "Bing Subscription Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "k",
+          "display_name": "Number of results",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dataframe",
+          "display_name": "Table",
+          "method": "fetch_content_dataframe",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "tool",
+          "display_name": "Tool",
+          "method": "build_tool",
+          "types": [
+            "Tool"
+          ],
+          "selected": "Tool",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

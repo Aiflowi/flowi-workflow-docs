@@ -1,0 +1,138 @@
+{
+  "schema_version": "1.0",
+  "category": "apify",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "apify.ApifyActors",
+      "category": "apify",
+      "component_type": "ApifyActors",
+      "display_name": "Apify Actors",
+      "description": "Use Apify Actors to extract data from hundreds of places fast. This component can be used in a flow to retrieve data or as a tool with an agent.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON",
+        "Tool"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "actor_id",
+          "display_name": "Actor",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Actor name from Apify store to run. For example 'apify/website-content-crawler' to use the Website Content Crawler Actor."
+        },
+        {
+          "name": "apify_token",
+          "display_name": "Apify Token",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The API token for the Apify account."
+        },
+        {
+          "name": "dataset_fields",
+          "display_name": "Output fields",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Fields to extract from the dataset, split by commas. Other fields will be ignored. Dots in nested structures will be replaced by underscores. Sample input: 'text, metadata.title'. Sample output: {'text': 'page content here', 'metadata_title': 'page title here'}. For example, for the 'apify/website-content-crawler' Actor, you can extract the 'markdown' field, which is the content of the website in markdown format."
+        },
+        {
+          "name": "flatten_dataset",
+          "display_name": "Flatten output",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The output dataset will be converted from a nested format to a flat structure. Dots in nested structure will be replaced by underscores. This is useful for further processing of the Data object. For example, {'a': {'b': 1}} will be flattened to {'a_b': 1}."
+        },
+        {
+          "name": "run_input",
+          "display_name": "Run input",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The JSON input for the Actor run. For example for the \"apify/website-content-crawler\" Actor: {\"startUrls\":[{\"url\":\"https://docs.apify.com/academy/web-scraping-for-beginners\"}],\"maxCrawlDepth\":0}"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "display_name": "Output",
+          "method": "run_model",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "tool",
+          "display_name": "Tool",
+          "method": "build_tool",
+          "types": [
+            "Tool"
+          ],
+          "selected": "Tool",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

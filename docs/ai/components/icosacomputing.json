@@ -1,0 +1,146 @@
+{
+  "schema_version": "1.0",
+  "category": "icosacomputing",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "icosacomputing.Combinatorial Reasoner",
+      "category": "icosacomputing",
+      "component_type": "Combinatorial Reasoner",
+      "display_name": "Combinatorial Reasoner",
+      "description": "Uses Combinatorial Optimization to construct an optimal prompt with embedded reasons. Sign up here:\nhttps://forms.gle/oWNv2NKjBNaqqvCx6",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "model_name",
+          "display_name": "Model Name",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "gpt-4o-mini",
+            "gpt-4o",
+            "gpt-4.1",
+            "gpt-4.1-mini",
+            "gpt-4.1-nano",
+            "gpt-4.5-preview",
+            "gpt-4-turbo",
+            "gpt-4-turbo-preview",
+            "gpt-4",
+            "gpt-3.5-turbo"
+          ]
+        },
+        {
+          "name": "openai_api_key",
+          "display_name": "OpenAI API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The OpenAI API Key to use for the OpenAI model."
+        },
+        {
+          "name": "password",
+          "display_name": "Combinatorial Reasoner Password",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Password to authenticate access to Icosa CR API."
+        },
+        {
+          "name": "prompt",
+          "display_name": "Prompt",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "username",
+          "display_name": "Username",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Username to authenticate access to Icosa CR API"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "optimized_prompt",
+          "display_name": "Optimized Prompt",
+          "method": "build_prompt",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "reasons",
+          "display_name": "Selected Reasons",
+          "method": "build_reasons",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

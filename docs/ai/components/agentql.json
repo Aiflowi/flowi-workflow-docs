@@ -1,0 +1,210 @@
+{
+  "schema_version": "1.0",
+  "category": "agentql",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "agentql.AgentQL",
+      "category": "agentql",
+      "component_type": "AgentQL",
+      "display_name": "Extract Web Data",
+      "description": "Extracts structured data from a web page using an AgentQL query or a Natural Language description.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "AgentQL API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your AgentQL API key from dev.agentql.com"
+        },
+        {
+          "name": "is_screenshot_enabled",
+          "display_name": "Enable screenshot",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Take a screenshot before extracting data. Returned in 'metadata' as a Base64 string."
+        },
+        {
+          "name": "is_scroll_to_bottom_enabled",
+          "display_name": "Enable scroll to bottom",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Scroll to bottom of the page before extracting data."
+        },
+        {
+          "name": "is_stealth_mode_enabled",
+          "display_name": "Enable Stealth Mode (Beta)",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Enable experimental anti-bot evasion strategies. May not work for all websites at all times."
+        },
+        {
+          "name": "mode",
+          "display_name": "Request Mode",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "'standard' uses deep data analysis, while 'fast' trades some depth of analysis for speed.",
+          "options": [
+            "fast",
+            "standard"
+          ]
+        },
+        {
+          "name": "prompt",
+          "display_name": "Prompt",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "A Natural Language description of the data to extract from the page. Alternative to AgentQL query."
+        },
+        {
+          "name": "query",
+          "display_name": "AgentQL Query",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The AgentQL query to execute. Learn more at https://docs.agentql.com/agentql-query or use a prompt."
+        },
+        {
+          "name": "timeout",
+          "display_name": "Timeout",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Seconds to wait for a request."
+        },
+        {
+          "name": "url",
+          "display_name": "URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The URL of the public web page you want to extract data from."
+        },
+        {
+          "name": "wait_for",
+          "display_name": "Wait For",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Seconds to wait for the page to load before extracting data."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "method": "build_output",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

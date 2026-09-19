@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0",
+  "last_audited": "2026-09-18",
+  "features": [
+    {
+      "feature": "Visual workflow editor",
+      "status": "AVAILABLE",
+      "evidence_scope": "audited source",
+      "public_note": "Build workflows from reusable components and typed connections."
+    },
+    {
+      "feature": "Built-in component catalog",
+      "status": "AVAILABLE",
+      "evidence_scope": "audited component index",
+      "public_note": "514 built-in components across 101 categories in the current audited catalog."
+    },
+    {
+      "feature": "Custom Components",
+      "status": "AVAILABLE",
+      "evidence_scope": "audited source/docs",
+      "public_note": "Custom Python components can define typed inputs, outputs and runtime behavior."
+    },
+    {
+      "feature": "Telegram Bot webhook integration",
+      "status": "AVAILABLE_EXTENSION",
+      "evidence_scope": "owner-supplied extension code and verified UI/runtime architecture",
+      "public_note": "Uses built-in Webhook plus documented Telegram Webhook Setup and Telegram Update Parser extensions. These extensions are not counted as built-in components."
+    },
+    {
+      "feature": "Universal Webhook",
+      "status": "AVAILABLE",
+      "evidence_scope": "audited source",
+      "public_note": "Verified methods: GET, POST, PUT, PATCH and DELETE; supports test/production behavior and multiple response modes."
+    },
+    {
+      "feature": "Schedule Trigger",
+      "status": "AVAILABLE",
+      "evidence_scope": "audited component catalog/source",
+      "public_note": "Schedule Trigger exists as a built-in trigger component."
+    },
+    {
+      "feature": "Webhook Response",
+      "status": "AVAILABLE",
+      "evidence_scope": "audited source",
+      "public_note": "Used for flow-controlled webhook responses."
+    },
+    {
+      "feature": "Google Connections — Docs",
+      "status": "AVAILABLE",
+      "evidence_scope": "audited source",
+      "public_note": "Verified shared Google OAuth Connection support."
+    },
+    {
+      "feature": "Google Connections — Drive",
+      "status": "AVAILABLE",
+      "evidence_scope": "audited source",
+      "public_note": "Verified shared Google OAuth Connection support."
+    },
+    {
+      "feature": "Google Connections — Sheets",
+      "status": "AVAILABLE",
+      "evidence_scope": "audited source",
+      "public_note": "Verified shared Google OAuth Connection support."
+    },
+    {
+      "feature": "Google Connections — Slides",
+      "status": "AVAILABLE",
+      "evidence_scope": "audited source",
+      "public_note": "Verified shared Google OAuth Connection support."
+    },
+    {
+      "feature": "Gmail through shared Google Connections",
+      "status": "NOT_VERIFIED",
+      "evidence_scope": "audited source",
+      "public_note": "The audited Gmail component uses a separate credential path; do not claim shared Google Connections support yet."
+    },
+    {
+      "feature": "Flow-level Ask AI — analyze/context",
+      "status": "AVAILABLE",
+      "evidence_scope": "audited source",
+      "public_note": "Builds structured flow/component context for AI assistance."
+    },
+    {
+      "feature": "Flow-level Ask AI — generate/materialize flow",
+      "status": "AVAILABLE",
+      "evidence_scope": "audited source",
+      "public_note": "Validates proposed components against the installed catalog and materializes workflow artifacts."
+    },
+    {
+      "feature": "Flow-level Ask AI — import as new flow",
+      "status": "AVAILABLE",
+      "evidence_scope": "audited source",
+      "public_note": "Verified."
+    },
+    {
+      "feature": "Flow-level Ask AI — replace current flow",
+      "status": "AVAILABLE",
+      "evidence_scope": "audited source",
+      "public_note": "Verified with confirmation and locked-flow protection."
+    },
+    {
+      "feature": "Flow-level Ask AI — append/merge current flow",
+      "status": "NOT_VERIFIED",
+      "evidence_scope": "audited source",
+      "public_note": "No append/merge implementation was verified in the audited path."
+    },
+    {
+      "feature": "Node-level Ask AI — explain/diagnose/configure/improve",
+      "status": "AVAILABLE",
+      "evidence_scope": "audited source",
+      "public_note": "Uses supplied component/flow context and source; should not claim execution or modification unless it occurred."
+    },
+    {
+      "feature": "Node-level Ask AI — automatic node modification",
+      "status": "PLANNED",
+      "evidence_scope": "product roadmap supplied by owner",
+      "public_note": "Do not advertise as released until implementation is shipped and re-audited."
+    },
+    {
+      "feature": "Store / Marketplace page",
+      "status": "BETA",
+      "evidence_scope": "audited source",
+      "public_note": "A Store interface exists and is marked Beta in the audited frontend."
+    },
+    {
+      "feature": "Marketplace bundles",
+      "status": "COMING_SOON",
+      "evidence_scope": "audited source",
+      "public_note": "The Store UI labels Bundles as coming soon."
+    },
+    {
+      "feature": "Import workflow JSON",
+      "status": "AVAILABLE",
+      "evidence_scope": "audited source",
+      "public_note": "Includes compatibility handling for legacy edge/output formats."
+    },
+    {
+      "feature": "Export workflow JSON",
+      "status": "AVAILABLE",
+      "evidence_scope": "audited source",
+      "public_note": "Default export path applies credential sanitization; users should still avoid putting secrets in ordinary text fields."
+    },
+    {
+      "feature": "Controlled component update/migration",
+      "status": "AVAILABLE",
+      "evidence_scope": "audited source",
+      "public_note": "Can update component structure while preserving compatible values; breaking updates can require confirmation."
+    }
+  ]
+}

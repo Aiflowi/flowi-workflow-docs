@@ -1,0 +1,1299 @@
+{
+  "schema_version": "1.0",
+  "category": "jigsawstack",
+  "component_count": 11,
+  "components": [
+    {
+      "id": "jigsawstack.JigsawStackAIScraper",
+      "category": "jigsawstack",
+      "component_type": "JigsawStackAIScraper",
+      "display_name": "AI Scraper",
+      "description": "Scrape any website instantly and get consistent structured data         in seconds without writing any css selector code",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "JigsawStack API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your JigsawStack API key for authentication"
+        },
+        {
+          "name": "element_prompts",
+          "display_name": "Element Prompts",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "Items on the page to be scraped (maximum 5). E.g. 'Plan price', 'Plan title'"
+        },
+        {
+          "name": "html",
+          "display_name": "HTML",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "HTML content to scrape. Either url or html is required, but not both."
+        },
+        {
+          "name": "root_element_selector",
+          "display_name": "Root Element Selector",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "CSS selector to limit the scope of scraping to a specific element and its children"
+        },
+        {
+          "name": "url",
+          "display_name": "URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "URL of the page to scrape. Either url or html is required, but not both."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "scrape_results",
+          "display_name": "AI Scraper Results",
+          "method": "scrape",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "jigsawstack.JigsawStackAISearch",
+      "category": "jigsawstack",
+      "component_type": "JigsawStackAISearch",
+      "display_name": "AI Web Search",
+      "description": "Effortlessly search the Web and get access to high-quality results powered with AI.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "ai_overview",
+          "display_name": "AI Overview",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Include AI powered overview in the search results"
+        },
+        {
+          "name": "api_key",
+          "display_name": "JigsawStack API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your JigsawStack API key for authentication"
+        },
+        {
+          "name": "query",
+          "display_name": "Query",
+          "input_type": "QueryInput",
+          "value_type": "query",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The search value. The maximum query character length is 400"
+        },
+        {
+          "name": "safe_search",
+          "display_name": "Safe Search",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Enable safe search to filter out adult content",
+          "options": [
+            "moderate",
+            "strict",
+            "off"
+          ]
+        },
+        {
+          "name": "spell_check",
+          "display_name": "Spell Check",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Spell check the search query"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "search_results",
+          "display_name": "AI Search Results",
+          "method": "search",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "content_text",
+          "display_name": "Content Text",
+          "method": "get_content_text",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "jigsawstack.JigsawStackFileRead",
+      "category": "jigsawstack",
+      "component_type": "JigsawStackFileRead",
+      "display_name": "File Read",
+      "description": "Read any previously uploaded file seamlessly from         JigsawStack File Storage and use it in your AI applications.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "JigsawStack API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your JigsawStack API key for authentication"
+        },
+        {
+          "name": "key",
+          "display_name": "Key",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The key used to retrieve the file from JigsawStack File Storage."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "file_path",
+          "display_name": "File Path",
+          "method": "read_and_save_file",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "jigsawstack.JigsawStackFileUpload",
+      "category": "jigsawstack",
+      "component_type": "JigsawStackFileUpload",
+      "display_name": "File Upload",
+      "description": "Store any file seamlessly on JigsawStack File Storage and use it in your AI applications.         Supports various file types including images, documents, and more.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "JigsawStack API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your JigsawStack API key for authentication"
+        },
+        {
+          "name": "file",
+          "display_name": "File",
+          "input_type": "FileInput",
+          "value_type": "file",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Upload file to be stored on JigsawStack File Storage."
+        },
+        {
+          "name": "key",
+          "display_name": "Key",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The key used to store the file on JigsawStack File Storage.                 If not provided, a unique key will be generated."
+        },
+        {
+          "name": "overwrite",
+          "display_name": "Overwrite Existing File",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If true, will overwrite the existing file with the same key.                 If false, will return an error if the file already exists."
+        },
+        {
+          "name": "temp_public_url",
+          "display_name": "Return Temporary Public URL",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "If true, will return a temporary public URL which lasts for a limited time.                 If false, will return the file store key which can only be accessed by the owner."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "file_upload_result",
+          "display_name": "File Store Result",
+          "method": "upload_file",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "jigsawstack.JigsawStackImageGeneration",
+      "category": "jigsawstack",
+      "component_type": "JigsawStackImageGeneration",
+      "display_name": "Image Generation",
+      "description": "Generate an image based on the given text by employing AI models like Flux,         Stable Diffusion, and other top models.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "JigsawStack API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your JigsawStack API key for authentication"
+        },
+        {
+          "name": "aspect_ratio",
+          "display_name": "Aspect Ratio",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The aspect ratio of the generated image. Must be one of the following:                '1:1', '16:9', '21:9', '3:2', '2:3', '4:5', '5:4', '3:4', '4:3', '9:16', '9:21'                 Default is 1:1."
+        },
+        {
+          "name": "file_store_key",
+          "display_name": "File Store Key",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The key used to store the image on Jigsawstack File Storage. Not required if url is specified."
+        },
+        {
+          "name": "guidance",
+          "display_name": "Guidance Scale",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "Higher guidance forces the model to better follow the prompt,                 but may result in lower quality output. Must be between 1-28."
+        },
+        {
+          "name": "height",
+          "display_name": "Height",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The height of the image. Must be between 256-1920 pixels."
+        },
+        {
+          "name": "negative_prompt",
+          "display_name": "Negative Prompt",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The text prompt to avoid in the generated image.                 Must be between 1-5000 characters."
+        },
+        {
+          "name": "output_format",
+          "display_name": "Output Format",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The output format of the generated image. Must be one of the following values:                png or svg",
+          "options": [
+            "png",
+            "svg"
+          ]
+        },
+        {
+          "name": "prompt",
+          "display_name": "Prompt",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The text prompt to generate the image from. Must be between 1-5000 characters."
+        },
+        {
+          "name": "seed",
+          "display_name": "Seed",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "Makes generation deterministic.                Using the same seed and set of parameters will produce identical image each time."
+        },
+        {
+          "name": "steps",
+          "display_name": "Steps",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The number of denoising steps. Must be between 1-90.                 Higher values produce better quality images but take more time to generate."
+        },
+        {
+          "name": "url",
+          "display_name": "URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "A valid URL where the generated image will be sent."
+        },
+        {
+          "name": "width",
+          "display_name": "Width",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The width of the image. Must be between 256-1920 pixels."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image_generation_results",
+          "display_name": "Image Generation Results",
+          "method": "generate_image",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "jigsawstack.JigsawStackNSFW",
+      "category": "jigsawstack",
+      "component_type": "JigsawStackNSFW",
+      "display_name": "NSFW Detection",
+      "description": "Detect if image/video contains NSFW content",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "JigsawStack API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your JigsawStack API key for authentication"
+        },
+        {
+          "name": "url",
+          "display_name": "URL",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "URL of the image or video to analyze"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "nsfw_result",
+          "display_name": "NSFW Analysis",
+          "method": "detect_nsfw",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "jigsawstack.JigsawStackObjectDetection",
+      "category": "jigsawstack",
+      "component_type": "JigsawStackObjectDetection",
+      "display_name": "Object Detection",
+      "description": "Perform object detection on images using JigsawStack's Object Detection Model,         capable of image grounding, segmentation and computer use.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "annotated_image",
+          "display_name": "Return Annotated Image",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If true, will return an url for annotated image with detected objects."
+        },
+        {
+          "name": "api_key",
+          "display_name": "JigsawStack API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your JigsawStack API key for authentication"
+        },
+        {
+          "name": "features",
+          "display_name": "Features",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Select the features to enable for object detection",
+          "options": [
+            "object_detection",
+            "gui"
+          ]
+        },
+        {
+          "name": "file_store_key",
+          "display_name": "File Store Key",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The key used to store the image on Jigsawstack File Storage. Not required if url is specified."
+        },
+        {
+          "name": "prompts",
+          "display_name": "Prompts",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The prompts to ground the object detection model.                 You can pass a list of comma-separated prompts to extract different information from the image."
+        },
+        {
+          "name": "return_type",
+          "display_name": "Return Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Select the return type for the object detection results such as masks or annotations.",
+          "options": [
+            "url",
+            "base64"
+          ]
+        },
+        {
+          "name": "url",
+          "display_name": "URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The image URL. Not required if file_store_key is specified."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "object_detection_results",
+          "display_name": "Object Detection results",
+          "method": "detect_objects",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "jigsawstack.JigsawStackSentiment",
+      "category": "jigsawstack",
+      "component_type": "JigsawStackSentiment",
+      "display_name": "Sentiment Analysis",
+      "description": "Analyze sentiment of text using JigsawStack AI",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "JigsawStack API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your JigsawStack API key for authentication"
+        },
+        {
+          "name": "text",
+          "display_name": "Text",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "Text to analyze for sentiment"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "sentiment_data",
+          "display_name": "Sentiment Data",
+          "method": "analyze_sentiment",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "sentiment_text",
+          "display_name": "Sentiment Text",
+          "method": "get_sentiment_text",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "jigsawstack.JigsawStackTextToSQL",
+      "category": "jigsawstack",
+      "component_type": "JigsawStackTextToSQL",
+      "display_name": "Text to SQL",
+      "description": "Convert natural language to SQL queries using JigsawStack AI",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "JigsawStack API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your JigsawStack API key for authentication"
+        },
+        {
+          "name": "file_store_key",
+          "display_name": "File Store Key",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The key used to store the database schema on Jigsawstack file Storage. Not required if sql_schema is specified."
+        },
+        {
+          "name": "prompt",
+          "display_name": "Prompt",
+          "input_type": "QueryInput",
+          "value_type": "query",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "Natural language description of the SQL query you want to generate"
+        },
+        {
+          "name": "sql_schema",
+          "display_name": "SQL Schema",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The database schema information. Can be a CREATE TABLE statement or schema description. Specifying this parameter improves SQL generation accuracy by applying database-specific syntax and optimizations."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "sql_query",
+          "display_name": "SQL Query",
+          "method": "generate_sql",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "jigsawstack.JigsawStackTextTranslate",
+      "category": "jigsawstack",
+      "component_type": "JigsawStackTextTranslate",
+      "display_name": "Text Translate",
+      "description": "Translate text from one language to another with support for multiple text formats.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "JigsawStack API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your JigsawStack API key for authentication"
+        },
+        {
+          "name": "target_language",
+          "display_name": "Target Language",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The language code of the target language to translate to.                 Language code is identified by a unique ISO 639-1 two-letter code"
+        },
+        {
+          "name": "text",
+          "display_name": "Text",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The text to translate. This can be a single string or a list of strings.                 If a list is provided, each string will be translated separately."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "translation_results",
+          "display_name": "Translation Results",
+          "method": "translation",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "jigsawstack.JigsawStackVOCR",
+      "category": "jigsawstack",
+      "component_type": "JigsawStackVOCR",
+      "display_name": "VOCR",
+      "description": "Extract data from any document type in a consistent structure with fine-tuned         vLLMs for the highest accuracy",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "JigsawStack API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your JigsawStack API key for authentication"
+        },
+        {
+          "name": "file_store_key",
+          "display_name": "File Store Key",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The key used to store the image on Jigsawstack File Storage. Not required if url is specified."
+        },
+        {
+          "name": "page_range_end",
+          "display_name": "Page Range End",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Page range end limit for the document. If not specified, all pages will be processed."
+        },
+        {
+          "name": "page_range_start",
+          "display_name": "Page Range",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Page range start limit for the document. If not specified, all pages will be processed."
+        },
+        {
+          "name": "prompts",
+          "display_name": "Prompts",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The prompts used to describe the image. Default prompt is Describe the image in detail.                 You can pass a list of comma-separated prompts to extract different information from the image."
+        },
+        {
+          "name": "url",
+          "display_name": "URL",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The image or document url. Not required if file_store_key is specified."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "vocr_results",
+          "display_name": "VOCR results",
+          "method": "vocr",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

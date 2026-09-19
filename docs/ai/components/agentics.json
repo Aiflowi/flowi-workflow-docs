@@ -1,0 +1,614 @@
+{
+  "schema_version": "1.0",
+  "category": "agentics",
+  "component_count": 3,
+  "components": [
+    {
+      "id": "agentics.AgenerateComponent",
+      "category": "agentics",
+      "component_type": "AgenerateComponent",
+      "display_name": "aGenerate",
+      "description": "Generate mock data for user defined schema. If a dataframe is provided, the component will generate similar rows.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Overrides global provider settings. Leave blank to use your pre-configured API Key."
+        },
+        {
+          "name": "base_url_ibm_watsonx",
+          "display_name": "Watsonx API Endpoint",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "API endpoint URL for IBM WatsonX (shown only when WatsonX is selected).",
+          "options": [
+            "https://us-south.ml.cloud.ibm.com",
+            "https://eu-de.ml.cloud.ibm.com",
+            "https://eu-gb.ml.cloud.ibm.com",
+            "https://au-syd.ml.cloud.ibm.com",
+            "https://jp-tok.ml.cloud.ibm.com",
+            "https://ca-tor.ml.cloud.ibm.com"
+          ]
+        },
+        {
+          "name": "batch_size",
+          "display_name": "Number of Rows to Generate",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Number of new synthetic rows to generate. When an Input Table is provided, the generated rows are appended to the original data."
+        },
+        {
+          "name": "instructions",
+          "display_name": "Instructions",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional natural language instructions to guide the synthetic data generation process."
+        },
+        {
+          "name": "model",
+          "display_name": "Language Model",
+          "input_type": "ModelInput",
+          "value_type": "model",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select your model provider"
+        },
+        {
+          "name": "ollama_base_url",
+          "display_name": "Ollama API URL",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "API endpoint for Ollama (shown only when Ollama is selected). Defaults to http://localhost:11434."
+        },
+        {
+          "name": "project_id",
+          "display_name": "Watsonx Project ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Project ID for IBM WatsonX workspace (shown only when WatsonX is selected)."
+        },
+        {
+          "name": "schema",
+          "display_name": "Schema",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "DataFrame",
+            "Table"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Define the structure of data to generate. Specify column names, descriptions, and types. Used only when input DataFrame is not provided."
+        },
+        {
+          "name": "source",
+          "display_name": "Input Table",
+          "input_type": "DataFrameInput",
+          "value_type": "other",
+          "accepts": [
+            "DataFrame",
+            "Table"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Provide example DataFrame to learn from and generate similar data. Only the first 50 rows will be used as examples."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "states",
+          "display_name": "Output Table",
+          "method": "aGenerate",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "agentics.AMapComponent",
+      "category": "agentics",
+      "component_type": "AMapComponent",
+      "display_name": "aMap",
+      "description": "Augment the input dataframe adding new columns defined in the input schema. Rows are processed independently and in parallel using LLMs.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Overrides global provider settings. Leave blank to use your pre-configured API Key."
+        },
+        {
+          "name": "append_to_input_columns",
+          "display_name": "Keep Source Columns",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Keep original input columns in the output. If disabled, only newly generated columns are returned. This is ignored if As List is set to True."
+        },
+        {
+          "name": "base_url_ibm_watsonx",
+          "display_name": "Watsonx API Endpoint",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "API endpoint URL for IBM WatsonX (shown only when WatsonX is selected).",
+          "options": [
+            "https://us-south.ml.cloud.ibm.com",
+            "https://eu-de.ml.cloud.ibm.com",
+            "https://eu-gb.ml.cloud.ibm.com",
+            "https://au-syd.ml.cloud.ibm.com",
+            "https://jp-tok.ml.cloud.ibm.com",
+            "https://ca-tor.ml.cloud.ibm.com"
+          ]
+        },
+        {
+          "name": "instructions",
+          "display_name": "Instructions",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Natural language instructions describing how to transform each input row into the output schema."
+        },
+        {
+          "name": "model",
+          "display_name": "Language Model",
+          "input_type": "ModelInput",
+          "value_type": "model",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select your model provider"
+        },
+        {
+          "name": "ollama_base_url",
+          "display_name": "Ollama API URL",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "API endpoint for Ollama (shown only when Ollama is selected). Defaults to http://localhost:11434."
+        },
+        {
+          "name": "project_id",
+          "display_name": "Watsonx Project ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Project ID for IBM WatsonX workspace (shown only when WatsonX is selected)."
+        },
+        {
+          "name": "return_multiple_instances",
+          "display_name": "As List",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If True, generate multiple instances of the provided schema for each input row concatenating all them."
+        },
+        {
+          "name": "schema",
+          "display_name": "Schema",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "DataFrame",
+            "Table"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Define the structure of data to generate. Specify column names, descriptions, and types."
+        },
+        {
+          "name": "source",
+          "display_name": "Input Table",
+          "input_type": "DataFrameInput",
+          "value_type": "other",
+          "accepts": [
+            "DataFrame",
+            "Table"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Input DataFrame to transform. The schema is automatically inferred from column names and types."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "states",
+          "display_name": "Output Table",
+          "method": "aMap",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "agentics.AreduceComponent",
+      "category": "agentics",
+      "component_type": "AreduceComponent",
+      "display_name": "aReduce",
+      "description": "Analyze the entire input dataframe at once and generate a new dataframe following the instruction and the required schema",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Overrides global provider settings. Leave blank to use your pre-configured API Key."
+        },
+        {
+          "name": "base_url_ibm_watsonx",
+          "display_name": "Watsonx API Endpoint",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "API endpoint URL for IBM WatsonX (shown only when WatsonX is selected).",
+          "options": [
+            "https://us-south.ml.cloud.ibm.com",
+            "https://eu-de.ml.cloud.ibm.com",
+            "https://eu-gb.ml.cloud.ibm.com",
+            "https://au-syd.ml.cloud.ibm.com",
+            "https://jp-tok.ml.cloud.ibm.com",
+            "https://ca-tor.ml.cloud.ibm.com"
+          ]
+        },
+        {
+          "name": "instructions",
+          "display_name": "Instructions",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Natural language instructions describing how to aggregate the input data into the output schema."
+        },
+        {
+          "name": "model",
+          "display_name": "Language Model",
+          "input_type": "ModelInput",
+          "value_type": "model",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select your model provider"
+        },
+        {
+          "name": "ollama_base_url",
+          "display_name": "Ollama API URL",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "API endpoint for Ollama (shown only when Ollama is selected). Defaults to http://localhost:11434."
+        },
+        {
+          "name": "project_id",
+          "display_name": "Watsonx Project ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Project ID for IBM WatsonX workspace (shown only when WatsonX is selected)."
+        },
+        {
+          "name": "return_multiple_instances",
+          "display_name": "As List",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If True, generate a list of instances of the provided schema."
+        },
+        {
+          "name": "schema",
+          "display_name": "Schema",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "DataFrame",
+            "Table"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Define the structure of data to generate. Specify column names, descriptions, and types."
+        },
+        {
+          "name": "source",
+          "display_name": "Input Table",
+          "input_type": "DataFrameInput",
+          "value_type": "other",
+          "accepts": [
+            "DataFrame",
+            "Table"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Input DataFrame to aggregate. The schema is automatically inferred from column names and types."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "states",
+          "display_name": "Output Table",
+          "method": "aReduce",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

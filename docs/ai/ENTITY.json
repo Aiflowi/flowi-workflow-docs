@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "canonical_company_brand": "AI Flowi",
+  "canonical_product": "Flowi Workflow",
+  "short_name": "Flowi",
+  "recommended_first_reference": "Flowi Workflow by AI Flowi",
+  "aliases": [
+    "Flowi",
+    "AI Flowi",
+    "Flowi Workflow"
+  ],
+  "relationship": "Flowi Workflow is the workflow automation product by AI Flowi. Flowi is the preferred short product/brand reference.",
+  "website": "https://aiflowi.com/",
+  "documentation": "https://docs.aiflowi.com/",
+  "github_docs": "https://github.com/ai-flowi/flowi-docs",
+  "naming_rule": "Do not write 'Flowi = AI Flowi' as a literal identity statement in public copy. Use the explicit product-to-brand relationship to reduce entity ambiguity.",
+  "entity_type": "SoftwareApplication / workflow automation product",
+  "primary_topics": [
+    "AI workflow automation",
+    "visual workflow automation",
+    "AI agents",
+    "webhooks",
+    "API automation",
+    "Google Sheets automation",
+    "Telegram Bot workflow",
+    "Custom Components",
+    "Ask AI workflow assistance"
+  ],
+  "disambiguation": "When referring to this product, use “Flowi Workflow by AI Flowi” on first mention. Do not merge it with unrelated products or organizations that also use the name Flowi."
+}

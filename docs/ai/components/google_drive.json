@@ -1,0 +1,1718 @@
+{
+  "schema_version": "1.0",
+  "category": "google_drive",
+  "component_count": 15,
+  "components": [
+    {
+      "id": "google_drive.GoogleDriveCopyFile",
+      "category": "google_drive",
+      "component_type": "GoogleDriveCopyFile",
+      "display_name": "Copy File",
+      "description": "Creates a copy of a Google Drive file.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "destination_folder_id",
+          "display_name": "Destination Folder ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional folder for the new copy."
+        },
+        {
+          "name": "file_id",
+          "display_name": "File ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "new_name",
+          "display_name": "New Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional new name for the copied file."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "file",
+          "display_name": "Copied File",
+          "method": "copy_file",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_drive.GoogleDriveCreateFolder",
+      "category": "google_drive",
+      "component_type": "GoogleDriveCreateFolder",
+      "display_name": "Create Folder",
+      "description": "Creates a folder in Google Drive using a connected Google account.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "description",
+          "display_name": "Description",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional folder description."
+        },
+        {
+          "name": "folder_name",
+          "display_name": "Folder Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Name of the new Google Drive folder."
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "parent_folder_id",
+          "display_name": "Parent Folder ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional Google Drive folder ID. Leave empty to create the folder in My Drive."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "folder",
+          "display_name": "Folder",
+          "method": "create_folder",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_drive.GoogleDriveDeleteFile",
+      "category": "google_drive",
+      "component_type": "GoogleDriveDeleteFile",
+      "display_name": "Delete Permanently",
+      "description": "Permanently deletes a Google Drive file or folder.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "confirm_delete",
+          "display_name": "Confirm Permanent Delete",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "This operation cannot be undone."
+        },
+        {
+          "name": "file_id",
+          "display_name": "File ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "delete_file",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_drive.GoogleDriveDownloadFile",
+      "category": "google_drive",
+      "component_type": "GoogleDriveDownloadFile",
+      "display_name": "Download File",
+      "description": "Downloads a regular file from Google Drive and returns a Flowi-compatible server file.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "file_id",
+          "display_name": "File ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Google Drive file ID."
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "file",
+          "display_name": "File",
+          "method": "download_file",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_drive.GoogleDriveExportFile",
+      "category": "google_drive",
+      "component_type": "GoogleDriveExportFile",
+      "display_name": "Export File",
+      "description": "Exports Google Docs, Sheets or Slides into standard file formats.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "export_format",
+          "display_name": "Export Format",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Available formats depend on the source Google Workspace file type.",
+          "options": [
+            "PDF",
+            "DOCX",
+            "XLSX",
+            "CSV",
+            "PPTX",
+            "TXT"
+          ]
+        },
+        {
+          "name": "file_id",
+          "display_name": "File ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "ID of a Google Docs, Sheets or Slides file."
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "file",
+          "display_name": "Exported File",
+          "method": "export_file",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_drive.GoogleDriveGetFile",
+      "category": "google_drive",
+      "component_type": "GoogleDriveGetFile",
+      "display_name": "Get File",
+      "description": "Gets metadata for a Google Drive file or folder using a connected Google account.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "file_id",
+          "display_name": "File ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Google Drive file or folder ID."
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "file",
+          "display_name": "File",
+          "method": "get_file",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_drive.GoogleDriveListFiles",
+      "category": "google_drive",
+      "component_type": "GoogleDriveListFiles",
+      "display_name": "List Files",
+      "description": "Lists files from a connected Google Drive account using Flowi-managed OAuth credentials.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "include_trashed",
+          "display_name": "Include Trashed Files",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "order_by",
+          "display_name": "Order By",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "modifiedTime desc",
+            "createdTime desc",
+            "name",
+            "name desc",
+            "modifiedTime"
+          ]
+        },
+        {
+          "name": "page_size",
+          "display_name": "Maximum Results",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Maximum number of files to return. Google Drive allows up to 1000 per request."
+        },
+        {
+          "name": "query",
+          "display_name": "Drive Query",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional Google Drive files.list q expression. Example: name contains 'Report'."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "display_name": "Files",
+          "method": "list_files",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_drive.GoogleDriveMoveFile",
+      "category": "google_drive",
+      "component_type": "GoogleDriveMoveFile",
+      "display_name": "Move File",
+      "description": "Moves a Google Drive file or folder to another folder.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "destination_folder_id",
+          "display_name": "Destination Folder ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "file_id",
+          "display_name": "File ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "file",
+          "display_name": "File",
+          "method": "move_file",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_drive.GoogleDriveRenameFile",
+      "category": "google_drive",
+      "component_type": "GoogleDriveRenameFile",
+      "display_name": "Rename File",
+      "description": "Renames a Google Drive file or folder.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "file_id",
+          "display_name": "File ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "new_name",
+          "display_name": "New Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "file",
+          "display_name": "File",
+          "method": "rename_file",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_drive.GoogleDriveRestoreFile",
+      "category": "google_drive",
+      "component_type": "GoogleDriveRestoreFile",
+      "display_name": "Restore File",
+      "description": "Restores a Google Drive file or folder from trash.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "file_id",
+          "display_name": "File ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "file",
+          "display_name": "File",
+          "method": "restore_file",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_drive.GoogleDriveTrashFile",
+      "category": "google_drive",
+      "component_type": "GoogleDriveTrashFile",
+      "display_name": "Trash File",
+      "description": "Moves a Google Drive file or folder to trash.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "file_id",
+          "display_name": "File ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "file",
+          "display_name": "File",
+          "method": "trash_file",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_drive.GoogleDriveUploadFile",
+      "category": "google_drive",
+      "component_type": "GoogleDriveUploadFile",
+      "display_name": "Upload File",
+      "description": "Uploads a Flowi file to Google Drive using a connected Google account.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "description",
+          "display_name": "Description",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "drive_file_name",
+          "display_name": "Google Drive File Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional. Leave blank to use the uploaded file's original name."
+        },
+        {
+          "name": "file_path",
+          "display_name": "File",
+          "input_type": "FileInput",
+          "value_type": "file",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "File to upload to Google Drive."
+        },
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "mime_type",
+          "display_name": "MIME Type",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional MIME type. Leave blank to detect it from the file name."
+        },
+        {
+          "name": "parent_folder_id",
+          "display_name": "Parent Folder ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional Google Drive folder ID. Leave blank to upload to My Drive."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "file",
+          "display_name": "Uploaded File",
+          "method": "upload_file",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_drive.GoogleDriveWorkspaceApiRequest",
+      "category": "google_drive",
+      "component_type": "GoogleDriveWorkspaceApiRequest",
+      "display_name": "Workspace API Request",
+      "description": "Runs advanced Google Drive, Docs, Sheets, or Slides API methods using the connected user's Google OAuth account.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "google_account",
+          "display_name": "Google Account",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Google account connected under Settings > Google Connections.",
+          "options": []
+        },
+        {
+          "name": "google_connection_id",
+          "display_name": "Google Connection ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal reference to the selected Google OAuth connection."
+        },
+        {
+          "name": "method_path",
+          "display_name": "Method Path",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Discovery method path such as files.list, documents.batchUpdate, spreadsheets.values.get, or presentations.batchUpdate."
+        },
+        {
+          "name": "parameters",
+          "display_name": "Parameters",
+          "input_type": "NestedDictInput",
+          "value_type": "NestedDict",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Path/query parameters as a JSON object. Example: {\"pageSize\":50,\"q\":\"trashed = false\"}."
+        },
+        {
+          "name": "parameters_data",
+          "display_name": "Parameters Data",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional connected Data/JSON object. When connected, its keys override Parameters."
+        },
+        {
+          "name": "request_body",
+          "display_name": "Request Body",
+          "input_type": "NestedDictInput",
+          "value_type": "NestedDict",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional JSON request body. Do not include a top-level 'body' key; provide the body object itself."
+        },
+        {
+          "name": "request_body_data",
+          "display_name": "Request Body Data",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional connected Data/JSON object. When connected, its keys override Request Body."
+        },
+        {
+          "name": "workspace_service",
+          "display_name": "Service",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Select the Google Workspace API used by this request.",
+          "options": [
+            "DRIVE",
+            "DOCS",
+            "SHEETS",
+            "SLIDES"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "execute_request",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "available_methods",
+          "display_name": "Available Methods",
+          "method": "list_methods",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_drive.GoogleDriveComponent",
+      "category": "google_drive",
+      "component_type": "GoogleDriveComponent",
+      "display_name": "Google Drive Loader",
+      "description": "Loads documents from Google Drive using provided credentials.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "document_id",
+          "display_name": "Document ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Single Google Drive document ID"
+        },
+        {
+          "name": "json_string",
+          "display_name": "JSON String of the Service Account Token",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "JSON string containing OAuth 2.0 access token information for service account access"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "docs",
+          "display_name": "Loaded Documents",
+          "method": "load_documents",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "google_drive.GoogleDriveSearchComponent",
+      "category": "google_drive",
+      "component_type": "GoogleDriveSearchComponent",
+      "display_name": "Google Drive Search",
+      "description": "Searches Google Drive files using provided credentials and query parameters.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "JSON",
+        "Text"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "query_item",
+          "display_name": "Query Item",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The field to query.",
+          "options": [
+            "name",
+            "fullText",
+            "mimeType",
+            "modifiedTime",
+            "viewedByMeTime",
+            "trashed",
+            "starred",
+            "parents",
+            "owners",
+            "writers",
+            "readers",
+            "sharedWithMe",
+            "createdTime",
+            "properties",
+            "appProperties",
+            "visibility",
+            "shortcutDetails.targetId"
+          ]
+        },
+        {
+          "name": "query_string",
+          "display_name": "Query String",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The query string used for searching. You can edit this manually."
+        },
+        {
+          "name": "search_term",
+          "display_name": "Search Term",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The value to search for in the specified query item."
+        },
+        {
+          "name": "token_string",
+          "display_name": "Token String",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "JSON string containing OAuth 2.0 access token information for service account access"
+        },
+        {
+          "name": "valid_operator",
+          "display_name": "Valid Operator",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Operator to use in the query.",
+          "options": [
+            "contains",
+            "=",
+            "!=",
+            "<=",
+            "<",
+            ">",
+            ">=",
+            "in",
+            "has"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "doc_urls",
+          "display_name": "Document URLs",
+          "method": "search_doc_urls",
+          "types": [
+            "Text"
+          ],
+          "selected": "Text",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "doc_ids",
+          "display_name": "Document IDs",
+          "method": "search_doc_ids",
+          "types": [
+            "Text"
+          ],
+          "selected": "Text",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "doc_titles",
+          "display_name": "Document Titles",
+          "method": "search_doc_titles",
+          "types": [
+            "Text"
+          ],
+          "selected": "Text",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "Data",
+          "display_name": "JSON",
+          "method": "search_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

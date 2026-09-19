@@ -1,0 +1,2475 @@
+{
+  "schema_version": "1.0",
+  "category": "input_output",
+  "component_count": 14,
+  "components": [
+    {
+      "id": "input_output.ChatInput",
+      "category": "input_output",
+      "component_type": "ChatInput",
+      "display_name": "Chat Input",
+      "description": "Get chat inputs from the Playground.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "context_id",
+          "display_name": "Context ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The context ID of the chat. Adds an extra layer to the local memory."
+        },
+        {
+          "name": "files",
+          "display_name": "Files",
+          "input_type": "FileInput",
+          "value_type": "file",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Files to be sent with the message."
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input Text",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Message to be passed as input."
+        },
+        {
+          "name": "sender",
+          "display_name": "Sender Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Type of sender.",
+          "options": [
+            "Machine",
+            "User"
+          ]
+        },
+        {
+          "name": "sender_name",
+          "display_name": "Sender Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Name of the sender."
+        },
+        {
+          "name": "session_id",
+          "display_name": "Session ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The session ID of the chat. If empty, the current session ID parameter will be used."
+        },
+        {
+          "name": "should_store_message",
+          "display_name": "Store Messages",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Store the message in the history."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "message",
+          "display_name": "Chat Message",
+          "method": "message_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "input_output.ChatOutput",
+      "category": "input_output",
+      "component_type": "ChatOutput",
+      "display_name": "Chat Output",
+      "description": "Display a chat message in the Playground.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "clean_data",
+          "display_name": "Basic Clean Data",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Whether to clean data before converting to string."
+        },
+        {
+          "name": "context_id",
+          "display_name": "Context ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The context ID of the chat. Adds an extra layer to the local memory."
+        },
+        {
+          "name": "data_template",
+          "display_name": "Data Template",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Template to convert Data to Text. If left empty, it will be dynamically set to the Data's text key."
+        },
+        {
+          "name": "input_value",
+          "display_name": "Inputs",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON",
+            "DataFrame",
+            "Table",
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Message to be passed as output."
+        },
+        {
+          "name": "sender",
+          "display_name": "Sender Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Type of sender.",
+          "options": [
+            "Machine",
+            "User"
+          ]
+        },
+        {
+          "name": "sender_name",
+          "display_name": "Sender Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Name of the sender."
+        },
+        {
+          "name": "session_id",
+          "display_name": "Session ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The session ID of the chat. If empty, the current session ID parameter will be used."
+        },
+        {
+          "name": "should_store_message",
+          "display_name": "Store Messages",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Store the message in the history."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "message",
+          "display_name": "Output Message",
+          "method": "message_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "input_output.MetaInstagramSendMessage",
+      "category": "input_output",
+      "component_type": "MetaInstagramSendMessage",
+      "display_name": "Meta Instagram Send Message",
+      "description": "Sends text or media messages to an Instagram-scoped recipient through the Instagram Messaging API.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Data",
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "access_token",
+          "display_name": "Access Token",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Meta access token authorized for Instagram messaging."
+        },
+        {
+          "name": "api_version",
+          "display_name": "API Version",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "custom_json",
+          "display_name": "Custom JSON",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Used only for Custom JSON. Must be a JSON object. recipient is filled when omitted."
+        },
+        {
+          "name": "instagram_user_id",
+          "display_name": "Instagram User ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Instagram professional account user ID used in /{ig-user-id}/messages."
+        },
+        {
+          "name": "media_url",
+          "display_name": "Media URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Public media URL for Image, Audio, or Video."
+        },
+        {
+          "name": "message",
+          "display_name": "Message",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Text body. Required when Message Type is Text."
+        },
+        {
+          "name": "message_type",
+          "display_name": "Message Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "options": [
+            "Text",
+            "Image",
+            "Audio",
+            "Video",
+            "Custom JSON"
+          ]
+        },
+        {
+          "name": "recipient_igsid",
+          "display_name": "Recipient IGSID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Instagram-scoped ID of the recipient."
+        },
+        {
+          "name": "timeout_seconds",
+          "display_name": "Request Timeout",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "send_message",
+          "types": [
+            "Data",
+            "JSON"
+          ],
+          "selected": "Data",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "input_output.MetaMessengerSendMessage",
+      "category": "input_output",
+      "component_type": "MetaMessengerSendMessage",
+      "display_name": "Meta Messenger Send Message",
+      "description": "Sends text or media messages to a Facebook Page-scoped recipient through the Messenger Platform Send API.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Data",
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_version",
+          "display_name": "API Version",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "custom_json",
+          "display_name": "Custom JSON",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Used only for Custom JSON. Must be a JSON object. recipient and messaging_type are filled when omitted."
+        },
+        {
+          "name": "media_url",
+          "display_name": "Media URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Public media URL for Image, Audio, Video, or File."
+        },
+        {
+          "name": "message",
+          "display_name": "Message",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Text body. Required when Message Type is Text."
+        },
+        {
+          "name": "message_type",
+          "display_name": "Message Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "options": [
+            "Text",
+            "Image",
+            "Audio",
+            "Video",
+            "File",
+            "Custom JSON"
+          ]
+        },
+        {
+          "name": "page_access_token",
+          "display_name": "Page Access Token",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Page access token with pages_messaging permission."
+        },
+        {
+          "name": "page_id",
+          "display_name": "Page ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Facebook Page ID used in /{page-id}/messages."
+        },
+        {
+          "name": "recipient_psid",
+          "display_name": "Recipient PSID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Recipient Page-scoped ID (PSID)."
+        },
+        {
+          "name": "timeout_seconds",
+          "display_name": "Request Timeout",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "send_message",
+          "types": [
+            "Data",
+            "JSON"
+          ],
+          "selected": "Data",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "input_output.MetaWhatsAppSendMessage",
+      "category": "input_output",
+      "component_type": "MetaWhatsAppSendMessage",
+      "display_name": "Meta WhatsApp Send Message",
+      "description": "Sends text or media messages through the WhatsApp Cloud API. Supports replying to a specific WhatsApp message and Custom JSON payloads.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Data",
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "access_token",
+          "display_name": "Access Token",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Meta access token with WhatsApp Business Messaging permission."
+        },
+        {
+          "name": "api_version",
+          "display_name": "API Version",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "caption",
+          "display_name": "Caption",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional caption for supported media types."
+        },
+        {
+          "name": "custom_json",
+          "display_name": "Custom JSON",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Used only for Custom JSON. Must be a JSON object. messaging_product, recipient_type, and to are filled when omitted."
+        },
+        {
+          "name": "filename",
+          "display_name": "Document Filename",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional filename when sending a Document."
+        },
+        {
+          "name": "media_url",
+          "display_name": "Media URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Public media URL for Image, Audio, Video, or Document."
+        },
+        {
+          "name": "message",
+          "display_name": "Message",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Text body. Required when Message Type is Text."
+        },
+        {
+          "name": "message_type",
+          "display_name": "Message Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "options": [
+            "Text",
+            "Image",
+            "Audio",
+            "Video",
+            "Document",
+            "Custom JSON"
+          ]
+        },
+        {
+          "name": "phone_number_id",
+          "display_name": "Phone Number ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "WhatsApp Business phone number ID used in /{phone-number-id}/messages."
+        },
+        {
+          "name": "recipient",
+          "display_name": "Recipient",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Recipient WhatsApp ID / phone number, for example 60111222333."
+        },
+        {
+          "name": "reply_to_message_id",
+          "display_name": "Reply To Message ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional incoming WhatsApp message ID (wamid...). Sent as context.message_id."
+        },
+        {
+          "name": "timeout_seconds",
+          "display_name": "Request Timeout",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "send_message",
+          "types": [
+            "Data",
+            "JSON"
+          ],
+          "selected": "Data",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "input_output.Webhook2",
+      "category": "input_output",
+      "component_type": "Webhook2",
+      "display_name": "POST Webhook",
+      "description": "",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "data",
+          "display_name": "Payload",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The captured JSON data will appear here."
+        },
+        {
+          "name": "endpoint",
+          "display_name": "Endpoint",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true
+        },
+        {
+          "name": "trigger_refresh",
+          "display_name": "🔄 Fetch Latest Payload",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Toggle to pull the latest payload posted"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_data",
+          "display_name": "JSON",
+          "method": "build_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "input_output.ScheduleTrigger",
+      "category": "input_output",
+      "component_type": "ScheduleTrigger",
+      "display_name": "Schedule Trigger",
+      "description": "Starts this flow automatically according to a configured schedule.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "cron_expressions",
+          "display_name": "Cron Expressions",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Add one or more standard 5-field cron expressions. Each expression is evaluated in the selected timezone."
+        },
+        {
+          "name": "days_of_month",
+          "display_name": "Days of Month",
+          "input_type": "MultiselectInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Select one or more calendar days. If a selected day does not exist in a month, that occurrence is skipped for that month.",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31"
+          ]
+        },
+        {
+          "name": "enabled",
+          "display_name": "Enabled",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Enable or disable automatic scheduled execution for this flow."
+        },
+        {
+          "name": "interval_unit",
+          "display_name": "Interval Unit",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Unit used by the interval schedule.",
+          "options": [
+            "Minutes",
+            "Hours",
+            "Days"
+          ]
+        },
+        {
+          "name": "interval_value",
+          "display_name": "Every",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Run every N interval units."
+        },
+        {
+          "name": "monthly_mode",
+          "display_name": "Monthly Mode",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Use Calendar Days for dates such as the 1st and 15th, or Weekday Occurrence for rules such as 1st Monday or Last Friday.",
+          "options": [
+            "Calendar Days",
+            "Weekday Occurrence"
+          ]
+        },
+        {
+          "name": "monthly_rules",
+          "display_name": "Monthly Rules",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Add monthly weekday-occurrence rules. Occurrence accepts 1st, 2nd, 3rd, 4th, 5th, or Last. Example: 1st | Monday | 08:00."
+        },
+        {
+          "name": "runtime_data",
+          "display_name": "Runtime Data",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Internal runtime metadata injected by the Langflow scheduler."
+        },
+        {
+          "name": "schedule_type",
+          "display_name": "Schedule Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Choose how this flow should be scheduled.",
+          "options": [
+            "Interval",
+            "Daily",
+            "Weekly",
+            "Monthly",
+            "Cron"
+          ]
+        },
+        {
+          "name": "times",
+          "display_name": "Times",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Add one or more local execution times. Select the Hour and Minute separately; the schedule is stored internally in 24-hour HH:MM format. For Weekly and Monthly Calendar Days, every selected day uses every listed time."
+        },
+        {
+          "name": "timezone",
+          "display_name": "Timezone",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "IANA timezone used to interpret this schedule.",
+          "option_count": 490
+        },
+        {
+          "name": "weekdays",
+          "display_name": "Days of Week",
+          "input_type": "MultiselectInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Select one or more days for a weekly schedule.",
+          "options": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "schedule_data",
+          "display_name": "Schedule Data",
+          "method": "build_schedule_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": false
+        }
+      ]
+    },
+    {
+      "id": "input_output.TextInput",
+      "category": "input_output",
+      "component_type": "TextInput",
+      "display_name": "Text Input",
+      "description": "Get user text inputs.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "input_value",
+          "display_name": "Text",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Text to be passed as input."
+        },
+        {
+          "name": "use_global_variable",
+          "display_name": "Use Global Variable",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Enable to select from global variables (shows globe icon). Disables multiline editing."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "display_name": "Output Text",
+          "method": "text_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "input_output.TextOutput",
+      "category": "input_output",
+      "component_type": "TextOutput",
+      "display_name": "Text Output",
+      "description": "Sends text output via API.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "input_value",
+          "display_name": "Inputs",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Text to be passed as output."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "display_name": "Output Text",
+          "method": "text_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "input_output.UChatSubFlowTrigger",
+      "category": "input_output",
+      "component_type": "UChatSubFlowTrigger",
+      "display_name": "UChat Sub-Flow Trigger",
+      "description": "Triggers a UChat sub-flow after the subscriber fields have been updated successfully.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "sub_flow_ns",
+          "display_name": "UChat Sub-Flow NS",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The UChat sub-flow namespace to send to the subscriber."
+        },
+        {
+          "name": "timeout_seconds",
+          "display_name": "Request Timeout",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "UChat request timeout in seconds."
+        },
+        {
+          "name": "uchat_token",
+          "display_name": "UChat Bearer Token",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "UChat bearer token. This value is not written to component logs."
+        },
+        {
+          "name": "user_ns",
+          "display_name": "UChat User NS",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Subscriber identifier used as user_ns. Accepts Message, Data, or plain text values."
+        },
+        {
+          "name": "wait_signal",
+          "display_name": "Wait Signal",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Connect the Field Update Status output from UChat User Fields Setter."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "status",
+          "display_name": "Flow Trigger Status",
+          "method": "trigger_sub_flow",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "input_output.UChatUserFieldsSetter",
+      "category": "input_output",
+      "component_type": "UChatUserFieldsSetter",
+      "display_name": "UChat User Fields Setter",
+      "description": "Accepts a top-level JSON array of field objects and sets the subscriber's UChat user fields.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "json_data",
+          "display_name": "JSON Data",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "A non-empty top-level JSON array containing the UChat field objects to set. Do not wrap the array inside a 'data' property."
+        },
+        {
+          "name": "timeout_seconds",
+          "display_name": "Request Timeout",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "UChat request timeout in seconds."
+        },
+        {
+          "name": "uchat_token",
+          "display_name": "UChat Bearer Token",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "UChat bearer token. This value is not written to component logs."
+        },
+        {
+          "name": "user_ns",
+          "display_name": "UChat User NS",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Subscriber identifier used as user_ns. Accepts Message, Data, or plain text values."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "status",
+          "display_name": "Field Update Status",
+          "method": "set_user_fields",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "input_output.UniversalWebhook",
+      "category": "input_output",
+      "component_type": "UniversalWebhook",
+      "display_name": "Universal Webhook",
+      "description": "Receives GET, POST, PUT, PATCH, and DELETE webhook requests, captures query parameters, headers, JSON, form data, raw body, files, and metadata, and exposes the complete normalized request as JSON.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "authentication_mode",
+          "display_name": "Authentication",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Platform API Key preserves the existing Langflow webhook authentication policy. External Provider allows the request through without the platform API key so the flow can perform provider-specific verification, such as Meta hub.verify_token or X-Hub-Signature-256 validation.",
+          "options": [
+            "Platform API Key",
+            "External Provider"
+          ]
+        },
+        {
+          "name": "data",
+          "display_name": "Body Payload",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Builder/testing HTTP body only. JSON is entered as JSON; non-JSON/raw bodies may be entered as text. Fetch Latest Payload keeps form fields and uploaded files in their own fields instead of folding them into the body."
+        },
+        {
+          "name": "delete_response_body_mode",
+          "display_name": "DELETE Response Body",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Response body source used when DELETE Response Mode is Immediate or After Execution. Ignored when Response Mode is From Flow.",
+          "options": [
+            "Request Data",
+            "Payload Data",
+            "Custom Template",
+            "Empty"
+          ]
+        },
+        {
+          "name": "delete_response_body_template",
+          "display_name": "DELETE Response Body Template",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Used only when DELETE Response Body is Custom Template. Supports placeholders such as {{ method }}, {{ query.hub.challenge }}, {{ headers.x-event }}, {{ body.name }}, {{ form.name }}, {{ raw_body }}, and {{ metadata.content_type }}."
+        },
+        {
+          "name": "delete_response_headers",
+          "display_name": "DELETE Response Headers",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Additional HTTP response headers for DELETE. Standard response headers are generated automatically. Hidden when Response Mode is From Flow because Webhook Response owns the response headers."
+        },
+        {
+          "name": "delete_response_mode",
+          "display_name": "DELETE Response Mode",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Immediate returns this method's configured response immediately and runs the flow in the background. After Execution waits for the flow to finish, then returns this method's configured response. From Flow waits for the flow and uses a Webhook Response component to determine the HTTP response.",
+          "options": [
+            "Immediate",
+            "After Execution",
+            "From Flow"
+          ]
+        },
+        {
+          "name": "endpoint",
+          "display_name": "Production Endpoint",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Generated production webhook URL. Copy only; the URL is managed by Langflow."
+        },
+        {
+          "name": "files_data",
+          "display_name": "Files",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Uploaded multipart files captured by the webhook. Files are saved by the backend and exposed here as JSON-safe metadata including their saved path."
+        },
+        {
+          "name": "form_data",
+          "display_name": "Form Data",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Captured application/x-www-form-urlencoded or multipart/form-data fields. Fetch Latest Payload populates this separately from Body Payload."
+        },
+        {
+          "name": "get_response_body_mode",
+          "display_name": "GET Response Body",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Response body source used when GET Response Mode is Immediate or After Execution. Ignored when Response Mode is From Flow.",
+          "options": [
+            "Request Data",
+            "Payload Data",
+            "Custom Template",
+            "Empty"
+          ]
+        },
+        {
+          "name": "get_response_body_template",
+          "display_name": "GET Response Body Template",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Used only when GET Response Body is Custom Template. Supports placeholders such as {{ method }}, {{ query.hub.challenge }}, {{ headers.x-event }}, {{ body.name }}, {{ form.name }}, {{ raw_body }}, and {{ metadata.content_type }}."
+        },
+        {
+          "name": "get_response_headers",
+          "display_name": "GET Response Headers",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Additional HTTP response headers for GET. Standard response headers are generated automatically. Hidden when Response Mode is From Flow because Webhook Response owns the response headers."
+        },
+        {
+          "name": "get_response_mode",
+          "display_name": "GET Response Mode",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Immediate returns this method's configured response immediately and runs the flow in the background. After Execution waits for the flow to finish, then returns this method's configured response. From Flow waits for the flow and uses a Webhook Response component to determine the HTTP response.",
+          "options": [
+            "Immediate",
+            "After Execution",
+            "From Flow"
+          ]
+        },
+        {
+          "name": "http_method",
+          "display_name": "HTTP Methods",
+          "input_type": "MultiselectInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select one or more HTTP methods accepted by this webhook endpoint.",
+          "options": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        },
+        {
+          "name": "patch_response_body_mode",
+          "display_name": "PATCH Response Body",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Response body source used when PATCH Response Mode is Immediate or After Execution. Ignored when Response Mode is From Flow.",
+          "options": [
+            "Request Data",
+            "Payload Data",
+            "Custom Template",
+            "Empty"
+          ]
+        },
+        {
+          "name": "patch_response_body_template",
+          "display_name": "PATCH Response Body Template",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Used only when PATCH Response Body is Custom Template. Supports placeholders such as {{ method }}, {{ query.hub.challenge }}, {{ headers.x-event }}, {{ body.name }}, {{ form.name }}, {{ raw_body }}, and {{ metadata.content_type }}."
+        },
+        {
+          "name": "patch_response_headers",
+          "display_name": "PATCH Response Headers",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Additional HTTP response headers for PATCH. Standard response headers are generated automatically. Hidden when Response Mode is From Flow because Webhook Response owns the response headers."
+        },
+        {
+          "name": "patch_response_mode",
+          "display_name": "PATCH Response Mode",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Immediate returns this method's configured response immediately and runs the flow in the background. After Execution waits for the flow to finish, then returns this method's configured response. From Flow waits for the flow and uses a Webhook Response component to determine the HTTP response.",
+          "options": [
+            "Immediate",
+            "After Execution",
+            "From Flow"
+          ]
+        },
+        {
+          "name": "post_response_body_mode",
+          "display_name": "POST Response Body",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Response body source used when POST Response Mode is Immediate or After Execution. Ignored when Response Mode is From Flow.",
+          "options": [
+            "Request Data",
+            "Payload Data",
+            "Custom Template",
+            "Empty"
+          ]
+        },
+        {
+          "name": "post_response_body_template",
+          "display_name": "POST Response Body Template",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Used only when POST Response Body is Custom Template. Supports placeholders such as {{ method }}, {{ query.hub.challenge }}, {{ headers.x-event }}, {{ body.name }}, {{ form.name }}, {{ raw_body }}, and {{ metadata.content_type }}."
+        },
+        {
+          "name": "post_response_headers",
+          "display_name": "POST Response Headers",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Additional HTTP response headers for POST. Standard response headers are generated automatically. Hidden when Response Mode is From Flow because Webhook Response owns the response headers."
+        },
+        {
+          "name": "post_response_mode",
+          "display_name": "POST Response Mode",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Immediate returns this method's configured response immediately and runs the flow in the background. After Execution waits for the flow to finish, then returns this method's configured response. From Flow waits for the flow and uses a Webhook Response component to determine the HTTP response.",
+          "options": [
+            "Immediate",
+            "After Execution",
+            "From Flow"
+          ]
+        },
+        {
+          "name": "put_response_body_mode",
+          "display_name": "PUT Response Body",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Response body source used when PUT Response Mode is Immediate or After Execution. Ignored when Response Mode is From Flow.",
+          "options": [
+            "Request Data",
+            "Payload Data",
+            "Custom Template",
+            "Empty"
+          ]
+        },
+        {
+          "name": "put_response_body_template",
+          "display_name": "PUT Response Body Template",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Used only when PUT Response Body is Custom Template. Supports placeholders such as {{ method }}, {{ query.hub.challenge }}, {{ headers.x-event }}, {{ body.name }}, {{ form.name }}, {{ raw_body }}, and {{ metadata.content_type }}."
+        },
+        {
+          "name": "put_response_headers",
+          "display_name": "PUT Response Headers",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Additional HTTP response headers for PUT. Standard response headers are generated automatically. Hidden when Response Mode is From Flow because Webhook Response owns the response headers."
+        },
+        {
+          "name": "put_response_mode",
+          "display_name": "PUT Response Mode",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Immediate returns this method's configured response immediately and runs the flow in the background. After Execution waits for the flow to finish, then returns this method's configured response. From Flow waits for the flow and uses a Webhook Response component to determine the HTTP response.",
+          "options": [
+            "Immediate",
+            "After Execution",
+            "From Flow"
+          ]
+        },
+        {
+          "name": "test_endpoint",
+          "display_name": "Test Endpoint",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Generated capture-only test URL. Requests sent here are captured for Fetch Latest Payload. The workflow is not executed; the Test Endpoint only previews the configured response when that can be done without running the flow."
+        },
+        {
+          "name": "trigger_refresh",
+          "display_name": "🔄 Fetch Latest Payload",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Fetch the latest request received by either the Production or Test Endpoint."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "request_data",
+          "display_name": "JSON",
+          "method": "build_request_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": false
+        }
+      ]
+    },
+    {
+      "id": "input_output.Webhook",
+      "category": "input_output",
+      "component_type": "Webhook",
+      "display_name": "Webhook",
+      "description": "",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "curl",
+          "display_name": "cURL",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "data",
+          "display_name": "Payload",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Receives a payload from external systems via HTTP POST."
+        },
+        {
+          "name": "endpoint",
+          "display_name": "Endpoint",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_data",
+          "display_name": "JSON",
+          "method": "build_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "input_output.WebhookResponse",
+      "category": "input_output",
+      "component_type": "WebhookResponse",
+      "display_name": "Webhook Response",
+      "description": "Returns a connected JSON or Message value as the Universal Webhook From Flow response body, or accepts a Response Definition containing a dynamic body, HTTP status, content type, and headers.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Data",
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "body_data",
+          "display_name": "Response Body",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON",
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Connect JSON or Message. JSON objects/arrays use application/json; scalars and plain text use text/plain. Ignored when Response Definition contains a body key."
+        },
+        {
+          "name": "content_type",
+          "display_name": "Content Type",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional explicit media type such as text/plain or application/json. Leave blank to detect it automatically. A content_type in Response Definition overrides this value."
+        },
+        {
+          "name": "response_definition",
+          "display_name": "Response Definition",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional dynamic response definition. Supported keys are body, status_code, content_type, and headers. Values supplied here override the corresponding configured fields below. This is useful for verification/validation components that must choose the HTTP status at runtime."
+        },
+        {
+          "name": "response_headers",
+          "display_name": "Additional Response Headers",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional additional HTTP response headers. These are merged with headers from Response Definition; configured headers take precedence for duplicate names."
+        },
+        {
+          "name": "status_code",
+          "display_name": "HTTP Status",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Default HTTP status returned to the webhook caller. A status_code in Response Definition overrides this value.",
+          "option_count": 62
+        }
+      ],
+      "outputs": [
+        {
+          "name": "webhook_response",
+          "display_name": "Webhook Response",
+          "method": "build_webhook_response",
+          "types": [
+            "Data",
+            "JSON"
+          ],
+          "selected": "Data",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "category": "zep",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "zep.ZepChatMemory",
+      "category": "zep",
+      "component_type": "ZepChatMemory",
+      "display_name": "Zep Chat Memory",
+      "description": "Retrieves and store chat messages from Zep.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['helpers.Memory']"
+      ],
+      "base_classes": [
+        "Memory"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_base_path",
+          "display_name": "API Base Path",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "api/v1",
+            "api/v2"
+          ]
+        },
+        {
+          "name": "api_key",
+          "display_name": "Zep API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "API Key for the Zep instance."
+        },
+        {
+          "name": "session_id",
+          "display_name": "Session ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Session ID for the message."
+        },
+        {
+          "name": "url",
+          "display_name": "Zep URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "URL of the Zep instance."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "memory",
+          "display_name": "Memory",
+          "method": "build_message_history",
+          "types": [
+            "Memory"
+          ],
+          "selected": "Memory",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

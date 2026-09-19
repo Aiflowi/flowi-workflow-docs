@@ -1,0 +1,867 @@
+{
+  "schema_version": "1.0",
+  "category": "cassandra",
+  "component_count": 3,
+  "components": [
+    {
+      "id": "cassandra.Cassandra",
+      "category": "cassandra",
+      "component_type": "Cassandra",
+      "display_name": "Cassandra",
+      "description": "Cassandra Vector Store with search capabilities",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON",
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "batch_size",
+          "display_name": "Batch Size",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional number of data to process in a single batch."
+        },
+        {
+          "name": "body_search",
+          "display_name": "Search Body",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Document textual search terms to apply to the search query."
+        },
+        {
+          "name": "cluster_kwargs",
+          "display_name": "Cluster arguments",
+          "input_type": "DictInput",
+          "value_type": "dict",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional dictionary of additional keyword arguments for the Cassandra cluster."
+        },
+        {
+          "name": "database_ref",
+          "display_name": "Contact Points / Astra Database ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Contact points for the database (or Astra DB database ID)"
+        },
+        {
+          "name": "embedding",
+          "display_name": "Embedding",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Embeddings"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "enable_body_search",
+          "display_name": "Enable Body Search",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Flag to enable body search. This must be enabled BEFORE the table is created."
+        },
+        {
+          "name": "ingest_data",
+          "display_name": "Ingest Data",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "DataFrame",
+            "Table"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "keyspace",
+          "display_name": "Keyspace",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Table Keyspace (or Astra DB namespace)."
+        },
+        {
+          "name": "number_of_results",
+          "display_name": "Number of Results",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Number of results to return."
+        },
+        {
+          "name": "search_filter",
+          "display_name": "Search Metadata Filter",
+          "input_type": "DictInput",
+          "value_type": "dict",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional dictionary of filters to apply to the search query."
+        },
+        {
+          "name": "search_query",
+          "display_name": "Search Query",
+          "input_type": "QueryInput",
+          "value_type": "query",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "Enter a query to run a similarity search."
+        },
+        {
+          "name": "search_score_threshold",
+          "display_name": "Search Score Threshold",
+          "input_type": "FloatInput",
+          "value_type": "float",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Minimum similarity score threshold for search results. (when using 'Similarity with score threshold')"
+        },
+        {
+          "name": "search_type",
+          "display_name": "Search Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Search type to use",
+          "options": [
+            "Similarity",
+            "Similarity with score threshold",
+            "MMR (Max Marginal Relevance)"
+          ]
+        },
+        {
+          "name": "setup_mode",
+          "display_name": "Setup Mode",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Configuration mode for setting up the Cassandra table, with options like 'Sync', 'Async', or 'Off'.",
+          "options": [
+            "Sync",
+            "Async",
+            "Off"
+          ]
+        },
+        {
+          "name": "should_cache_vector_store",
+          "display_name": "Cache Vector Store",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If True, the vector store will be cached for the current build of the component. This is useful for components that have multiple output methods and want to share the same vector store."
+        },
+        {
+          "name": "table_name",
+          "display_name": "Table Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The name of the table (or Astra DB collection) where vectors will be stored."
+        },
+        {
+          "name": "token",
+          "display_name": "Password / Astra DB Token",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "User password for the database (or Astra DB token)."
+        },
+        {
+          "name": "ttl_seconds",
+          "display_name": "TTL Seconds",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional time-to-live for the added texts."
+        },
+        {
+          "name": "username",
+          "display_name": "Username",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Username for the database (leave empty for Astra DB)."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "search_results",
+          "display_name": "Search Results",
+          "method": "search_documents",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "dataframe",
+          "display_name": "Table",
+          "method": "as_dataframe",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "cassandra.CassandraChatMemory",
+      "category": "cassandra",
+      "component_type": "CassandraChatMemory",
+      "display_name": "Cassandra Chat Memory",
+      "description": "Retrieves and store chat messages from Apache Cassandra.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Memory"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "cluster_kwargs",
+          "display_name": "Cluster arguments",
+          "input_type": "DictInput",
+          "value_type": "dict",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional dictionary of additional keyword arguments for the Cassandra cluster."
+        },
+        {
+          "name": "database_ref",
+          "display_name": "Contact Points / Astra Database ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Contact points for the database (or Astra DB database ID)"
+        },
+        {
+          "name": "keyspace",
+          "display_name": "Keyspace",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Table Keyspace (or Astra DB namespace)."
+        },
+        {
+          "name": "session_id",
+          "display_name": "Session ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Session ID for the message."
+        },
+        {
+          "name": "table_name",
+          "display_name": "Table Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The name of the table (or Astra DB collection) where vectors will be stored."
+        },
+        {
+          "name": "token",
+          "display_name": "Password / Astra DB Token",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "User password for the database (or Astra DB token)."
+        },
+        {
+          "name": "username",
+          "display_name": "Username",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Username for the database (leave empty for Astra DB)."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "memory",
+          "display_name": "Memory",
+          "method": "build_message_history",
+          "types": [
+            "Memory"
+          ],
+          "selected": "Memory",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "cassandra.CassandraGraph",
+      "category": "cassandra",
+      "component_type": "CassandraGraph",
+      "display_name": "Cassandra Graph",
+      "description": "Cassandra Graph Vector Store",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON",
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "cluster_kwargs",
+          "display_name": "Cluster arguments",
+          "input_type": "DictInput",
+          "value_type": "dict",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional dictionary of additional keyword arguments for the Cassandra cluster."
+        },
+        {
+          "name": "database_ref",
+          "display_name": "Contact Points / Astra Database ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Contact points for the database (or Astra DB database ID)"
+        },
+        {
+          "name": "depth",
+          "display_name": "Depth of traversal",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum depth of edges to traverse. (when using 'Traversal' or 'MMR traversal')"
+        },
+        {
+          "name": "embedding",
+          "display_name": "Embedding",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Embeddings"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "ingest_data",
+          "display_name": "Ingest Data",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "DataFrame",
+            "Table"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "keyspace",
+          "display_name": "Keyspace",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Table Keyspace (or Astra DB namespace)."
+        },
+        {
+          "name": "number_of_results",
+          "display_name": "Number of Results",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Number of results to return."
+        },
+        {
+          "name": "search_filter",
+          "display_name": "Search Metadata Filter",
+          "input_type": "DictInput",
+          "value_type": "dict",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional dictionary of filters to apply to the search query."
+        },
+        {
+          "name": "search_query",
+          "display_name": "Search Query",
+          "input_type": "QueryInput",
+          "value_type": "query",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "Enter a query to run a similarity search."
+        },
+        {
+          "name": "search_score_threshold",
+          "display_name": "Search Score Threshold",
+          "input_type": "FloatInput",
+          "value_type": "float",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Minimum similarity score threshold for search results. (when using 'Similarity with score threshold')"
+        },
+        {
+          "name": "search_type",
+          "display_name": "Search Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Search type to use",
+          "options": [
+            "Traversal",
+            "MMR traversal",
+            "Similarity",
+            "Similarity with score threshold",
+            "MMR (Max Marginal Relevance)"
+          ]
+        },
+        {
+          "name": "setup_mode",
+          "display_name": "Setup Mode",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Configuration mode for setting up the Cassandra table, with options like 'Sync' or 'Off'.",
+          "options": [
+            "Sync",
+            "Off"
+          ]
+        },
+        {
+          "name": "should_cache_vector_store",
+          "display_name": "Cache Vector Store",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If True, the vector store will be cached for the current build of the component. This is useful for components that have multiple output methods and want to share the same vector store."
+        },
+        {
+          "name": "table_name",
+          "display_name": "Table Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The name of the table (or Astra DB collection) where vectors will be stored."
+        },
+        {
+          "name": "token",
+          "display_name": "Password / Astra DB Token",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "User password for the database (or Astra DB token)."
+        },
+        {
+          "name": "username",
+          "display_name": "Username",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Username for the database (leave empty for Astra DB)."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "search_results",
+          "display_name": "Search Results",
+          "method": "search_documents",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "dataframe",
+          "display_name": "Table",
+          "method": "as_dataframe",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

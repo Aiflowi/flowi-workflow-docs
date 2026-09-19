@@ -1,0 +1,842 @@
+{
+  "schema_version": "1.0",
+  "category": "docling",
+  "component_count": 4,
+  "components": [
+    {
+      "id": "docling.ChunkDoclingDocument",
+      "category": "docling",
+      "component_type": "ChunkDoclingDocument",
+      "display_name": "Chunk DoclingDocument",
+      "description": "Use the DocumentDocument chunkers to split the document into chunks.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "always_emit_headings",
+          "display_name": "Always emit headings",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Emit headings even for empty sections."
+        },
+        {
+          "name": "chunker",
+          "display_name": "Chunker",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Which chunker to use.",
+          "options": [
+            "HybridChunker",
+            "HierarchicalChunker"
+          ]
+        },
+        {
+          "name": "data_inputs",
+          "display_name": "JSON or Table",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON",
+            "DataFrame",
+            "Table"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The data with documents to split in chunks."
+        },
+        {
+          "name": "doc_key",
+          "display_name": "Doc Key",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The key to use for the DoclingDocument column."
+        },
+        {
+          "name": "hf_model_name",
+          "display_name": "HF model name",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Model name of the tokenizer to use with the HybridChunker when Hugging Face is chosen as a tokenizer."
+        },
+        {
+          "name": "max_tokens",
+          "display_name": "Maximum tokens",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Maximum number of tokens for the HybridChunker."
+        },
+        {
+          "name": "merge_peers",
+          "display_name": "Merge peers",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Merge undersized chunks sharing the same relevant metadata."
+        },
+        {
+          "name": "openai_model_name",
+          "display_name": "OpenAI model name",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Model name of the tokenizer to use with the HybridChunker when OpenAI is chosen as a tokenizer."
+        },
+        {
+          "name": "provider",
+          "display_name": "Provider",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Which tokenizer provider.",
+          "options": [
+            "Hugging Face",
+            "OpenAI"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dataframe",
+          "display_name": "Table",
+          "method": "chunk_documents",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "docling.DoclingInline",
+      "category": "docling",
+      "component_type": "DoclingInline",
+      "display_name": "Docling",
+      "description": "Uses Docling to process input documents running the Docling models locally.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "delete_server_file_after_processing",
+          "display_name": "Delete Server File After Processing",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If true, the Server File Path will be deleted after processing."
+        },
+        {
+          "name": "do_picture_classification",
+          "display_name": "Picture classification",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If enabled, the Docling pipeline will classify the pictures type."
+        },
+        {
+          "name": "file_path",
+          "display_name": "Server File Path",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON",
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Data object with a 'file_path' property pointing to server file or a Message object with a path to the file. Supercedes 'Path' but supports same file types."
+        },
+        {
+          "name": "ignore_unspecified_files",
+          "display_name": "Ignore Unspecified Files",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If true, Data with no 'file_path' property will be ignored."
+        },
+        {
+          "name": "ignore_unsupported_extensions",
+          "display_name": "Ignore Unsupported Extensions",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If true, files with unsupported extensions will not be processed."
+        },
+        {
+          "name": "ocr_engine",
+          "display_name": "OCR Engine",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "OCR engine to use. None will disable OCR.",
+          "options": [
+            "None",
+            "easyocr",
+            "tesserocr",
+            "rapidocr",
+            "ocrmac"
+          ]
+        },
+        {
+          "name": "path",
+          "display_name": "Files",
+          "input_type": "FileInput",
+          "value_type": "file",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "Supported file extensions: adoc, asciidoc, asc, bmp, csv, dotx, dotm, docm, docx, htm, html, jpeg, json, md, pdf, png, potx, ppsx, pptm, potm, ppsm, pptx, tiff, txt, xls, xlsx, xhtml, xml, webp; optionally bundled in file extensions: zip, tar, tgz, bz2, gz"
+        },
+        {
+          "name": "pic_desc_llm",
+          "display_name": "Picture description LLM",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If connected, the model to use for running the picture description task."
+        },
+        {
+          "name": "pic_desc_prompt",
+          "display_name": "Picture description prompt",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The user prompt to use when invoking the model."
+        },
+        {
+          "name": "pipeline",
+          "display_name": "Pipeline",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Docling pipeline to use",
+          "options": [
+            "standard",
+            "vlm"
+          ]
+        },
+        {
+          "name": "separator",
+          "display_name": "Separator",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Specify the separator to use between multiple outputs in Message format."
+        },
+        {
+          "name": "silent_errors",
+          "display_name": "Silent Errors",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If true, errors will not raise an exception."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dataframe",
+          "display_name": "Files",
+          "method": "load_files",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "docling.DoclingRemote",
+      "category": "docling",
+      "component_type": "DoclingRemote",
+      "display_name": "Docling Serve",
+      "description": "Uses Docling to process input documents connecting to your instance of Docling Serve.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_headers",
+          "display_name": "HTTP headers",
+          "input_type": "NestedDictInput",
+          "value_type": "NestedDict",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional dictionary of additional headers required for connecting to Docling Serve."
+        },
+        {
+          "name": "api_url",
+          "display_name": "Server address",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "URL of the Docling Serve instance."
+        },
+        {
+          "name": "delete_server_file_after_processing",
+          "display_name": "Delete Server File After Processing",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If true, the Server File Path will be deleted after processing."
+        },
+        {
+          "name": "docling_serve_opts",
+          "display_name": "Docling options",
+          "input_type": "NestedDictInput",
+          "value_type": "NestedDict",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional dictionary of additional options. See https://github.com/docling-project/docling-serve/blob/main/docs/usage.md for more information."
+        },
+        {
+          "name": "file_path",
+          "display_name": "Server File Path",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON",
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Data object with a 'file_path' property pointing to server file or a Message object with a path to the file. Supercedes 'Path' but supports same file types."
+        },
+        {
+          "name": "ignore_unspecified_files",
+          "display_name": "Ignore Unspecified Files",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If true, Data with no 'file_path' property will be ignored."
+        },
+        {
+          "name": "ignore_unsupported_extensions",
+          "display_name": "Ignore Unsupported Extensions",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If true, files with unsupported extensions will not be processed."
+        },
+        {
+          "name": "max_concurrency",
+          "display_name": "Concurrency",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Maximum number of concurrent requests for the server."
+        },
+        {
+          "name": "max_poll_timeout",
+          "display_name": "Maximum poll time",
+          "input_type": "FloatInput",
+          "value_type": "float",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Maximum waiting time for the document conversion to complete."
+        },
+        {
+          "name": "path",
+          "display_name": "Files",
+          "input_type": "FileInput",
+          "value_type": "file",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "Supported file extensions: adoc, asciidoc, asc, bmp, csv, dotx, dotm, docm, docx, htm, html, jpeg, jpg, json, md, pdf, png, potx, ppsx, pptm, potm, ppsm, pptx, tiff, txt, xls, xlsx, xhtml, xml, webp; optionally bundled in file extensions: zip, tar, tgz, bz2, gz"
+        },
+        {
+          "name": "separator",
+          "display_name": "Separator",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Specify the separator to use between multiple outputs in Message format."
+        },
+        {
+          "name": "silent_errors",
+          "display_name": "Silent Errors",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If true, errors will not raise an exception."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dataframe",
+          "display_name": "Files",
+          "method": "load_files",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "docling.ExportDoclingDocument",
+      "category": "docling",
+      "component_type": "ExportDoclingDocument",
+      "display_name": "Export DoclingDocument",
+      "description": "Export DoclingDocument to markdown, html or other formats.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON",
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "data_inputs",
+          "display_name": "JSON or Table",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON",
+            "DataFrame",
+            "Table"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The data with documents to export."
+        },
+        {
+          "name": "doc_key",
+          "display_name": "Doc Key",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The key to use for the DoclingDocument column."
+        },
+        {
+          "name": "export_format",
+          "display_name": "Export format",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select the export format to convert the input.",
+          "options": [
+            "Markdown",
+            "HTML",
+            "Plaintext",
+            "DocTags"
+          ]
+        },
+        {
+          "name": "image_mode",
+          "display_name": "Image export mode",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Specify how images are exported in the output. Placeholder will replace the images with a string, whereas Embedded will include them as base64 encoded images.",
+          "options": [
+            "placeholder",
+            "embedded"
+          ]
+        },
+        {
+          "name": "md_image_placeholder",
+          "display_name": "Image placeholder",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Specify the image placeholder for markdown exports."
+        },
+        {
+          "name": "md_page_break_placeholder",
+          "display_name": "Page break placeholder",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Add this placeholder betweek pages in the markdown output."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "display_name": "Exported data",
+          "method": "export_document",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "dataframe",
+          "display_name": "Table",
+          "method": "as_dataframe",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

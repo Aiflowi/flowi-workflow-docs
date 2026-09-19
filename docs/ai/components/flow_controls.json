@@ -1,0 +1,1015 @@
+{
+  "schema_version": "1.0",
+  "category": "flow_controls",
+  "component_count": 11,
+  "components": [
+    {
+      "id": "flow_controls.HTTPMethodRouter",
+      "category": "flow_controls",
+      "component_type": "HTTPMethodRouter",
+      "display_name": "HTTP Method Router",
+      "description": "Routes complete webhook Request Data to GET, POST, PUT, PATCH, or DELETE without removing any request fields.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "request_data",
+          "display_name": "Request Data",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Connect Universal Webhook -> Request Data here. The router reads only the top-level 'method' field; the selected output receives the complete Request Data unchanged."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "get",
+          "display_name": "GET",
+          "method": "route_get",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": true,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "post",
+          "display_name": "POST",
+          "method": "route_post",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": true,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "put",
+          "display_name": "PUT",
+          "method": "route_put",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": true,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "patch",
+          "display_name": "PATCH",
+          "method": "route_patch",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": true,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "delete",
+          "display_name": "DELETE",
+          "method": "route_delete",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": true,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "flow_controls.ConditionalRouter",
+      "category": "flow_controls",
+      "component_type": "ConditionalRouter",
+      "display_name": "If-Else",
+      "description": "Routes an input message to a corresponding output based on text comparison.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "case_sensitive",
+          "display_name": "Case Sensitive",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If true, the comparison will be case sensitive."
+        },
+        {
+          "name": "default_route",
+          "display_name": "Default Route",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The default route to take when max iterations are reached.",
+          "options": [
+            "true_result",
+            "false_result"
+          ]
+        },
+        {
+          "name": "false_case_message",
+          "display_name": "Case False",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The message to pass if the condition is False."
+        },
+        {
+          "name": "input_text",
+          "display_name": "Text Input",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The primary text input for the operation."
+        },
+        {
+          "name": "match_text",
+          "display_name": "Match Text",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The text input to compare against."
+        },
+        {
+          "name": "max_iterations",
+          "display_name": "Max Iterations",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum number of iterations for the conditional router."
+        },
+        {
+          "name": "operator",
+          "display_name": "Operator",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "The operator to apply for comparing the texts.",
+          "options": [
+            "equals",
+            "not equals",
+            "contains",
+            "starts with",
+            "ends with",
+            "regex",
+            "less than",
+            "less than or equal",
+            "greater than",
+            "greater than or equal"
+          ]
+        },
+        {
+          "name": "true_case_message",
+          "display_name": "Case True",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The message to pass if the condition is True."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "true_result",
+          "display_name": "True",
+          "method": "true_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": true,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "false_result",
+          "display_name": "False",
+          "method": "false_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": true,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "flow_controls.LoopComponent",
+      "category": "flow_controls",
+      "component_type": "LoopComponent",
+      "display_name": "Loop",
+      "description": "Iterates through Data or Message objects, processing items individually and aggregating results from loop inputs.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON",
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "data",
+          "display_name": "Inputs",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "DataFrame",
+            "Table"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The initial DataFrame to iterate over."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "display_name": "Item",
+          "method": "item_output",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": true,
+          "allows_loop": true,
+          "cache": true,
+          "loop_types": [
+            "Message"
+          ]
+        },
+        {
+          "name": "done",
+          "display_name": "Done",
+          "method": "done_output",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": true,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "flow_controls.VerificationRouter",
+      "category": "flow_controls",
+      "component_type": "VerificationRouter",
+      "display_name": "Verification Router",
+      "description": "Routes a complete verification result to Verified or Rejected without removing or changing any fields.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "verification_result",
+          "display_name": "Verification Result",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Connect a verification component's complete result here. Only the top-level 'verified' field is inspected. The selected output receives the complete input unchanged."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "verified",
+          "display_name": "Verified",
+          "method": "route_verified",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": true,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "rejected",
+          "display_name": "Rejected",
+          "method": "route_rejected",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": true,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "flow_controls.Listen",
+      "category": "flow_controls",
+      "component_type": "Listen",
+      "display_name": "Listen",
+      "description": "A component to listen for a notification.",
+      "status": "BETA",
+      "legacy": false,
+      "beta": true,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "context_key",
+          "display_name": "Context Key",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The key of the context to listen for."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "method": "listen_for_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": false
+        }
+      ]
+    },
+    {
+      "id": "flow_controls.Notify",
+      "category": "flow_controls",
+      "component_type": "Notify",
+      "display_name": "Notify",
+      "description": "A component to generate a notification to Get Notified component.",
+      "status": "BETA",
+      "legacy": false,
+      "beta": true,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "append",
+          "display_name": "Append",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If True, the record will be appended to the notification."
+        },
+        {
+          "name": "context_key",
+          "display_name": "Context Key",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The key of the context to store the notification."
+        },
+        {
+          "name": "input_value",
+          "display_name": "Input Data",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON",
+            "Message",
+            "DataFrame",
+            "Table"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The data to store."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "JSON",
+          "method": "notify_components",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": false
+        }
+      ]
+    },
+    {
+      "id": "flow_controls.RunFlow",
+      "category": "flow_controls",
+      "component_type": "RunFlow",
+      "display_name": "Run Flow",
+      "description": "Executes another flow from within the same project. Can also be used as a tool for agents. \n **Select a Flow to use the tool mode**",
+      "status": "BETA",
+      "legacy": false,
+      "beta": true,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "cache_flow",
+          "display_name": "Cache Flow",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Whether to cache the selected flow."
+        },
+        {
+          "name": "flow_id_selected",
+          "display_name": "Flow ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The ID of the flow to run."
+        },
+        {
+          "name": "flow_name_selected",
+          "display_name": "Flow Name",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "The name of the flow to run.",
+          "options": []
+        },
+        {
+          "name": "session_id",
+          "display_name": "Session ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The session ID to run the flow in."
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "flow_controls.DataConditionalRouter",
+      "category": "flow_controls",
+      "component_type": "DataConditionalRouter",
+      "display_name": "Condition",
+      "description": "Route Data object(s) based on a condition applied to a specified key, including boolean validation.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['logic.ConditionalRouter']"
+      ],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "compare_value",
+          "display_name": "Match Text",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The value to compare against (not used for boolean validator)"
+        },
+        {
+          "name": "data_input",
+          "display_name": "Data Input",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The Data object or list of Data objects to process"
+        },
+        {
+          "name": "key_name",
+          "display_name": "Key Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The name of the key in the Data object(s) to check"
+        },
+        {
+          "name": "operator",
+          "display_name": "Operator",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The operator to apply for comparing the values. 'boolean validator' treats the value as a boolean.",
+          "options": [
+            "equals",
+            "not equals",
+            "contains",
+            "starts with",
+            "ends with",
+            "boolean validator"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "true_output",
+          "display_name": "True Output",
+          "method": "process_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "false_output",
+          "display_name": "False Output",
+          "method": "process_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "flow_controls.FlowTool",
+      "category": "flow_controls",
+      "component_type": "FlowTool",
+      "display_name": "Flow as Tool",
+      "description": "Construct a Tool from a function that runs the loaded Flow.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['logic.RunFlow']"
+      ],
+      "base_classes": [
+        "Tool"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "flow_name",
+          "display_name": "Flow Name",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The name of the flow to run.",
+          "options": []
+        },
+        {
+          "name": "return_direct",
+          "display_name": "Return Direct",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Return the result directly from the Tool."
+        },
+        {
+          "name": "tool_description",
+          "display_name": "Description",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The description of the tool; defaults to the Flow's description."
+        },
+        {
+          "name": "tool_name",
+          "display_name": "Name",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The name of the tool."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "api_build_tool",
+          "display_name": "Tool",
+          "method": "build_tool",
+          "types": [
+            "Tool"
+          ],
+          "selected": "Tool",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "flow_controls.Pass",
+      "category": "flow_controls",
+      "component_type": "Pass",
+      "display_name": "Pass",
+      "description": "Forwards the input message, unchanged.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['logic.ConditionalRouter']"
+      ],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "ignored_message",
+          "display_name": "Ignored Message",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "A second message to be ignored. Used as a workaround for continuity."
+        },
+        {
+          "name": "input_message",
+          "display_name": "Input Message",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The message to be passed forward."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_message",
+          "display_name": "Output Message",
+          "method": "pass_message",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "flow_controls.SubFlow",
+      "category": "flow_controls",
+      "component_type": "SubFlow",
+      "display_name": "Sub Flow",
+      "description": "Generates a Component from a Flow, with all of its inputs, and ",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['logic.RunFlow']"
+      ],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "flow_name",
+          "display_name": "Flow Name",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "The name of the flow to run.",
+          "options": []
+        }
+      ],
+      "outputs": [
+        {
+          "name": "flow_outputs",
+          "display_name": "Flow Outputs",
+          "method": "generate_results",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

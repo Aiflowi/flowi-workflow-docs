@@ -1,0 +1,1044 @@
+{
+  "schema_version": "1.0",
+  "category": "crewai",
+  "component_count": 6,
+  "components": [
+    {
+      "id": "crewai.CrewAIAgentComponent",
+      "category": "crewai",
+      "component_type": "CrewAIAgentComponent",
+      "display_name": "CrewAI Agent",
+      "description": "Represents an agent of CrewAI.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "NoneType"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "allow_code_execution",
+          "display_name": "Allow Code Execution",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Whether the agent is allowed to execute code."
+        },
+        {
+          "name": "allow_delegation",
+          "display_name": "Allow Delegation",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Whether the agent is allowed to delegate tasks to other agents."
+        },
+        {
+          "name": "backstory",
+          "display_name": "Backstory",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The backstory of the agent."
+        },
+        {
+          "name": "goal",
+          "display_name": "Goal",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The objective of the agent."
+        },
+        {
+          "name": "kwargs",
+          "display_name": "kwargs",
+          "input_type": "DictInput",
+          "value_type": "dict",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "kwargs of agent."
+        },
+        {
+          "name": "llm",
+          "display_name": "Language Model",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Language model that will run the agent."
+        },
+        {
+          "name": "memory",
+          "display_name": "Memory",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Whether the agent should have memory or not"
+        },
+        {
+          "name": "role",
+          "display_name": "Role",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The role of the agent."
+        },
+        {
+          "name": "tools",
+          "display_name": "Tools",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Tool"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Tools at agents disposal"
+        },
+        {
+          "name": "verbose",
+          "display_name": "Verbose",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "display_name": "Agent",
+          "method": "build_output",
+          "types": [
+            "NoneType"
+          ],
+          "selected": "NoneType",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "crewai.HierarchicalCrewComponent",
+      "category": "crewai",
+      "component_type": "HierarchicalCrewComponent",
+      "display_name": "Hierarchical Crew",
+      "description": "Represents a group of agents, defining how they should collaborate and the tasks they should perform.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "agents",
+          "display_name": "Agents",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Agent"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "function_calling_llm",
+          "display_name": "Function Calling LLM",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Turns the ReAct CrewAI agent into a function-calling agent"
+        },
+        {
+          "name": "manager_agent",
+          "display_name": "Manager Agent",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Agent"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "manager_llm",
+          "display_name": "Manager LLM",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "max_rpm",
+          "display_name": "Max RPM",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "memory",
+          "display_name": "Memory",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "share_crew",
+          "display_name": "Share Crew",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tasks",
+          "display_name": "Tasks",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "HierarchicalTask"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "use_cache",
+          "display_name": "Cache",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "verbose",
+          "display_name": "Verbose",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "display_name": "Output",
+          "method": "build_output",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "crewai.HierarchicalTaskComponent",
+      "category": "crewai",
+      "component_type": "HierarchicalTaskComponent",
+      "display_name": "Hierarchical Task",
+      "description": "Each task must have a description, an expected output and an agent responsible for execution.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "HierarchicalTask"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "expected_output",
+          "display_name": "Expected Output",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Clear definition of expected task outcome."
+        },
+        {
+          "name": "task_description",
+          "display_name": "Description",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Descriptive text detailing task's purpose and execution."
+        },
+        {
+          "name": "tools",
+          "display_name": "Tools",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Tool"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "List of tools/resources limited for task execution. Uses the Agent tools by default."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "task_output",
+          "display_name": "Task",
+          "method": "build_task",
+          "types": [
+            "HierarchicalTask"
+          ],
+          "selected": "HierarchicalTask",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "crewai.SequentialCrewComponent",
+      "category": "crewai",
+      "component_type": "SequentialCrewComponent",
+      "display_name": "Sequential Crew",
+      "description": "Represents a group of agents with tasks that are executed sequentially.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "function_calling_llm",
+          "display_name": "Function Calling LLM",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Turns the ReAct CrewAI agent into a function-calling agent"
+        },
+        {
+          "name": "max_rpm",
+          "display_name": "Max RPM",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "memory",
+          "display_name": "Memory",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "share_crew",
+          "display_name": "Share Crew",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "tasks",
+          "display_name": "Tasks",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "SequentialTask"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "use_cache",
+          "display_name": "Cache",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "verbose",
+          "display_name": "Verbose",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "display_name": "Output",
+          "method": "build_output",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "crewai.SequentialTaskComponent",
+      "category": "crewai",
+      "component_type": "SequentialTaskComponent",
+      "display_name": "Sequential Task",
+      "description": "Each task must have a description, an expected output and an agent responsible for execution.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "SequentialTask"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "agent",
+          "display_name": "Agent",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Agent"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "CrewAI Agent that will perform the task"
+        },
+        {
+          "name": "async_execution",
+          "display_name": "Async Execution",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Boolean flag indicating asynchronous task execution."
+        },
+        {
+          "name": "expected_output",
+          "display_name": "Expected Output",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Clear definition of expected task outcome."
+        },
+        {
+          "name": "task",
+          "display_name": "Task",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "SequentialTask"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "CrewAI Task that will perform the task"
+        },
+        {
+          "name": "task_description",
+          "display_name": "Description",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Descriptive text detailing task's purpose and execution."
+        },
+        {
+          "name": "tools",
+          "display_name": "Tools",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Tool"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "List of tools/resources limited for task execution. Uses the Agent tools by default."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "task_output",
+          "display_name": "Task",
+          "method": "build_task",
+          "types": [
+            "SequentialTask"
+          ],
+          "selected": "SequentialTask",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "crewai.SequentialTaskAgentComponent",
+      "category": "crewai",
+      "component_type": "SequentialTaskAgentComponent",
+      "display_name": "Sequential Task Agent",
+      "description": "Creates a CrewAI Task and its associated Agent.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "SequentialTask"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "agent_kwargs",
+          "display_name": "Agent kwargs",
+          "input_type": "DictInput",
+          "value_type": "dict",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Additional kwargs for the agent."
+        },
+        {
+          "name": "allow_code_execution",
+          "display_name": "Allow Code Execution",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Whether the agent is allowed to execute code."
+        },
+        {
+          "name": "allow_delegation",
+          "display_name": "Allow Delegation",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Whether the agent is allowed to delegate tasks to other agents."
+        },
+        {
+          "name": "async_execution",
+          "display_name": "Async Execution",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Boolean flag indicating asynchronous task execution."
+        },
+        {
+          "name": "backstory",
+          "display_name": "Backstory",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The backstory of the agent."
+        },
+        {
+          "name": "expected_output",
+          "display_name": "Expected Task Output",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Clear definition of expected task outcome."
+        },
+        {
+          "name": "goal",
+          "display_name": "Goal",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The objective of the agent."
+        },
+        {
+          "name": "llm",
+          "display_name": "Language Model",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "LanguageModel"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Language model that will run the agent."
+        },
+        {
+          "name": "memory",
+          "display_name": "Memory",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Whether the agent should have memory or not"
+        },
+        {
+          "name": "previous_task",
+          "display_name": "Previous Task",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "SequentialTask"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The previous task in the sequence (for chaining)."
+        },
+        {
+          "name": "role",
+          "display_name": "Role",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The role of the agent."
+        },
+        {
+          "name": "task_description",
+          "display_name": "Task Description",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Descriptive text detailing task's purpose and execution."
+        },
+        {
+          "name": "tools",
+          "display_name": "Tools",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Tool"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Tools at agent's disposal"
+        },
+        {
+          "name": "verbose",
+          "display_name": "Verbose",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "task_output",
+          "display_name": "Sequential Task",
+          "method": "build_agent_and_task",
+          "types": [
+            "SequentialTask"
+          ],
+          "selected": "SequentialTask",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "category": "arxiv",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "arxiv.ArXivComponent",
+      "category": "arxiv",
+      "component_type": "ArXivComponent",
+      "display_name": "arXiv",
+      "description": "Search and retrieve papers from arXiv.org",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "max_results",
+          "display_name": "Max Results",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Maximum number of results to return"
+        },
+        {
+          "name": "search_query",
+          "display_name": "Search Query",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The search query for arXiv papers (e.g., 'quantum computing')"
+        },
+        {
+          "name": "search_type",
+          "display_name": "Search Field",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The field to search in",
+          "options": [
+            "all",
+            "title",
+            "abstract",
+            "author",
+            "cat"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dataframe",
+          "display_name": "Table",
+          "method": "search_papers_dataframe",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

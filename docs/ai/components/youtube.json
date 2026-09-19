@@ -1,0 +1,869 @@
+{
+  "schema_version": "1.0",
+  "category": "youtube",
+  "component_count": 7,
+  "components": [
+    {
+      "id": "youtube.YouTubeChannelComponent",
+      "category": "youtube",
+      "component_type": "YouTubeChannelComponent",
+      "display_name": "YouTube Channel",
+      "description": "Retrieves detailed information and statistics about YouTube channels as a DataFrame.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "YouTube API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your YouTube Data API key."
+        },
+        {
+          "name": "channel_url",
+          "display_name": "Channel URL or ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The URL or ID of the YouTube channel."
+        },
+        {
+          "name": "include_branding",
+          "display_name": "Include Branding",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Include channel branding settings (banner, thumbnails)."
+        },
+        {
+          "name": "include_playlists",
+          "display_name": "Include Playlists",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Include channel's public playlists."
+        },
+        {
+          "name": "include_statistics",
+          "display_name": "Include Statistics",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Include channel statistics (views, subscribers, videos)."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "channel_df",
+          "display_name": "Channel Info",
+          "method": "get_channel_info",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "youtube.YouTubeCommentsComponent",
+      "category": "youtube",
+      "component_type": "YouTubeCommentsComponent",
+      "display_name": "YouTube Comments",
+      "description": "Retrieves and analyzes comments from YouTube videos.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "YouTube API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your YouTube Data API key."
+        },
+        {
+          "name": "include_metrics",
+          "display_name": "Include Metrics",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Include metrics like like count and reply count."
+        },
+        {
+          "name": "include_replies",
+          "display_name": "Include Replies",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Whether to include replies to comments."
+        },
+        {
+          "name": "max_results",
+          "display_name": "Max Results",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum number of comments to return."
+        },
+        {
+          "name": "sort_by",
+          "display_name": "Sort By",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Sort comments by time or relevance.",
+          "options": [
+            "time",
+            "relevance"
+          ]
+        },
+        {
+          "name": "video_url",
+          "display_name": "Video URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The URL of the YouTube video to get comments from."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "comments",
+          "display_name": "Comments",
+          "method": "get_video_comments",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "youtube.YouTubePlaylistComponent",
+      "category": "youtube",
+      "component_type": "YouTubePlaylistComponent",
+      "display_name": "YouTube Playlist",
+      "description": "Extracts all video URLs from a YouTube playlist.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "playlist_url",
+          "display_name": "Playlist URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "URL of the YouTube playlist."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video_urls",
+          "display_name": "Video URLs",
+          "method": "extract_video_urls",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "youtube.YouTubeSearchComponent",
+      "category": "youtube",
+      "component_type": "YouTubeSearchComponent",
+      "display_name": "YouTube Search",
+      "description": "Searches YouTube videos based on query.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "YouTube API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your YouTube Data API key."
+        },
+        {
+          "name": "include_metadata",
+          "display_name": "Include Metadata",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Include video metadata like description and statistics."
+        },
+        {
+          "name": "max_results",
+          "display_name": "Max Results",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum number of results to return."
+        },
+        {
+          "name": "order",
+          "display_name": "Sort Order",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Sort order for the search results.",
+          "options": [
+            "relevance",
+            "date",
+            "rating",
+            "title",
+            "viewCount"
+          ]
+        },
+        {
+          "name": "query",
+          "display_name": "Search Query",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The search query to look for on YouTube."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "results",
+          "display_name": "Search Results",
+          "method": "search_videos",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "youtube.YouTubeTranscripts",
+      "category": "youtube",
+      "component_type": "YouTubeTranscripts",
+      "display_name": "YouTube Transcripts",
+      "description": "Extracts spoken content from YouTube videos with multiple output options.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON",
+        "Message",
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "chunk_size_seconds",
+          "display_name": "Chunk Size (seconds)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The size of each transcript chunk in seconds."
+        },
+        {
+          "name": "translation",
+          "display_name": "Translation Language",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Translate the transcripts to the specified language. Leave empty for no translation.",
+          "options": [
+            "",
+            "en",
+            "es",
+            "fr",
+            "de",
+            "it",
+            "pt",
+            "ru",
+            "ja",
+            "ko",
+            "hi",
+            "ar",
+            "id"
+          ]
+        },
+        {
+          "name": "url",
+          "display_name": "Video URL",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "Enter the YouTube video URL to get transcripts from."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dataframe",
+          "display_name": "Chunks",
+          "method": "get_dataframe_output",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "message",
+          "display_name": "Transcript",
+          "method": "get_message_output",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "data_output",
+          "display_name": "Transcript + Source",
+          "method": "get_data_output",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "youtube.YouTubeTrendingComponent",
+      "category": "youtube",
+      "component_type": "YouTubeTrendingComponent",
+      "display_name": "YouTube Trending",
+      "description": "Retrieves trending videos from YouTube with filtering options.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "YouTube API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your YouTube Data API key."
+        },
+        {
+          "name": "category",
+          "display_name": "Category",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The category of videos to retrieve.",
+          "options": [
+            "All",
+            "Film & Animation",
+            "Autos & Vehicles",
+            "Music",
+            "Pets & Animals",
+            "Sports",
+            "Travel & Events",
+            "Gaming",
+            "People & Blogs",
+            "Comedy",
+            "Entertainment",
+            "News & Politics",
+            "Education",
+            "Science & Technology",
+            "Nonprofits & Activism"
+          ]
+        },
+        {
+          "name": "include_content_details",
+          "display_name": "Include Content Details",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Include video duration and quality info."
+        },
+        {
+          "name": "include_statistics",
+          "display_name": "Include Statistics",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Include video statistics (views, likes, comments)."
+        },
+        {
+          "name": "include_thumbnails",
+          "display_name": "Include Thumbnails",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Include video thumbnail URLs."
+        },
+        {
+          "name": "max_results",
+          "display_name": "Max Results",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Maximum number of trending videos to return (1-50)."
+        },
+        {
+          "name": "region",
+          "display_name": "Region",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The region to get trending videos from.",
+          "options": [
+            "Global",
+            "United States",
+            "Brazil",
+            "United Kingdom",
+            "India",
+            "Japan",
+            "South Korea",
+            "Germany",
+            "France",
+            "Canada",
+            "Australia",
+            "Spain",
+            "Italy",
+            "Mexico",
+            "Russia",
+            "Netherlands",
+            "Poland",
+            "Argentina"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "trending_videos",
+          "display_name": "Trending Videos",
+          "method": "get_trending_videos",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "youtube.YouTubeVideoDetailsComponent",
+      "category": "youtube",
+      "component_type": "YouTubeVideoDetailsComponent",
+      "display_name": "YouTube Video Details",
+      "description": "Retrieves detailed information and statistics about YouTube videos.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "YouTube API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your YouTube Data API key."
+        },
+        {
+          "name": "include_content_details",
+          "display_name": "Include Content Details",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Include video duration, quality, and age restriction info."
+        },
+        {
+          "name": "include_statistics",
+          "display_name": "Include Statistics",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Include video statistics (views, likes, comments)."
+        },
+        {
+          "name": "include_tags",
+          "display_name": "Include Tags",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Include video tags and keywords."
+        },
+        {
+          "name": "include_thumbnails",
+          "display_name": "Include Thumbnails",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Include video thumbnail URLs in different resolutions."
+        },
+        {
+          "name": "video_url",
+          "display_name": "Video URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The URL of the YouTube video."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video_data",
+          "display_name": "Video Data",
+          "method": "get_video_details",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

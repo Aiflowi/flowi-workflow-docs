@@ -1,0 +1,633 @@
+{
+  "schema_version": "1.0",
+  "category": "cleanlab",
+  "component_count": 3,
+  "components": [
+    {
+      "id": "cleanlab.CleanlabEvaluator",
+      "category": "cleanlab",
+      "component_type": "CleanlabEvaluator",
+      "display_name": "Cleanlab Evaluator",
+      "description": "Evaluates any LLM response using Cleanlab and outputs trust score and explanation.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "float",
+        "Message",
+        "number"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "Cleanlab API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your Cleanlab API key."
+        },
+        {
+          "name": "model",
+          "display_name": "Cleanlab Evaluation Model",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The model Cleanlab uses to evaluate the response. This does NOT need to be the same model that generated the response.",
+          "options": [
+            "gpt-4.1",
+            "gpt-4.1-mini",
+            "gpt-4.1-nano",
+            "o4-mini",
+            "o3",
+            "gpt-4.5-preview",
+            "gpt-4o-mini",
+            "gpt-4o",
+            "o3-mini",
+            "o1",
+            "o1-mini",
+            "gpt-4",
+            "gpt-3.5-turbo-16k",
+            "claude-3.7-sonnet",
+            "claude-3.5-sonnet-v2",
+            "claude-3.5-sonnet",
+            "claude-3.5-haiku",
+            "claude-3-haiku",
+            "nova-micro",
+            "nova-lite",
+            "nova-pro"
+          ]
+        },
+        {
+          "name": "prompt",
+          "display_name": "Prompt",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The user's query to the model."
+        },
+        {
+          "name": "quality_preset",
+          "display_name": "Quality Preset",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "This determines the accuracy, latency, and cost of the evaluation. Higher quality is generally slower but more accurate.",
+          "options": [
+            "base",
+            "low",
+            "medium",
+            "high",
+            "best"
+          ]
+        },
+        {
+          "name": "response",
+          "display_name": "Response",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The response to the user's query."
+        },
+        {
+          "name": "system_prompt",
+          "display_name": "System Message",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "System-level instructions prepended to the user query."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response_passthrough",
+          "display_name": "Response",
+          "method": "pass_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "score",
+          "display_name": "Trust Score",
+          "method": "get_score",
+          "types": [
+            "number",
+            "float"
+          ],
+          "selected": "number",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "explanation",
+          "display_name": "Explanation",
+          "method": "get_explanation",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "cleanlab.CleanlabRAGEvaluator",
+      "category": "cleanlab",
+      "component_type": "CleanlabRAGEvaluator",
+      "display_name": "Cleanlab RAG Evaluator",
+      "description": "Evaluates context, query, and response from a RAG pipeline using Cleanlab and outputs trust metrics.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Data",
+        "dict",
+        "float",
+        "Message",
+        "number"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "Cleanlab API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Your Cleanlab API key."
+        },
+        {
+          "name": "context",
+          "display_name": "Context",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The context retrieved for the given query."
+        },
+        {
+          "name": "model",
+          "display_name": "Cleanlab Evaluation Model",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The model Cleanlab uses to evaluate the context, query, and response. This does NOT need to be the same model that generated the response.",
+          "options": [
+            "gpt-4.1",
+            "gpt-4.1-mini",
+            "gpt-4.1-nano",
+            "o4-mini",
+            "o3",
+            "gpt-4.5-preview",
+            "gpt-4o-mini",
+            "gpt-4o",
+            "o3-mini",
+            "o1",
+            "o1-mini",
+            "gpt-4",
+            "gpt-3.5-turbo-16k",
+            "claude-3.7-sonnet",
+            "claude-3.5-sonnet-v2",
+            "claude-3.5-sonnet",
+            "claude-3.5-haiku",
+            "claude-3-haiku",
+            "nova-micro",
+            "nova-lite",
+            "nova-pro"
+          ]
+        },
+        {
+          "name": "quality_preset",
+          "display_name": "Quality Preset",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "This determines the accuracy, latency, and cost of the evaluation. Higher quality is generally slower but more accurate.",
+          "options": [
+            "base",
+            "low",
+            "medium"
+          ]
+        },
+        {
+          "name": "query",
+          "display_name": "Query",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The user's query."
+        },
+        {
+          "name": "response",
+          "display_name": "Response",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The response generated by the LLM."
+        },
+        {
+          "name": "run_context_sufficiency",
+          "display_name": "Run Context Sufficiency",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "run_query_ease",
+          "display_name": "Run Query Ease",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "run_response_groundedness",
+          "display_name": "Run Response Groundedness",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "run_response_helpfulness",
+          "display_name": "Run Response Helpfulness",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response_passthrough",
+          "display_name": "Response",
+          "method": "pass_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "trust_score",
+          "display_name": "Trust Score",
+          "method": "get_trust_score",
+          "types": [
+            "number",
+            "float"
+          ],
+          "selected": "number",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "trust_explanation",
+          "display_name": "Explanation",
+          "method": "get_trust_explanation",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "other_scores",
+          "display_name": "Other Evals",
+          "method": "get_other_scores",
+          "types": [
+            "Data",
+            "dict"
+          ],
+          "selected": "Data",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "evaluation_summary",
+          "display_name": "Evaluation Summary",
+          "method": "get_evaluation_summary",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "cleanlab.CleanlabRemediator",
+      "category": "cleanlab",
+      "component_type": "CleanlabRemediator",
+      "display_name": "Cleanlab Remediator",
+      "description": "Remediates an untrustworthy response based on trust score from the Cleanlab Evaluator, score threshold, and message handling settings.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "explanation",
+          "display_name": "Explanation",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The explanation from the Cleanlab Evaluator."
+        },
+        {
+          "name": "fallback_text",
+          "display_name": "Fallback Answer",
+          "input_type": "PromptInput",
+          "value_type": "prompt",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Response returned if the trust score is below the threshold and 'Show Untrustworthy Response' is disabled."
+        },
+        {
+          "name": "response",
+          "display_name": "Response",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The response to the user's query."
+        },
+        {
+          "name": "score",
+          "display_name": "Trust Score",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "number"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The trustworthiness score output from the Cleanlab Evaluator."
+        },
+        {
+          "name": "show_untrustworthy_response",
+          "display_name": "Show Untrustworthy Response",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If enabled, and the trust score is below the threshold, the original response is shown with the added warning. If disabled, and the trust score is below the threshold, the fallback answer is returned."
+        },
+        {
+          "name": "threshold",
+          "display_name": "Threshold",
+          "input_type": "FloatInput",
+          "value_type": "float",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Minimum score required to show the response unmodified. Reponses with scores above this threshold are considered trustworthy. Reponses with scores below this threshold are considered untrustworthy and will be remediated based on the settings below."
+        },
+        {
+          "name": "untrustworthy_warning_text",
+          "display_name": "Warning for Untrustworthy Response",
+          "input_type": "PromptInput",
+          "value_type": "prompt",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Warning to append to the response if Show Untrustworthy Response is enabled and trust score is below the threshold."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "remediated_response",
+          "display_name": "Remediated Message",
+          "method": "remediate_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

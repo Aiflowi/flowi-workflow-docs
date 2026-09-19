@@ -1,0 +1,1205 @@
+{
+  "schema_version": "1.0",
+  "category": "data_source",
+  "component_count": 9,
+  "components": [
+    {
+      "id": "data_source.APIRequest",
+      "category": "data_source",
+      "component_type": "APIRequest",
+      "display_name": "API Request",
+      "description": "Make HTTP requests using URL or cURL commands.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "body",
+          "display_name": "Body",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "The body to send with the request as a dictionary (for POST, PATCH, PUT)."
+        },
+        {
+          "name": "curl_input",
+          "display_name": "cURL",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": true,
+          "info": "Paste a curl command to populate the fields. This will fill in the dictionary fields for headers and body."
+        },
+        {
+          "name": "follow_redirects",
+          "display_name": "Follow Redirects",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Whether to follow HTTP redirects. WARNING: Enabling redirects may allow SSRF bypass attacks where a public URL redirects to internal resources. Only enable if you trust the target server. See OWASP SSRF Prevention Cheat Sheet for details."
+        },
+        {
+          "name": "headers",
+          "display_name": "Headers",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "The headers to send with the request"
+        },
+        {
+          "name": "include_httpx_metadata",
+          "display_name": "Include HTTPx Metadata",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Include properties such as headers, status_code, response_headers, and redirection_history in the output."
+        },
+        {
+          "name": "method",
+          "display_name": "Method",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "The HTTP method to use.",
+          "options": [
+            "GET",
+            "POST",
+            "PATCH",
+            "PUT",
+            "DELETE"
+          ]
+        },
+        {
+          "name": "mode",
+          "display_name": "Mode",
+          "input_type": "TabInput",
+          "value_type": "tab",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Enable cURL mode to populate fields from a cURL command.",
+          "options": [
+            "URL",
+            "cURL"
+          ]
+        },
+        {
+          "name": "query_params",
+          "display_name": "Query Parameters",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The query parameters to append to the URL."
+        },
+        {
+          "name": "save_to_file",
+          "display_name": "Save to File",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Save the API response to a temporary file"
+        },
+        {
+          "name": "timeout",
+          "display_name": "Timeout",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The timeout to use for the request."
+        },
+        {
+          "name": "url_input",
+          "display_name": "URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "Enter the URL for the request."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "display_name": "API Response",
+          "method": "make_api_request",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "data_source.MockDataGenerator",
+      "category": "data_source",
+      "component_type": "MockDataGenerator",
+      "display_name": "Mock Data",
+      "description": "Generate mock data for testing and development.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON",
+        "Message",
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "dataframe_output",
+          "display_name": "Result",
+          "method": "generate_dataframe_output",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "message_output",
+          "display_name": "Result",
+          "method": "generate_message_output",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "data_output",
+          "display_name": "Result",
+          "method": "generate_data_output",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "data_source.SQLComponent",
+      "category": "data_source",
+      "component_type": "SQLComponent",
+      "display_name": "SQL Database",
+      "description": "Executes SQL queries on SQLAlchemy-compatible databases.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "add_error",
+          "display_name": "Add Error",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "If True, the error will be added to the result"
+        },
+        {
+          "name": "database_url",
+          "display_name": "Database URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "include_columns",
+          "display_name": "Include Columns",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false
+        },
+        {
+          "name": "query",
+          "display_name": "SQL Query",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "run_sql_query",
+          "display_name": "Result Table",
+          "method": "run_sql_query",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "data_source.URLComponent",
+      "category": "data_source",
+      "component_type": "URLComponent",
+      "display_name": "URL",
+      "description": "Fetch content from one or more web pages, following links recursively.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message",
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "autoset_encoding",
+          "display_name": "Autoset Encoding",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If enabled, automatically sets the encoding of the request."
+        },
+        {
+          "name": "check_response_status",
+          "display_name": "Check Response Status",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If enabled, checks the response status of the request."
+        },
+        {
+          "name": "continue_on_failure",
+          "display_name": "Continue on Failure",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If enabled, continues crawling even if some requests fail."
+        },
+        {
+          "name": "filter_text_html",
+          "display_name": "Filter Text/HTML",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If enabled, filters out text/css content type from the results."
+        },
+        {
+          "name": "format",
+          "display_name": "Output Format",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Output Format. Use 'Text' to extract the text from the HTML, 'Markdown' to parse the HTML into Markdown format, or 'HTML' for the raw HTML content.",
+          "options": [
+            "Text",
+            "HTML",
+            "Markdown"
+          ]
+        },
+        {
+          "name": "headers",
+          "display_name": "Headers",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "DataFrame",
+            "Table"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The headers to send with the request"
+        },
+        {
+          "name": "max_depth",
+          "display_name": "Depth",
+          "input_type": "SliderInput",
+          "value_type": "slider",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Controls how many 'clicks' away from the initial page the crawler will go:\n- depth 1: only the initial page\n- depth 2: initial page + all pages linked directly from it\n- depth 3: initial page + direct links + links found on those direct link pages\nNote: This is about link traversal, not URL path depth."
+        },
+        {
+          "name": "prevent_outside",
+          "display_name": "Prevent Outside",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If enabled, only crawls URLs within the same domain as the root URL. This helps prevent the crawler from going to external websites."
+        },
+        {
+          "name": "timeout",
+          "display_name": "Timeout",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Timeout for the request in seconds."
+        },
+        {
+          "name": "urls",
+          "display_name": "URLs",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "Enter one or more URLs to crawl recursively, by clicking the '+' button."
+        },
+        {
+          "name": "use_async",
+          "display_name": "Use Async",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If enabled, uses asynchronous loading which can be significantly faster but might use more system resources."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "page_results",
+          "display_name": "Extracted Pages",
+          "method": "fetch_content",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "raw_results",
+          "display_name": "Raw Content",
+          "method": "fetch_content_as_message",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": false,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "data_source.UnifiedWebSearch",
+      "category": "data_source",
+      "component_type": "UnifiedWebSearch",
+      "display_name": "Web Search",
+      "description": "Search the web, news, or RSS feeds.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "ceid",
+          "display_name": "Country:Language (ceid)",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "e.g. US:en, FR:fr. Default: US:en."
+        },
+        {
+          "name": "gl",
+          "display_name": "Country (gl)",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Country code, e.g. US, FR, DE. Default: US."
+        },
+        {
+          "name": "hl",
+          "display_name": "Language (hl)",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Language code, e.g. en-US, fr, de. Default: en-US."
+        },
+        {
+          "name": "location",
+          "display_name": "Location (Geo)",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "City, state, or country for location-based news. Leave blank for keyword search."
+        },
+        {
+          "name": "query",
+          "display_name": "Search Query",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "Search keywords for news articles."
+        },
+        {
+          "name": "search_mode",
+          "display_name": "Search Mode",
+          "input_type": "TabInput",
+          "value_type": "tab",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": true,
+          "info": "Choose search mode: Web (DuckDuckGo), News (Google News), or RSS (Feed Reader)",
+          "options": [
+            "Web",
+            "News",
+            "RSS"
+          ]
+        },
+        {
+          "name": "timeout",
+          "display_name": "Timeout",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Timeout for the request in seconds."
+        },
+        {
+          "name": "topic",
+          "display_name": "Topic",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "One of: WORLD, NATION, BUSINESS, TECHNOLOGY, ENTERTAINMENT, SCIENCE, SPORTS, HEALTH."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "results",
+          "display_name": "Results",
+          "method": "perform_search",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "data_source.CSVtoData",
+      "category": "data_source",
+      "component_type": "CSVtoData",
+      "display_name": "Load CSV",
+      "description": "Load a CSV file, CSV from a file path, or a valid CSV string and convert it to a list of Data",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['data.File']"
+      ],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "csv_file",
+          "display_name": "CSV File",
+          "input_type": "FileInput",
+          "value_type": "file",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Upload a CSV file to convert to a list of Data objects"
+        },
+        {
+          "name": "csv_path",
+          "display_name": "CSV File Path",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Provide the path to the CSV file as pure text"
+        },
+        {
+          "name": "csv_string",
+          "display_name": "CSV String",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Paste a CSV string directly to convert to a list of Data objects"
+        },
+        {
+          "name": "text_key",
+          "display_name": "Text Key",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The key to use for the text column. Defaults to 'text'."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data_list",
+          "display_name": "JSON List",
+          "method": "load_csv_to_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "data_source.JSONtoData",
+      "category": "data_source",
+      "component_type": "JSONtoData",
+      "display_name": "Load JSON",
+      "description": "Convert a JSON file, JSON from a file path, or a JSON string to a Data object or a list of Data objects",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['data.File']"
+      ],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "json_file",
+          "display_name": "JSON File",
+          "input_type": "FileInput",
+          "value_type": "file",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Upload a JSON file to convert to a Data object or list of Data objects"
+        },
+        {
+          "name": "json_path",
+          "display_name": "JSON File Path",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Provide the path to the JSON file as pure text"
+        },
+        {
+          "name": "json_string",
+          "display_name": "JSON String",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Enter a valid JSON string (object or array) to convert to a Data object or list of Data objects"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "method": "convert_json_to_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "data_source.NewsSearch",
+      "category": "data_source",
+      "component_type": "NewsSearch",
+      "display_name": "News Search",
+      "description": "Searches Google News via RSS. Returns clean article data.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "ceid",
+          "display_name": "Country:Language (ceid)",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "e.g. US:en, FR:fr. Default: US:en."
+        },
+        {
+          "name": "gl",
+          "display_name": "Country (gl)",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Country code, e.g. US, FR, DE. Default: US."
+        },
+        {
+          "name": "hl",
+          "display_name": "Language (hl)",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Language code, e.g. en-US, fr, de. Default: en-US."
+        },
+        {
+          "name": "location",
+          "display_name": "Location (Geo)",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "City, state, or country for location-based news. Leave blank for keyword search."
+        },
+        {
+          "name": "query",
+          "display_name": "Search Query",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "Search keywords for news articles."
+        },
+        {
+          "name": "timeout",
+          "display_name": "Timeout",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Timeout for the request in seconds."
+        },
+        {
+          "name": "topic",
+          "display_name": "Topic",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "One of: WORLD, NATION, BUSINESS, TECHNOLOGY, ENTERTAINMENT, SCIENCE, SPORTS, HEALTH."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "articles",
+          "display_name": "News Articles",
+          "method": "search_news",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "data_source.RSSReaderSimple",
+      "category": "data_source",
+      "component_type": "RSSReaderSimple",
+      "display_name": "RSS Reader",
+      "description": "Fetches and parses an RSS feed.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "rss_url",
+          "display_name": "RSS Feed URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "URL of the RSS feed to parse."
+        },
+        {
+          "name": "timeout",
+          "display_name": "Timeout",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Timeout for the RSS feed request."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "articles",
+          "display_name": "Articles",
+          "method": "read_rss",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,453 @@
+{
+  "schema_version": "1.0",
+  "category": "vectara",
+  "component_count": 2,
+  "components": [
+    {
+      "id": "vectara.Vectara",
+      "category": "vectara",
+      "component_type": "Vectara",
+      "display_name": "Vectara",
+      "description": "Vectara Vector Store with search capabilities",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON",
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "embedding",
+          "display_name": "Embedding",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Embeddings"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "ingest_data",
+          "display_name": "Ingest Data",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "DataFrame",
+            "Table"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "number_of_results",
+          "display_name": "Number of Results",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Number of results to return."
+        },
+        {
+          "name": "search_query",
+          "display_name": "Search Query",
+          "input_type": "QueryInput",
+          "value_type": "query",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "Enter a query to run a similarity search."
+        },
+        {
+          "name": "should_cache_vector_store",
+          "display_name": "Cache Vector Store",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If True, the vector store will be cached for the current build of the component. This is useful for components that have multiple output methods and want to share the same vector store."
+        },
+        {
+          "name": "vectara_api_key",
+          "display_name": "Vectara API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "vectara_corpus_id",
+          "display_name": "Vectara Corpus ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "vectara_customer_id",
+          "display_name": "Vectara Customer ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "search_results",
+          "display_name": "Search Results",
+          "method": "search_documents",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "dataframe",
+          "display_name": "Table",
+          "method": "as_dataframe",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "vectara.VectaraRAG",
+      "category": "vectara",
+      "component_type": "VectaraRAG",
+      "display_name": "Vectara RAG",
+      "description": "Vectara's full end to end RAG",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "diversity_bias",
+          "display_name": "Diversity Bias",
+          "input_type": "FloatInput",
+          "value_type": "float",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Ranges from 0 to 1, with higher values indicating greater diversity (only applies to MMR reranker)."
+        },
+        {
+          "name": "filter",
+          "display_name": "Metadata Filters",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The filter string to narrow the search to according to metadata attributes."
+        },
+        {
+          "name": "lexical_interpolation",
+          "display_name": "Hybrid Search Factor",
+          "input_type": "FloatInput",
+          "value_type": "float",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "How much to weigh lexical scores compared to the embedding score. 0 means lexical search is not used at all, and 1 means only lexical search is used."
+        },
+        {
+          "name": "max_results",
+          "display_name": "Max Results to Summarize",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum number of search results to be available to the prompt."
+        },
+        {
+          "name": "prompt",
+          "display_name": "Prompt Name",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Only vectara-summary-ext-24-05-sml is for Growth customers; all other prompts are for Scale customers only.",
+          "options": [
+            "vectara-summary-ext-24-05-sml",
+            "vectara-summary-ext-24-05-med-omni",
+            "vectara-summary-ext-24-05-large",
+            "vectara-summary-ext-24-05-med",
+            "vectara-summary-ext-v1.3.0"
+          ]
+        },
+        {
+          "name": "reranker",
+          "display_name": "Reranker Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "How to rerank the retrieved search results.",
+          "options": [
+            "mmr",
+            "rerank_multilingual_v1",
+            "none"
+          ]
+        },
+        {
+          "name": "reranker_k",
+          "display_name": "Number of Results to Rerank",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "response_lang",
+          "display_name": "Response Language",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Use the ISO 639-1 or 639-3 language code or auto to automatically detect the language.",
+          "options": [
+            "auto",
+            "eng",
+            "spa",
+            "fra",
+            "zho",
+            "deu",
+            "hin",
+            "ara",
+            "por",
+            "ita",
+            "jpn",
+            "kor",
+            "rus",
+            "tur",
+            "fas",
+            "vie",
+            "tha",
+            "heb",
+            "nld",
+            "ind",
+            "pol",
+            "ukr",
+            "ron",
+            "swe",
+            "ces",
+            "ell",
+            "ben",
+            "msa",
+            "urd"
+          ]
+        },
+        {
+          "name": "search_query",
+          "display_name": "Search Query",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The query to receive an answer on."
+        },
+        {
+          "name": "vectara_api_key",
+          "display_name": "Vectara API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "vectara_corpus_id",
+          "display_name": "Vectara Corpus ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "vectara_customer_id",
+          "display_name": "Vectara Customer ID",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        }
+      ],
+      "outputs": [
+        {
+          "name": "answer",
+          "display_name": "Answer",
+          "method": "generate_response",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

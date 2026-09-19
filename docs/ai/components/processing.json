@@ -1,0 +1,3926 @@
+{
+  "schema_version": "1.0",
+  "category": "processing",
+  "component_count": 37,
+  "components": [
+    {
+      "id": "processing.AudioURLExtractor",
+      "category": "processing",
+      "component_type": "AudioURLExtractor",
+      "display_name": "Audio URL Extractor",
+      "description": "Extracts recognized audio URLs from an incoming message and returns one URL per line.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "text",
+          "display_name": "Incoming Message",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Message or text that may contain one or more audio URLs."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio_urls",
+          "display_name": "Audio URLs",
+          "method": "extract_audio_urls",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.DynamicCreateData",
+      "category": "processing",
+      "component_type": "DynamicCreateData",
+      "display_name": "Dynamic Create Data",
+      "description": "Dynamically create a Data with a specified number of fields.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "form_fields",
+          "display_name": "Input Configuration",
+          "input_type": "TableInput",
+          "value_type": "table",
+          "accepts": [
+            "DataFrame",
+            "Table"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Define the dynamic form fields. Each row creates a new input field that can connect to other components."
+        },
+        {
+          "name": "include_metadata",
+          "display_name": "Include Metadata",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Include form configuration metadata in the output."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "form_data",
+          "display_name": "JSON",
+          "method": "process_form",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "message",
+          "display_name": "Message",
+          "method": "get_message",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.ExcelRowQuery",
+      "category": "processing",
+      "component_type": "ExcelRowQuery",
+      "display_name": "Excel Row Query",
+      "description": "Finds the first matching Excel row using a pandas query expression and optional dynamic variables.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "dynamic_variables",
+          "display_name": "Dynamic Variables (JSON)",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional query variables supplied as a JSON/Data object, for example {\"email\": \"user@example.com\", \"phone\": \"+6012...\"}."
+        },
+        {
+          "name": "file_path",
+          "display_name": "Excel File",
+          "input_type": "FileInput",
+          "value_type": "file",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Excel workbook to search."
+        },
+        {
+          "name": "has_header",
+          "display_name": "Sheet Has Headers",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "When disabled, columns are named Column1, Column2, and so on."
+        },
+        {
+          "name": "search_query",
+          "display_name": "Search Query (Pandas)",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Text",
+            "Message",
+            "String"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional pandas DataFrame query. Use @variable_name for values supplied through Dynamic Variables."
+        },
+        {
+          "name": "sheet_name",
+          "display_name": "Sheet Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Worksheet name. Leave empty to use the first worksheet."
+        },
+        {
+          "name": "timeout",
+          "display_name": "Lock Timeout (Seconds)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Maximum time to wait for another process to release the workbook lock."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "excel_row",
+          "display_name": "Excel Row",
+          "method": "read_row",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.ExcelRowUpsert",
+      "category": "processing",
+      "component_type": "ExcelRowUpsert",
+      "display_name": "Excel Row Upsert",
+      "description": "Finds one Excel row using a pandas query, then updates it or appends a new row. Without Write Data, returns the first match.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "dynamic_variables",
+          "display_name": "Dynamic Variables (JSON)",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional query variables supplied as a JSON/Data object. A has_<key> boolean is generated for each key."
+        },
+        {
+          "name": "file_path",
+          "display_name": "Excel File",
+          "input_type": "FileInput",
+          "value_type": "file",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Excel workbook to search. Updating is supported for .xlsx workbooks; .xls workbooks are read-only."
+        },
+        {
+          "name": "has_header",
+          "display_name": "Sheet Has Headers",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "When disabled, columns are named Column1, Column2, and so on. Write Data keys must use those names."
+        },
+        {
+          "name": "search_query",
+          "display_name": "Search Query (Pandas)",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Text",
+            "Message",
+            "String"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional pandas DataFrame query. Use @variable_name for values supplied through Dynamic Variables. When Write Data is supplied and this field is empty, a new row is appended."
+        },
+        {
+          "name": "sheet_name",
+          "display_name": "Sheet Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Worksheet name. Leave empty to use the first worksheet."
+        },
+        {
+          "name": "timeout",
+          "display_name": "Lock Timeout (Seconds)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Maximum time to wait for another process to release the workbook lock."
+        },
+        {
+          "name": "write_data",
+          "display_name": "Write Data (JSON)",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Optional JSON/Data object used to update the first matching row or append a new row. Leave empty for read-only search mode."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "excel_row",
+          "display_name": "Excel Row",
+          "method": "upsert_row",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.ImageURLExtractor",
+      "category": "processing",
+      "component_type": "ImageURLExtractor",
+      "display_name": "Image URL Extractor",
+      "description": "Extracts recognized image URLs from an incoming message and returns one URL per line.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "text",
+          "display_name": "Incoming Message",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Message or text that may contain one or more image URLs."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image_urls",
+          "display_name": "Image URLs",
+          "method": "extract_image_urls",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.JSONArrayExtractor",
+      "category": "processing",
+      "component_type": "JSONArrayExtractor",
+      "display_name": "JSON Array Extractor",
+      "description": "Extracts a top-level array from a JSON object and returns its objects as Langflow Data items.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "array_key",
+          "display_name": "Array Key",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The top-level key containing the JSON array."
+        },
+        {
+          "name": "json_data",
+          "display_name": "JSON Data",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "A top-level JSON object containing the array to extract."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data_items",
+          "display_name": "Data Items",
+          "method": "extract_array",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.JSONKeyExtractor",
+      "category": "processing",
+      "component_type": "JSONKeyExtractor",
+      "display_name": "JSON Key Extractor",
+      "description": "Extracts selected top-level keys from a JSON object. Objects and arrays retain their JSON structure; a single scalar is returned as a Message.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "json_data",
+          "display_name": "JSON Data",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The JSON object from which top-level keys are extracted."
+        },
+        {
+          "name": "selected_keys",
+          "display_name": "Keys to Extract",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Enter one top-level JSON key per line. With one selected key, objects are returned as JSON, arrays of objects as multiple JSON Data items, and scalar values as Message output."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "extracted_json",
+          "display_name": "Value",
+          "method": "extract_keys",
+          "types": [
+            "JSON",
+            "Message"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.JSONObjectBuilder",
+      "category": "processing",
+      "component_type": "JSONObjectBuilder",
+      "display_name": "JSON Object Builder",
+      "description": "Creates a JSON object from configurable keys. Each key becomes a separate connectable input.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "field_names",
+          "display_name": "JSON Keys",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Enter one JSON key per line, then click Refresh. Each key becomes a connectable value input."
+        },
+        {
+          "name": "include_empty_values",
+          "display_name": "Include Empty Values",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "When disabled, keys whose connected value is empty or missing are omitted from the result."
+        },
+        {
+          "name": "parse_json_values",
+          "display_name": "Parse JSON Values",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "When enabled, values such as 123, true, null, [1, 2], or {\"a\": 1} are converted from JSON text to their native JSON types. Other text stays text."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "json_object",
+          "display_name": "JSON Object",
+          "method": "build_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "json_text",
+          "display_name": "JSON Text",
+          "method": "build_message",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "text_data",
+          "display_name": "Text Data",
+          "method": "build_text_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.DataOperations",
+      "category": "processing",
+      "component_type": "DataOperations",
+      "display_name": "JSON Operations",
+      "description": "Perform various operations on a JSON object.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "append_update_data",
+          "display_name": "Append or Update",
+          "input_type": "DictInput",
+          "value_type": "dict",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Data to append or update the existing data with. Only top-level keys are checked."
+        },
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Data object to filter."
+        },
+        {
+          "name": "filter_key",
+          "display_name": "Filter Key",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Name of the key containing the list to filter. It must be a top-level key in the JSON and its value must be a list."
+        },
+        {
+          "name": "filter_values",
+          "display_name": "Filter Values",
+          "input_type": "DictInput",
+          "value_type": "dict",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "List of values to filter by."
+        },
+        {
+          "name": "mapped_json_display",
+          "display_name": "JSON to Map",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Paste or preview your JSON here to explore its structure and select a path for extraction."
+        },
+        {
+          "name": "operations",
+          "display_name": "Operations",
+          "input_type": "SortableListInput",
+          "value_type": "sortableList",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "List of operations to perform on the data.",
+          "option_count": 9
+        },
+        {
+          "name": "operator",
+          "display_name": "Comparison Operator",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The operator to apply for comparing the values.",
+          "options": [
+            "equals",
+            "not equals",
+            "contains",
+            "starts with",
+            "ends with"
+          ]
+        },
+        {
+          "name": "query",
+          "display_name": "JQ Expression",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "JSON Query to filter the data. Used by Parse JSON operation."
+        },
+        {
+          "name": "remove_keys_input",
+          "display_name": "Remove Keys",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "List of keys to remove from the data."
+        },
+        {
+          "name": "rename_keys_input",
+          "display_name": "Rename Keys",
+          "input_type": "DictInput",
+          "value_type": "dict",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "List of keys to rename in the data."
+        },
+        {
+          "name": "select_keys_input",
+          "display_name": "Select Keys",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "List of keys to select from the data. Only top-level keys can be selected."
+        },
+        {
+          "name": "selected_key",
+          "display_name": "Select Path",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": []
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data_output",
+          "display_name": "JSON",
+          "method": "as_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.JSONStringParser",
+      "category": "processing",
+      "component_type": "JSONStringParser",
+      "display_name": "JSON String Parser",
+      "description": "Parses a string containing a JSON object into Langflow Data. Invalid JSON raises an exception.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "json_text",
+          "display_name": "JSON String",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Strict JSON object text. The input may be plain text or a Langflow Message."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "json_data",
+          "display_name": "JSON Data",
+          "method": "parse_json",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.MediaURLCleaner",
+      "category": "processing",
+      "component_type": "MediaURLCleaner",
+      "display_name": "Media URL Cleaner",
+      "description": "Removes recognized image and audio URLs from an incoming message and returns the remaining clean text.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "text",
+          "display_name": "Incoming Message",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Message or text containing ordinary text and optional image or audio URLs."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "clean_text",
+          "display_name": "Clean Text",
+          "method": "clean_message",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.MetaWebhookSignatureVerification",
+      "category": "processing",
+      "component_type": "MetaWebhookSignatureVerification",
+      "display_name": "Meta Webhook Signature Verification",
+      "description": "Validates Meta X-Hub-Signature-256 using the App Secret and the exact Universal Webhook raw_body. Returns one JSON object containing the verification result, verified payload, original request data, response definition, and any error.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Data",
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "app_secret",
+          "display_name": "Meta App Secret",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The App Secret from the Meta app that owns this webhook. It is used as the HMAC-SHA256 key and is never included in the output."
+        },
+        {
+          "name": "request_data",
+          "display_name": "Request Data",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Connect the complete JSON output from Universal Webhook. The component reads headers, raw_body, body, and method from the request envelope. Do not pass only the parsed body."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "verification_result",
+          "display_name": "Verification Result",
+          "method": "verify_signature",
+          "types": [
+            "Data",
+            "JSON"
+          ],
+          "selected": "Data",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": false
+        }
+      ]
+    },
+    {
+      "id": "processing.MetaWebhookVerification",
+      "category": "processing",
+      "component_type": "MetaWebhookVerification",
+      "display_name": "Meta Webhook Verification",
+      "description": "Validates Meta webhook verification requests for WhatsApp, Instagram, and Facebook. Connect its Response Definition output to Webhook Response.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Data",
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "request_data",
+          "display_name": "Request Data",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Connect the JSON output from Universal Webhook. The component reads hub.mode, hub.verify_token, and hub.challenge from request_data.query."
+        },
+        {
+          "name": "verify_token",
+          "display_name": "Verify Token",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The verification token configured by you in the Meta webhook settings. It must exactly match hub.verify_token sent by Meta."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response_definition",
+          "display_name": "Response Definition",
+          "method": "verify_webhook",
+          "types": [
+            "Data",
+            "JSON"
+          ],
+          "selected": "Data",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": false
+        }
+      ]
+    },
+    {
+      "id": "processing.ParserComponent",
+      "category": "processing",
+      "component_type": "ParserComponent",
+      "display_name": "Parser",
+      "description": "Extracts text using a template.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "input_data",
+          "display_name": "JSON or Table",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "DataFrame",
+            "Table",
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Accepts either a DataFrame or a Data object."
+        },
+        {
+          "name": "mode",
+          "display_name": "Mode",
+          "input_type": "TabInput",
+          "value_type": "tab",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Convert into raw string instead of using a template.",
+          "options": [
+            "Parser",
+            "Stringify"
+          ]
+        },
+        {
+          "name": "pattern",
+          "display_name": "Template",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Use variables within curly brackets to extract column values for DataFrames or key values for Data.For example: `Name: {Name}, Age: {Age}, Country: {Country}`"
+        },
+        {
+          "name": "sep",
+          "display_name": "Separator",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "String used to separate rows/items."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "parsed_text",
+          "display_name": "Parsed Text",
+          "method": "parse_combined_text",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.SplitText",
+      "category": "processing",
+      "component_type": "SplitText",
+      "display_name": "Split Text",
+      "description": "Split text into chunks based on specified criteria.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "chunk_overlap",
+          "display_name": "Chunk Overlap",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Number of characters to overlap between chunks."
+        },
+        {
+          "name": "chunk_size",
+          "display_name": "Chunk Size",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum length of each chunk. Text is first split by separator, then chunks are merged up to this size. Individual splits larger than this won't be further divided."
+        },
+        {
+          "name": "clean_output",
+          "display_name": "Clean Output",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "When enabled, only the text column is included in the output. Metadata columns are removed."
+        },
+        {
+          "name": "data_inputs",
+          "display_name": "Input",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON",
+            "DataFrame",
+            "Table",
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The data with texts to split in chunks."
+        },
+        {
+          "name": "keep_separator",
+          "display_name": "Keep Separator",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Whether to keep the separator in the output chunks and where to place it.",
+          "options": [
+            "False",
+            "True",
+            "Start",
+            "End"
+          ]
+        },
+        {
+          "name": "separator",
+          "display_name": "Separator",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The character to split on. Use \\n for newline. Examples: \\n\\n for paragraphs, \\n for lines, . for sentences"
+        },
+        {
+          "name": "text_key",
+          "display_name": "Text Key",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The key to use for the text column."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dataframe",
+          "display_name": "Chunks",
+          "method": "split_text",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.DataFrameOperations",
+      "category": "processing",
+      "component_type": "DataFrameOperations",
+      "display_name": "Table Operations",
+      "description": "Perform various operations on a Table.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "ascending",
+          "display_name": "Sort Ascending",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Whether to sort in ascending order."
+        },
+        {
+          "name": "column_name",
+          "display_name": "Column Name",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The column name to use for the operation."
+        },
+        {
+          "name": "columns_to_select",
+          "display_name": "Columns to Select",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "df",
+          "display_name": "Table",
+          "input_type": "DataFrameInput",
+          "value_type": "other",
+          "accepts": [
+            "DataFrame",
+            "Table"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The input DataFrame to operate on. Connect multiple DataFrames for merge or concatenate operations."
+        },
+        {
+          "name": "filter_operator",
+          "display_name": "Filter Operator",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The operator to apply for filtering rows.",
+          "options": [
+            "equals",
+            "not equals",
+            "contains",
+            "not contains",
+            "starts with",
+            "ends with",
+            "greater than",
+            "less than"
+          ]
+        },
+        {
+          "name": "filter_value",
+          "display_name": "Filter Value",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The value to filter rows by."
+        },
+        {
+          "name": "left_dataframe",
+          "display_name": "Left Table",
+          "input_type": "DataFrameInput",
+          "value_type": "other",
+          "accepts": [
+            "DataFrame",
+            "Table"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The left (primary) DataFrame for merge operations. In a left merge, all rows from this table are preserved."
+        },
+        {
+          "name": "merge_how",
+          "display_name": "Merge Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Type of merge: inner (intersection), outer (union), left, or right.",
+          "options": [
+            "inner",
+            "outer",
+            "left",
+            "right"
+          ]
+        },
+        {
+          "name": "merge_on_column",
+          "display_name": "Merge On Column",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The column name to merge DataFrames on. Must exist in both DataFrames."
+        },
+        {
+          "name": "new_column_name",
+          "display_name": "New Column Name",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The new column name when renaming or adding a column."
+        },
+        {
+          "name": "new_column_value",
+          "display_name": "New Column Value",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The value to populate the new column with."
+        },
+        {
+          "name": "num_rows",
+          "display_name": "Number of Rows",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Number of rows to return (for head/tail)."
+        },
+        {
+          "name": "operation",
+          "display_name": "Operation",
+          "input_type": "SortableListInput",
+          "value_type": "sortableList",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select the DataFrame operation to perform.",
+          "option_count": 12
+        },
+        {
+          "name": "replace_value",
+          "display_name": "Value to Replace",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The value to replace in the column."
+        },
+        {
+          "name": "replacement_value",
+          "display_name": "Replacement Value",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The value to replace with."
+        },
+        {
+          "name": "right_dataframe",
+          "display_name": "Right Table",
+          "input_type": "DataFrameInput",
+          "value_type": "other",
+          "accepts": [
+            "DataFrame",
+            "Table"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The right (secondary) DataFrame for merge operations. In a right merge, all rows from this table are preserved."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "display_name": "Table",
+          "method": "perform_operation",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.TextOperations",
+      "category": "processing",
+      "component_type": "TextOperations",
+      "display_name": "Text Operations",
+      "description": "Perform various text processing operations including text-to-DataFrame conversion.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "case_type",
+          "display_name": "Case Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Type of case conversion to apply.",
+          "options": [
+            "uppercase",
+            "lowercase",
+            "title",
+            "capitalize",
+            "swapcase"
+          ]
+        },
+        {
+          "name": "count_characters",
+          "display_name": "Count Characters",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Include character count in analysis."
+        },
+        {
+          "name": "count_lines",
+          "display_name": "Count Lines",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Include line count in analysis."
+        },
+        {
+          "name": "count_words",
+          "display_name": "Count Words",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Include word count in analysis."
+        },
+        {
+          "name": "extract_pattern",
+          "display_name": "Extract Pattern",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Regex pattern to extract from text."
+        },
+        {
+          "name": "has_header",
+          "display_name": "Has Header",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Whether the table has a header row."
+        },
+        {
+          "name": "head_characters",
+          "display_name": "Characters from Start",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Number of characters to extract from the beginning of text. Must be non-negative."
+        },
+        {
+          "name": "max_matches",
+          "display_name": "Max Matches",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Maximum number of matches to extract."
+        },
+        {
+          "name": "operation",
+          "display_name": "Operation",
+          "input_type": "SortableListInput",
+          "value_type": "sortableList",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select the text operation to perform.",
+          "option_count": 10
+        },
+        {
+          "name": "remove_empty_lines",
+          "display_name": "Remove Empty Lines",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Remove empty lines from text."
+        },
+        {
+          "name": "remove_extra_spaces",
+          "display_name": "Remove Extra Spaces",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Remove multiple consecutive spaces."
+        },
+        {
+          "name": "remove_special_chars",
+          "display_name": "Remove Special Characters",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Remove special characters except alphanumeric and spaces."
+        },
+        {
+          "name": "replacement_text",
+          "display_name": "Replacement Text",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Text to replace the search pattern with."
+        },
+        {
+          "name": "search_pattern",
+          "display_name": "Search Pattern",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Text pattern to search for (supports regex)."
+        },
+        {
+          "name": "strip_characters",
+          "display_name": "Characters to Strip",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Specific characters to remove (leave empty for whitespace)."
+        },
+        {
+          "name": "strip_mode",
+          "display_name": "Strip Mode",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Which sides to strip whitespace from.",
+          "options": [
+            "both",
+            "left",
+            "right"
+          ]
+        },
+        {
+          "name": "table_separator",
+          "display_name": "Table Separator",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Separator used in the table (default: '|')."
+        },
+        {
+          "name": "tail_characters",
+          "display_name": "Characters from End",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Number of characters to extract from the end of text. Must be non-negative."
+        },
+        {
+          "name": "text_input",
+          "display_name": "Text Input",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The input text to process."
+        },
+        {
+          "name": "text_input_2",
+          "display_name": "Second Text Input",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Second text to join with the first text."
+        },
+        {
+          "name": "use_regex",
+          "display_name": "Use Regex",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": true,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Whether to treat search pattern as regex."
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "processing.TypeConverterComponent",
+      "category": "processing",
+      "component_type": "TypeConverterComponent",
+      "display_name": "Type Convert",
+      "description": "Convert between different types (Message, JSON, Table)",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON",
+        "Message",
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "auto_parse",
+          "display_name": "Auto Parse",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Detect and convert JSON/CSV strings automatically."
+        },
+        {
+          "name": "input_data",
+          "display_name": "Input",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Message",
+            "Data",
+            "JSON",
+            "DataFrame",
+            "Table"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Accept Message, JSON or Table as input"
+        },
+        {
+          "name": "output_type",
+          "display_name": "Output Type",
+          "input_type": "TabInput",
+          "value_type": "tab",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select the desired output data type",
+          "options": [
+            "Message",
+            "JSON",
+            "Table"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "message_output",
+          "display_name": "Message Output",
+          "method": "convert_to_message",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "data_output",
+          "display_name": "JSON Output",
+          "method": "convert_to_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "dataframe_output",
+          "display_name": "Table Output",
+          "method": "convert_to_dataframe",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.AlterMetadata",
+      "category": "processing",
+      "component_type": "AlterMetadata",
+      "display_name": "Alter Metadata",
+      "description": "Adds/Removes Metadata Dictionary on inputs",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['processing.DataOperations']"
+      ],
+      "base_classes": [
+        "JSON",
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Message",
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Object(s) to which Metadata should be added"
+        },
+        {
+          "name": "metadata",
+          "display_name": "Metadata",
+          "input_type": "NestedDictInput",
+          "value_type": "NestedDict",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Metadata to add to each object"
+        },
+        {
+          "name": "remove_fields",
+          "display_name": "Fields to Remove",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Metadata Fields to Remove"
+        },
+        {
+          "name": "text_in",
+          "display_name": "User Text",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Text input; value will be in 'text' attribute of Data object. Empty text entries are ignored."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "method": "process_output",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "dataframe",
+          "display_name": "Table",
+          "method": "as_dataframe",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.MergeDataComponent",
+      "category": "processing",
+      "component_type": "MergeDataComponent",
+      "display_name": "Combine Data",
+      "description": "Combines data using different operations",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['processing.DataOperations']"
+      ],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "data_inputs",
+          "display_name": "Data Inputs",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Data to combine"
+        },
+        {
+          "name": "operation",
+          "display_name": "Operation Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "Concatenate",
+            "Append",
+            "Merge",
+            "Join"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "combined_data",
+          "display_name": "Table",
+          "method": "combine_data",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.CombineText",
+      "category": "processing",
+      "component_type": "CombineText",
+      "display_name": "Combine Text",
+      "description": "Concatenate two text sources into a single text chunk using a specified delimiter.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['processing.DataOperations']"
+      ],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "delimiter",
+          "display_name": "Delimiter",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "A string used to separate the two text inputs. Defaults to a whitespace."
+        },
+        {
+          "name": "text1",
+          "display_name": "First Text",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The first text input to concatenate."
+        },
+        {
+          "name": "text2",
+          "display_name": "Second Text",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The second text input to concatenate."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "combined_text",
+          "display_name": "Combined Text",
+          "method": "combine_texts",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.CreateData",
+      "category": "processing",
+      "component_type": "CreateData",
+      "display_name": "Create Data",
+      "description": "Dynamically create a Data with a specified number of fields.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['processing.DataOperations']"
+      ],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "number_of_fields",
+          "display_name": "Number of Fields",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Number of fields to be added to the record."
+        },
+        {
+          "name": "text_key",
+          "display_name": "Text Key",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Key that identifies the field to be used as the text content."
+        },
+        {
+          "name": "text_key_validator",
+          "display_name": "Text Key Validator",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If enabled, checks if the given 'Text Key' is present in the given 'Data'."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "method": "build_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.CreateList",
+      "category": "processing",
+      "component_type": "CreateList",
+      "display_name": "Create List",
+      "description": "Creates a list of texts.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "JSON",
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "texts",
+          "display_name": "Texts",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Enter one or more texts."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "list",
+          "display_name": "JSON List",
+          "method": "create_list",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "dataframe",
+          "display_name": "Table",
+          "method": "as_dataframe",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.ParseData",
+      "category": "processing",
+      "component_type": "ParseData",
+      "display_name": "Data to Message",
+      "description": "Convert Data objects into Messages using any {field_name} from input data.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['processing.DataOperations',",
+        "'processing.TypeConverterComponent']"
+      ],
+      "base_classes": [
+        "JSON",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The data to convert to text."
+        },
+        {
+          "name": "sep",
+          "display_name": "Separator",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false
+        },
+        {
+          "name": "template",
+          "display_name": "Template",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The template to use for formatting the data. It can contain the keys {text}, {data} or any other key in the Data."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "display_name": "Message",
+          "method": "parse_data",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "data_list",
+          "display_name": "JSON List",
+          "method": "parse_data_as_list",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.DataToDataFrame",
+      "category": "processing",
+      "component_type": "DataToDataFrame",
+      "display_name": "Data → DataFrame",
+      "description": "Converts one or multiple Data objects into a DataFrame. Each Data object corresponds to one row. Fields from `.data` become columns, and the `.text` (if present) is placed in a 'text' column.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['processing.DataOperations',",
+        "'processing.TypeConverterComponent']"
+      ],
+      "base_classes": [
+        "Table"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "data_list",
+          "display_name": "Data or Data List",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "One or multiple Data objects to transform into a DataFrame."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "dataframe",
+          "display_name": "Table",
+          "method": "build_dataframe",
+          "types": [
+            "Table"
+          ],
+          "selected": "Table",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.ExtractaKey",
+      "category": "processing",
+      "component_type": "ExtractaKey",
+      "display_name": "Extract Key",
+      "description": "Extract a specific key from a Data object or a list of Data objects and return the extracted value(s) as Data object(s).",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['processing.DataOperations']"
+      ],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "data_input",
+          "display_name": "Data Input",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The Data object or list of Data objects to extract the key from."
+        },
+        {
+          "name": "key",
+          "display_name": "Key to Extract",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The key in the Data object(s) to extract."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "extracted_data",
+          "display_name": "Extracted Data",
+          "method": "extract_key",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.FilterData",
+      "category": "processing",
+      "component_type": "FilterData",
+      "display_name": "Filter Data",
+      "description": "Filters a Data object based on a list of keys.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": true,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['processing.DataOperations']"
+      ],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Data object to filter."
+        },
+        {
+          "name": "filter_criteria",
+          "display_name": "Filter Criteria",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "List of keys to filter by."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "filtered_data",
+          "display_name": "Filtered Data",
+          "method": "filter_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.FilterDataValues",
+      "category": "processing",
+      "component_type": "FilterDataValues",
+      "display_name": "Filter Values",
+      "description": "Filter a list of data items based on a specified key, filter value, and comparison operator. Check advanced options to select match comparision.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": true,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['processing.DataOperations']"
+      ],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "filter_key",
+          "display_name": "Filter Key",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The key to filter on (e.g., 'route')."
+        },
+        {
+          "name": "filter_value",
+          "display_name": "Filter Value",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The value to filter by (e.g., 'CMIP')."
+        },
+        {
+          "name": "input_data",
+          "display_name": "Input Data",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The list of data items to filter."
+        },
+        {
+          "name": "operator",
+          "display_name": "Comparison Operator",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The operator to apply for comparing the values.",
+          "options": [
+            "equals",
+            "not equals",
+            "contains",
+            "starts with",
+            "ends with"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "filtered_data",
+          "display_name": "Filtered Data",
+          "method": "filter_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.JSONCleaner",
+      "category": "processing",
+      "component_type": "JSONCleaner",
+      "display_name": "JSON Cleaner",
+      "description": "Cleans the messy and sometimes incorrect JSON strings produced by LLMs so that they are fully compliant with the JSON spec.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['processing.ParserComponent']"
+      ],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "json_str",
+          "display_name": "JSON String",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The JSON string to be cleaned."
+        },
+        {
+          "name": "normalize_unicode",
+          "display_name": "Normalize Unicode",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Normalize Unicode characters in the JSON string."
+        },
+        {
+          "name": "remove_control_chars",
+          "display_name": "Remove Control Characters",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Remove control characters from the JSON string."
+        },
+        {
+          "name": "validate_json",
+          "display_name": "Validate JSON",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Validate the JSON string to ensure it is well-formed."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "display_name": "Cleaned JSON String",
+          "method": "clean_json",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.StoreMessage",
+      "category": "processing",
+      "component_type": "StoreMessage",
+      "display_name": "Message Store",
+      "description": "Stores a chat message or text into AI Flowi Workflow tables or an external memory.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['helpers.Memory']"
+      ],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "memory",
+          "display_name": "External Memory",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Memory"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The external memory to store the message. If empty, it will use the AI Flowi Workflow tables."
+        },
+        {
+          "name": "message",
+          "display_name": "Message",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The chat message to be stored."
+        },
+        {
+          "name": "sender",
+          "display_name": "Sender",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The sender of the message. Might be Machine or User. If empty, the current sender parameter will be used."
+        },
+        {
+          "name": "sender_name",
+          "display_name": "Sender Name",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The name of the sender. Might be AI or User. If empty, the current sender parameter will be used."
+        },
+        {
+          "name": "session_id",
+          "display_name": "Session ID",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The session ID of the chat. If empty, the current session ID parameter will be used."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stored_messages",
+          "display_name": "Stored Messages",
+          "method": "store_message",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true,
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "id": "processing.MessagetoData",
+      "category": "processing",
+      "component_type": "MessagetoData",
+      "display_name": "Message to Data",
+      "description": "Convert a Message object to a Data object",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": true,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['processing.TypeConverterComponent']"
+      ],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "message",
+          "display_name": "Message",
+          "input_type": "MessageInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The Message object to convert to a Data object"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "method": "convert_message_to_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.OutputParser",
+      "category": "processing",
+      "component_type": "OutputParser",
+      "display_name": "Output Parser",
+      "description": "Transforms the output of an LLM into a specified format.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['processing.StructuredOutput',",
+        "'processing.ParserComponent']"
+      ],
+      "base_classes": [
+        "Message",
+        "OutputParser"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "parser_type",
+          "display_name": "Parser",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "options": [
+            "CSV"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "format_instructions",
+          "display_name": "Format Instructions",
+          "method": "format_instructions",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "output_parser",
+          "display_name": "Output Parser",
+          "method": "build_parser",
+          "types": [
+            "OutputParser"
+          ],
+          "selected": "OutputParser",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.ParseDataFrame",
+      "category": "processing",
+      "component_type": "ParseDataFrame",
+      "display_name": "Parse DataFrame",
+      "description": "Convert a DataFrame into plain text following a specified template. Each column in the DataFrame is treated as a possible template key, e.g. {col_name}.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['processing.DataFrameOperations',",
+        "'processing.TypeConverterComponent']"
+      ],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "df",
+          "display_name": "Table",
+          "input_type": "DataFrameInput",
+          "value_type": "other",
+          "accepts": [
+            "DataFrame",
+            "Table"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The DataFrame to convert to text rows."
+        },
+        {
+          "name": "sep",
+          "display_name": "Separator",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "String that joins all row texts when building the single Text output."
+        },
+        {
+          "name": "template",
+          "display_name": "Template",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The template for formatting each row. Use placeholders matching column names in the DataFrame, for example '{col1}', '{col2}'."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "display_name": "Text",
+          "method": "parse_data",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.ParseJSONData",
+      "category": "processing",
+      "component_type": "ParseJSONData",
+      "display_name": "Parse JSON",
+      "description": "Convert and extract JSON fields.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['processing.ParserComponent']"
+      ],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "input_value",
+          "display_name": "Input",
+          "input_type": "HandleInput",
+          "value_type": "other",
+          "accepts": [
+            "Message",
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Data object to filter."
+        },
+        {
+          "name": "query",
+          "display_name": "JQ Query",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "JQ Query to filter the data. The input is always a JSON list."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "filtered_data",
+          "display_name": "Filtered Data",
+          "method": "filter_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.RegexExtractorComponent",
+      "category": "processing",
+      "component_type": "RegexExtractorComponent",
+      "display_name": "Regex Extractor",
+      "description": "Extract patterns from text using regular expressions.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['processing.ParserComponent']"
+      ],
+      "base_classes": [
+        "JSON",
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "input_text",
+          "display_name": "Input Text",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The text to analyze"
+        },
+        {
+          "name": "pattern",
+          "display_name": "Regex Pattern",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The regular expression pattern to match"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "method": "extract_matches",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        },
+        {
+          "name": "text",
+          "display_name": "Message",
+          "method": "get_matches_text",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.SelectData",
+      "category": "processing",
+      "component_type": "SelectData",
+      "display_name": "Select Data",
+      "description": "Select a single data from a list of data.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['processing.DataOperations']"
+      ],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "data_index",
+          "display_name": "Data Index",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Index of the data to select."
+        },
+        {
+          "name": "data_list",
+          "display_name": "JSON List",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "List of data to select from."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "selected_data",
+          "display_name": "Selected Data",
+          "method": "select_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "processing.UpdateData",
+      "category": "processing",
+      "component_type": "UpdateData",
+      "display_name": "Update Data",
+      "description": "Dynamically update or append data with the specified fields.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [
+        "['processing.DataOperations']"
+      ],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "number_of_fields",
+          "display_name": "Number of Fields",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Number of fields to be added to the record."
+        },
+        {
+          "name": "old_data",
+          "display_name": "JSON",
+          "input_type": "JSONInput",
+          "value_type": "other",
+          "accepts": [
+            "Data",
+            "JSON"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The record to update."
+        },
+        {
+          "name": "text_key",
+          "display_name": "Text Key",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Key that identifies the field to be used as the text content."
+        },
+        {
+          "name": "text_key_validator",
+          "display_name": "Text Key Validator",
+          "input_type": "BoolInput",
+          "value_type": "bool",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "If enabled, checks if the given 'Text Key' is present in the given 'Data'."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "display_name": "JSON",
+          "method": "build_data",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

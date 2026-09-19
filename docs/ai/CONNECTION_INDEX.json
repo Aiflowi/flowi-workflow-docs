@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "last_audited": "2026-09-18",
+  "connections": [
+    {
+      "id": "google_connections",
+      "display_name": "Google Connections",
+      "status": "AVAILABLE",
+      "verified_component_families": [
+        "google_docs",
+        "google_drive",
+        "google_sheets",
+        "google_slides"
+      ],
+      "capabilities": [
+        "OAuth authorization",
+        "list saved connections",
+        "encrypted token storage",
+        "token refresh",
+        "scope validation",
+        "deactivate connection"
+      ],
+      "limitations": [
+        "Gmail is not documented as using this shared connection path in the audited source."
+      ]
+    },
+    {
+      "id": "global_variables",
+      "display_name": "Global Variables",
+      "status": "AVAILABLE",
+      "capabilities": [
+        "Store reusable variables/credentials",
+        "fields can reference stored variables using load_from_db"
+      ],
+      "security_note": "Do not publish secret values in documentation or workflow examples."
+    },
+    {
+      "id": "model_provider_credentials",
+      "display_name": "Model Provider Credentials",
+      "status": "AVAILABLE",
+      "capabilities": [
+        "Provider credential variables",
+        "credential validation on create/update",
+        "model provider catalog",
+        "enable/disable models",
+        "default model selection"
+      ],
+      "security_note": "Credentials should be stored, not pasted into public documentation."
+    },
+    {
+      "id": "flowi_api_keys",
+      "display_name": "Flowi API Keys",
+      "status": "AVAILABLE",
+      "capabilities": [
+        "API-key settings exist in the application."
+      ],
+      "security_note": "Never expose API keys in public examples."
+    }
+  ]
+}

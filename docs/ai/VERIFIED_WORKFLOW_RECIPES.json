@@ -1,0 +1,187 @@
+{
+  "schema_version": "1.0",
+  "last_audited": "2026-09-18",
+  "rules": [
+    "Built-in edges listed here are based on published output.types and input.accepts.",
+    "Extension edges are explicitly marked and must not be generalized beyond the documented connection."
+  ],
+  "recipes": [
+    {
+      "id": "playground-ai-chat",
+      "title": "Playground AI Chat",
+      "status": "VERIFIED_STRUCTURE",
+      "architecture": [
+        "input_output.ChatInput",
+        "deepseek.DeepSeekModelComponent",
+        "input_output.ChatOutput"
+      ],
+      "edges": [
+        {
+          "from": "input_output.ChatInput.message",
+          "types": [
+            "Message"
+          ],
+          "to": "deepseek.DeepSeekModelComponent.input_value",
+          "accepts": [
+            "Message"
+          ]
+        },
+        {
+          "from": "deepseek.DeepSeekModelComponent.text_output",
+          "types": [
+            "Message"
+          ],
+          "to": "input_output.ChatOutput.input_value",
+          "accepts": [
+            "Data",
+            "JSON",
+            "DataFrame",
+            "Table",
+            "Message"
+          ]
+        }
+      ],
+      "tutorial": "../tutorials/first-playground-workflow.md"
+    },
+    {
+      "id": "if-else-routing",
+      "title": "Deterministic If-Else Routing",
+      "status": "VERIFIED_STRUCTURE",
+      "architecture": [
+        "input_output.ChatInput",
+        "flow_controls.ConditionalRouter"
+      ],
+      "edges": [
+        {
+          "from": "input_output.ChatInput.message",
+          "types": [
+            "Message"
+          ],
+          "to": "flow_controls.ConditionalRouter.input_text",
+          "accepts": [
+            "Message"
+          ]
+        }
+      ],
+      "tutorial": "../tutorials/if-else-routing.md"
+    },
+    {
+      "id": "llm-selector-routing",
+      "title": "LLM Selector Routing",
+      "status": "VERIFIED_STRUCTURE",
+      "architecture": [
+        "input_output.ChatInput",
+        "llm_operations.LLMSelectorComponent",
+        "input_output.ChatOutput"
+      ],
+      "edges": [
+        {
+          "from": "input_output.ChatInput.message",
+          "types": [
+            "Message"
+          ],
+          "to": "llm_operations.LLMSelectorComponent.input_value",
+          "accepts": [
+            "Message"
+          ]
+        },
+        {
+          "from": "llm_operations.LLMSelectorComponent.output",
+          "types": [
+            "Message"
+          ],
+          "to": "input_output.ChatOutput.input_value",
+          "accepts": [
+            "Data",
+            "JSON",
+            "DataFrame",
+            "Table",
+            "Message"
+          ]
+        }
+      ],
+      "additional_requirements": [
+        "Connect a documented LanguageModel to Judge LLM.",
+        "Connect one or more documented LanguageModel outputs to Language Models."
+      ],
+      "tutorial": "../tutorials/llm-selector-routing.md"
+    },
+    {
+      "id": "webhook-structured-google-sheets",
+      "title": "Webhook to Structured Output to Google Sheets",
+      "status": "VERIFIED_STRUCTURE",
+      "architecture": [
+        "input_output.UniversalWebhook",
+        "processing.TypeConverterComponent",
+        "llm_operations.StructuredOutput",
+        "google_sheets.GoogleSheetsAppendRows"
+      ],
+      "edges": [
+        {
+          "from": "input_output.UniversalWebhook.request_data",
+          "types": [
+            "JSON"
+          ],
+          "to": "processing.TypeConverterComponent.input_data",
+          "accepts": [
+            "Message",
+            "Data",
+            "JSON",
+            "DataFrame",
+            "Table"
+          ]
+        },
+        {
+          "from": "processing.TypeConverterComponent.message_output",
+          "types": [
+            "Message"
+          ],
+          "to": "llm_operations.StructuredOutput.input_value",
+          "accepts": [
+            "Message"
+          ]
+        },
+        {
+          "from": "llm_operations.StructuredOutput.structured_output",
+          "types": [
+            "JSON"
+          ],
+          "to": "google_sheets.GoogleSheetsAppendRows.values",
+          "accepts": [
+            "Data",
+            "JSON"
+          ]
+        }
+      ],
+      "additional_requirements": [
+        "Connect a documented LanguageModel output to Structured Output.model.",
+        "Configure a Google connection, Spreadsheet ID, Range, and output schema."
+      ],
+      "tutorial": "../tutorials/webhook-to-google-sheets.md"
+    },
+    {
+      "id": "telegram-inbound",
+      "title": "Telegram Inbound Webhook",
+      "status": "VERIFIED_EXTENSION_EDGE",
+      "architecture": [
+        "input_output.Webhook",
+        "extension.TelegramUpdateParser"
+      ],
+      "edges": [
+        {
+          "from": "input_output.Webhook.output_data",
+          "types": [
+            "JSON"
+          ],
+          "to": "extension.TelegramUpdateParser.telegram_update",
+          "accepts": [
+            "VERIFIED_BY_DOCUMENTED_RUNTIME_EDGE"
+          ],
+          "classification": "DOCUMENTED_FLOWI_EXTENSION"
+        }
+      ],
+      "setup_component": "extension.TelegramWebhookSetup",
+      "tutorial": "../integrations/telegram/telegram-ai-bot.md"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "schema_version": "1.0",
+  "category": "vlmrun",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "vlmrun.VLMRunTranscription",
+      "category": "vlmrun",
+      "component_type": "VLMRunTranscription",
+      "display_name": "VLM Run Transcription",
+      "description": "Extract structured data from audio and video using [VLM Run AI](https://app.vlm.run)",
+      "status": "BETA",
+      "legacy": false,
+      "beta": true,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "VLM Run API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Get your API key from https://app.vlm.run"
+        },
+        {
+          "name": "domain",
+          "display_name": "Processing Domain",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Select the processing domain",
+          "options": [
+            "transcription"
+          ]
+        },
+        {
+          "name": "media_files",
+          "display_name": "Media Files",
+          "input_type": "FileInput",
+          "value_type": "file",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": true,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Upload one or more audio/video files"
+        },
+        {
+          "name": "media_type",
+          "display_name": "Media Type",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Select the type of media to process",
+          "options": [
+            "audio",
+            "video"
+          ]
+        },
+        {
+          "name": "media_url",
+          "display_name": "Media URL",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "URL to media file (alternative to file upload)"
+        },
+        {
+          "name": "timeout_seconds",
+          "display_name": "Timeout (seconds)",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Maximum time to wait for processing completion"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "Result",
+          "method": "process_media",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

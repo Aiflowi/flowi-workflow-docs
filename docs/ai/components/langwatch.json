@@ -1,0 +1,161 @@
+{
+  "schema_version": "1.0",
+  "category": "langwatch",
+  "component_count": 1,
+  "components": [
+    {
+      "id": "langwatch.LangWatchEvaluator",
+      "category": "langwatch",
+      "component_type": "LangWatchEvaluator",
+      "display_name": "LangWatch Evaluator",
+      "description": "Evaluates various aspects of language models using LangWatch's evaluation endpoints.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "api_key",
+          "display_name": "LangWatch API Key",
+          "input_type": "SecretStrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": true,
+          "list": false,
+          "load_from_db": true,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "Enter your LangWatch API key."
+        },
+        {
+          "name": "contexts",
+          "display_name": "Contexts",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The contexts for evaluation (comma-separated)."
+        },
+        {
+          "name": "evaluator_name",
+          "display_name": "Evaluator Name",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": true,
+          "info": "Select an evaluator.",
+          "options": []
+        },
+        {
+          "name": "expected_output",
+          "display_name": "Expected Output",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The expected output for evaluation."
+        },
+        {
+          "name": "input",
+          "display_name": "Input",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The input text for evaluation."
+        },
+        {
+          "name": "output",
+          "display_name": "Output",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The output text for evaluation."
+        },
+        {
+          "name": "timeout",
+          "display_name": "Timeout",
+          "input_type": "IntInput",
+          "value_type": "int",
+          "accepts": [],
+          "required": false,
+          "advanced": true,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "The maximum time (in seconds) allowed for the server to respond before timing out."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "evaluation_result",
+          "display_name": "Evaluation Result",
+          "method": "evaluate",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+# Flowi Workflow by AI Flowi
+
+Canonical documentation: https://docs.aiflowi.com/
+GitHub documentation: https://github.com/ai-flowi/flowi-docs
+
+## AI entry
+https://docs.aiflowi.com/AI_START_HERE/
+
+## Learn / tutorials
+https://docs.aiflowi.com/getting-started/ai-tutor-mode/
+https://docs.aiflowi.com/tutorials/
+https://docs.aiflowi.com/tutorials/first-playground-workflow/
+https://docs.aiflowi.com/tutorials/if-else-routing/
+https://docs.aiflowi.com/tutorials/llm-selector-routing/
+https://docs.aiflowi.com/tutorials/webhook-to-google-sheets/
+https://docs.aiflowi.com/integrations/telegram/
+https://docs.aiflowi.com/integrations/telegram/telegram-ai-bot/
+
+## Evaluation / answers
+https://docs.aiflowi.com/faq/
+https://docs.aiflowi.com/evaluate/when-flowi-fits/
+https://docs.aiflowi.com/reference/feature-status/
+https://docs.aiflowi.com/compare/flowi-vs-n8n/
+https://docs.aiflowi.com/compare/flowi-vs-make/
+
+## Machine-readable references
+https://docs.aiflowi.com/ai/ENTITY.json
+https://docs.aiflowi.com/ai/TASK_ROUTING_INDEX.json
+https://docs.aiflowi.com/ai/VERIFIED_WORKFLOW_RECIPES.json
+https://docs.aiflowi.com/ai/EVALUATION_INDEX.json
+https://docs.aiflowi.com/ai/COMPONENT_INDEX.json
+https://docs.aiflowi.com/ai/EXTENSION_COMPONENT_INDEX.json
+https://docs.aiflowi.com/ai/FEATURE_STATUS.json
+https://docs.aiflowi.com/ai/CONNECTION_INDEX.json
+https://docs.aiflowi.com/ai/TRIGGER_INDEX.json
+https://docs.aiflowi.com/ai/ERROR_INDEX.json
+https://docs.aiflowi.com/ai/CAPABILITY_TRUTH_MAP.json
+https://docs.aiflowi.com/ai/BUILTIN_NODE_INDEX.json
+
+Rule: Only documented components and capabilities should be treated as official Flowi features. Documented Flowi extensions must be labelled as extensions rather than built-ins.

@@ -1,0 +1,226 @@
+{
+  "schema_version": "1.0",
+  "category": "utilities",
+  "component_count": 4,
+  "components": [
+    {
+      "id": "utilities.CalculatorComponent",
+      "category": "utilities",
+      "component_type": "CalculatorComponent",
+      "display_name": "Calculator",
+      "description": "Perform basic arithmetic operations on a given expression.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "expression",
+          "display_name": "Expression",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The arithmetic expression to evaluate (e.g., '4*4*(33/22)+12-20')."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "result",
+          "display_name": "JSON",
+          "method": "evaluate_expression",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "utilities.CurrentDate",
+      "category": "utilities",
+      "component_type": "CurrentDate",
+      "display_name": "Current Date",
+      "description": "Returns the current date and time in the selected timezone.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "timezone",
+          "display_name": "Timezone",
+          "input_type": "DropdownInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": true,
+          "info": "Select the timezone for the current date and time.",
+          "options": []
+        }
+      ],
+      "outputs": [
+        {
+          "name": "current_date",
+          "display_name": "Current Date",
+          "method": "get_current_date",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "utilities.PythonREPLComponent",
+      "category": "utilities",
+      "component_type": "PythonREPLComponent",
+      "display_name": "Python Interpreter",
+      "description": "Run Python code with optional imports. Use print() to see the output.",
+      "status": "AVAILABLE",
+      "legacy": false,
+      "beta": false,
+      "recommended_for_new_flows": true,
+      "replacements": [],
+      "base_classes": [
+        "JSON"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "global_imports",
+          "display_name": "Global Imports",
+          "input_type": "StrInput",
+          "value_type": "str",
+          "accepts": [],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": false,
+          "real_time_refresh": false,
+          "info": "A comma-separated list of modules to import globally, e.g. 'math,numpy,pandas'."
+        },
+        {
+          "name": "python_code",
+          "display_name": "Python Code",
+          "input_type": "MultilineInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": true,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The Python code to execute. Only modules specified in Global Imports can be used."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "results",
+          "display_name": "Results",
+          "method": "run_python_repl",
+          "types": [
+            "JSON"
+          ],
+          "selected": "JSON",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    },
+    {
+      "id": "utilities.IDGenerator",
+      "category": "utilities",
+      "component_type": "IDGenerator",
+      "display_name": "ID Generator",
+      "description": "Generates a unique ID.",
+      "status": "LEGACY",
+      "legacy": true,
+      "beta": false,
+      "recommended_for_new_flows": false,
+      "replacements": [],
+      "base_classes": [
+        "Message"
+      ],
+      "component_tool_mode": false,
+      "inputs": [
+        {
+          "name": "unique_id",
+          "display_name": "Value",
+          "input_type": "MessageTextInput",
+          "value_type": "str",
+          "accepts": [
+            "Message"
+          ],
+          "required": false,
+          "advanced": false,
+          "dynamic": false,
+          "password": false,
+          "list": false,
+          "load_from_db": false,
+          "tool_mode": true,
+          "real_time_refresh": false,
+          "info": "The generated unique ID."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "id",
+          "display_name": "ID",
+          "method": "generate_id",
+          "types": [
+            "Message"
+          ],
+          "selected": "Message",
+          "tool_mode": true,
+          "group_outputs": false,
+          "allows_loop": false,
+          "cache": true
+        }
+      ]
+    }
+  ]
+}

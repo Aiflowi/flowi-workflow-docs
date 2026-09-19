@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0",
+  "scope": "Core verified failure modes; not an exhaustive list of every runtime exception.",
+  "last_audited": "2026-09-18",
+  "errors": [
+    {
+      "id": "COMPONENT_NOT_IN_BUILTIN_INDEX",
+      "area": "components",
+      "symptom": "An AI or tutorial names a built-in component that cannot be found.",
+      "check": [
+        "Search BUILTIN_NODE_INDEX.json.",
+        "Check whether it is a Custom or Published component.",
+        "Check Legacy/replacement metadata."
+      ],
+      "rule": "Do not invent a built-in component."
+    },
+    {
+      "id": "INCOMPATIBLE_CONNECTION_TYPES",
+      "area": "workflow",
+      "symptom": "Two nodes cannot connect or the connection is rejected.",
+      "check": [
+        "Compare source output.types with target input.accepts.",
+        "Insert a documented converter/processing component if required."
+      ],
+      "rule": "A type intersection is required for normal structural compatibility."
+    },
+    {
+      "id": "LEGACY_COMPONENT_IN_NEW_FLOW",
+      "area": "migration",
+      "symptom": "A new workflow uses a component marked Legacy.",
+      "check": [
+        "Read replacements on the Legacy component.",
+        "If replacement is empty, do not invent one."
+      ],
+      "rule": "Avoid Legacy components for new workflows."
+    },
+    {
+      "id": "GOOGLE_CONNECTION_MISSING_OR_EXPIRED",
+      "area": "google",
+      "symptom": "Google component cannot authenticate or operate.",
+      "check": [
+        "Confirm a saved Google Connection is selected.",
+        "Confirm required scopes.",
+        "Reauthorize if refresh/authorization fails."
+      ],
+      "rule": "Do not paste tokens into public chat."
+    },
+    {
+      "id": "WEBHOOK_METHOD_NOT_ALLOWED",
+      "area": "webhook",
+      "symptom": "Universal Webhook returns HTTP 405.",
+      "check": [
+        "Confirm the HTTP method is one of GET, POST, PUT, PATCH, DELETE and enabled for the endpoint."
+      ],
+      "rule": "HEAD is not documented as supported in the audited implementation."
+    },
+    {
+      "id": "WEBHOOK_RESPONSE_COUNT",
+      "area": "webhook",
+      "symptom": "From Flow response cannot resolve a response.",
+      "check": [
+        "Ensure exactly one applicable Webhook Response component is used."
+      ],
+      "rule": "Zero or multiple response components can produce an error."
+    },
+    {
+      "id": "ASK_AI_PROVIDER_NOT_CONFIGURED",
+      "area": "ask-ai",
+      "symptom": "Ask AI cannot call the selected model provider.",
+      "check": [
+        "Confirm provider credentials exist and validate.",
+        "Confirm the selected model is enabled.",
+        "Check timeout/provider error details."
+      ],
+      "rule": "Do not expose credentials while troubleshooting."
+    },
+    {
+      "id": "WORKFLOW_IMPORT_JSON",
+      "area": "import-export",
+      "symptom": "Workflow JSON upload is rejected or does not load correctly.",
+      "check": [
+        "Confirm the file is valid JSON.",
+        "Check component availability and legacy compatibility.",
+        "If the browser reports a non-JSON MIME type, retry with a standard JSON export."
+      ],
+      "rule": "Import includes legacy compatibility handling but cannot guarantee arbitrary historical formats."
+    },
+    {
+      "id": "COMPONENT_UPDATE_BREAKING_CHANGE",
+      "area": "migration",
+      "symptom": "Updating a component may alter outputs/inputs or lose edges.",
+      "check": [
+        "Review the breaking-change confirmation.",
+        "Inspect edges after the update.",
+        "Retest the workflow."
+      ],
+      "rule": "Do not assume all old edges can be automatically remapped."
+    },
+    {
+      "id": "TELEGRAM_WEBHOOK_SETUP_FAILED",
+      "area": "telegram",
+      "symptom": "Telegram webhook registration fails or Telegram reports an error.",
+      "check": [
+        "Confirm the Telegram Bot Token is present without exposing it.",
+        "Confirm the Flowi Webhook URL is public HTTPS.",
+        "Confirm any required Flowi webhook authentication is configured.",
+        "Inspect the sanitized Telegram setWebhook/getWebhookInfo result."
+      ],
+      "rule": "Telegram Webhook Setup is a documented Flowi extension and is separate from the per-message runtime path."
+    },
+    {
+      "id": "TELEGRAM_UPDATE_NOT_PARSED",
+      "area": "telegram",
+      "symptom": "Flowi Webhook receives Telegram JSON but expected parsed fields are missing.",
+      "check": [
+        "Inspect the sanitized Webhook JSON first.",
+        "Confirm Webhook.JSON is connected to Telegram Update Parser.Telegram Update.",
+        "Check only the currently documented parsed fields: chat_id, user_id, username, text, command."
+      ],
+      "rule": "Do not invent parser fields or output types that are not published."
+    }
+  ]
+}

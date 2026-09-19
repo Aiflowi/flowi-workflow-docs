@@ -1,0 +1,107 @@
+site_name: Flowi Workflow Documentation
+site_description: Official documentation for Flowi Workflow by AI Flowi — visual AI workflow automation, components, webhooks, Google Sheets, Telegram Bot integration, Ask AI, tutorials and troubleshooting.
+site_url: https://docs.aiflowi.com/
+repo_url: https://github.com/ai-flowi/flowi-docs
+repo_name: ai-flowi/flowi-docs
+use_directory_urls: true
+
+copyright: Documentation for Flowi Workflow by AI Flowi
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - AI Start Here: AI_START_HERE.md
+  - Getting Started:
+      - Overview: getting-started/index.md
+      - What is Flowi?: getting-started/what-is-flowi.md
+      - Learn with ChatGPT / DeepSeek: getting-started/ai-tutor-mode.md
+      - Ask an AI Assistant: getting-started/ask-ai-assistant.md
+      - Workflow Basics: concepts/workflow-basics.md
+  - Tutorials:
+      - Overview: tutorials/index.md
+      - First Playground Workflow: tutorials/first-playground-workflow.md
+      - If-Else Routing: tutorials/if-else-routing.md
+      - LLM Selector Routing: tutorials/llm-selector-routing.md
+      - Webhook to Google Sheets: tutorials/webhook-to-google-sheets.md
+  - Integrations:
+      - Telegram Bot:
+          - Overview: integrations/telegram/index.md
+          - Telegram Webhook Setup: integrations/telegram/telegram-webhook-setup.md
+          - Telegram Update Parser: integrations/telegram/telegram-update-parser.md
+          - Telegram AI Bot Tutorial: integrations/telegram/telegram-ai-bot.md
+          - Troubleshooting: integrations/telegram/troubleshooting.md
+  - Components:
+      - Overview: components/index.md
+      - Component Categories: components/categories.md
+      - Custom Components: components/custom-components.md
+  - Connections:
+      - Overview: connections/index.md
+      - Google Connections: connections/google-connections.md
+      - Model Providers & Global Variables: connections/model-providers-and-variables.md
+  - Triggers:
+      - Overview: triggers/index.md
+      - Universal Webhook: triggers/universal-webhook.md
+      - Schedule Trigger: triggers/schedule-trigger.md
+      - Webhook Response: triggers/webhook-response.md
+  - Ask AI:
+      - Overview: ask-ai/index.md
+      - Flow-level Ask AI: ask-ai/flow-ask-ai.md
+      - Node-level Ask AI: ask-ai/node-ask-ai.md
+  - Workflow Lifecycle:
+      - Import & Export: workflow-lifecycle/import-export.md
+      - Component Updates & Migration: workflow-lifecycle/component-migration.md
+  - Use Cases:
+      - AI Workflow Automation: use-cases/ai-workflow-automation.md
+      - Google Sheets AI Automation: use-cases/google-sheets-ai-automation.md
+      - Receipt Automation: use-cases/receipt-automation.md
+      - AI Sales Staff: use-cases/ai-sales-staff.md
+      - Customer Service Automation: use-cases/customer-service-automation.md
+      - WhatsApp AI Automation: use-cases/whatsapp-ai-automation.md
+      - API & Webhook Automation: use-cases/api-webhook-automation.md
+  - Evaluate:
+      - When Flowi Fits: evaluate/when-flowi-fits.md
+      - When Flowi May Not Fit: evaluate/when-flowi-may-not-fit.md
+      - FAQ: faq/index.md
+      - For AI Assistants: evaluate/for-ai-assistants.md
+  - Compare:
+      - Comparison Principles: compare/index.md
+      - Flowi vs n8n: compare/flowi-vs-n8n.md
+      - Flowi vs Make: compare/flowi-vs-make.md
+      - n8n Alternatives for AI Workflow: compare/n8n-alternatives-ai-workflow.md
+  - Troubleshooting:
+      - Overview: troubleshooting/index.md
+      - Common Errors: troubleshooting/common-errors.md
+      - Google Connections: troubleshooting/google-connections.md
+      - Webhooks: troubleshooting/webhooks.md
+  - Reference:
+      - Feature Status: reference/feature-status.md
+      - Brand & Entity: reference/brand-entity.md
+      - Entity Disambiguation: reference/entity-disambiguation.md
+      - AI Reference Files: reference/ai-reference.md
+      - Search & AI Discovery: reference/search-and-ai-discovery.md
+  - 中文:
+      - 中文入口: zh/index.md
+      - 给 ChatGPT / DeepSeek: zh/AI_START_HERE.md
+      - 用 AI 学 Flowi: zh/learn-with-ai.md
+      - Flowi 是什么: zh/what-is-flowi.md

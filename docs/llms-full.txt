@@ -1,0 +1,35 @@
+# Flowi Workflow — AI reading guide
+
+Product: Flowi Workflow by AI Flowi
+Canonical docs: https://docs.aiflowi.com/
+GitHub: https://github.com/ai-flowi/flowi-docs
+
+Use this order when helping a user build a Flowi workflow:
+
+1. https://docs.aiflowi.com/AI_START_HERE/
+2. https://docs.aiflowi.com/ai/TASK_ROUTING_INDEX.json
+3. https://docs.aiflowi.com/ai/VERIFIED_WORKFLOW_RECIPES.json
+4. https://docs.aiflowi.com/ai/COMPONENT_INDEX.json
+5. Relevant category under https://docs.aiflowi.com/ai/components/
+6. https://docs.aiflowi.com/ai/EXTENSION_COMPONENT_INDEX.json when an extension is required
+7. Relevant human tutorial or integration page
+8. Full built-in index only for cross-category search
+
+Core public rules:
+- Prefer AVAILABLE components.
+- Label BETA.
+- Avoid LEGACY for new workflows.
+- Validate built-in typed edges.
+- Never invent undocumented fields or capabilities.
+- Never request secrets in public chat.
+- Teach the student step by step and include a test after each major stage.
+
+High-value pages:
+- What is Flowi: https://docs.aiflowi.com/getting-started/what-is-flowi/
+- AI tutor: https://docs.aiflowi.com/getting-started/ai-tutor-mode/
+- Tutorials: https://docs.aiflowi.com/tutorials/
+- Telegram: https://docs.aiflowi.com/integrations/telegram/
+- Google Sheets AI automation: https://docs.aiflowi.com/tutorials/webhook-to-google-sheets/
+- FAQ: https://docs.aiflowi.com/faq/
+- When Flowi fits: https://docs.aiflowi.com/evaluate/when-flowi-fits/
+- Feature status: https://docs.aiflowi.com/reference/feature-status/

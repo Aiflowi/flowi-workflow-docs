@@ -810,8 +810,6 @@ Define a Python function step.
 Use calculation and other tools.
 
 - [Calculator](../ai/components/tools.json) — `tools.CalculatorTool`
-- [Google Search API [DEPRECATED]](../ai/components/tools.json) — `tools.GoogleSearchAPI`
-- [Google Serper API [DEPRECATED]](../ai/components/tools.json) — `tools.GoogleSerperAPI`
 - [Python Code Structured](../ai/components/tools.json) — `tools.PythonCodeStructuredTool`
 - [Python REPL](../ai/components/tools.json) — `tools.PythonREPLTool`
 - [Search API](../ai/components/tools.json) — `tools.SearchAPI`
@@ -1672,7 +1670,7 @@ Create an outbound call request.
 
 ## Related
 
-[Components](index.md) ? [Custom components](custom-components.md) ? [Connections](../connections/index.md)
+[Components](index.md) · [Custom components](custom-components.md) · [Connections](../connections/index.md)
 
 ---
 

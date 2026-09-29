@@ -9,10 +9,6 @@
       "component_type": "ConvertAstraToTwelveLabs",
       "display_name": "Convert Astra DB to Pegasus Input",
       "description": "Converts Astra DB search results to inputs compatible with TwelveLabs Pegasus.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -74,10 +70,6 @@
       "component_type": "SplitVideo",
       "display_name": "Split Video",
       "description": "Split a video into multiple clips of specified duration.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -179,10 +171,6 @@
       "component_type": "TwelveLabsPegasus",
       "display_name": "TwelveLabs Pegasus",
       "description": "Chat with videos using TwelveLabs Pegasus API.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -367,10 +355,6 @@
       "component_type": "TwelveLabsPegasusIndexVideo",
       "display_name": "TwelveLabs Pegasus Index Video",
       "description": "Index videos using TwelveLabs and add the video_id to metadata.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -486,10 +470,6 @@
       "component_type": "TwelveLabsTextEmbeddings",
       "display_name": "TwelveLabs Text Embeddings",
       "description": "Generate embeddings using TwelveLabs text embedding models.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Embeddings"
@@ -582,10 +562,6 @@
       "component_type": "TwelveLabsVideoEmbeddings",
       "display_name": "TwelveLabs Video Embeddings",
       "description": "Generate embeddings from videos using TwelveLabs video embedding models.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Embeddings"
@@ -663,10 +639,6 @@
       "component_type": "VideoFile",
       "display_name": "Video File",
       "description": "Load a video file in common video formats.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"

@@ -1,48 +1,34 @@
 ---
-title: What Is Flowi Workflow?
-description: Learn what Flowi Workflow by AI Flowi is, how its visual AI workflows use components and typed connections, and where webhooks, AI, Google services and Custom Components fit.
+title: What is AI Flowi Workflow?
+description: Understand AI Flowi Workflow's visual editor, reusable components, typed connections, and the roles of triggers, logic, AI, and actions.
+canonical_url: https://aiflowi.com/docs/getting-started/what-is-ai-flowi-workflow/
+last_updated: 2026-09-29
+author: Ai Flowi
 ---
 
-# What Is Flowi Workflow?
+# What is AI Flowi Workflow?
 
-**Flowi Workflow by AI Flowi** is a visual AI workflow automation platform. Users build a workflow by connecting reusable components instead of placing the entire business process inside one prompt.
+AI Flowi Workflow is the workflow engine from Ai Flowi. In its visual editor, you connect reusable components to move data from an input or trigger through processing, logic, an action, and an output. Components expose typed ports, so the type produced by one component must be accepted by the next.
 
-## The basic idea
+## How a workflow is arranged
 
-A workflow normally has several layers:
+`Input or trigger → Processing → Logic or AI → Action → Output`
 
-`Input / Trigger → Processing → Logic or AI → Business Action → Output`
+The stages describe roles, not a required component count. A webhook request, for example, can pass through a data converter and Structured Output before reaching Google Sheets Append Rows. A fixed condition can use If-Else; a task requiring language model reasoning can use a model component. See the [verified webhook tutorial](../tutorials/webhook-to-google-sheets.md) for its exact connections.
 
-For example:
+## What connects components?
 
-`Universal Webhook → Type Convert → Structured Output → Google Sheets Append Rows`
+| Term | Meaning |
+|---|---|
+| Component | A reusable unit with settings and, where applicable, typed inputs and outputs. |
+| Configuration field | A value such as text, a selection, or a credential; it is not necessarily a connection port. |
+| Typed input | A port that accepts specified output types from another component. |
+| Typed output | A port that produces a declared type, such as `Message`, `JSON`, `Table`, `Data`, `LanguageModel`, or `Tool`. |
 
-This architecture separates deterministic automation from AI reasoning. A step such as checking a fixed condition can use **If-Else**, while an LLM can be reserved for extraction, classification, generation, or semantic routing.
+A matching type makes an edge structurally compatible. The workflow still needs valid configuration and any required external connection. [Workflow basics](../concepts/workflow-basics.md) explains how to check this before connecting nodes.
 
-## Components and typed connections
+The [components catalog](../components/index.md) helps you find documented components and their ports. Custom Components can define their own typed inputs, outputs, and runtime behavior. When learning, begin with [a small Playground workflow](../tutorials/first-playground-workflow.md), then add only the components your goal needs.
 
-A Flowi component can expose configuration fields, typed connection inputs, and typed outputs such as `Message`, `JSON`, `Table`, `Data`, `LanguageModel`, or `Tool`.
+## Related
 
-For a normal typed connection, the public AI documentation checks that the source output type and target accepted type overlap before recommending an edge. This helps students and AI assistants avoid connecting nodes that are structurally incompatible.
-
-## Audited catalog
-
-The current public audit contains **514 built-in components across 101 categories**:
-
-- 429 Available;
-- 14 Beta;
-- 71 Legacy.
-
-New workflows should prefer Available components, label Beta components clearly, and avoid Legacy components unless maintaining an older flow.
-
-## What Flowi can connect to
-
-The public catalog includes AI/model providers, data and processing components, webhooks, API requests, Google Workspace families, files and knowledge, vector databases, and other integrations. Flowi also supports Custom Components for specialized requirements.
-
-Some Flowi-specific integrations may be distributed as documented extensions rather than core built-ins. These are listed separately so an AI assistant does not misrepresent them as part of the built-in catalog.
-
-## Ask AI and external AI tutors
-
-Flowi documents flow-level and node-level Ask AI capabilities. In addition, this repository provides machine-readable component references and tutor instructions so a student can paste the official documentation link into ChatGPT or DeepSeek and ask for step-by-step workflow help.
-
-Start with [Learn Flowi with an AI Tutor](ai-tutor-mode.md) or [`../AI_START_HERE.md`](../AI_START_HERE.md).
+[Getting started](index.md) · [Workflow basics](../concepts/workflow-basics.md) · [Components](../components/index.md)

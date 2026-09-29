@@ -1,60 +1,43 @@
 ---
-title: Learn Flowi Workflow with ChatGPT or DeepSeek
-description: Paste the Flowi AI Start Here link into ChatGPT or DeepSeek and get step-by-step Flowi Workflow teaching using verified components, connections and debugging rules.
+title: How do I use an AI assistant to learn AI Flowi Workflow?
+description: Give a web-capable AI assistant the documentation entry page, request a workflow map, and check suggested components, ports, and tests.
+canonical_url: https://aiflowi.com/docs/getting-started/learn-with-ai/
+last_updated: 2026-09-29
+author: Ai Flowi
 ---
 
-# Learn Flowi Workflow with an AI Tutor
+# How do I use an AI assistant to learn AI Flowi Workflow?
 
-The easiest way to use an AI assistant as a Flowi tutor is to give it the official **AI Start Here** page before asking it to design a workflow.
+Give a web-capable AI assistant the [AI documentation entry page](../AI_START_HERE.md) before describing your goal. Ask it to show the workflow map, then teach one stage at a time using documented component names and compatible ports. Check its suggestions against the linked component references and test each stage yourself.
 
-## One link to paste
+## Prerequisites
 
-GitHub:
+- An AI assistant that can read the linked documentation.
+- A workflow goal you can describe in plain language.
+- Access to AI Flowi Workflow for checking and testing the suggested steps. Use placeholders for keys and private data.
 
-`https://github.com/ai-flowi/flowi-docs/blob/main/docs/AI_START_HERE.md`
+## Steps
 
-Canonical documentation:
+1. Share the [AI documentation entry page](../AI_START_HERE.md) with the assistant. Ask it to read that page before proposing a flow.
+2. Describe the input, the result you want, and any external action. For example: receive webhook JSON, extract named fields, and append them to Google Sheets.
+3. Ask for the complete workflow map first. Request the documented component ID and input/output types for every proposed connection.
+4. Work through the map one stage at a time. Ask what to configure, what sample data to use, and what result to inspect before moving on.
+5. When a step fails, show the first failed component's non-secret error and ask the assistant to check that stage's port types and settings. If the documentation does not establish a capability or field, ask it to say so.
 
-`https://docs.aiflowi.com/AI_START_HERE/`
+You can use this prompt:
 
-Then tell the assistant what you want to build.
+> Read the linked AI Flowi Workflow documentation. Show a workflow map for [goal], then teach one stage at a time. Use documented components and extensions, name the ports and their types, and give me a small test after each stage. Say when a component or field is not documented. Do not ask me to paste credentials.
 
-## Recommended student prompt
+## Expected result
 
-> Read the Flowi Workflow documentation in the link first. Act as my Flowi Workflow tutor. Show me the full workflow map first, then teach me one stage at a time. Use only documented Flowi components or clearly labelled documented Flowi extensions. Check connection compatibility before telling me to connect nodes. Do not invent fields. I want to build: [your goal].
+You have a map you can compare with the [verified tutorials](../tutorials/index.md), plus individual tests for the trigger, processing, logic or AI, and action stages. For a first hands-on check, follow the [Playground workflow](../tutorials/first-playground-workflow.md).
 
-## What a good Flowi tutor should do
+## Common errors
 
-A good answer should not start by dumping hundreds of components. It should identify the smallest architecture that solves your goal, then teach the workflow in layers.
+- **A suggested edge cannot connect:** Compare the source output type with the destination's accepted types in [workflow basics](../concepts/workflow-basics.md).
+- **The assistant invents a field or component:** Ask for its documented ID and port definition; leave the step out if neither is available.
+- **A configured flow fails:** Inspect the first failing stage and its credentials without sharing secrets with the assistant.
 
-For example, if the goal is "receive a webhook, structure customer data, and save it to Google Sheets", the assistant can first show:
+## Related
 
-`Universal Webhook → Type Convert → Structured Output → Append Rows`
-
-It should then verify each documented interface before asking you to connect it. If an AI model is required, it should explain where the model connects and why.
-
-## Teaching sequence
-
-The assistant should normally use this learning sequence:
-
-1. **Goal** — what the workflow is supposed to achieve.
-2. **Trigger** — where the data starts.
-3. **Data shape** — whether the next component needs Message, JSON, Table, Data, LanguageModel, or another type.
-4. **Logic** — deterministic rules such as If-Else where possible.
-5. **AI** — use an LLM only where reasoning, extraction, generation, or semantic routing is useful.
-6. **Action** — Google Sheets, API request, message send, storage, or another business action.
-7. **Output** — what success should look like.
-8. **Testing** — test one stage before adding the next.
-9. **Debugging** — inspect the first failed node or connection instead of changing everything at once.
-
-## If the AI is unsure
-
-Ask it to quote the exact documented component ID and port types it used. If it cannot find the information in this repository, it should say **not documented** rather than guessing.
-
-## Secrets
-
-Do not paste real API keys, Telegram bot tokens, OAuth tokens, passwords, or private keys into a public AI conversation. Use masked placeholders in screenshots and examples.
-
-## Why this page exists
-
-Flowi contains a large component catalog. The AI entry files provide a smaller routing layer so an assistant can find the relevant components and tutorials without loading the whole catalog. This reduces hallucination risk and makes student teaching more consistent.
+[Getting started](index.md) · [First workflow](../tutorials/first-playground-workflow.md) · [Common errors](../troubleshooting/common-errors.md)

@@ -1,36 +1,39 @@
 ---
-title: Telegram Bot and Flowi Webhook Troubleshooting
-description: Diagnose Telegram Bot webhook registration, inbound update parsing and reply problems in Flowi Workflow.
+title: Why is my Telegram workflow failing?
+description: Diagnose Telegram webhook registration, incoming update parsing, type mismatches, and missing Bot API replies in AI Flowi Workflow.
+canonical_url: https://aiflowi.com/docs/integrations/telegram-troubleshooting/
+last_updated: 2026-09-29
+author: Ai Flowi
 ---
 
-# Telegram Bot Troubleshooting
+# Why is my Telegram workflow failing?
 
-## Telegram Webhook Setup says the token is missing
+Find the first stage that fails: webhook registration, incoming JSON, parsing, the next component, or the outbound reply. Checking each stage in order keeps a reply problem from being mistaken for a registration problem. Keep bot tokens and authentication details out of any update or result you share for support.
 
-Confirm the bot token is present in **Telegram Bot Token**. Do not paste the token into a public support conversation.
+## Why does Telegram Webhook Setup say the token is missing?
 
-## Webhook URL is rejected
+Check the **Telegram Bot Token** secret field in [webhook setup](telegram-webhook-setup.md). The setup component requires the token before it can register the endpoint.
 
-The documented setup requires a public URL beginning with `https://`.
+## Why is the webhook URL rejected?
 
-## Registration succeeds but no Telegram messages arrive
+The documented setup requires a public HTTPS endpoint. Check the URL copied from Webhook and confirm it is reachable from outside your deployment.
 
-Check in this order:
+## Why did registration succeed but no messages arrive?
 
-1. Confirm the webhook was registered to the same Flowi endpoint currently shown by the Webhook component.
-2. Confirm the Flowi endpoint is reachable externally.
-3. Confirm webhook authentication requirements match the setup configuration.
-4. Send a fresh Telegram message after registration.
-5. Inspect the Webhook output before debugging the parser.
+Confirm that the registered URL matches the current Webhook endpoint. Check endpoint reachability and webhook authentication, then send a fresh Telegram message. Inspect Webhook output before changing [the parser](telegram-update-parser.md).
 
-## Webhook receives JSON but parser does not produce expected values
+## Why does Webhook receive JSON but the parser has no expected values?
 
-Capture one sanitized Telegram update with all secrets removed. Confirm it is a standard Telegram update shape supported by the parser. Do not invent missing parser fields; the current public documentation verifies `chat_id`, `user_id`, `username`, `text`, and `command`.
+Inspect a sanitized update and compare it with the expected Telegram update shape. The documented parser fields are `chat_id`, `user_id`, `username`, `text`, and `command`; its full internal behavior and exact output type are not published in the supplied documentation.
 
-## Parser works but the next node fails
+## Why does the component after the parser fail?
 
-Check data type compatibility at the first failing edge. If the next built-in node accepts `Message` but the current value is JSON/Data, use a documented conversion component rather than assuming automatic conversion.
+Check the first failing connection's output and accepted input types. Do not assume JSON or Data automatically becomes a Message. Use a documented conversion component if the types differ.
 
-## Bot does not reply
+## Why does the bot receive a message but not reply?
 
-Treat inbound and outbound as separate problems. First verify the message arrived and was parsed. Then inspect the outbound API call, its `chat_id`, response `text`, credential handling, and Telegram API response.
+Check the outbound API Request separately. Confirm `chat_id`, response `text`, credential handling, and the Telegram API response. The [bot tutorial](telegram-ai-bot.md) follows the inbound and outbound paths.
+
+## Related
+
+[Telegram integration](index.md) · [Webhook troubleshooting](../../troubleshooting/webhooks.md) · [Integrations](../index.md)

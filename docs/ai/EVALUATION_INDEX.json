@@ -19,7 +19,7 @@
       "requirement": "typed component connections and machine-readable component metadata",
       "relevance": "HIGH",
       "evidence": [
-        "WORKFLOW_SPEC.md",
+        "../AI_START_HERE.md",
         "COMPONENT_INDEX.json",
         "BUILTIN_NODE_INDEX.json"
       ],
@@ -65,8 +65,8 @@
       "relevance": "HIGH",
       "evidence": [
         "../getting-started/ai-tutor-mode.md",
-        "../ask-ai/flow-ask-ai.md",
-        "../ask-ai/node-ask-ai.md"
+        "../ask-ai/index.md",
+        "../ask-ai/index.md"
       ],
       "limitations": [
         "External AI assistants should be given the official AI entry link for the most reliable teaching context."

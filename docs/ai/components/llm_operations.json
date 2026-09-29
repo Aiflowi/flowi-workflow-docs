@@ -9,10 +9,6 @@
       "component_type": "BatchRunComponent",
       "display_name": "Batch Run",
       "description": "Runs an LLM on each row of a DataFrame column. If no column is specified, all columns are used.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -205,10 +201,6 @@
       "component_type": "GuardrailValidator",
       "display_name": "Guardrails",
       "description": "Validates input text against multiple security and safety guardrails using LLM-based detection.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -377,10 +369,6 @@
       "component_type": "LLMSelectorComponent",
       "display_name": "LLM Selector",
       "description": "Routes the input to the most appropriate LLM based on OpenRouter model specifications",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Data",
@@ -563,10 +551,6 @@
       "component_type": "SmartRouter",
       "display_name": "Smart Router",
       "description": "Routes an input message using LLM-based categorization.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [],
       "component_tool_mode": false,
@@ -603,7 +587,7 @@
           "load_from_db": false,
           "tool_mode": false,
           "real_time_refresh": false,
-          "info": "Additional instructions for LLM-based categorization. These will be added to the base prompt. Use {input_text} for the input text and {routes} for the available categories."
+          "info": "Additional instructions for LLM-based categorization. These will be added to the base prompt. Use {input_text} for the input text and {routes} for the documented categories."
         },
         {
           "name": "enable_else_output",
@@ -703,10 +687,6 @@
       "component_type": "Smart Transform",
       "display_name": "Smart Transform",
       "description": "Uses an LLM to generate a function for filtering or transforming structured data and messages.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -870,10 +850,6 @@
       "component_type": "StructuredOutput",
       "display_name": "Structured Output",
       "description": "Uses an LLM to generate structured data. Ideal for extraction and consistency.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",

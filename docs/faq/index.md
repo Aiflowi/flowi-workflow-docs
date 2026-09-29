@@ -1,54 +1,53 @@
 ---
-title: Flowi Workflow FAQ — AI Workflow Automation, Components, Webhooks and Integrations
-description: Direct answers to common questions about Flowi Workflow, AI workflow automation, components, Ask AI, Google Sheets, Telegram, webhooks, Custom Components and AI-assisted learning.
+title: AI Flowi Workflow questions
+description: Answers to documented questions about AI Flowi Workflow, components, webhooks, Google Sheets, Ask AI, and learning resources.
+canonical_url: https://aiflowi.com/docs/faq/
+last_updated: 2026-09-29
+author: Ai Flowi
 ---
 
-# Flowi Workflow FAQ
+# AI Flowi Workflow questions
 
-## What is Flowi Workflow?
+AI Flowi Workflow uses reusable components with typed inputs and outputs. These answers cover questions raised in the existing documentation. For a build path, follow the linked tutorial or reference page and verify the chosen components in your own workflow.
 
-**Flowi Workflow by AI Flowi** is a visual AI workflow automation platform that combines reusable components for inputs, AI models, agents, processing, APIs, webhooks, Google services, files, knowledge, and business actions. The current audited catalog contains 514 built-in components across 101 categories.
+For a definition of the product, read [What is AI Flowi Workflow?](../getting-started/what-is-flowi.md).
 
-## Can ChatGPT teach me how to build a Flowi workflow?
+## Can an AI assistant teach me how to build a workflow?
 
-Yes. Paste the official [`AI_START_HERE.md`](../AI_START_HERE.md) link into a web-capable AI assistant and describe the workflow you want. The file instructs the assistant to use the audited component catalog, validate connections, separate built-ins from documented extensions, and teach step by step rather than inventing components.
+The documentation provides an [AI starting guide](../AI_START_HERE.md) and verified recipes that an assistant can use when explaining a workflow. Check suggested components and typed connections against the catalog before using them.
 
-## Does Flowi support webhooks?
+## Does AI Flowi Workflow support webhooks?
 
-Yes. The audited built-in catalog includes **Universal Webhook**, **Webhook**, **POST Webhook**, and **Webhook Response**. Universal Webhook supports documented GET, POST, PUT, PATCH, and DELETE methods plus multiple response modes.
+Universal Webhook is documented as an input for external requests. Webhook Response can return a result. See the [trigger reference](../triggers/universal-webhook.md) and [webhook troubleshooting](../troubleshooting/webhooks.md).
 
-## Can Flowi connect to Google Sheets?
+## Can it connect to Google Sheets?
 
-Yes. The audited Google Sheets family includes operations such as Read Range, Append Rows, Update Range, Create Spreadsheet, Upsert Row, Bulk Upsert Rows, and Clear Range. Google Sheets uses the documented shared Google Connections mechanism.
+The documented Google Sheets components include Append Rows. They use the shared [Google connection](../connections/google-connections.md). Follow the [webhook to Google Sheets tutorial](../tutorials/webhook-to-google-sheets.md) for a specific connection path.
 
-## Can Flowi connect to Telegram Bot?
+## Can it connect to a Telegram bot?
 
-Yes, through the documented webhook architecture. The built-in **Webhook** receives Telegram JSON. The documented **Telegram Webhook Setup** extension registers the Flowi endpoint with Telegram, and **Telegram Update Parser** extracts fields such as `chat_id`, `user_id`, `username`, `text`, and `command`.
+The documented path uses a webhook, the Telegram Webhook Setup extension, and Telegram Update Parser. See the [Telegram guide](../integrations/telegram/index.md) for the setup and parser pages.
 
-## Does Flowi have If-Else logic?
+## Does it have If-Else logic?
 
-Yes. The built-in **If-Else** component routes a Message using comparison operators including equals, contains, regex, and numeric comparisons.
+Yes. The documented If-Else component routes a Message by a condition. The [routing tutorial](../tutorials/if-else-routing.md) shows the connection path.
 
-## What is Flowi LLM Selector?
+## What is LLM Selector?
 
-The built-in **LLM Selector** routes an input across candidate language models using an optimization objective such as quality, speed, cost, or balanced. It exposes the selected model information and routing decision in addition to the output Message.
+It routes an input among candidate language models according to its configured objective. See the [LLM Selector tutorial](../tutorials/llm-selector-routing.md) for its required model connections.
 
-## Does every Flowi workflow need AI?
+## Does every workflow need AI?
 
-No. Deterministic steps such as webhooks, conditions, type conversion, API calls, and data storage should normally remain deterministic. Use AI when reasoning, extraction, classification, generation, or semantic routing provides real value.
+No. A webhook, condition, or type conversion can handle a task when explicit rules cover it. Add a model when the input needs interpretation or structured extraction. See [webhook and AI automation](../use-cases/ai-workflow-automation.md).
 
-## Does Flowi support Custom Components?
+## Are Custom Components documented?
 
-Yes. Custom Components are documented as available. Public documentation distinguishes built-in components from tenant-specific Custom/Published components and from documented Flowi extensions.
-
-## Is Flowi an alternative to n8n or Make?
-
-Flowi is one platform that can be evaluated for visual AI workflow automation. The right choice depends on deployment requirements, integrations, extensibility, governance, AI-assisted building, support/training, and operating cost. See the factual comparison pages rather than assuming one tool is universally best.
-
-## Does the public GitHub repository contain Flowi product source code?
-
-No. This repository is designed as public documentation and public-safe machine-readable metadata. It does not contain Flowi product implementation source code, private component Python source, API keys, or customer credentials.
+Yes. They cover specialized requirements beyond the listed components. See [Custom Components](../components/custom-components.md) and verify a specific component before using it.
 
 ## Where should an AI assistant start reading?
 
-Start with [`AI_START_HERE.md`](../AI_START_HERE.md), then use the task routing index, verified workflow recipes, component category files, extension index when required, and the relevant human tutorial.
+Start with the [AI starting guide](../AI_START_HERE.md), then use the relevant tutorial and component metadata. The guide points to the verified recipes and machine-readable indexes.
+
+## Related
+
+[Getting started](../getting-started/index.md) · [Workflow lifecycle: import, export, and updates](../workflow-lifecycle/index.md) · [Ask AI](../ask-ai/index.md) · [Evaluation guide](../evaluate/when-flowi-fits.md)

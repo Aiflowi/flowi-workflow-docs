@@ -9,10 +9,6 @@
       "component_type": "HuggingFaceModel",
       "display_name": "Hugging Face",
       "description": "Generate text using Hugging Face Inference APIs.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",
@@ -328,10 +324,6 @@
       "component_type": "HuggingFaceInferenceAPIEmbeddings",
       "display_name": "Hugging Face Embeddings Inference",
       "description": "Generate embeddings using Hugging Face Text Embeddings Inference (TEI)",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Embeddings"

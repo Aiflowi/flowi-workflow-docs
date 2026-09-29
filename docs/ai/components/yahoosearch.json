@@ -9,10 +9,6 @@
       "component_type": "YfinanceComponent",
       "display_name": "Yahoo! Finance",
       "description": "Uses [yfinance](https://pypi.org/project/yfinance/) (unofficial package) to access financial data and market information from Yahoo! Finance.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"

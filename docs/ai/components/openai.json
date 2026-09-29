@@ -9,10 +9,6 @@
       "component_type": "OpenAIModel",
       "display_name": "OpenAI",
       "description": "Generates text using OpenAI LLMs.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",
@@ -290,10 +286,6 @@
       "component_type": "OpenAIEmbeddings",
       "display_name": "OpenAI Embeddings",
       "description": "Generate embeddings using OpenAI models.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Embeddings"
@@ -663,10 +655,6 @@
       "component_type": "OpenAIResponsesAPI",
       "display_name": "OpenAI Responses API",
       "description": "Sends data strictly through the OpenAI Responses API. Provides both the generated OpenAI answer and the complete API response.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -894,10 +882,6 @@
       "component_type": "OpenAIVisionAnalyzer",
       "display_name": "OpenAI Vision Analyzer",
       "description": "Downloads one image, converts it to Base64, and analyzes it with a GPT-4 model through the OpenAI Responses API.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -1115,10 +1099,6 @@
       "component_type": "OpenAIVoiceTranscriber",
       "display_name": "OpenAI Voice Transcriber",
       "description": "Downloads one voice recording and transcribes it through the OpenAI Audio Transcriptions API.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"

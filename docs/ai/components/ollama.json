@@ -9,10 +9,6 @@
       "component_type": "OllamaModel",
       "display_name": "Ollama",
       "description": "Generate text using Ollama Local LLMs.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -551,10 +547,6 @@
       "component_type": "OllamaEmbeddings",
       "display_name": "Ollama Embeddings",
       "description": "Generate embeddings using Ollama models.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Embeddings"

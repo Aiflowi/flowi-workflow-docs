@@ -9,10 +9,6 @@
       "component_type": "ExaSearch",
       "display_name": "Exa Search",
       "description": "Exa Search toolkit for search and content retrieval",
-      "status": "BETA",
-      "legacy": false,
-      "beta": true,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Tool"

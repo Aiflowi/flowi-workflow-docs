@@ -9,10 +9,6 @@
       "component_type": "WolframAlphaAPI",
       "display_name": "WolframAlpha API",
       "description": "Enables queries to WolframAlpha for computational data, facts, and calculations across various topics, delivering structured responses.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"

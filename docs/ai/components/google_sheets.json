@@ -9,10 +9,6 @@
       "component_type": "GoogleSheetsAddSheet",
       "display_name": "Add Sheet",
       "description": "Adds a worksheet tab to an existing Google spreadsheet.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -139,10 +135,6 @@
       "component_type": "GoogleSheetsAppendRows",
       "display_name": "Append Rows",
       "description": "Appends one or more rows to a Google Sheet.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -294,10 +286,6 @@
       "component_type": "GoogleSheetsBulkUpsertRows",
       "display_name": "Bulk Upsert Rows",
       "description": "Updates existing rows by a key column and appends rows whose keys do not yet exist.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -481,10 +469,6 @@
       "component_type": "GoogleSheetsClearRange",
       "display_name": "Clear Range",
       "description": "Clears values from a Google Sheets range without deleting the cells themselves.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -582,10 +566,6 @@
       "component_type": "GoogleSheetsClearSheet",
       "display_name": "Clear Sheet",
       "description": "Clears all values from a worksheet while preserving the sheet itself.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -682,10 +662,6 @@
       "component_type": "GoogleSheetsCopySheet",
       "display_name": "Copy Sheet",
       "description": "Copies a worksheet tab from one spreadsheet into another.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -797,10 +773,6 @@
       "component_type": "GoogleSheetsCreateSpreadsheet",
       "display_name": "Create Spreadsheet",
       "description": "Creates a new Google Sheets spreadsheet using a connected Google account.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -927,10 +899,6 @@
       "component_type": "GoogleSheetsDeleteColumns",
       "display_name": "Delete Columns",
       "description": "Deletes physical columns and shifts following columns left.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1072,10 +1040,6 @@
       "component_type": "GoogleSheetsDeleteRows",
       "display_name": "Delete Rows",
       "description": "Deletes physical rows and shifts following rows upward.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1217,10 +1181,6 @@
       "component_type": "GoogleSheetsDeleteSheet",
       "display_name": "Delete Sheet",
       "description": "Permanently deletes a worksheet tab from a Google spreadsheet.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1331,10 +1291,6 @@
       "component_type": "GoogleSheetsDuplicateSheet",
       "display_name": "Duplicate Sheet",
       "description": "Duplicates a worksheet tab inside the same spreadsheet.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1447,10 +1403,6 @@
       "component_type": "GoogleSheetsFindReplace",
       "display_name": "Find & Replace",
       "description": "Finds and replaces values within one sheet or across the entire spreadsheet.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1642,10 +1594,6 @@
       "component_type": "GoogleSheetsGetSpreadsheet",
       "display_name": "Get Spreadsheet",
       "description": "Gets spreadsheet metadata, sheet names and properties.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1740,10 +1688,6 @@
       "component_type": "GoogleSheetsInsertColumns",
       "display_name": "Insert Columns",
       "description": "Inserts blank columns at an exact position and shifts existing columns to the right.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1884,10 +1828,6 @@
       "component_type": "GoogleSheetsInsertRows",
       "display_name": "Insert Rows",
       "description": "Inserts blank rows at an exact position and shifts existing rows downward.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -2029,10 +1969,6 @@
       "component_type": "GoogleSheetsListSheets",
       "display_name": "List Sheets",
       "description": "Lists all worksheet tabs inside a Google spreadsheet.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -2112,10 +2048,6 @@
       "component_type": "GoogleSheetsReadRange",
       "display_name": "Read Range",
       "description": "Reads values from a Google Sheets range.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -2213,10 +2145,6 @@
       "component_type": "GoogleSheetsRenameSheet",
       "display_name": "Rename Sheet",
       "description": "Renames a worksheet tab inside a Google spreadsheet.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -2329,10 +2257,6 @@
       "component_type": "GoogleSheetsResizeSheet",
       "display_name": "Resize Sheet",
       "description": "Changes the number of rows and/or columns in a worksheet.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -2475,10 +2399,6 @@
       "component_type": "GoogleSheetsSearchDeleteRow",
       "display_name": "Search & Delete Row",
       "description": "Finds the first row matching a key value and deletes it.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -2658,10 +2578,6 @@
       "component_type": "GoogleSheetsSearchRow",
       "display_name": "Search Row",
       "description": "Finds the first row matching a key value.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -2825,10 +2741,6 @@
       "component_type": "GoogleSheetsUpdateRange",
       "display_name": "Update Range",
       "description": "Writes values to an exact Google Sheets range.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -2980,10 +2892,6 @@
       "component_type": "GoogleSheetsUpsertRow",
       "display_name": "Upsert Row",
       "description": "Updates the first row matching a key value, or appends the row when no match exists.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"

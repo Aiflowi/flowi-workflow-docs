@@ -9,10 +9,6 @@
       "component_type": "GoogleSlidesAddSlide",
       "display_name": "Add Slide",
       "description": "Adds a slide at the end or at a user-friendly 1-based position.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -155,10 +151,6 @@
       "component_type": "GoogleSlidesConnectShapes",
       "display_name": "Connect Shapes",
       "description": "Connects an existing connector line between two shapes.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -338,10 +330,6 @@
       "component_type": "GoogleSlidesCreateLine",
       "display_name": "Create Line",
       "description": "Creates a straight, bent, or curved connector line.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -536,10 +524,6 @@
       "component_type": "GoogleSlidesCreatePresentation",
       "display_name": "Create Presentation",
       "description": "Creates a blank Google Slides presentation.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -619,10 +603,6 @@
       "component_type": "GoogleSlidesCreateShape",
       "display_name": "Create Shape",
       "description": "Creates a common Google Slides shape at an X/Y position.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -851,10 +831,6 @@
       "component_type": "GoogleSlidesCreateTable",
       "display_name": "Create Table",
       "description": "Creates a Google Slides table with the requested rows and columns.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -998,10 +974,6 @@
       "component_type": "GoogleSlidesCreateTextBox",
       "display_name": "Create Text Box",
       "description": "Creates a positioned text box and optionally inserts initial text.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1193,10 +1165,6 @@
       "component_type": "GoogleSlidesDeletePageElement",
       "display_name": "Delete Page Element",
       "description": "Deletes a shape, image, table, line, video, chart, or other page element by Object ID.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1308,10 +1276,6 @@
       "component_type": "GoogleSlidesDeleteSlide",
       "display_name": "Delete Slide",
       "description": "Deletes a slide by Slide Object ID.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1423,10 +1387,6 @@
       "component_type": "GoogleSlidesDeleteTableColumn",
       "display_name": "Delete Table Column",
       "description": "Deletes one column. Merged reference cells spanning columns must be unmerged first.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1585,10 +1545,6 @@
       "component_type": "GoogleSlidesDeleteTableRow",
       "display_name": "Delete Table Row",
       "description": "Deletes one row. Merged reference cells spanning rows must be unmerged first.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1747,10 +1703,6 @@
       "component_type": "GoogleSlidesDeleteText",
       "display_name": "Delete Text",
       "description": "Deletes all text or one user-friendly 1-based text range.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1898,10 +1850,6 @@
       "component_type": "GoogleSlidesDuplicateSlide",
       "display_name": "Duplicate Slide",
       "description": "Duplicates a slide immediately after the source slide.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -2016,10 +1964,6 @@
       "component_type": "GoogleSlidesFormatLine",
       "display_name": "Format Line",
       "description": "Formats line color, weight, dash style, and arrow ends.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -2230,10 +2174,6 @@
       "component_type": "GoogleSlidesFormatParagraph",
       "display_name": "Format Paragraph",
       "description": "Formats paragraph alignment, spacing, and direction in a shape.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -2489,10 +2429,6 @@
       "component_type": "GoogleSlidesFormatTableBorders",
       "display_name": "Format Table Borders",
       "description": "Formats selected table borders by position and optional table range.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -2769,10 +2705,6 @@
       "component_type": "GoogleSlidesFormatTableCells",
       "display_name": "Format Table Cells",
       "description": "Formats cell background fill and vertical content alignment.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -3024,10 +2956,6 @@
       "component_type": "GoogleSlidesFormatText",
       "display_name": "Format Text",
       "description": "Formats text in a Slides shape using range-aware text styles.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -3363,10 +3291,6 @@
       "component_type": "GoogleSlidesFormatVideo",
       "display_name": "Format Video",
       "description": "Updates autoplay, mute, and start/end playback settings.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -3600,10 +3524,6 @@
       "component_type": "GoogleSlidesGetImageInfo",
       "display_name": "Get Image Info",
       "description": "Gets image URLs, properties, grouping, and rendered geometry.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -3717,10 +3637,6 @@
       "component_type": "GoogleSlidesGetPresentation",
       "display_name": "Get Presentation",
       "description": "Gets the latest Google Slides presentation resource.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -3800,10 +3716,6 @@
       "component_type": "GoogleSlidesGetSlide",
       "display_name": "Get Slide",
       "description": "Gets one slide/page by Slide Object ID.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -3900,10 +3812,6 @@
       "component_type": "GoogleSlidesGetSpeakerNotes",
       "display_name": "Get Speaker Notes",
       "description": "Gets the latest speaker notes text associated with one slide.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -4000,10 +3908,6 @@
       "component_type": "GoogleSlidesGetTableCellText",
       "display_name": "Get Table Cell Text",
       "description": "Gets text and merged-cell metadata for one 1-based table cell.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -4147,10 +4051,6 @@
       "component_type": "GoogleSlidesGetText",
       "display_name": "Get Text",
       "description": "Gets text and raw text-element metadata from one shape or text box.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -4264,10 +4164,6 @@
       "component_type": "GoogleSlidesGroupElements",
       "display_name": "Group Elements",
       "description": "Groups at least two eligible top-level page elements on one slide.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -4399,10 +4295,6 @@
       "component_type": "GoogleSlidesInsertImage",
       "display_name": "Insert Image",
       "description": "Inserts an image from a publicly accessible URL.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -4594,10 +4486,6 @@
       "component_type": "GoogleSlidesInsertSheetsChart",
       "display_name": "Insert Sheets Chart",
       "description": "Embeds a Google Sheets chart as a linked chart or unlinked image.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -4823,10 +4711,6 @@
       "component_type": "GoogleSlidesInsertTableColumn",
       "display_name": "Insert Table Column",
       "description": "Inserts one or more columns left or right of a reference column.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -5005,10 +4889,6 @@
       "component_type": "GoogleSlidesInsertTableRow",
       "display_name": "Insert Table Row",
       "description": "Inserts one or more rows above or below a reference row.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -5187,10 +5067,6 @@
       "component_type": "GoogleSlidesInsertText",
       "display_name": "Insert Text",
       "description": "Appends text or inserts it at a user-friendly 1-based text position.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -5356,10 +5232,6 @@
       "component_type": "GoogleSlidesInsertVideo",
       "display_name": "Insert Video",
       "description": "Inserts a YouTube or Google Drive video.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -5570,10 +5442,6 @@
       "component_type": "GoogleSlidesListPageElements",
       "display_name": "List Page Elements",
       "description": "Lists shapes, images, tables, lines, videos, charts, and grouped elements on one slide.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -5670,10 +5538,6 @@
       "component_type": "GoogleSlidesListSlides",
       "display_name": "List Slides",
       "description": "Lists slides using user-friendly 1-based slide numbers.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -5753,10 +5617,6 @@
       "component_type": "GoogleSlidesListTables",
       "display_name": "List Tables",
       "description": "Lists all tables on one slide, including cells, merged spans, and geometry.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -5853,10 +5713,6 @@
       "component_type": "GoogleSlidesMergeTableCells",
       "display_name": "Merge Table Cells",
       "description": "Merges a rectangular range of table cells.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -6045,10 +5901,6 @@
       "component_type": "GoogleSlidesMovePageElement",
       "display_name": "Move Page Element",
       "description": "Moves an ungrouped page element to absolute X/Y coordinates.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -6192,10 +6044,6 @@
       "component_type": "GoogleSlidesMoveSlide",
       "display_name": "Move Slide",
       "description": "Moves one slide to a user-friendly final 1-based position.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -6308,10 +6156,6 @@
       "component_type": "GoogleSlidesPopulateTable",
       "display_name": "Populate Table",
       "description": "Populates a Slides table from array-of-objects or array-of-arrays.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -6505,10 +6349,6 @@
       "component_type": "GoogleSlidesRefreshSheetsChart",
       "display_name": "Refresh Sheets Chart",
       "description": "Refreshes a linked Sheets chart from its current spreadsheet source.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -6622,10 +6462,6 @@
       "component_type": "GoogleSlidesReplaceAllText",
       "display_name": "Replace All Text",
       "description": "Replaces matching text across the presentation or selected slides.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -6787,10 +6623,6 @@
       "component_type": "GoogleSlidesReplaceImage",
       "display_name": "Replace Image",
       "description": "Replaces an existing image while preserving its rendered bounds.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -6922,10 +6754,6 @@
       "component_type": "GoogleSlidesReplaceShapesWithImage",
       "display_name": "Replace Shapes With Image",
       "description": "Replaces text-matching shapes with an image while preserving shape bounds.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -7106,10 +6934,6 @@
       "component_type": "GoogleSlidesReplaceShapesWithSheetsChart",
       "display_name": "Replace Shapes With Sheets Chart",
       "description": "Replaces shapes containing matching text with a Google Sheets chart.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -7305,10 +7129,6 @@
       "component_type": "GoogleSlidesReplaceText",
       "display_name": "Replace Text",
       "description": "Replaces matching text inside one selected shape or text box.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -7471,10 +7291,6 @@
       "component_type": "GoogleSlidesResizePageElement",
       "display_name": "Resize Page Element",
       "description": "Resizes an ungrouped page element to rendered width/height in points.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -7618,10 +7434,6 @@
       "component_type": "GoogleSlidesRotatePageElement",
       "display_name": "Rotate Page Element",
       "description": "Sets absolute rotation in degrees for an ungrouped page element.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -7751,10 +7563,6 @@
       "component_type": "GoogleSlidesSetElementAltText",
       "display_name": "Set Element Alt Text",
       "description": "Updates accessibility title and/or description for a page element.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -7917,10 +7725,6 @@
       "component_type": "GoogleSlidesSetImageProperties",
       "display_name": "Set Image Properties",
       "description": "Updates editable image outline and hyperlink properties.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -8137,10 +7941,6 @@
       "component_type": "GoogleSlidesSetSlideBackground",
       "display_name": "Set Slide Background",
       "description": "Sets a slide background color, removes the fill, or restores inheritance.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -8275,10 +8075,6 @@
       "component_type": "GoogleSlidesSetTableCellText",
       "display_name": "Set Table Cell Text",
       "description": "Replaces all editable text in one Slides table cell.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -8439,10 +8235,6 @@
       "component_type": "GoogleSlidesTemplateMerge",
       "display_name": "Template Merge",
       "description": "Replaces many text placeholders from one Data object in a single Slides batch.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -8594,10 +8386,6 @@
       "component_type": "GoogleSlidesUngroupElements",
       "display_name": "Ungroup Elements",
       "description": "Ungroups one or more top-level groups on the same slide.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -8712,10 +8500,6 @@
       "component_type": "GoogleSlidesUnmergeTableCells",
       "display_name": "Unmerge Table Cells",
       "description": "Unmerges merged cells overlapping a rectangular range.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -8889,10 +8673,6 @@
       "component_type": "GoogleSlidesUpdateSpeakerNotes",
       "display_name": "Update Speaker Notes",
       "description": "Replaces all speaker notes text for one slide.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"

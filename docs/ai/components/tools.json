@@ -9,10 +9,6 @@
       "component_type": "CalculatorTool",
       "display_name": "Calculator",
       "description": "Perform basic arithmetic operations on a given expression.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['helpers.CalculatorComponent']"
       ],
@@ -76,10 +72,6 @@
       "component_type": "GoogleSearchAPI",
       "display_name": "Google Search API [DEPRECATED]",
       "description": "Call Google Search API.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -185,10 +177,6 @@
       "component_type": "GoogleSerperAPI",
       "display_name": "Google Serper API [DEPRECATED]",
       "description": "Call the Serper.dev Google Search API.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -313,10 +301,6 @@
       "component_type": "PythonCodeStructuredTool",
       "display_name": "Python Code Structured",
       "description": "structuredtool dataclass code to tool",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['processing.PythonREPLComponent']"
       ],
@@ -488,10 +472,6 @@
       "component_type": "PythonREPLTool",
       "display_name": "Python REPL",
       "description": "A tool for running Python code in a REPL environment.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['processing.PythonREPLComponent']"
       ],
@@ -585,10 +565,6 @@
       "component_type": "SearchAPI",
       "display_name": "Search API",
       "description": "Call the searchapi.io API with result limiting",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['searchapi.SearchComponent']"
       ],
@@ -728,10 +704,6 @@
       "component_type": "SearXNGTool",
       "display_name": "SearXNG Search",
       "description": "A component that searches for tools using SearXNG.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [],
       "base_classes": [
         "Tool"
@@ -825,10 +797,6 @@
       "component_type": "SerpAPI",
       "display_name": "Serp Search API",
       "description": "Call Serp Search API with result limiting",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['serpapi.Serp']"
       ],
@@ -951,10 +919,6 @@
       "component_type": "TavilyAISearch",
       "display_name": "Tavily Search API",
       "description": "**Tavily Search API** is a search engine optimized for LLMs and RAG,         aimed at efficient, quick, and persistent search results. It can be used independently or as an agent tool.\n\nNote: Check 'Advanced' for all options.\n",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['tavily.TavilySearchComponent']"
       ],
@@ -1010,7 +974,7 @@
           "load_from_db": false,
           "tool_mode": false,
           "real_time_refresh": false,
-          "info": "Number of days back from current date to include. Only available with news topic."
+          "info": "Number of days back from current date to include. Only documented with news topic."
         },
         {
           "name": "exclude_domains",
@@ -1228,10 +1192,6 @@
       "component_type": "WikidataAPI",
       "display_name": "Wikidata API",
       "description": "Performs a search using the Wikidata API.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['wikipedia.WikidataComponent']"
       ],
@@ -1295,10 +1255,6 @@
       "component_type": "WikipediaAPI",
       "display_name": "Wikipedia API",
       "description": "Call Wikipedia API.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['wikipedia.WikipediaComponent']"
       ],
@@ -1374,7 +1330,7 @@
         },
         {
           "name": "load_all_available_meta",
-          "display_name": "Load all available meta",
+          "display_name": "Load all documented meta",
           "input_type": "BoolInput",
           "value_type": "bool",
           "accepts": [],
@@ -1423,10 +1379,6 @@
       "component_type": "YahooFinanceTool",
       "display_name": "Yahoo! Finance",
       "description": "Uses [yfinance](https://pypi.org/project/yfinance/) (unofficial package) to access financial data and market information from Yahoo! Finance.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['yahoosearch.YfinanceComponent']"
       ],

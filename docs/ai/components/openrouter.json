@@ -9,10 +9,6 @@
       "component_type": "OpenRouterComponent",
       "display_name": "OpenRouter",
       "description": "OpenRouter provides unified access to multiple AI models from different providers through a single API.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",

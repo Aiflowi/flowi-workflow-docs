@@ -9,10 +9,6 @@
       "component_type": "CrewAIAgentComponent",
       "display_name": "CrewAI Agent",
       "description": "Represents an agent of CrewAI.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [],
       "base_classes": [
         "NoneType"
@@ -211,10 +207,6 @@
       "component_type": "HierarchicalCrewComponent",
       "display_name": "Hierarchical Crew",
       "description": "Represents a group of agents, defining how they should collaborate and the tasks they should perform.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -405,10 +397,6 @@
       "component_type": "HierarchicalTaskComponent",
       "display_name": "Hierarchical Task",
       "description": "Each task must have a description, an expected output and an agent responsible for execution.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [],
       "base_classes": [
         "HierarchicalTask"
@@ -492,10 +480,6 @@
       "component_type": "SequentialCrewComponent",
       "display_name": "Sequential Crew",
       "description": "Represents a group of agents with tasks that are executed sequentially.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -635,10 +619,6 @@
       "component_type": "SequentialTaskComponent",
       "display_name": "Sequential Task",
       "description": "Each task must have a description, an expected output and an agent responsible for execution.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [],
       "base_classes": [
         "SequentialTask"
@@ -774,10 +754,6 @@
       "component_type": "SequentialTaskAgentComponent",
       "display_name": "Sequential Task Agent",
       "description": "Creates a CrewAI Task and its associated Agent.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [],
       "base_classes": [
         "SequentialTask"

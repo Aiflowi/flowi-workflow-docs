@@ -9,10 +9,6 @@
       "component_type": "BingSearchAPI",
       "display_name": "Bing Search API",
       "description": "Call the Bing Search API.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table",

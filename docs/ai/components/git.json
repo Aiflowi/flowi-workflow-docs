@@ -9,10 +9,6 @@
       "component_type": "GitLoaderComponent",
       "display_name": "Git",
       "description": "Load and filter documents from a local or remote Git repository. Use a local repo path or clone from a remote URL.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -152,10 +148,6 @@
       "component_type": "GitExtractorComponent",
       "display_name": "GitExtractor",
       "description": "Analyzes a Git repository and returns file contents and complete repository information",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",

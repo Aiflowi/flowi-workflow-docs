@@ -9,10 +9,6 @@
       "component_type": "DuckDuckGoSearchComponent",
       "display_name": "DuckDuckGo Search",
       "description": "Search the web using DuckDuckGo with customizable result limits",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"

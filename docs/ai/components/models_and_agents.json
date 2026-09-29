@@ -9,10 +9,6 @@
       "component_type": "Agent",
       "display_name": "Agent",
       "description": "Define the agent's instructions, then enter a task to complete using tools.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -338,10 +334,6 @@
       "component_type": "EmbeddingModel",
       "display_name": "Embedding Model",
       "description": "Generate embeddings using a specified provider.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Embeddings"
@@ -603,10 +595,6 @@
       "component_type": "LanguageModelComponent",
       "display_name": "Language Model",
       "description": "Runs a language model given a specified provider.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",
@@ -824,10 +812,6 @@
       "component_type": "MCPTools",
       "display_name": "MCP Tools",
       "description": "Connect to an MCP server to use its tools.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -956,10 +940,6 @@
       "component_type": "Memory",
       "display_name": "Message History",
       "description": "Stores or retrieves stored chat messages from AI Flowi Workflow tables or an external memory.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message",
@@ -1206,10 +1186,6 @@
       "component_type": "Prompt Template",
       "display_name": "Prompt Template",
       "description": "Create a prompt template with dynamic variables.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -1288,10 +1264,6 @@
       "component_type": "policies",
       "display_name": "Policies",
       "description": "Component for building tool protection code from textual business policies and instructions.\nPowered by [ALTK ToolGuard](https://github.com/AgentToolkit/toolguard )",
-      "status": "BETA",
-      "legacy": false,
-      "beta": true,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Tool"

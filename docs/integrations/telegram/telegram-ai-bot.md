@@ -1,96 +1,40 @@
 ---
-title: Build a Telegram AI Bot with Flowi Workflow
-description: Step-by-step architecture for receiving Telegram messages in Flowi through Webhook, parsing them, applying workflow logic or AI, and replying through the Telegram Bot API.
+title: How do I build a Telegram AI bot?
+description: Build a Telegram message workflow with Webhook, Telegram Update Parser, workflow logic, and an optional Bot API reply.
+canonical_url: https://aiflowi.com/docs/integrations/telegram-ai-bot/
+last_updated: 2026-09-29
+author: Ai Flowi
 ---
 
-# Build a Telegram AI Bot with Flowi Workflow
+# How do I build a Telegram AI bot?
 
-## Goal
+Register a Webhook endpoint for your Telegram bot, then connect incoming Webhook JSON to Telegram Update Parser. Use the parsed message in your workflow logic or AI step. If the bot must answer in Telegram, send the response through a separate Bot API request and test that outbound path on its own.
 
-Receive a Telegram message in Flowi, extract the useful Telegram fields, process the message with Flowi logic or AI, and optionally send a response through the Telegram Bot API.
+## Prerequisites
 
-## Bird's-eye architecture
+- Access to the AI Flowi Workflow editor and a Telegram bot token obtained through Telegram's BotFather process.
+- A public HTTPS endpoint from the built-in Webhook component.
+- Credentials for any AI model or outbound API request you choose to use. Keep tokens out of public examples.
 
-**One-time setup:**
+## Steps
 
-`Flowi Webhook URL + Telegram Bot Token → Telegram Webhook Setup → Telegram Bot API setWebhook`
+1. Add **Webhook** and copy its endpoint. It receives the Telegram update and outputs JSON.
+2. Run **Telegram Webhook Setup** with the bot token and Webhook endpoint. Add the optional Flowi API Key only if your deployment requires it. Check the registration result. See [webhook setup](telegram-webhook-setup.md).
+3. Add **Telegram Update Parser** and connect `Webhook.JSON` to `Telegram Update Parser.Telegram Update`. Its documented fields include `chat_id`, `user_id`, `username`, `text`, and `command`.
+4. Connect a suitable workflow step for the parsed message. The source page documents If-Else for rules and an AI model for a response; check the ports and types in your environment.
+5. If a Telegram reply is required, configure a separate **API Request** to call the Telegram Bot API `sendMessage` method with `chat_id` and response `text`. Keep the bot token in the credential mechanism supported by your deployment.
+6. Send a Telegram message. Check Webhook JSON, parser values, workflow output, and then the outbound API response in that order.
 
-**Runtime:**
+## Expected result
 
-`Telegram User → Telegram Bot API → Flowi Webhook → Telegram Update Parser → Logic / AI → Action`
+An incoming Telegram update reaches Webhook and the parser supplies the documented fields for the next step. A configured outbound API Request can then send a reply. The inbound connection is documented; the exact parser output type and secret interpolation details for the outbound request depend on the environment, so check them before wiring the final edge.
 
-## Step 1 — create or select your Telegram bot
+## Common errors
 
-Use Telegram's normal BotFather process to obtain a bot token. The token is a credential; never paste the real value into GitHub, screenshots, or public AI prompts.
+- **No incoming JSON:** Recheck the registered endpoint, public HTTPS access, and webhook authentication.
+- **Parser values missing:** Inspect the incoming update before changing downstream logic.
+- **No reply:** Check `chat_id`, response `text`, credential handling, and the Telegram API response. See [Telegram troubleshooting](troubleshooting.md).
 
-## Step 2 — add the Flowi Webhook
+## Related
 
-Add the built-in **Webhook** component (`input_output.Webhook`). It exposes an `Endpoint` and outputs `JSON`.
-
-Copy the public HTTPS endpoint for the setup step.
-
-## Step 3 — register the webhook
-
-Add the documented **Telegram Webhook Setup** extension.
-
-Set:
-
-- **Telegram Bot Token** — secret token for your bot;
-- **Flowi Webhook URL** — endpoint from the Flowi Webhook node;
-- **Flowi API Key** — only if required by your deployment;
-- **Drop Old Pending Messages** — choose whether queued updates should be discarded.
-
-Run this setup component and confirm registration succeeded. It does not need to sit in the normal message-processing chain.
-
-## Step 4 — parse incoming Telegram JSON
-
-Add **Telegram Update Parser**.
-
-Connect:
-
-`Webhook.JSON → Telegram Update Parser.Telegram Update`
-
-The documented parser extracts `chat_id`, `user_id`, `username`, `text`, and `command` for downstream use.
-
-## Step 5 — add business logic
-
-Choose the smallest logic that solves the task.
-
-Examples:
-
-- explicit keyword/rule → **If-Else**;
-- semantic response → supported AI model;
-- model routing → **LLM Selector**;
-- structured extraction → **Structured Output**;
-- record keeping → **Google Sheets Append Rows**.
-
-Do not add an AI model to a step that can be handled reliably with deterministic logic.
-
-## Step 6 — reply to Telegram when required
-
-Flowi's built-in **API Request** (`data_source.APIRequest`) can call an external HTTP API. Telegram's official Bot API provides `sendMessage`, which requires `chat_id` and `text`.
-
-A conceptual outbound path is:
-
-`Parsed chat_id + Flowi response text → API Request → Telegram Bot API sendMessage`
-
-The Telegram Bot API uses the bot token as a credential in the request endpoint. Keep it in an approved secret/credential mechanism for your Flowi deployment; never hard-code a real token in a public example. The exact secret interpolation mechanism must follow the documentation available in your tenant.
-
-## Step 7 — test in layers
-
-1. Send a Telegram message and verify the Flowi Webhook receives JSON.
-2. Verify Telegram Update Parser extracts the expected fields.
-3. Test the logic/AI step independently.
-4. Only after the response text is correct, test the outbound Telegram API request.
-
-## Common failure points
-
-- webhook was never registered or was registered to the wrong endpoint;
-- endpoint is not public HTTPS;
-- old pending messages make testing confusing;
-- wrong bot token;
-- Flowi webhook authentication is enabled but not configured in setup;
-- downstream component expects a different data type;
-- Telegram API reply is missing `chat_id` or `text`.
-
-See [Telegram Troubleshooting](troubleshooting.md) for a focused checklist.
+[Telegram integration](index.md) · [Telegram update parser](telegram-update-parser.md) · [Webhook troubleshooting](../../troubleshooting/webhooks.md)

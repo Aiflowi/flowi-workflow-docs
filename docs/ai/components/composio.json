@@ -9,10 +9,6 @@
       "component_type": "ComposioAgentQLAPIComponent",
       "display_name": "AgentQL",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -437,10 +433,6 @@
       "component_type": "ComposioAgiledAPIComponent",
       "display_name": "Agiled",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -865,10 +857,6 @@
       "component_type": "ComposioAirtableAPIComponent",
       "display_name": "Airtable",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -1293,10 +1281,6 @@
       "component_type": "ComposioApolloAPIComponent",
       "display_name": "Apollo",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -1721,10 +1705,6 @@
       "component_type": "ComposioAsanaAPIComponent",
       "display_name": "Asana",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -2149,10 +2129,6 @@
       "component_type": "ComposioAttioAPIComponent",
       "display_name": "Attio",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -2577,10 +2553,6 @@
       "component_type": "ComposioBitbucketAPIComponent",
       "display_name": "Bitbucket",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -3005,10 +2977,6 @@
       "component_type": "ComposioBolnaAPIComponent",
       "display_name": "Bolna",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -3433,10 +3401,6 @@
       "component_type": "ComposioBrightdataAPIComponent",
       "display_name": "Brightdata",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -3861,10 +3825,6 @@
       "component_type": "ComposioCalendlyAPIComponent",
       "display_name": "Calendly",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -4289,10 +4249,6 @@
       "component_type": "ComposioCanvaAPIComponent",
       "display_name": "Canva",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -4717,10 +4673,6 @@
       "component_type": "ComposioCanvasAPIComponent",
       "display_name": "Canvas",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -5145,10 +5097,6 @@
       "component_type": "ComposioCodaAPIComponent",
       "display_name": "Coda",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -5573,10 +5521,6 @@
       "component_type": "ComposioAPI",
       "display_name": "Composio Tools",
       "description": "Use Composio toolset to run actions with your agent",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Tool"
@@ -5673,10 +5617,6 @@
       "component_type": "ComposioContentfulAPIComponent",
       "display_name": "Contentful",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -6101,10 +6041,6 @@
       "component_type": "ComposioDigicertAPIComponent",
       "display_name": "Digicert",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -6529,10 +6465,6 @@
       "component_type": "ComposioDiscordAPIComponent",
       "display_name": "Discord",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -6957,10 +6889,6 @@
       "component_type": "ComposioDropboxAPIComponent",
       "display_name": "Dropbox",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -7385,10 +7313,6 @@
       "component_type": "ComposioElevenLabsAPIComponent",
       "display_name": "ElevenLabs",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -7813,10 +7737,6 @@
       "component_type": "ComposioExaAPIComponent",
       "display_name": "Exa",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -8241,10 +8161,6 @@
       "component_type": "ComposioFigmaAPIComponent",
       "display_name": "Figma",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -8669,10 +8585,6 @@
       "component_type": "ComposioFinageAPIComponent",
       "display_name": "Finage",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -9097,10 +9009,6 @@
       "component_type": "ComposioFirecrawlAPIComponent",
       "display_name": "Firecrawl",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -9525,10 +9433,6 @@
       "component_type": "ComposioFirefliesAPIComponent",
       "display_name": "Fireflies",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -9953,10 +9857,6 @@
       "component_type": "ComposioFixerAPIComponent",
       "display_name": "Fixer",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -10381,10 +10281,6 @@
       "component_type": "ComposioFlexisignAPIComponent",
       "display_name": "Flexisign",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -10809,10 +10705,6 @@
       "component_type": "ComposioFreshdeskAPIComponent",
       "display_name": "Freshdesk",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -11237,10 +11129,6 @@
       "component_type": "ComposioGitHubAPIComponent",
       "display_name": "GitHub",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -11665,10 +11553,6 @@
       "component_type": "ComposioGmailAPIComponent",
       "display_name": "Gmail",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -12093,10 +11977,6 @@
       "component_type": "ComposioGoogleclassroomAPIComponent",
       "display_name": "Google Classroom",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -12521,10 +12401,6 @@
       "component_type": "ComposioGoogleBigQueryAPIComponent",
       "display_name": "GoogleBigQuery",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -12949,10 +12825,6 @@
       "component_type": "ComposioGoogleCalendarAPIComponent",
       "display_name": "GoogleCalendar",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -13377,10 +13249,6 @@
       "component_type": "ComposioGoogleDocsAPIComponent",
       "display_name": "GoogleDocs",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -13805,10 +13673,6 @@
       "component_type": "ComposioGooglemeetAPIComponent",
       "display_name": "GoogleMeet",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -14233,10 +14097,6 @@
       "component_type": "ComposioGoogleSheetsAPIComponent",
       "display_name": "GoogleSheets",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -14661,10 +14521,6 @@
       "component_type": "ComposioGoogleTasksAPIComponent",
       "display_name": "GoogleTasks",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -15089,10 +14945,6 @@
       "component_type": "ComposioHeygenAPIComponent",
       "display_name": "Heygen",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -15517,10 +15369,6 @@
       "component_type": "ComposioInstagramAPIComponent",
       "display_name": "Instagram",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -15945,10 +15793,6 @@
       "component_type": "ComposioJiraAPIComponent",
       "display_name": "Jira",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -16373,10 +16217,6 @@
       "component_type": "ComposioJotformAPIComponent",
       "display_name": "Jotform",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -16801,10 +16641,6 @@
       "component_type": "ComposioKlaviyoAPIComponent",
       "display_name": "Klaviyo",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -17229,10 +17065,6 @@
       "component_type": "ComposioLinearAPIComponent",
       "display_name": "Linear",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -17657,10 +17489,6 @@
       "component_type": "ComposioListennotesAPIComponent",
       "display_name": "Listennotes",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -18085,10 +17913,6 @@
       "component_type": "ComposioMem0APIComponent",
       "display_name": "Mem0",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -18513,10 +18337,6 @@
       "component_type": "ComposioMiroAPIComponent",
       "display_name": "Miro",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -18941,10 +18761,6 @@
       "component_type": "ComposioMissiveAPIComponent",
       "display_name": "Missive",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -19369,10 +19185,6 @@
       "component_type": "ComposioNotionAPIComponent",
       "display_name": "Notion",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -19797,10 +19609,6 @@
       "component_type": "ComposioOneDriveAPIComponent",
       "display_name": "OneDrive",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -20225,10 +20033,6 @@
       "component_type": "ComposioOutlookAPIComponent",
       "display_name": "Outlook",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -20653,10 +20457,6 @@
       "component_type": "ComposioPandadocAPIComponent",
       "display_name": "Pandadoc",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -21081,10 +20881,6 @@
       "component_type": "ComposioPeopleDataLabsAPIComponent",
       "display_name": "PeopleDataLabs",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -21509,10 +21305,6 @@
       "component_type": "ComposioPerplexityAIAPIComponent",
       "display_name": "PerplexityAI",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -21937,10 +21729,6 @@
       "component_type": "ComposioRedditAPIComponent",
       "display_name": "Reddit",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -22365,10 +22153,6 @@
       "component_type": "ComposioSerpAPIComponent",
       "display_name": "SerpAPI",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -22793,10 +22577,6 @@
       "component_type": "ComposioSlackAPIComponent",
       "display_name": "Slack",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -23221,10 +23001,6 @@
       "component_type": "ComposioSlackbotAPIComponent",
       "display_name": "Slackbot",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -23649,10 +23425,6 @@
       "component_type": "ComposioSnowflakeAPIComponent",
       "display_name": "Snowflake",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -24077,10 +23849,6 @@
       "component_type": "ComposioSupabaseAPIComponent",
       "display_name": "Supabase",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -24505,10 +24273,6 @@
       "component_type": "ComposioTavilyAPIComponent",
       "display_name": "Tavily",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -24933,10 +24697,6 @@
       "component_type": "ComposioTimelinesAIAPIComponent",
       "display_name": "TimelinesAI",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -25361,10 +25121,6 @@
       "component_type": "ComposioTodoistAPIComponent",
       "display_name": "Todoist",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -25789,10 +25545,6 @@
       "component_type": "ComposioWrikeAPIComponent",
       "display_name": "Wrike",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -26217,10 +25969,6 @@
       "component_type": "ComposioYoutubeAPIComponent",
       "display_name": "YouTube",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"

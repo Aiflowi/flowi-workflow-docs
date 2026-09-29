@@ -1,45 +1,40 @@
 ---
-title: LLM Selector Routing in Flowi Workflow
-description: Route work to an appropriate language model with Flowi LLM Selector using quality, speed, cost or balanced optimization.
+title: How do I route between language models?
+description: Set up LLM Selector with a judge model and candidate models, then inspect its Message output and routing decision in AI Flowi Workflow.
+canonical_url: https://aiflowi.com/docs/tutorials/llm-selector-routing/
+last_updated: 2026-09-29
+author: Ai Flowi
 ---
 
-# LLM Selector Routing
+# How do I route between language models?
 
-## Goal
+Use LLM Selector when a workflow should choose among connected language models using a documented optimization objective. It accepts a `Message` input plus a judge model and candidate models of type `LanguageModel`. Its main output is a `Message` that can connect to Chat Output.
 
-Move from a hard-coded rule to model-aware routing when different language models may be appropriate for different requests.
+## Prerequisites
 
-## Workflow map
+- Access to the AI Flowi Workflow editor and Playground.
+- Configured credentials for the language models you choose. A compatible `LanguageModel` port does not verify a credential.
+- Familiarity with [typed connections](../concepts/workflow-basics.md).
 
-`Chat Input → LLM Selector → Selected model result → Chat Output`
+## Steps
 
-The built-in **LLM Selector** is `llm_operations.LLMSelectorComponent` and is `AVAILABLE`.
+1. Add **Chat Input**, **LLM Selector** (`llm_operations.LLMSelectorComponent`), and **Chat Output**.
+2. Connect Chat Input's `Chat Message` to LLM Selector's `Input`. This edge uses `Message`.
+3. Connect a configured language model's `Language Model` output to **Judge LLM**.
+4. Connect the candidate `LanguageModel` outputs to **Language Models**.
+5. Choose **Optimization**: `quality`, `speed`, `cost`, or `balanced`. The component also documents optional fallback and timeout settings.
+6. Connect LLM Selector's `Output` (`Message`) to Chat Output. Send a test message and inspect **Selected Model Info** (`Data` or `JSON`) and **Routing Decision** (`Message`) alongside the response.
 
-## Documented inputs
+## Expected result
 
-- `Input` — accepts `Message`;
-- `Judge LLM` — accepts `LanguageModel`;
-- `Language Models` — accepts `LanguageModel` and can be supplied with candidate models;
-- `Optimization` — `quality`, `speed`, `cost`, or `balanced`;
-- `Use OpenRouter Specs` — optional;
-- `Fallback to First Model` — optional;
-- `API Timeout` — optional.
+The documented route passes the Chat Input message through LLM Selector to Chat Output. Its additional outputs expose information about the selected model and routing decision. The structural recipe does not establish which model will be chosen for a particular message or whether an external model service will respond.
 
-## Outputs
+## Common errors
 
-- `Output` — `Message`;
-- `Selected Model Info` — `Data` or `JSON`;
-- `Routing Decision` — `Message`.
+- **A model will not connect:** Check that its output is `LanguageModel`, then check whether it is wired to Judge LLM or Language Models.
+- **The selector cannot run:** Check required model inputs and the models' credentials and configuration.
+- **No response appears:** Verify that `Output`, not an information output, connects to Chat Output. See [common errors](../troubleshooting/common-errors.md).
 
-## Build steps
+## Related
 
-1. Add **Chat Input** and connect its `Chat Message` to `LLM Selector.Input`.
-2. Add a supported language model to act as the `Judge LLM`.
-3. Add the candidate language models and connect their `Language Model` outputs to `LLM Selector.Language Models`.
-4. Choose an optimization objective.
-5. Connect `LLM Selector.Output` to **Chat Output** or the next Message-compatible component.
-6. During learning, also inspect `Selected Model Info` and `Routing Decision` to understand why a route was chosen.
-
-## Concept
-
-If-Else is best when the rule is explicit. LLM Selector is useful when the routing decision depends on model capabilities or a model-selection policy. They solve different problems and should not be treated as interchangeable in every workflow.
+[Model connections](../connections/model-providers-and-variables.md) · [Components](../components/index.md) · [If-Else routing](if-else-routing.md)

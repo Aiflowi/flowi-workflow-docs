@@ -9,10 +9,6 @@
       "component_type": "ArXivComponent",
       "display_name": "arXiv",
       "description": "Search and retrieve papers from arXiv.org",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"

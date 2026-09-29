@@ -9,10 +9,6 @@
       "component_type": "HTTPMethodRouter",
       "display_name": "HTTP Method Router",
       "description": "Routes complete webhook Request Data to GET, POST, PUT, PATCH, or DELETE without removing any request fields.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -113,10 +109,6 @@
       "component_type": "ConditionalRouter",
       "display_name": "If-Else",
       "description": "Routes an input message to a corresponding output based on text comparison.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -311,10 +303,6 @@
       "component_type": "LoopComponent",
       "display_name": "Loop",
       "description": "Iterates through Data or Message objects, processing items individually and aggregating results from loop inputs.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -380,10 +368,6 @@
       "component_type": "VerificationRouter",
       "display_name": "Verification Router",
       "description": "Routes a complete verification result to Verified or Rejected without removing or changing any fields.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -445,10 +429,6 @@
       "component_type": "Listen",
       "display_name": "Listen",
       "description": "A component to listen for a notification.",
-      "status": "BETA",
-      "legacy": false,
-      "beta": true,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -496,10 +476,6 @@
       "component_type": "Notify",
       "display_name": "Notify",
       "description": "A component to generate a notification to Get Notified component.",
-      "status": "BETA",
-      "legacy": false,
-      "beta": true,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -583,10 +559,6 @@
       "component_type": "RunFlow",
       "display_name": "Run Flow",
       "description": "Executes another flow from within the same project. Can also be used as a tool for agents. \n **Select a Flow to use the tool mode**",
-      "status": "BETA",
-      "legacy": false,
-      "beta": true,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [],
       "component_tool_mode": false,
@@ -667,10 +639,6 @@
       "component_type": "DataConditionalRouter",
       "display_name": "Condition",
       "description": "Route Data object(s) based on a condition applied to a specified key, including boolean validation.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['logic.ConditionalRouter']"
       ],
@@ -794,10 +762,6 @@
       "component_type": "FlowTool",
       "display_name": "Flow as Tool",
       "description": "Construct a Tool from a function that runs the loaded Flow.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['logic.RunFlow']"
       ],
@@ -894,10 +858,6 @@
       "component_type": "Pass",
       "display_name": "Pass",
       "description": "Forwards the input message, unchanged.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['logic.ConditionalRouter']"
       ],
@@ -965,10 +925,6 @@
       "component_type": "SubFlow",
       "display_name": "Sub Flow",
       "description": "Generates a Component from a Flow, with all of its inputs, and ",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['logic.RunFlow']"
       ],

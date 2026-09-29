@@ -9,10 +9,6 @@
       "component_type": "ChunkDoclingDocument",
       "display_name": "Chunk DoclingDocument",
       "description": "Use the DocumentDocument chunkers to split the document into chunks.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -205,10 +201,6 @@
       "component_type": "DoclingInline",
       "display_name": "Docling",
       "description": "Uses Docling to process input documents running the Docling models locally.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -447,10 +439,6 @@
       "component_type": "DoclingRemote",
       "display_name": "Docling Serve",
       "description": "Uses Docling to process input documents connecting to your instance of Docling Serve.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -684,10 +672,6 @@
       "component_type": "ExportDoclingDocument",
       "display_name": "Export DoclingDocument",
       "description": "Export DoclingDocument to markdown, html or other formats.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",

@@ -9,10 +9,6 @@
       "component_type": "CleanlabEvaluator",
       "display_name": "Cleanlab Evaluator",
       "description": "Evaluates any LLM response using Cleanlab and outputs trust score and explanation.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "float",
@@ -203,10 +199,6 @@
       "component_type": "CleanlabRAGEvaluator",
       "display_name": "Cleanlab RAG Evaluator",
       "description": "Evaluates context, query, and response from a RAG pipeline using Cleanlab and outputs trust metrics.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Data",
@@ -484,10 +476,6 @@
       "component_type": "CleanlabRemediator",
       "display_name": "Cleanlab Remediator",
       "description": "Remediates an untrustworthy response based on trust score from the Cleanlab Evaluator, score threshold, and message handling settings.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"

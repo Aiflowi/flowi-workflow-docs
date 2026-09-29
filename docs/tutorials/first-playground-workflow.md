@@ -1,64 +1,40 @@
 ---
-title: Your First Flowi Workflow — Chat Input to AI to Chat Output
-description: Build a beginner Flowi Workflow in the Playground by connecting Chat Input to an AI model and then to Chat Output.
+title: How do I build my first workflow?
+description: Connect Chat Input, an AI model, and Chat Output in the AI Flowi Workflow Playground, then send a message to check the result.
+canonical_url: https://aiflowi.com/docs/tutorials/first-workflow/
+last_updated: 2026-09-29
+author: Ai Flowi
 ---
 
-# Your First Playground AI Workflow
+# How do I build my first workflow?
 
-## Goal
+In AI Flowi Workflow, connect Chat Input to a compatible AI model, then connect the model to Chat Output. Send a message in the Playground to check the path from input to response. This tutorial covers the documented component connections; a matching type alone does not confirm that a model credential will work.
 
-Create the simplest useful Flowi conversation flow: the user types a message in the Playground, an AI model generates a response, and the response appears in the Playground.
+## Prerequisites
 
-## Workflow map
+- Access to the AI Flowi Workflow editor and Playground.
+- A configured credential for the model you choose. Keep credentials out of shared text and screenshots.
+- Familiarity with [components and typed connections](../concepts/workflow-basics.md) helps, but you can follow the steps below first.
 
-`Chat Input → AI Model → Chat Output`
+## Steps
 
-A documented example can use the built-in `DeepSeek` model, but another supported model with a compatible `Message` input/output may be used.
+1. Add **Chat Input** to the editor. It supplies the Playground message as a `Message` output.
+2. Add a compatible **AI model** and configure its required credential. Connect the Chat Input message output to the model's `Message` input.
+3. Add **Chat Output**. Connect the model's `Message` response output to the Chat Output input.
+4. Open the Playground and send a short test message, such as “Explain what a workflow is in one sentence.”
 
-## Components
+The documented recipe connects Chat Input, a model, and Chat Output in that order. A different model can be used if its input and output types match these connections and its required credential is configured.
 
-| Component | ID | Role | Status |
-|---|---|---|---|
-| Chat Input | `input_output.ChatInput` | Receives the Playground message | AVAILABLE |
-| DeepSeek | `deepseek.DeepSeekModelComponent` | Generates a response | AVAILABLE |
-| Chat Output | `input_output.ChatOutput` | Displays the result in Playground | AVAILABLE |
+## Expected result
 
-## Step 1 — add Chat Input
+The Playground accepts your message, passes it through the model, and displays the response through Chat Output. The connection is structurally compatible when the source output type matches a type accepted by the next input; runtime behavior still depends on the model configuration.
 
-Add **Chat Input**. Its `Chat Message` output is type `Message`.
+## Common errors
 
-**Test:** open the Playground and confirm the flow accepts a user message after the rest of the chain is connected.
+- **The components do not connect:** Check the source output type against the next component's accepted input types. See [common errors](../troubleshooting/common-errors.md).
+- **The model does not respond:** Check its credential and configuration. A compatible connection does not verify that a credential or external service works.
+- **No response appears in the Playground:** Check that the model response output connects to Chat Output, then retry the test message.
 
-## Step 2 — add the AI model
+## Related
 
-Add **DeepSeek** and configure the required API credential through the normal Flowi credential mechanism. Never paste the key into public documentation or screenshots.
-
-Connect:
-
-`Chat Input.Chat Message → DeepSeek.Input`
-
-This is structurally compatible because Chat Input outputs `Message` and DeepSeek accepts `Message` on `Input`.
-
-## Step 3 — add Chat Output
-
-Connect:
-
-`DeepSeek.Model Response → Chat Output.Inputs`
-
-DeepSeek's model response is `Message`, and Chat Output accepts `Message`.
-
-## Test
-
-In the Playground, send a simple question such as:
-
-`Explain what a workflow is in one sentence.`
-
-Expected result: the message reaches the model and the model response appears through Chat Output.
-
-## What you learned
-
-This flow introduces the basic pattern used throughout Flowi:
-
-`Input → Process → Output`
-
-Later tutorials add routing, external triggers, structured data, and business actions without changing this core idea.
+[Tutorials](index.md) · [Workflow basics](../concepts/workflow-basics.md) · [Common errors](../troubleshooting/common-errors.md)

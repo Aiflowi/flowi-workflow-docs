@@ -87,25 +87,12 @@
     },
     {
       "intent": [
-        "whatsapp",
-        "meta whatsapp"
-      ],
-      "docs": [
-        "../use-cases/whatsapp-ai-automation.md"
-      ],
-      "component_categories": [
-        "input_output",
-        "processing"
-      ]
-    },
-    {
-      "intent": [
         "api",
         "http request",
         "call external api"
       ],
       "docs": [
-        "../use-cases/api-webhook-automation.md"
+        "../use-cases/ai-workflow-automation.md"
       ],
       "component_categories": [
         "data_source",
@@ -134,8 +121,7 @@
       ],
       "docs": [
         "../getting-started/what-is-flowi.md",
-        "../evaluate/when-flowi-fits.md",
-        "../reference/feature-status.md"
+        "../evaluate/when-flowi-fits.md"
       ],
       "component_categories": []
     }

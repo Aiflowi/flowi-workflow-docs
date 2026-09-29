@@ -1,59 +1,12 @@
-# Flowi Workflow Documentation
+# AI Flowi Workflow documentation
 
-Official public documentation and AI-readable reference for **Flowi Workflow by AI Flowi**.
+The canonical documentation is at https://aiflowi.com/docs/. This repository is the single source for the public pages and machine-readable references synced to the website. The website publication process uses reviewed repository content; a repository edit alone does not publish a page.
 
-This repository is deliberately designed for two audiences at the same time:
+## Edit a page
 
-1. **people** learning and building Flowi workflows; and
-2. **AI assistants** such as ChatGPT and DeepSeek that need a reliable, structured source before teaching a student how to build a workflow.
+1. Find its source under `docs/` using `mkdocs.yml` for the public navigation order.
+2. Keep the page's title, description, canonical URL, update date, and author front matter current. Check factual statements against the machine references in `docs/ai/`.
+3. Use relative links for other documentation pages. Keep held drafts under `_held/`, outside the public `docs/` tree.
+4. Run `mkdocs build --strict` and `node scripts/build-llms.mjs` from this directory. Review the generated `docs/llms.txt` and `docs/llms-full.txt` before publication.
 
-## Students: paste this into ChatGPT
-
-Use this file as the entry point:
-
-**GitHub:** `https://github.com/ai-flowi/flowi-docs/blob/main/docs/AI_START_HERE.md`
-
-Then ask:
-
-> Read the Flowi Workflow documentation at this link first. Act as my Flowi Workflow tutor. Show me the workflow map, use only documented components, check connection compatibility, then teach me step by step. I want to build: [describe your workflow].
-
-The AI entry file tells the assistant how to find the audited component catalog, verified recipes, integrations, extension components, troubleshooting guidance, and the student-tutor protocol.
-
-## Fast links
-
-- **AI entry point:** [`docs/AI_START_HERE.md`](docs/AI_START_HERE.md)
-- **Student AI tutor guide:** [`docs/getting-started/ai-tutor-mode.md`](docs/getting-started/ai-tutor-mode.md)
-- **Verified workflow recipes:** [`docs/ai/VERIFIED_WORKFLOW_RECIPES.json`](docs/ai/VERIFIED_WORKFLOW_RECIPES.json)
-- **Task routing index:** [`docs/ai/TASK_ROUTING_INDEX.json`](docs/ai/TASK_ROUTING_INDEX.json)
-- **Built-in component truth:** [`docs/ai/BUILTIN_NODE_INDEX.json`](docs/ai/BUILTIN_NODE_INDEX.json)
-- **Documented Flowi extensions:** [`docs/ai/EXTENSION_COMPONENT_INDEX.json`](docs/ai/EXTENSION_COMPONENT_INDEX.json)
-- **Telegram Bot integration:** [`docs/integrations/telegram/index.md`](docs/integrations/telegram/index.md)
-- **Feature status:** [`docs/reference/feature-status.md`](docs/reference/feature-status.md)
-- **Canonical documentation website:** https://docs.aiflowi.com/
-
-## What is public here
-
-This repository contains documentation, examples, public-safe metadata, integration interfaces, workflow recipes, and documentation deployment configuration.
-
-It does **not** contain Flowi product implementation source code, private credentials, API keys, private component Python source, or customer data.
-
-## Brand naming
-
-- **AI Flowi** — company/brand
-- **Flowi Workflow** — workflow automation product
-- **Flowi** — preferred short product name
-
-Recommended first mention: **Flowi Workflow by AI Flowi**.
-
-## Documentation quality rules
-
-- Built-in component names come from the audited public component catalog.
-- `AVAILABLE` components are preferred for new workflows.
-- `BETA` components must be labelled Beta.
-- `LEGACY` components should not be recommended for new workflows.
-- Documented Flowi extensions are clearly separated from built-in components.
-- Examples never contain real credentials.
-- Undocumented behavior must not be invented.
-- Comparison pages describe documented capabilities rather than declaring a universal winner.
-
-Last audited: **2026-09-18**
+Start with [AI start here](docs/AI_START_HERE.md) for assistant guidance, [getting started](docs/getting-started/index.md) for the learning path, or [troubleshooting](docs/troubleshooting/index.md) for a failed workflow. The [component catalog](docs/components/categories.md) and [verified recipes](docs/ai/VERIFIED_WORKFLOW_RECIPES.json) support specific workflow answers.

@@ -63,3 +63,8 @@ jobs:
         run: |
           pip install -r requirements.txt
           mkdocs build --strict
+
+      - name: Check generated LLM indexes
+        run: |
+          node scripts/build-llms.mjs
+          git diff --exit-code -- docs/llms.txt docs/llms-full.txt

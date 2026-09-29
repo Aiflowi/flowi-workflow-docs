@@ -9,10 +9,6 @@
       "component_type": "IBMwatsonxModel",
       "display_name": "IBM watsonx.ai",
       "description": "Generate text using IBM watsonx.ai foundation models.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",
@@ -356,10 +352,6 @@
       "component_type": "WatsonxEmbeddingsComponent",
       "display_name": "IBM watsonx.ai Embeddings",
       "description": "Generate embeddings using IBM watsonx.ai models.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Embeddings"

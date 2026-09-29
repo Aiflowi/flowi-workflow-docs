@@ -9,10 +9,6 @@
       "component_type": "AIMLModel",
       "display_name": "AI/ML API",
       "description": "Generates text using AI/ML API LLMs.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",
@@ -201,10 +197,6 @@
       "component_type": "AIMLEmbeddings",
       "display_name": "AI/ML API Embeddings",
       "description": "Generate embeddings using the AI/ML API.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Embeddings"

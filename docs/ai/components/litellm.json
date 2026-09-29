@@ -9,10 +9,6 @@
       "component_type": "LiteLLMProxyModel",
       "display_name": "LiteLLM Proxy",
       "description": "Generate text using any LLM provider via a LiteLLM proxy with virtual key authentication.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",

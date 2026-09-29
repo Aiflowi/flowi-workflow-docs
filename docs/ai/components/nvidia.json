@@ -9,10 +9,6 @@
       "component_type": "NVIDIAModelComponent",
       "display_name": "NVIDIA",
       "description": "Generates text using NVIDIA LLMs.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",
@@ -238,10 +234,6 @@
       "component_type": "NVIDIAEmbeddingsComponent",
       "display_name": "NVIDIA Embeddings",
       "description": "Generate embeddings using NVIDIA models.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Embeddings"
@@ -338,10 +330,6 @@
       "component_type": "NvidiaRerankComponent",
       "display_name": "NVIDIA Rerank",
       "description": "Rerank documents using the NVIDIA API.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -471,10 +459,6 @@
       "component_type": "NvidiaSystemAssistComponent",
       "display_name": "NVIDIA System-Assist",
       "description": "(Windows only) Prompts NVIDIA System-Assist to interact with the NVIDIA GPU Driver. The user may query GPU specifications, state, and ask the NV-API to perform several GPU-editing acations. The prompt must be human-readable language.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -522,10 +506,6 @@
       "component_type": "NvidiaIngestComponent",
       "display_name": "NVIDIA Retriever Extraction",
       "description": "Multi-modal data extraction from documents using NVIDIA's NeMo API.",
-      "status": "BETA",
-      "legacy": false,
-      "beta": true,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -871,7 +851,7 @@
           "load_from_db": false,
           "tool_mode": true,
           "real_time_refresh": false,
-          "info": "Supported file extensions: NVIDIA Retriever Extraction (nv-ingest) is an optional dependency. Install with `uv pip install 'langflow[nv-ingest]'` (requires Python 3.12>=); optionally bundled in file extensions: zip, tar, tgz, bz2, gz"
+          "info": "Supported file extensions: NVIDIA Retriever Extraction (nv-ingest) is an optional dependency. Install with `uv pip install 'AI Flowi Workflow[nv-ingest]'` (requires Python 3.12>=); optionally bundled in file extensions: zip, tar, tgz, bz2, gz"
         },
         {
           "name": "separator",

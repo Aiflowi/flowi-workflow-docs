@@ -9,10 +9,6 @@
       "component_type": "SambaNovaModel",
       "display_name": "SambaNova",
       "description": "Generate text using Sambanova LLMs.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",

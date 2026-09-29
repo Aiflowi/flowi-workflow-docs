@@ -9,10 +9,6 @@
       "component_type": "CalculatorComponent",
       "display_name": "Calculator",
       "description": "Perform basic arithmetic operations on a given expression.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -60,10 +56,6 @@
       "component_type": "CurrentDate",
       "display_name": "Current Date",
       "description": "Returns the current date and time in the selected timezone.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -110,10 +102,6 @@
       "component_type": "PythonREPLComponent",
       "display_name": "Python Interpreter",
       "description": "Run Python code with optional imports. Use print() to see the output.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -177,10 +165,6 @@
       "component_type": "IDGenerator",
       "display_name": "ID Generator",
       "description": "Generates a unique ID.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [],
       "base_classes": [
         "Message"

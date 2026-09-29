@@ -9,10 +9,6 @@
       "component_type": "BaiduQianfanChatModel",
       "display_name": "Qianfan",
       "description": "Generate text using Baidu Qianfan LLMs.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",

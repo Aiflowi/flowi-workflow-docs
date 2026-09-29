@@ -9,10 +9,6 @@
       "component_type": "AstraDB",
       "display_name": "Astra DB",
       "description": "Ingest and search documents in Astra DB",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -467,10 +463,6 @@
       "component_type": "AstraDBChatMemory",
       "display_name": "Astra DB Chat Memory",
       "description": "Retrieves and stores chat messages from Astra DB.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Memory"
@@ -639,10 +631,6 @@
       "component_type": "AstraDBCQLToolComponent",
       "display_name": "Astra DB CQL",
       "description": "Create a tool to get transactional data from DataStax Astra DB CQL Table",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -938,10 +926,6 @@
       "component_type": "GraphRAG",
       "display_name": "Graph RAG",
       "description": "Graph RAG traversal for vector store.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -1091,10 +1075,6 @@
       "component_type": "HCD",
       "display_name": "Hyper-Converged Database",
       "description": "Implementation of Vector Store using Hyper-Converged Database (HCD) with search capabilities",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -1547,10 +1527,6 @@
       "component_type": "AstraDBGraph",
       "display_name": "Astra DB Graph",
       "description": "Implementation of Graph Vector Store using Astra DB",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['datastax.GraphRAG']"
       ],
@@ -1857,10 +1833,6 @@
       "component_type": "AstraDBTool",
       "display_name": "Astra DB Tool",
       "description": "Tool to run hybrid vector and metadata search on DataStax Astra DB Collection",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['datastax.AstraDB']"
       ],
@@ -2190,10 +2162,6 @@
       "component_type": "AstraVectorize",
       "display_name": "Astra Vectorize",
       "description": "Configuration options for Astra Vectorize server-side embeddings. ",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['datastax.AstraDB']"
       ],
@@ -2251,7 +2219,7 @@
           "load_from_db": false,
           "tool_mode": false,
           "real_time_refresh": false,
-          "info": "The embedding model to use for the selected provider. Each provider has a different set of models available (full list at https://docs.datastax.com/en/astra-db-serverless/databases/embedding-generation.html):\n\nAzure OpenAI: text-embedding-3-small, text-embedding-3-large, text-embedding-ada-002\n\nHugging Face - Dedicated: endpoint-defined-model\n\nHugging Face - Serverless: sentence-transformers/all-MiniLM-L6-v2, intfloat/multilingual-e5-large, intfloat/multilingual-e5-large-instruct, BAAI/bge-small-en-v1.5, BAAI/bge-base-en-v1.5, BAAI/bge-large-en-v1.5\n\nJina AI: jina-embeddings-v2-base-en, jina-embeddings-v2-base-de, jina-embeddings-v2-base-es, jina-embeddings-v2-base-code, jina-embeddings-v2-base-zh\n\nMistral AI: mistral-embed\n\nNVIDIA: NV-Embed-QA\n\nOpenAI: text-embedding-3-small, text-embedding-3-large, text-embedding-ada-002\n\nUpstage: solar-embedding-1-large\n\nVoyage AI: voyage-large-2-instruct, voyage-law-2, voyage-code-2, voyage-large-2, voyage-2"
+          "info": "The embedding model to use for the selected provider. Each provider has a different set of models documented (full list at https://docs.datastax.com/en/astra-db-serverless/databases/embedding-generation.html):\n\nAzure OpenAI: text-embedding-3-small, text-embedding-3-large, text-embedding-ada-002\n\nHugging Face - Dedicated: endpoint-defined-model\n\nHugging Face - Serverless: sentence-transformers/all-MiniLM-L6-v2, intfloat/multilingual-e5-large, intfloat/multilingual-e5-large-instruct, BAAI/bge-small-en-v1.5, BAAI/bge-base-en-v1.5, BAAI/bge-large-en-v1.5\n\nJina AI: jina-embeddings-v2-base-en, jina-embeddings-v2-base-de, jina-embeddings-v2-base-es, jina-embeddings-v2-base-code, jina-embeddings-v2-base-zh\n\nMistral AI: mistral-embed\n\nNVIDIA: NV-Embed-QA\n\nOpenAI: text-embedding-3-small, text-embedding-3-large, text-embedding-ada-002\n\nUpstage: solar-embedding-1-large\n\nVoyage AI: voyage-large-2-instruct, voyage-law-2, voyage-code-2, voyage-large-2, voyage-2"
         },
         {
           "name": "model_parameters",
@@ -2333,10 +2301,6 @@
       "component_type": "Dotenv",
       "display_name": "Dotenv",
       "description": "Load .env file into env vars",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -2384,10 +2348,6 @@
       "component_type": "GetEnvVar",
       "display_name": "Get Environment Variable",
       "description": "Gets the value of an environment variable from the system.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [],
       "base_classes": [
         "Message"

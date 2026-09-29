@@ -9,10 +9,6 @@
       "component_type": "EmbeddingSimilarityComponent",
       "display_name": "Embedding Similarity",
       "description": "Compute selected form of similarity between two embedding vectors.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['datastax.AstraDB']"
       ],
@@ -84,10 +80,6 @@
       "component_type": "TextEmbedderComponent",
       "display_name": "Text Embedder",
       "description": "Generate embeddings for a given message using the specified embedding model.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['models.EmbeddingModel']"
       ],

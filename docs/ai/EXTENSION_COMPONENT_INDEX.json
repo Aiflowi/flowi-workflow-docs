@@ -6,7 +6,6 @@
   "extensions": [
     {
       "integration": "Telegram Bot",
-      "status": "AVAILABLE",
       "built_in": false,
       "documentation": "../integrations/telegram/index.md",
       "components": [
@@ -33,7 +32,7 @@
               ]
             },
             {
-              "name": "langflow_api_key",
+              "name": "\u006cangflow_api_key",
               "display_name": "Flowi API Key",
               "secret": true,
               "required": false,

@@ -1,35 +1,2331 @@
-# Flowi Workflow — AI reading guide
+# AI Flowi Workflow documentation
+Canonical URL: https://aiflowi.com/docs/
+Last updated: 2026-09-29
 
-Product: Flowi Workflow by AI Flowi
-Canonical docs: https://docs.aiflowi.com/
-GitHub: https://github.com/ai-flowi/flowi-docs
+# AI Flowi Workflow documentation
 
-Use this order when helping a user build a Flowi workflow:
+AI Flowi Workflow is the workflow engine from Ai Flowi. Its visual editor connects reusable components through typed inputs and outputs. Start with the learning path, then choose a tutorial or reference page for the part of your workflow you need to build. The guides below also show where to check configuration and errors.
 
-1. https://docs.aiflowi.com/AI_START_HERE/
-2. https://docs.aiflowi.com/ai/TASK_ROUTING_INDEX.json
-3. https://docs.aiflowi.com/ai/VERIFIED_WORKFLOW_RECIPES.json
-4. https://docs.aiflowi.com/ai/COMPONENT_INDEX.json
-5. Relevant category under https://docs.aiflowi.com/ai/components/
-6. https://docs.aiflowi.com/ai/EXTENSION_COMPONENT_INDEX.json when an extension is required
-7. Relevant human tutorial or integration page
-8. Full built-in index only for cross-category search
+## Start with the basics
 
-Core public rules:
-- Prefer AVAILABLE components.
-- Label BETA.
-- Avoid LEGACY for new workflows.
-- Validate built-in typed edges.
-- Never invent undocumented fields or capabilities.
-- Never request secrets in public chat.
-- Teach the student step by step and include a test after each major stage.
+- [Getting started](getting-started/index.md) introduces the learning path, including the first workflow and an AI-assisted way to learn.
+- [Workflow basics](concepts/workflow-basics.md) explains components, inputs, outputs, and typed connections before you join them.
 
-High-value pages:
-- What is Flowi: https://docs.aiflowi.com/getting-started/what-is-flowi/
-- AI tutor: https://docs.aiflowi.com/getting-started/ai-tutor-mode/
-- Tutorials: https://docs.aiflowi.com/tutorials/
-- Telegram: https://docs.aiflowi.com/integrations/telegram/
-- Google Sheets AI automation: https://docs.aiflowi.com/tutorials/webhook-to-google-sheets/
-- FAQ: https://docs.aiflowi.com/faq/
-- When Flowi fits: https://docs.aiflowi.com/evaluate/when-flowi-fits/
-- Feature status: https://docs.aiflowi.com/reference/feature-status/
+## Build a workflow
+
+- [Tutorials](tutorials/index.md) lists complete procedures for Playground chat, routing, and webhook data.
+- [Components](components/index.md) explains the reusable building blocks and links to the catalog and custom components.
+- [Connections](connections/index.md) covers saved credentials and model variables used by components.
+- [Triggers](triggers/index.md) explains how documented webhook and schedule inputs start a workflow.
+- [Ask AI](ask-ai/index.md) describes the documented assistance inside AI Flowi Workflow.
+- [Workflow lifecycle](workflow-lifecycle/index.md) covers importing, exporting, and updating a workflow.
+
+## Explore integrations and examples
+
+- [Integrations](integrations/index.md) points to the documented Telegram path and to connection guidance.
+- [Use cases](use-cases/index.md) connects common tasks to concrete tutorials and the evidence behind them.
+- [Evaluate](evaluate/when-flowi-fits.md) helps you check a requirement against documented behavior and limits.
+
+## Find help
+
+- [FAQ](faq/index.md) answers questions already raised by the guides.
+- [Troubleshooting](troubleshooting/index.md) routes connection, credential, and webhook failures to focused checks.
+- [AI start here](AI_START_HERE.md) gives an assistant an evidence order for teaching or diagnosing a workflow.
+
+When you follow a procedure, start with its prerequisites and test the result at each stage. A compatible connection shows that its port types fit; it does not confirm an external service or credential. If a component is missing, use the [component catalog](components/categories.md) to check its documented name and ports. If an incoming request fails, begin with [webhook troubleshooting](troubleshooting/webhooks.md) and the sender's method. The documentation is organized around tasks so you can move from a concept to a working check without relying on an unsupported capability claim.
+
+For changes to an existing flow, the [workflow lifecycle guide](workflow-lifecycle/index.md) explains how to inspect imported JSON and what to check after a component update. If you are choosing between a fixed condition and model-driven routing, compare the procedures in the [tutorials hub](tutorials/index.md) before adding components. Each guide links to the next relevant check.
+
+## Related
+
+[What is AI Flowi Workflow?](getting-started/what-is-flowi.md) · [Your first workflow](tutorials/first-playground-workflow.md) · [Common errors](troubleshooting/common-errors.md)
+
+---
+
+# How do I start with AI Flowi Workflow?
+Canonical URL: https://aiflowi.com/docs/getting-started/
+Last updated: 2026-09-29
+
+# How do I start with AI Flowi Workflow?
+
+Start with the parts of a workflow and how their connections work. Then build a small chat flow in the Playground before adding routing or an external action. Each page below answers a different question, so you can start at the point that matches your experience.
+
+## Your learning path
+
+1. Read [What is AI Flowi Workflow?](what-is-flowi.md) for the visual editor, component roles, and a simple workflow map.
+2. Read [Workflow basics](../concepts/workflow-basics.md) to distinguish configuration fields from typed inputs and outputs. A matching connection type establishes structure; it does not prove that credentials or an external service will work.
+3. Build [your first workflow](../tutorials/first-playground-workflow.md) with Chat Input, a configured AI model, and Chat Output. Send a test message in the Playground and check the response.
+   When you are ready to reuse or revise that flow, follow the [workflow lifecycle guide](../workflow-lifecycle/index.md) for JSON import, export, and component update checks.
+4. Try [If-Else routing](../tutorials/if-else-routing.md) when your decision can be expressed as a fixed condition. Try [LLM Selector routing](../tutorials/llm-selector-routing.md) when you need the documented model-selection inputs.
+5. Follow [webhook to Google Sheets](../tutorials/webhook-to-google-sheets.md) when an external request should end in a spreadsheet row. Test the received JSON, conversion, structured fields, and Sheets action in that order.
+
+If you want help while learning, [use an AI assistant as a tutor](ai-tutor-mode.md). Give it the documentation entry page, ask for a workflow map, and have it verify component names and port types before suggesting connections. The [tutorials hub](../tutorials/index.md) lists the public procedures together; [common errors](../troubleshooting/common-errors.md) helps when a connection or credential check fails. Keep real credentials out of prompts and examples.
+
+## Related
+
+[Documentation home](../index.md) · [Components](../components/index.md) · [Tutorials](../tutorials/index.md)
+
+---
+
+# What is AI Flowi Workflow?
+Canonical URL: https://aiflowi.com/docs/getting-started/what-is-ai-flowi-workflow/
+Last updated: 2026-09-29
+
+# What is AI Flowi Workflow?
+
+AI Flowi Workflow is the workflow engine from Ai Flowi. In its visual editor, you connect reusable components to move data from an input or trigger through processing, logic, an action, and an output. Components expose typed ports, so the type produced by one component must be accepted by the next.
+
+## How a workflow is arranged
+
+`Input or trigger → Processing → Logic or AI → Action → Output`
+
+The stages describe roles, not a required component count. A webhook request, for example, can pass through a data converter and Structured Output before reaching Google Sheets Append Rows. A fixed condition can use If-Else; a task requiring language model reasoning can use a model component. See the [verified webhook tutorial](../tutorials/webhook-to-google-sheets.md) for its exact connections.
+
+## What connects components?
+
+| Term | Meaning |
+|---|---|
+| Component | A reusable unit with settings and, where applicable, typed inputs and outputs. |
+| Configuration field | A value such as text, a selection, or a credential; it is not necessarily a connection port. |
+| Typed input | A port that accepts specified output types from another component. |
+| Typed output | A port that produces a declared type, such as `Message`, `JSON`, `Table`, `Data`, `LanguageModel`, or `Tool`. |
+
+A matching type makes an edge structurally compatible. The workflow still needs valid configuration and any required external connection. [Workflow basics](../concepts/workflow-basics.md) explains how to check this before connecting nodes.
+
+The [components catalog](../components/index.md) helps you find documented components and their ports. Custom Components can define their own typed inputs, outputs, and runtime behavior. When learning, begin with [a small Playground workflow](../tutorials/first-playground-workflow.md), then add only the components your goal needs.
+
+## Related
+
+[Getting started](index.md) · [Workflow basics](../concepts/workflow-basics.md) · [Components](../components/index.md)
+
+---
+
+# How do workflows and connections work?
+Canonical URL: https://aiflowi.com/docs/getting-started/workflow-basics/
+Last updated: 2026-09-29
+
+# How do workflows and connections work?
+
+A workflow passes data between components through typed connections. Each component may also have settings such as text, selections, or credentials. Check both the port types and the component configuration: a valid edge alone does not verify that the workflow can run.
+
+## Core terms
+
+| Term | What to inspect |
+|---|---|
+| Component | Its purpose, required configuration, connection inputs, and outputs. |
+| Configuration input | A value you enter or select, such as a match phrase or credential. |
+| Connection input | The types it accepts from another component's output. |
+| Output | The types it produces for downstream components. |
+
+Common declared types include `Message`, `JSON`, `Table`, `Data`, `LanguageModel`, and `Tool`. For a normal typed edge, at least one source output type must match a type accepted by the destination input. The [component catalog](../components/index.md) lists the documented interfaces.
+
+## Check a connection
+
+1. Find the source component's output name and declared type.
+2. Find the destination component's connection input and accepted types.
+3. Connect the ports when the types overlap. Configure required fields and credentials separately.
+4. Run a small test and inspect the first component that does not produce the expected data.
+
+For example, the [first Playground workflow](../tutorials/first-playground-workflow.md) passes a `Message` from Chat Input to a compatible model, then a `Message` response to Chat Output. The [webhook tutorial](../tutorials/webhook-to-google-sheets.md) shows why a `JSON` webhook output is converted to `Message` before Structured Output.
+
+## If a connection fails
+
+Check the exact output and input types first. If the ports connect but execution fails, inspect required settings and credentials, then test the preceding stage again. [Common errors](../troubleshooting/common-errors.md) lists further checks.
+After importing a workflow or updating a component, use the [workflow lifecycle guide](../workflow-lifecycle/index.md) to inspect affected connections and retest them.
+
+## Related
+
+[What is AI Flowi Workflow?](../getting-started/what-is-flowi.md) · [Your first workflow](../tutorials/first-playground-workflow.md) · [Components](../components/index.md)
+
+---
+
+# How do I use an AI assistant to learn AI Flowi Workflow?
+Canonical URL: https://aiflowi.com/docs/getting-started/learn-with-ai/
+Last updated: 2026-09-29
+
+# How do I use an AI assistant to learn AI Flowi Workflow?
+
+Give a web-capable AI assistant the [AI documentation entry page](../AI_START_HERE.md) before describing your goal. Ask it to show the workflow map, then teach one stage at a time using documented component names and compatible ports. Check its suggestions against the linked component references and test each stage yourself.
+
+## Prerequisites
+
+- An AI assistant that can read the linked documentation.
+- A workflow goal you can describe in plain language.
+- Access to AI Flowi Workflow for checking and testing the suggested steps. Use placeholders for keys and private data.
+
+## Steps
+
+1. Share the [AI documentation entry page](../AI_START_HERE.md) with the assistant. Ask it to read that page before proposing a flow.
+2. Describe the input, the result you want, and any external action. For example: receive webhook JSON, extract named fields, and append them to Google Sheets.
+3. Ask for the complete workflow map first. Request the documented component ID and input/output types for every proposed connection.
+4. Work through the map one stage at a time. Ask what to configure, what sample data to use, and what result to inspect before moving on.
+5. When a step fails, show the first failed component's non-secret error and ask the assistant to check that stage's port types and settings. If the documentation does not establish a capability or field, ask it to say so.
+
+You can use this prompt:
+
+> Read the linked AI Flowi Workflow documentation. Show a workflow map for [goal], then teach one stage at a time. Use documented components and extensions, name the ports and their types, and give me a small test after each stage. Say when a component or field is not documented. Do not ask me to paste credentials.
+
+## Expected result
+
+You have a map you can compare with the [verified tutorials](../tutorials/index.md), plus individual tests for the trigger, processing, logic or AI, and action stages. For a first hands-on check, follow the [Playground workflow](../tutorials/first-playground-workflow.md).
+
+## Common errors
+
+- **A suggested edge cannot connect:** Compare the source output type with the destination's accepted types in [workflow basics](../concepts/workflow-basics.md).
+- **The assistant invents a field or component:** Ask for its documented ID and port definition; leave the step out if neither is available.
+- **A configured flow fails:** Inspect the first failing stage and its credentials without sharing secrets with the assistant.
+
+## Related
+
+[Getting started](index.md) · [First workflow](../tutorials/first-playground-workflow.md) · [Common errors](../troubleshooting/common-errors.md)
+
+---
+
+# AI Flowi Workflow tutorials
+Canonical URL: https://aiflowi.com/docs/tutorials/
+Last updated: 2026-09-29
+
+# AI Flowi Workflow tutorials
+
+Choose a tutorial by the kind of data and decision your flow needs. Each procedure starts with the required components, connects their documented ports, and gives you a way to check the result. A connection with compatible types still needs valid configuration and, where relevant, working credentials.
+
+## Choose a tutorial
+
+- [How do I build my first workflow?](first-playground-workflow.md) Start with Chat Input, a configured model, and Chat Output. Send a short message in the Playground to check the path.
+- [How do I route a workflow with If-Else?](if-else-routing.md) Use a fixed condition such as a text match, then test the true and false outputs.
+- [How do I route between language models?](llm-selector-routing.md) Connect a judge model and candidate models to LLM Selector, choose an objective, and inspect its decision.
+- [How do I send webhook data to Google Sheets?](webhook-to-google-sheets.md) Receive JSON, convert it for Structured Output, and append structured rows after checking each stage.
+
+Begin with [workflow basics](../concepts/workflow-basics.md) if component settings and typed ports are new to you. The [getting-started path](../getting-started/index.md) places these tutorials in learning order. If a port will not connect, compare the source output with the destination input; if execution fails, check the earliest failed component. [Common errors](../troubleshooting/common-errors.md) has more checks.
+
+The maps are verified for the documented component interfaces. They do not confirm an external account, credential, endpoint, or runtime response in your own environment. Keep real keys and private payloads out of shared examples.
+
+## Related
+
+[Getting started](../getting-started/index.md) · [Components](../components/index.md) · [Common errors](../troubleshooting/common-errors.md)
+
+---
+
+# How do I build my first workflow?
+Canonical URL: https://aiflowi.com/docs/tutorials/first-workflow/
+Last updated: 2026-09-29
+
+# How do I build my first workflow?
+
+In AI Flowi Workflow, connect Chat Input to a compatible AI model, then connect the model to Chat Output. Send a message in the Playground to check the path from input to response. This tutorial covers the documented component connections; a matching type alone does not confirm that a model credential will work.
+
+## Prerequisites
+
+- Access to the AI Flowi Workflow editor and Playground.
+- A configured credential for the model you choose. Keep credentials out of shared text and screenshots.
+- Familiarity with [components and typed connections](../concepts/workflow-basics.md) helps, but you can follow the steps below first.
+
+## Steps
+
+1. Add **Chat Input** to the editor. It supplies the Playground message as a `Message` output.
+2. Add a compatible **AI model** and configure its required credential. Connect the Chat Input message output to the model's `Message` input.
+3. Add **Chat Output**. Connect the model's `Message` response output to the Chat Output input.
+4. Open the Playground and send a short test message, such as “Explain what a workflow is in one sentence.”
+
+The documented recipe connects Chat Input, a model, and Chat Output in that order. A different model can be used if its input and output types match these connections and its required credential is configured.
+
+## Expected result
+
+The Playground accepts your message, passes it through the model, and displays the response through Chat Output. The connection is structurally compatible when the source output type matches a type accepted by the next input; runtime behavior still depends on the model configuration.
+
+## Common errors
+
+- **The components do not connect:** Check the source output type against the next component's accepted input types. See [common errors](../troubleshooting/common-errors.md).
+- **The model does not respond:** Check its credential and configuration. A compatible connection does not verify that a credential or external service works.
+- **No response appears in the Playground:** Check that the model response output connects to Chat Output, then retry the test message.
+
+## Related
+
+[Tutorials](index.md) · [Workflow basics](../concepts/workflow-basics.md) · [Common errors](../troubleshooting/common-errors.md)
+
+---
+
+# How do I route a workflow with If-Else?
+Canonical URL: https://aiflowi.com/docs/tutorials/if-else-routing/
+Last updated: 2026-09-29
+
+# How do I route a workflow with If-Else?
+
+Use If-Else when a decision can be written as an explicit condition. Chat Input sends a `Message` to If-Else's Text Input, and If-Else exposes separate True and False `Message` outputs. Test a matching and a nonmatching message before building downstream actions.
+
+## Prerequisites
+
+- Access to the AI Flowi Workflow editor and Playground.
+- A rule you can express with one of the component's operators, such as `contains`.
+- A Message-compatible destination for each branch you choose to use. See [workflow basics](../concepts/workflow-basics.md).
+
+## Steps
+
+1. Add **Chat Input** and **If-Else** (`flow_controls.ConditionalRouter`).
+2. Connect Chat Input's `Chat Message` output to If-Else's `Text Input`. Both sides use `Message`.
+3. Choose an **Operator** and set **Match Text**. For example, select `contains` and enter `urgent`. The component also documents equals, not equals, starts with, ends with, regex, and numeric comparison operators.
+4. Set **Case Sensitive** if your condition needs it. The optional **Case True** and **Case False** values can supply branch messages.
+5. Connect **True** and **False** to the Message-compatible components that should receive each result.
+6. Send one message containing `urgent` and one without it. Inspect which output carries each message.
+
+## Expected result
+
+The matching test follows the True output; the other follows the False output. These outputs are typed `Message`. The verified recipe establishes the Chat Input to If-Else edge; the components you put after either branch need their own compatible inputs and configuration.
+
+## Common errors
+
+- **The first edge will not connect:** Check that you selected Chat Input's Message output and If-Else's Text Input.
+- **The wrong branch runs:** Review Operator, Match Text, and Case Sensitive, then retest both examples.
+- **A downstream component rejects the branch:** Check whether its input accepts `Message`. See [common errors](../troubleshooting/common-errors.md).
+
+## Related
+
+[First workflow](first-playground-workflow.md) · [Components](../components/index.md) · [Workflow basics](../concepts/workflow-basics.md)
+
+---
+
+# How do I route between language models?
+Canonical URL: https://aiflowi.com/docs/tutorials/llm-selector-routing/
+Last updated: 2026-09-29
+
+# How do I route between language models?
+
+Use LLM Selector when a workflow should choose among connected language models using a documented optimization objective. It accepts a `Message` input plus a judge model and candidate models of type `LanguageModel`. Its main output is a `Message` that can connect to Chat Output.
+
+## Prerequisites
+
+- Access to the AI Flowi Workflow editor and Playground.
+- Configured credentials for the language models you choose. A compatible `LanguageModel` port does not verify a credential.
+- Familiarity with [typed connections](../concepts/workflow-basics.md).
+
+## Steps
+
+1. Add **Chat Input**, **LLM Selector** (`llm_operations.LLMSelectorComponent`), and **Chat Output**.
+2. Connect Chat Input's `Chat Message` to LLM Selector's `Input`. This edge uses `Message`.
+3. Connect a configured language model's `Language Model` output to **Judge LLM**.
+4. Connect the candidate `LanguageModel` outputs to **Language Models**.
+5. Choose **Optimization**: `quality`, `speed`, `cost`, or `balanced`. The component also documents optional fallback and timeout settings.
+6. Connect LLM Selector's `Output` (`Message`) to Chat Output. Send a test message and inspect **Selected Model Info** (`Data` or `JSON`) and **Routing Decision** (`Message`) alongside the response.
+
+## Expected result
+
+The documented route passes the Chat Input message through LLM Selector to Chat Output. Its additional outputs expose information about the selected model and routing decision. The structural recipe does not establish which model will be chosen for a particular message or whether an external model service will respond.
+
+## Common errors
+
+- **A model will not connect:** Check that its output is `LanguageModel`, then check whether it is wired to Judge LLM or Language Models.
+- **The selector cannot run:** Check required model inputs and the models' credentials and configuration.
+- **No response appears:** Verify that `Output`, not an information output, connects to Chat Output. See [common errors](../troubleshooting/common-errors.md).
+
+## Related
+
+[Model connections](../connections/model-providers-and-variables.md) · [Components](../components/index.md) · [If-Else routing](if-else-routing.md)
+
+---
+
+# How do I send webhook data to Google Sheets?
+Canonical URL: https://aiflowi.com/docs/tutorials/webhook-to-google-sheets/
+Last updated: 2026-09-29
+
+# How do I send webhook data to Google Sheets?
+
+Connect Universal Webhook, Type Convert, Structured Output, and Google Sheets Append Rows. A language model also connects to Structured Output. Test the received JSON and each transformation before allowing Append Rows to write to your sheet.
+
+## Prerequisites
+
+- Access to the AI Flowi Workflow editor and a sender for a small sample webhook request.
+- A configured language model and a Google account connection with access to the target spreadsheet.
+- The Spreadsheet ID, target Range, and the fields you want in each row. Keep credentials and private payloads out of shared examples.
+
+## Steps
+
+1. Add **Universal Webhook** (`input_output.UniversalWebhook`). Enable `POST` for a POST sender. Before sharing its production endpoint, check **Authentication**: with **Platform API Key**, the sender must supply the platform API key under the configured webhook authentication policy; **External Provider** admits requests without that key and requires verification in the flow. See the [authentication decision](../triggers/universal-webhook.md#authentication-before-sharing-an-endpoint). Use the component's endpoint in the sender only after configuring the chosen protection. The webhook's `JSON` output is the received request data.
+2. Add **Type Convert** (`processing.TypeConverterComponent`). Connect `Universal Webhook.JSON` to `Type Convert.Input`, then set **Output Type** to `Message`.
+3. Add **Structured Output** (`llm_operations.StructuredOutput`). Connect `Type Convert.Message Output` to `Structured Output.Input Message`. Connect a configured `LanguageModel` to **Language Model**.
+4. Define **Output Schema** and **Format Instructions** for the fields the sheet needs. These are required inputs. Use Structured Output's `JSON` output for the next edge.
+5. Add **Append Rows** (`google_sheets.GoogleSheetsAppendRows`). Connect `Structured Output.Structured Output` (`JSON`) to `Append Rows.Rows`, which accepts `Data` or `JSON`. Configure **Google Account**, **Spreadsheet ID**, and **Range**.
+6. Send a small sample request. Inspect the webhook JSON, converted Message, and structured JSON before running Append Rows. Then check the target sheet for the new row.
+
+## Expected result
+
+The request data passes through the documented typed edges and Append Rows receives structured JSON. The recipe verifies connection structure; the written row depends on the endpoint request, model output, schema, Google connection, and sheet configuration.
+
+## Common errors
+
+- **No webhook data appears:** Check the sender method and the endpoint copied from Universal Webhook. See the [webhook trigger](../triggers/universal-webhook.md).
+- **Structured Output lacks fields:** Inspect the converted Message and required schema and instructions before testing Sheets.
+- **Append Rows fails:** Check the Google connection, Spreadsheet ID, Range, and JSON sent to Rows. See [Google connection guidance](../connections/google-connections.md) and [common errors](../troubleshooting/common-errors.md).
+
+## Related
+
+[Webhook trigger](../triggers/universal-webhook.md) · [Google connection](../connections/google-connections.md) · [Workflow basics](../concepts/workflow-basics.md)
+
+---
+
+# Which documented integrations can I use?
+Canonical URL: https://aiflowi.com/docs/integrations/
+Last updated: 2026-09-29
+
+# Which documented integrations can I use?
+
+AI Flowi Workflow documents a Telegram Bot webhook path and shared Google connections for Docs, Drive, Sheets, and Slides. Telegram uses a built-in Webhook with two documented extension components: Telegram Webhook Setup and Telegram Update Parser. The Google connection guides cover a different path for authorizing Google services.
+
+## Telegram Bot
+
+- [Telegram integration](telegram/index.md) explains how registration differs from processing incoming updates.
+- [Telegram webhook setup](telegram/telegram-webhook-setup.md) lists the inputs and steps for registering a public HTTPS webhook endpoint.
+- [Telegram update parser](telegram/telegram-update-parser.md) defines the documented runtime connection and parsed fields.
+- [Telegram AI bot tutorial](telegram/telegram-ai-bot.md) walks through receiving a message, applying workflow logic, and testing a reply path.
+- [Telegram troubleshooting](telegram/troubleshooting.md) checks registration, parsing, and outbound reply problems.
+
+Start with the integration overview if you need to understand the components. Use the setup guide when you already have a bot token and webhook endpoint; the parser guide helps once incoming JSON reaches the Webhook. Keep tokens and any authentication details out of shared examples.
+
+## Google services and connections
+
+[Google connections](../connections/google-connections.md) covers the shared connection used by Google Docs, Drive, Sheets, and Slides. For a workflow example, see [webhook to Google Sheets](../tutorials/webhook-to-google-sheets.md). The [connections overview](../connections/index.md) explains where credentials fit into a workflow.
+
+## Related
+
+[Docs home](../index.md) · [Workflow basics](../concepts/workflow-basics.md) · [Webhook troubleshooting](../troubleshooting/webhooks.md)
+
+---
+
+# How does the Telegram integration work?
+Canonical URL: https://aiflowi.com/docs/integrations/telegram/
+Last updated: 2026-09-29
+
+# How does the Telegram integration work?
+
+Telegram sends bot updates to a public HTTPS endpoint exposed by the built-in Webhook component. Telegram Webhook Setup registers that endpoint with Telegram; Telegram Update Parser handles incoming JSON after registration. The setup component is separate from the path that processes each update.
+
+## Components and roles
+
+| Component | Role |
+|---|---|
+| Webhook | Receives the Telegram update as JSON. |
+| Telegram Webhook Setup | Documented extension that registers the webhook endpoint. |
+| Telegram Update Parser | Documented extension that extracts common fields from an update. |
+
+The setup path takes a bot token and Webhook URL, with an optional API key when the deployment requires one. The runtime path starts when Telegram sends an update to Webhook. Connect `Webhook.JSON` to `Telegram Update Parser.Telegram Update`, then pass documented parser fields to the next workflow step.
+
+The parser documents `chat_id`, `user_id`, `username`, `text`, and `command`. Its exact public output type metadata is not supplied. Check the ports and types in your environment before connecting downstream components.
+
+## Choose a guide
+
+- [Set up the Telegram webhook](telegram-webhook-setup.md) to register the endpoint.
+- [Parse Telegram updates](telegram-update-parser.md) to understand the inbound data.
+- [Build a Telegram AI bot](telegram-ai-bot.md) to follow the full workflow path.
+- [Troubleshoot Telegram](troubleshooting.md) when registration, parsing, or replies fail.
+
+Keep the bot token in its secret input and check registration output before sharing it, since a webhook URL may contain authentication information.
+
+## Related
+
+[Integrations](../index.md) · [Webhook troubleshooting](../../troubleshooting/webhooks.md) · [Workflow basics](../../concepts/workflow-basics.md)
+
+---
+
+# How do I set up a Telegram webhook?
+Canonical URL: https://aiflowi.com/docs/integrations/telegram-webhook-setup/
+Last updated: 2026-09-29
+
+# How do I set up a Telegram webhook?
+
+Add a built-in Webhook component, then use Telegram Webhook Setup to register its public HTTPS endpoint with the Telegram Bot API. Run setup when registering or changing the endpoint. Incoming updates then travel through Webhook and Telegram Update Parser, without passing through the setup component.
+
+## Prerequisites
+
+- A Telegram bot token. Keep it in the secret input field and out of shared text.
+- A public HTTPS endpoint from the Webhook component.
+- A Flowi API key only if the webhook deployment requires it.
+
+## Inputs
+
+| Input | Required | Purpose |
+|---|---|---|
+| Telegram Bot Token | Yes | Authenticates the bot with Telegram. Use the secret field. |
+| Flowi Webhook URL | Yes | Public HTTPS endpoint to register. |
+| Flowi API Key | No | Authentication when required by the webhook deployment. Use the secret field. |
+| Drop Old Pending Messages | No | Requests that Telegram discard queued updates during registration when enabled. |
+
+## Steps
+
+1. Add Webhook and copy its public HTTPS endpoint.
+2. Add Telegram Webhook Setup and enter the bot token and endpoint in their respective fields.
+3. Add the Flowi API Key if your webhook deployment requires it. Choose whether to drop queued updates.
+4. Run the setup component and inspect **Webhook Setup Result**.
+5. Build the runtime path by connecting `Webhook.JSON` to `Telegram Update Parser.Telegram Update`.
+
+## Expected result
+
+Webhook Setup Result returns a `Data` result describing registration and the Telegram response. The documented setup calls `setWebhook` and checks registration with `getWebhookInfo`. It requests `message` and `callback_query` updates. Keep the result private if its URL contains authentication information.
+
+## Common errors
+
+- **Token missing:** Check the Telegram Bot Token secret field.
+- **URL rejected:** Check that the endpoint is public and uses HTTPS.
+- **Registration succeeds but updates do not arrive:** Check that the registered endpoint matches the current Webhook endpoint and that its authentication requirements match setup. See [Telegram troubleshooting](troubleshooting.md).
+
+## Related
+
+[Telegram integration](index.md) · [Telegram update parser](telegram-update-parser.md) · [Webhook troubleshooting](../../troubleshooting/webhooks.md)
+
+---
+
+# How do I parse Telegram updates?
+Canonical URL: https://aiflowi.com/docs/integrations/telegram-update-parser/
+Last updated: 2026-09-29
+
+# How do I parse Telegram updates?
+
+Connect the built-in Webhook's JSON output to the Telegram Update Parser's Telegram Update input. The parser is a documented extension that extracts commonly used values from an incoming Telegram Bot API update. Its exact public output type metadata is not supplied, so inspect the available ports before connecting the next component.
+
+## Documented connection
+
+| From | To | Purpose |
+|---|---|---|
+| `Webhook.JSON` | `Telegram Update Parser.Telegram Update` | Pass the incoming update to the parser. |
+
+Webhook receives the update; the parser does not register the endpoint. Follow [Telegram webhook setup](telegram-webhook-setup.md) first if Telegram has not been directed to the Webhook URL.
+
+## Documented fields
+
+| Field | What it identifies |
+|---|---|
+| `chat_id` | The chat associated with the update. |
+| `user_id` | The user associated with the update. |
+| `username` | The user's name field. |
+| `text` | Message text. |
+| `command` | A command extracted from the update. |
+
+The parser output is labelled **Parsed Telegram Message**. Use the fields needed by your workflow, then check the next component's accepted input types. The documented connection into the parser does not establish the type of every later connection.
+
+## Related
+
+[Telegram integration](index.md) · [Telegram AI bot tutorial](telegram-ai-bot.md) · [Telegram troubleshooting](troubleshooting.md)
+
+---
+
+# How do I build a Telegram AI bot?
+Canonical URL: https://aiflowi.com/docs/integrations/telegram-ai-bot/
+Last updated: 2026-09-29
+
+# How do I build a Telegram AI bot?
+
+Register a Webhook endpoint for your Telegram bot, then connect incoming Webhook JSON to Telegram Update Parser. Use the parsed message in your workflow logic or AI step. If the bot must answer in Telegram, send the response through a separate Bot API request and test that outbound path on its own.
+
+## Prerequisites
+
+- Access to the AI Flowi Workflow editor and a Telegram bot token obtained through Telegram's BotFather process.
+- A public HTTPS endpoint from the built-in Webhook component.
+- Credentials for any AI model or outbound API request you choose to use. Keep tokens out of public examples.
+
+## Steps
+
+1. Add **Webhook** and copy its endpoint. It receives the Telegram update and outputs JSON.
+2. Run **Telegram Webhook Setup** with the bot token and Webhook endpoint. Add the optional Flowi API Key only if your deployment requires it. Check the registration result. See [webhook setup](telegram-webhook-setup.md).
+3. Add **Telegram Update Parser** and connect `Webhook.JSON` to `Telegram Update Parser.Telegram Update`. Its documented fields include `chat_id`, `user_id`, `username`, `text`, and `command`.
+4. Connect a suitable workflow step for the parsed message. The source page documents If-Else for rules and an AI model for a response; check the ports and types in your environment.
+5. If a Telegram reply is required, configure a separate **API Request** to call the Telegram Bot API `sendMessage` method with `chat_id` and response `text`. Keep the bot token in the credential mechanism supported by your deployment.
+6. Send a Telegram message. Check Webhook JSON, parser values, workflow output, and then the outbound API response in that order.
+
+## Expected result
+
+An incoming Telegram update reaches Webhook and the parser supplies the documented fields for the next step. A configured outbound API Request can then send a reply. The inbound connection is documented; the exact parser output type and secret interpolation details for the outbound request depend on the environment, so check them before wiring the final edge.
+
+## Common errors
+
+- **No incoming JSON:** Recheck the registered endpoint, public HTTPS access, and webhook authentication.
+- **Parser values missing:** Inspect the incoming update before changing downstream logic.
+- **No reply:** Check `chat_id`, response `text`, credential handling, and the Telegram API response. See [Telegram troubleshooting](troubleshooting.md).
+
+## Related
+
+[Telegram integration](index.md) · [Telegram update parser](telegram-update-parser.md) · [Webhook troubleshooting](../../troubleshooting/webhooks.md)
+
+---
+
+# Why is my Telegram workflow failing?
+Canonical URL: https://aiflowi.com/docs/integrations/telegram-troubleshooting/
+Last updated: 2026-09-29
+
+# Why is my Telegram workflow failing?
+
+Find the first stage that fails: webhook registration, incoming JSON, parsing, the next component, or the outbound reply. Checking each stage in order keeps a reply problem from being mistaken for a registration problem. Keep bot tokens and authentication details out of any update or result you share for support.
+
+## Why does Telegram Webhook Setup say the token is missing?
+
+Check the **Telegram Bot Token** secret field in [webhook setup](telegram-webhook-setup.md). The setup component requires the token before it can register the endpoint.
+
+## Why is the webhook URL rejected?
+
+The documented setup requires a public HTTPS endpoint. Check the URL copied from Webhook and confirm it is reachable from outside your deployment.
+
+## Why did registration succeed but no messages arrive?
+
+Confirm that the registered URL matches the current Webhook endpoint. Check endpoint reachability and webhook authentication, then send a fresh Telegram message. Inspect Webhook output before changing [the parser](telegram-update-parser.md).
+
+## Why does Webhook receive JSON but the parser has no expected values?
+
+Inspect a sanitized update and compare it with the expected Telegram update shape. The documented parser fields are `chat_id`, `user_id`, `username`, `text`, and `command`; its full internal behavior and exact output type are not published in the supplied documentation.
+
+## Why does the component after the parser fail?
+
+Check the first failing connection's output and accepted input types. Do not assume JSON or Data automatically becomes a Message. Use a documented conversion component if the types differ.
+
+## Why does the bot receive a message but not reply?
+
+Check the outbound API Request separately. Confirm `chat_id`, response `text`, credential handling, and the Telegram API response. The [bot tutorial](telegram-ai-bot.md) follows the inbound and outbound paths.
+
+## Related
+
+[Telegram integration](index.md) · [Webhook troubleshooting](../../troubleshooting/webhooks.md) · [Integrations](../index.md)
+
+---
+
+# How do AI Flowi Workflow components work?
+Canonical URL: https://aiflowi.com/docs/components/
+Last updated: 2026-09-29
+
+# How do AI Flowi Workflow components work?
+
+Components are the building blocks in the AI Flowi Workflow visual editor. Each component has inputs and outputs, and a connection works when the output type is accepted by the next input. Choose a documented component for the job, then check its fields and any required connection or credential before running the workflow.
+
+## Find a component
+
+- [Component catalog](categories.md) groups the documented components by category and lists their display names. Use it to find a component before configuring it.
+- [Custom components](custom-components.md) explains the template for requirements that the listed components do not cover.
+
+The catalog covers model and agent building blocks, data sources, processing, Google Workspace, and other service categories. A name in the catalog documents a component; it does not confirm that your account has a working external service connection. Read the component fields and configure its credentials where needed.
+
+## Connect it to a workflow
+
+Start with the [workflow basics](../concepts/workflow-basics.md) for the input and output contract, or follow the [first workflow](../tutorials/first-playground-workflow.md) to connect Chat Input, a model, and Chat Output. If the editor rejects an edge, compare the source output type with the target input types. A structural match still leaves runtime configuration to check.
+
+## Related
+
+[Connections](../connections/index.md) · [Common errors](../troubleshooting/common-errors.md)
+
+---
+
+# Which components are documented?
+Canonical URL: https://aiflowi.com/docs/components/catalog/
+Last updated: 2026-09-29
+
+# Which components are documented?
+
+The AI Flowi Workflow catalog groups components by the job or service they support. Find a category below, then look for the component name used in the editor. A listed component may still require its own configuration, credential, or external service before it runs.
+
+## Browse by group
+
+- [Workflow building and processing](#workflow-building-and-processing)
+- [Google Workspace](#google-workspace)
+- [Models and AI services](#models-and-ai-services)
+- [Data stores and memory](#data-stores-and-memory)
+- [Search, web, and documents](#search-web-and-documents)
+- [Other services and developer tools](#other-services-and-developer-tools)
+
+Each row links to its retained category JSON, which supplies the exact component ID, fields, and port types. The names below come from the documented category indexes. For a workflow example, see the [first workflow](../tutorials/first-playground-workflow.md). For saved credentials, see [connections](../connections/index.md).
+
+## Workflow building and processing
+
+Use these categories for workflow inputs, outputs, control, transformation, and custom behavior.
+
+### Custom Component
+
+Define typed Python behavior from a template.
+
+- [Custom Component](../ai/components/custom_component.json) — `custom_component.CustomComponent`
+
+### Data Source
+
+Bring API and other data into a workflow.
+
+- [API Request](../ai/components/data_source.json) — `data_source.APIRequest`
+- [Mock Data](../ai/components/data_source.json) — `data_source.MockDataGenerator`
+- [SQL Database](../ai/components/data_source.json) — `data_source.SQLComponent`
+- [URL](../ai/components/data_source.json) — `data_source.URLComponent`
+- [Web Search](../ai/components/data_source.json) — `data_source.UnifiedWebSearch`
+- [Load CSV](../ai/components/data_source.json) — `data_source.CSVtoData`
+- [Load JSON](../ai/components/data_source.json) — `data_source.JSONtoData`
+- [News Search](../ai/components/data_source.json) — `data_source.NewsSearch`
+- [RSS Reader](../ai/components/data_source.json) — `data_source.RSSReaderSimple`
+
+### Embeddings
+
+Work with embedding vectors.
+
+- [Embedding Similarity](../ai/components/embeddings.json) — `embeddings.EmbeddingSimilarityComponent`
+- [Text Embedder](../ai/components/embeddings.json) — `embeddings.TextEmbedderComponent`
+
+### Files And Knowledge
+
+Load and retrieve knowledge or files.
+
+- [Knowledge Base](../ai/components/files_and_knowledge.json) — `files_and_knowledge.KnowledgeBase`
+- [Knowledge Ingestion](../ai/components/files_and_knowledge.json) — `files_and_knowledge.KnowledgeIngestion`
+- [Read File](../ai/components/files_and_knowledge.json) — `files_and_knowledge.File`
+- [Write File](../ai/components/files_and_knowledge.json) — `files_and_knowledge.SaveToFile`
+- [Directory](../ai/components/files_and_knowledge.json) — `files_and_knowledge.Directory`
+
+### Flow Controls
+
+Route or control workflow paths.
+
+- [HTTP Method Router](../ai/components/flow_controls.json) — `flow_controls.HTTPMethodRouter`
+- [If-Else](../ai/components/flow_controls.json) — `flow_controls.ConditionalRouter`
+- [Loop](../ai/components/flow_controls.json) — `flow_controls.LoopComponent`
+- [Verification Router](../ai/components/flow_controls.json) — `flow_controls.VerificationRouter`
+- [Listen](../ai/components/flow_controls.json) — `flow_controls.Listen`
+- [Notify](../ai/components/flow_controls.json) — `flow_controls.Notify`
+- [Run Flow](../ai/components/flow_controls.json) — `flow_controls.RunFlow`
+- [Condition](../ai/components/flow_controls.json) — `flow_controls.DataConditionalRouter`
+- [Flow as Tool](../ai/components/flow_controls.json) — `flow_controls.FlowTool`
+- [Pass](../ai/components/flow_controls.json) — `flow_controls.Pass`
+- [Sub Flow](../ai/components/flow_controls.json) — `flow_controls.SubFlow`
+
+### Input Output
+
+Supply or display workflow data.
+
+- [Chat Input](../ai/components/input_output.json) — `input_output.ChatInput`
+- [Chat Output](../ai/components/input_output.json) — `input_output.ChatOutput`
+- [Meta Instagram Send Message](../ai/components/input_output.json) — `input_output.MetaInstagramSendMessage`
+- [Meta Messenger Send Message](../ai/components/input_output.json) — `input_output.MetaMessengerSendMessage`
+- [Meta WhatsApp Send Message](../ai/components/input_output.json) — `input_output.MetaWhatsAppSendMessage`
+- [POST Webhook](../ai/components/input_output.json) — `input_output.Webhook2`
+- [Schedule Trigger](../ai/components/input_output.json) — `input_output.ScheduleTrigger`
+- [Text Input](../ai/components/input_output.json) — `input_output.TextInput`
+- [Text Output](../ai/components/input_output.json) — `input_output.TextOutput`
+- [UChat Sub-Flow Trigger](../ai/components/input_output.json) — `input_output.UChatSubFlowTrigger`
+- [UChat User Fields Setter](../ai/components/input_output.json) — `input_output.UChatUserFieldsSetter`
+- [Universal Webhook](../ai/components/input_output.json) — `input_output.UniversalWebhook`
+- [Webhook](../ai/components/input_output.json) — `input_output.Webhook`
+- [Webhook Response](../ai/components/input_output.json) — `input_output.WebhookResponse`
+
+### Langchain Utilities
+
+Split and process text.
+
+- [Character Text Splitter](../ai/components/langchain_utilities.json) — `langchain_utilities.CharacterTextSplitter`
+- [CSV Agent](../ai/components/langchain_utilities.json) — `langchain_utilities.CSVAgent`
+- [Fake Embeddings](../ai/components/langchain_utilities.json) — `langchain_utilities.LangChainFakeEmbeddings`
+- [HTML Link Extractor](../ai/components/langchain_utilities.json) — `langchain_utilities.HtmlLinkExtractor`
+- [Language Recursive Text Splitter](../ai/components/langchain_utilities.json) — `langchain_utilities.LanguageRecursiveTextSplitter`
+- [Natural Language Text Splitter](../ai/components/langchain_utilities.json) — `langchain_utilities.NaturalLanguageTextSplitter`
+- [OpenAI Tools Agent](../ai/components/langchain_utilities.json) — `langchain_utilities.OpenAIToolsAgent`
+- [OpenAPI Agent](../ai/components/langchain_utilities.json) — `langchain_utilities.OpenAPIAgent`
+- [Recursive Character Text Splitter](../ai/components/langchain_utilities.json) — `langchain_utilities.RecursiveCharacterTextSplitter`
+- [Spider Web Crawler & Scraper](../ai/components/langchain_utilities.json) — `langchain_utilities.SpiderTool`
+- [SQLAgent](../ai/components/langchain_utilities.json) — `langchain_utilities.SQLAgent`
+- [SQLDatabase](../ai/components/langchain_utilities.json) — `langchain_utilities.SQLDatabase`
+- [Tool Calling Agent](../ai/components/langchain_utilities.json) — `langchain_utilities.ToolCallingAgent`
+- [Prompt Hub](../ai/components/langchain_utilities.json) — `langchain_utilities.LangChain Hub Prompt`
+- [Runnable Executor](../ai/components/langchain_utilities.json) — `langchain_utilities.RunnableExecutor`
+- [Semantic Text Splitter](../ai/components/langchain_utilities.json) — `langchain_utilities.SemanticTextSplitter`
+- [XML Agent](../ai/components/langchain_utilities.json) — `langchain_utilities.XMLAgent`
+- [ConversationChain](../ai/components/langchain_utilities.json) — `langchain_utilities.ConversationChain`
+- [JsonAgent](../ai/components/langchain_utilities.json) — `langchain_utilities.JsonAgent`
+- [LLMCheckerChain](../ai/components/langchain_utilities.json) — `langchain_utilities.LLMCheckerChain`
+- [LLMMathChain](../ai/components/langchain_utilities.json) — `langchain_utilities.LLMMathChain`
+- [Natural Language to SQL](../ai/components/langchain_utilities.json) — `langchain_utilities.SQLGenerator`
+- [Retrieval QA](../ai/components/langchain_utilities.json) — `langchain_utilities.RetrievalQA`
+- [Self Query Retriever](../ai/components/langchain_utilities.json) — `langchain_utilities.SelfQueryRetriever`
+- [VectorStoreInfo](../ai/components/langchain_utilities.json) — `langchain_utilities.VectorStoreInfo`
+- [VectorStoreRouterAgent](../ai/components/langchain_utilities.json) — `langchain_utilities.VectorStoreRouterAgent`
+
+### Llm Operations
+
+Process and structure model output.
+
+- [Batch Run](../ai/components/llm_operations.json) — `llm_operations.BatchRunComponent`
+- [Guardrails](../ai/components/llm_operations.json) — `llm_operations.GuardrailValidator`
+- [LLM Selector](../ai/components/llm_operations.json) — `llm_operations.LLMSelectorComponent`
+- [Smart Router](../ai/components/llm_operations.json) — `llm_operations.SmartRouter`
+- [Smart Transform](../ai/components/llm_operations.json) — `llm_operations.Smart Transform`
+- [Structured Output](../ai/components/llm_operations.json) — `llm_operations.StructuredOutput`
+
+### Models And Agents
+
+Build model and agent steps.
+
+- [Agent](../ai/components/models_and_agents.json) — `models_and_agents.Agent`
+- [Embedding Model](../ai/components/models_and_agents.json) — `models_and_agents.EmbeddingModel`
+- [Language Model](../ai/components/models_and_agents.json) — `models_and_agents.LanguageModelComponent`
+- [MCP Tools](../ai/components/models_and_agents.json) — `models_and_agents.MCPTools`
+- [Message History](../ai/components/models_and_agents.json) — `models_and_agents.Memory`
+- [Prompt Template](../ai/components/models_and_agents.json) — `models_and_agents.Prompt Template`
+- [Policies](../ai/components/models_and_agents.json) — `models_and_agents.policies`
+
+### Processing
+
+Transform text, audio, and other data.
+
+- [Audio URL Extractor](../ai/components/processing.json) — `processing.AudioURLExtractor`
+- [Dynamic Create Data](../ai/components/processing.json) — `processing.DynamicCreateData`
+- [Excel Row Query](../ai/components/processing.json) — `processing.ExcelRowQuery`
+- [Excel Row Upsert](../ai/components/processing.json) — `processing.ExcelRowUpsert`
+- [Image URL Extractor](../ai/components/processing.json) — `processing.ImageURLExtractor`
+- [JSON Array Extractor](../ai/components/processing.json) — `processing.JSONArrayExtractor`
+- [JSON Key Extractor](../ai/components/processing.json) — `processing.JSONKeyExtractor`
+- [JSON Object Builder](../ai/components/processing.json) — `processing.JSONObjectBuilder`
+- [JSON Operations](../ai/components/processing.json) — `processing.DataOperations`
+- [JSON String Parser](../ai/components/processing.json) — `processing.JSONStringParser`
+- [Media URL Cleaner](../ai/components/processing.json) — `processing.MediaURLCleaner`
+- [Meta Webhook Signature Verification](../ai/components/processing.json) — `processing.MetaWebhookSignatureVerification`
+- [Meta Webhook Verification](../ai/components/processing.json) — `processing.MetaWebhookVerification`
+- [Parser](../ai/components/processing.json) — `processing.ParserComponent`
+- [Split Text](../ai/components/processing.json) — `processing.SplitText`
+- [Table Operations](../ai/components/processing.json) — `processing.DataFrameOperations`
+- [Text Operations](../ai/components/processing.json) — `processing.TextOperations`
+- [Type Convert](../ai/components/processing.json) — `processing.TypeConverterComponent`
+- [Alter Metadata](../ai/components/processing.json) — `processing.AlterMetadata`
+- [Combine Data](../ai/components/processing.json) — `processing.MergeDataComponent`
+- [Combine Text](../ai/components/processing.json) — `processing.CombineText`
+- [Create Data](../ai/components/processing.json) — `processing.CreateData`
+- [Create List](../ai/components/processing.json) — `processing.CreateList`
+- [Data to Message](../ai/components/processing.json) — `processing.ParseData`
+- [Data → DataFrame](../ai/components/processing.json) — `processing.DataToDataFrame`
+- [Extract Key](../ai/components/processing.json) — `processing.ExtractaKey`
+- [Filter Data](../ai/components/processing.json) — `processing.FilterData`
+- [Filter Values](../ai/components/processing.json) — `processing.FilterDataValues`
+- [JSON Cleaner](../ai/components/processing.json) — `processing.JSONCleaner`
+- [Message Store](../ai/components/processing.json) — `processing.StoreMessage`
+- [Message to Data](../ai/components/processing.json) — `processing.MessagetoData`
+- [Output Parser](../ai/components/processing.json) — `processing.OutputParser`
+- [Parse DataFrame](../ai/components/processing.json) — `processing.ParseDataFrame`
+- [Parse JSON](../ai/components/processing.json) — `processing.ParseJSONData`
+- [Regex Extractor](../ai/components/processing.json) — `processing.RegexExtractorComponent`
+- [Select Data](../ai/components/processing.json) — `processing.SelectData`
+- [Update Data](../ai/components/processing.json) — `processing.UpdateData`
+
+### Prototypes
+
+Define a Python function step.
+
+- [Python Function](../ai/components/prototypes.json) — `prototypes.PythonFunction`
+
+### Tools
+
+Use calculation and other tools.
+
+- [Calculator](../ai/components/tools.json) — `tools.CalculatorTool`
+- [Google Search API [DEPRECATED]](../ai/components/tools.json) — `tools.GoogleSearchAPI`
+- [Google Serper API [DEPRECATED]](../ai/components/tools.json) — `tools.GoogleSerperAPI`
+- [Python Code Structured](../ai/components/tools.json) — `tools.PythonCodeStructuredTool`
+- [Python REPL](../ai/components/tools.json) — `tools.PythonREPLTool`
+- [Search API](../ai/components/tools.json) — `tools.SearchAPI`
+- [SearXNG Search](../ai/components/tools.json) — `tools.SearXNGTool`
+- [Serp Search API](../ai/components/tools.json) — `tools.SerpAPI`
+- [Tavily Search API](../ai/components/tools.json) — `tools.TavilyAISearch`
+- [Wikidata API](../ai/components/tools.json) — `tools.WikidataAPI`
+- [Wikipedia API](../ai/components/tools.json) — `tools.WikipediaAPI`
+- [Yahoo! Finance](../ai/components/tools.json) — `tools.YahooFinanceTool`
+
+### Utilities
+
+Use general workflow utilities.
+
+- [Calculator](../ai/components/utilities.json) — `utilities.CalculatorComponent`
+- [Current Date](../ai/components/utilities.json) — `utilities.CurrentDate`
+- [Python Interpreter](../ai/components/utilities.json) — `utilities.PythonREPLComponent`
+- [ID Generator](../ai/components/utilities.json) — `utilities.IDGenerator`
+
+## Google Workspace
+
+Choose the component family for the Google service used by your workflow.
+
+### Google Docs
+
+Read or change Google Docs content.
+
+- [Append Text](../ai/components/google_docs.json) — `google_docs.GoogleDocsAppendText`
+- [Create Document](../ai/components/google_docs.json) — `google_docs.GoogleDocsCreateDocument`
+- [Create Footer](../ai/components/google_docs.json) — `google_docs.GoogleDocsCreateFooter`
+- [Create Footnote](../ai/components/google_docs.json) — `google_docs.GoogleDocsCreateFootnote`
+- [Create Header](../ai/components/google_docs.json) — `google_docs.GoogleDocsCreateHeader`
+- [Create List](../ai/components/google_docs.json) — `google_docs.GoogleDocsCreateList`
+- [Create Named Range](../ai/components/google_docs.json) — `google_docs.GoogleDocsCreateNamedRange`
+- [Delete Content](../ai/components/google_docs.json) — `google_docs.GoogleDocsDeleteContent`
+- [Delete Footer](../ai/components/google_docs.json) — `google_docs.GoogleDocsDeleteFooter`
+- [Delete Header](../ai/components/google_docs.json) — `google_docs.GoogleDocsDeleteHeader`
+- [Delete Named Range](../ai/components/google_docs.json) — `google_docs.GoogleDocsDeleteNamedRange`
+- [Delete Table](../ai/components/google_docs.json) — `google_docs.GoogleDocsDeleteTable`
+- [Delete Table Column](../ai/components/google_docs.json) — `google_docs.GoogleDocsDeleteTableColumn`
+- [Delete Table Row](../ai/components/google_docs.json) — `google_docs.GoogleDocsDeleteTableRow`
+- [Format Document](../ai/components/google_docs.json) — `google_docs.GoogleDocsFormatDocument`
+- [Format Paragraph](../ai/components/google_docs.json) — `google_docs.GoogleDocsFormatParagraph`
+- [Format Section](../ai/components/google_docs.json) — `google_docs.GoogleDocsFormatSection`
+- [Format Table Cells](../ai/components/google_docs.json) — `google_docs.GoogleDocsFormatTableCells`
+- [Format Text](../ai/components/google_docs.json) — `google_docs.GoogleDocsFormatText`
+- [Get Document](../ai/components/google_docs.json) — `google_docs.GoogleDocsGetDocument`
+- [Get Text](../ai/components/google_docs.json) — `google_docs.GoogleDocsGetText`
+- [Insert Heading](../ai/components/google_docs.json) — `google_docs.GoogleDocsInsertHeading`
+- [Insert Image](../ai/components/google_docs.json) — `google_docs.GoogleDocsInsertImage`
+- [Insert Page Break](../ai/components/google_docs.json) — `google_docs.GoogleDocsInsertPageBreak`
+- [Insert Section Break](../ai/components/google_docs.json) — `google_docs.GoogleDocsInsertSectionBreak`
+- [Insert Table](../ai/components/google_docs.json) — `google_docs.GoogleDocsInsertTable`
+- [Insert Table Column](../ai/components/google_docs.json) — `google_docs.GoogleDocsInsertTableColumn`
+- [Insert Table Row](../ai/components/google_docs.json) — `google_docs.GoogleDocsInsertTableRow`
+- [Insert Text](../ai/components/google_docs.json) — `google_docs.GoogleDocsInsertText`
+- [List Named Ranges](../ai/components/google_docs.json) — `google_docs.GoogleDocsListNamedRanges`
+- [List Tables](../ai/components/google_docs.json) — `google_docs.GoogleDocsListTables`
+- [Merge Table Cells](../ai/components/google_docs.json) — `google_docs.GoogleDocsMergeTableCells`
+- [Pin Table Header Rows](../ai/components/google_docs.json) — `google_docs.GoogleDocsPinTableHeaderRows`
+- [Populate Table](../ai/components/google_docs.json) — `google_docs.GoogleDocsPopulateTable`
+- [Remove List](../ai/components/google_docs.json) — `google_docs.GoogleDocsRemoveList`
+- [Replace Image](../ai/components/google_docs.json) — `google_docs.GoogleDocsReplaceImage`
+- [Replace Named Range Content](../ai/components/google_docs.json) — `google_docs.GoogleDocsReplaceNamedRangeContent`
+- [Replace Text](../ai/components/google_docs.json) — `google_docs.GoogleDocsReplaceText`
+- [Set Table Cell Text](../ai/components/google_docs.json) — `google_docs.GoogleDocsSetTableCellText`
+- [Set Table Column Width](../ai/components/google_docs.json) — `google_docs.GoogleDocsSetTableColumnWidth`
+- [Set Table Row Height](../ai/components/google_docs.json) — `google_docs.GoogleDocsSetTableRowHeight`
+- [Template Merge](../ai/components/google_docs.json) — `google_docs.GoogleDocsTemplateMerge`
+- [Unmerge Table Cells](../ai/components/google_docs.json) — `google_docs.GoogleDocsUnmergeTableCells`
+
+### Google Drive
+
+Work with Google Drive files.
+
+- [Copy File](../ai/components/google_drive.json) — `google_drive.GoogleDriveCopyFile`
+- [Create Folder](../ai/components/google_drive.json) — `google_drive.GoogleDriveCreateFolder`
+- [Delete Permanently](../ai/components/google_drive.json) — `google_drive.GoogleDriveDeleteFile`
+- [Download File](../ai/components/google_drive.json) — `google_drive.GoogleDriveDownloadFile`
+- [Export File](../ai/components/google_drive.json) — `google_drive.GoogleDriveExportFile`
+- [Get File](../ai/components/google_drive.json) — `google_drive.GoogleDriveGetFile`
+- [List Files](../ai/components/google_drive.json) — `google_drive.GoogleDriveListFiles`
+- [Move File](../ai/components/google_drive.json) — `google_drive.GoogleDriveMoveFile`
+- [Rename File](../ai/components/google_drive.json) — `google_drive.GoogleDriveRenameFile`
+- [Restore File](../ai/components/google_drive.json) — `google_drive.GoogleDriveRestoreFile`
+- [Trash File](../ai/components/google_drive.json) — `google_drive.GoogleDriveTrashFile`
+- [Upload File](../ai/components/google_drive.json) — `google_drive.GoogleDriveUploadFile`
+- [Workspace API Request](../ai/components/google_drive.json) — `google_drive.GoogleDriveWorkspaceApiRequest`
+- [Google Drive Loader](../ai/components/google_drive.json) — `google_drive.GoogleDriveComponent`
+- [Google Drive Search](../ai/components/google_drive.json) — `google_drive.GoogleDriveSearchComponent`
+
+### Google Sheets
+
+Read or change Google Sheets data.
+
+- [Add Sheet](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsAddSheet`
+- [Append Rows](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsAppendRows`
+- [Bulk Upsert Rows](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsBulkUpsertRows`
+- [Clear Range](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsClearRange`
+- [Clear Sheet](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsClearSheet`
+- [Copy Sheet](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsCopySheet`
+- [Create Spreadsheet](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsCreateSpreadsheet`
+- [Delete Columns](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsDeleteColumns`
+- [Delete Rows](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsDeleteRows`
+- [Delete Sheet](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsDeleteSheet`
+- [Duplicate Sheet](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsDuplicateSheet`
+- [Find & Replace](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsFindReplace`
+- [Get Spreadsheet](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsGetSpreadsheet`
+- [Insert Columns](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsInsertColumns`
+- [Insert Rows](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsInsertRows`
+- [List Sheets](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsListSheets`
+- [Read Range](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsReadRange`
+- [Rename Sheet](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsRenameSheet`
+- [Resize Sheet](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsResizeSheet`
+- [Search & Delete Row](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsSearchDeleteRow`
+- [Search Row](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsSearchRow`
+- [Update Range](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsUpdateRange`
+- [Upsert Row](../ai/components/google_sheets.json) — `google_sheets.GoogleSheetsUpsertRow`
+
+### Google Slides
+
+Create or change Google Slides content.
+
+- [Add Slide](../ai/components/google_slides.json) — `google_slides.GoogleSlidesAddSlide`
+- [Connect Shapes](../ai/components/google_slides.json) — `google_slides.GoogleSlidesConnectShapes`
+- [Create Line](../ai/components/google_slides.json) — `google_slides.GoogleSlidesCreateLine`
+- [Create Presentation](../ai/components/google_slides.json) — `google_slides.GoogleSlidesCreatePresentation`
+- [Create Shape](../ai/components/google_slides.json) — `google_slides.GoogleSlidesCreateShape`
+- [Create Table](../ai/components/google_slides.json) — `google_slides.GoogleSlidesCreateTable`
+- [Create Text Box](../ai/components/google_slides.json) — `google_slides.GoogleSlidesCreateTextBox`
+- [Delete Page Element](../ai/components/google_slides.json) — `google_slides.GoogleSlidesDeletePageElement`
+- [Delete Slide](../ai/components/google_slides.json) — `google_slides.GoogleSlidesDeleteSlide`
+- [Delete Table Column](../ai/components/google_slides.json) — `google_slides.GoogleSlidesDeleteTableColumn`
+- [Delete Table Row](../ai/components/google_slides.json) — `google_slides.GoogleSlidesDeleteTableRow`
+- [Delete Text](../ai/components/google_slides.json) — `google_slides.GoogleSlidesDeleteText`
+- [Duplicate Slide](../ai/components/google_slides.json) — `google_slides.GoogleSlidesDuplicateSlide`
+- [Format Line](../ai/components/google_slides.json) — `google_slides.GoogleSlidesFormatLine`
+- [Format Paragraph](../ai/components/google_slides.json) — `google_slides.GoogleSlidesFormatParagraph`
+- [Format Table Borders](../ai/components/google_slides.json) — `google_slides.GoogleSlidesFormatTableBorders`
+- [Format Table Cells](../ai/components/google_slides.json) — `google_slides.GoogleSlidesFormatTableCells`
+- [Format Text](../ai/components/google_slides.json) — `google_slides.GoogleSlidesFormatText`
+- [Format Video](../ai/components/google_slides.json) — `google_slides.GoogleSlidesFormatVideo`
+- [Get Image Info](../ai/components/google_slides.json) — `google_slides.GoogleSlidesGetImageInfo`
+- [Get Presentation](../ai/components/google_slides.json) — `google_slides.GoogleSlidesGetPresentation`
+- [Get Slide](../ai/components/google_slides.json) — `google_slides.GoogleSlidesGetSlide`
+- [Get Speaker Notes](../ai/components/google_slides.json) — `google_slides.GoogleSlidesGetSpeakerNotes`
+- [Get Table Cell Text](../ai/components/google_slides.json) — `google_slides.GoogleSlidesGetTableCellText`
+- [Get Text](../ai/components/google_slides.json) — `google_slides.GoogleSlidesGetText`
+- [Group Elements](../ai/components/google_slides.json) — `google_slides.GoogleSlidesGroupElements`
+- [Insert Image](../ai/components/google_slides.json) — `google_slides.GoogleSlidesInsertImage`
+- [Insert Sheets Chart](../ai/components/google_slides.json) — `google_slides.GoogleSlidesInsertSheetsChart`
+- [Insert Table Column](../ai/components/google_slides.json) — `google_slides.GoogleSlidesInsertTableColumn`
+- [Insert Table Row](../ai/components/google_slides.json) — `google_slides.GoogleSlidesInsertTableRow`
+- [Insert Text](../ai/components/google_slides.json) — `google_slides.GoogleSlidesInsertText`
+- [Insert Video](../ai/components/google_slides.json) — `google_slides.GoogleSlidesInsertVideo`
+- [List Page Elements](../ai/components/google_slides.json) — `google_slides.GoogleSlidesListPageElements`
+- [List Slides](../ai/components/google_slides.json) — `google_slides.GoogleSlidesListSlides`
+- [List Tables](../ai/components/google_slides.json) — `google_slides.GoogleSlidesListTables`
+- [Merge Table Cells](../ai/components/google_slides.json) — `google_slides.GoogleSlidesMergeTableCells`
+- [Move Page Element](../ai/components/google_slides.json) — `google_slides.GoogleSlidesMovePageElement`
+- [Move Slide](../ai/components/google_slides.json) — `google_slides.GoogleSlidesMoveSlide`
+- [Populate Table](../ai/components/google_slides.json) — `google_slides.GoogleSlidesPopulateTable`
+- [Refresh Sheets Chart](../ai/components/google_slides.json) — `google_slides.GoogleSlidesRefreshSheetsChart`
+- [Replace All Text](../ai/components/google_slides.json) — `google_slides.GoogleSlidesReplaceAllText`
+- [Replace Image](../ai/components/google_slides.json) — `google_slides.GoogleSlidesReplaceImage`
+- [Replace Shapes With Image](../ai/components/google_slides.json) — `google_slides.GoogleSlidesReplaceShapesWithImage`
+- [Replace Shapes With Sheets Chart](../ai/components/google_slides.json) — `google_slides.GoogleSlidesReplaceShapesWithSheetsChart`
+- [Replace Text](../ai/components/google_slides.json) — `google_slides.GoogleSlidesReplaceText`
+- [Resize Page Element](../ai/components/google_slides.json) — `google_slides.GoogleSlidesResizePageElement`
+- [Rotate Page Element](../ai/components/google_slides.json) — `google_slides.GoogleSlidesRotatePageElement`
+- [Set Element Alt Text](../ai/components/google_slides.json) — `google_slides.GoogleSlidesSetElementAltText`
+- [Set Image Properties](../ai/components/google_slides.json) — `google_slides.GoogleSlidesSetImageProperties`
+- [Set Slide Background](../ai/components/google_slides.json) — `google_slides.GoogleSlidesSetSlideBackground`
+- [Set Table Cell Text](../ai/components/google_slides.json) — `google_slides.GoogleSlidesSetTableCellText`
+- [Template Merge](../ai/components/google_slides.json) — `google_slides.GoogleSlidesTemplateMerge`
+- [Ungroup Elements](../ai/components/google_slides.json) — `google_slides.GoogleSlidesUngroupElements`
+- [Unmerge Table Cells](../ai/components/google_slides.json) — `google_slides.GoogleSlidesUnmergeTableCells`
+- [Update Speaker Notes](../ai/components/google_slides.json) — `google_slides.GoogleSlidesUpdateSpeakerNotes`
+
+## Models and AI services
+
+These categories provide model, embedding, agent, or evaluation components for their named services.
+
+### Agentics
+
+Use Agentics model or AI tools.
+
+- [aGenerate](../ai/components/agentics.json) — `agentics.AgenerateComponent`
+- [aMap](../ai/components/agentics.json) — `agentics.AMapComponent`
+- [aReduce](../ai/components/agentics.json) — `agentics.AreduceComponent`
+
+### Aiml
+
+Use Aiml model or AI tools.
+
+- [AI/ML API](../ai/components/aiml.json) — `aiml.AIMLModel`
+- [AI/ML API Embeddings](../ai/components/aiml.json) — `aiml.AIMLEmbeddings`
+
+### Altk
+
+Use Altk model or AI tools.
+
+- [ALTK Agent](../ai/components/altk.json) — `altk.ALTK Agent`
+
+### Amazon
+
+Use Amazon model or AI tools.
+
+- [Amazon Bedrock Embeddings](../ai/components/amazon.json) — `amazon.AmazonBedrockEmbeddings`
+- [S3 Bucket Uploader](../ai/components/amazon.json) — `amazon.s3bucketuploader`
+- [Amazon Bedrock Converse](../ai/components/amazon.json) — `amazon.AmazonBedrockConverseModel`
+- [Amazon Bedrock](../ai/components/amazon.json) — `amazon.AmazonBedrockModel`
+
+### Anthropic
+
+Use Anthropic model or AI tools.
+
+- [Anthropic](../ai/components/anthropic.json) — `anthropic.AnthropicModel`
+
+### Azure
+
+Use Azure model or AI tools.
+
+- [Azure OpenAI](../ai/components/azure.json) — `azure.AzureOpenAIModel`
+- [Azure OpenAI Embeddings](../ai/components/azure.json) — `azure.AzureOpenAIEmbeddings`
+
+### Baidu
+
+Use Baidu model or AI tools.
+
+- [Qianfan](../ai/components/baidu.json) — `baidu.BaiduQianfanChatModel`
+
+### Cleanlab
+
+Use Cleanlab model or AI tools.
+
+- [Cleanlab Evaluator](../ai/components/cleanlab.json) — `cleanlab.CleanlabEvaluator`
+- [Cleanlab RAG Evaluator](../ai/components/cleanlab.json) — `cleanlab.CleanlabRAGEvaluator`
+- [Cleanlab Remediator](../ai/components/cleanlab.json) — `cleanlab.CleanlabRemediator`
+
+### Cohere
+
+Use Cohere model or AI tools.
+
+- [Cohere Embeddings](../ai/components/cohere.json) — `cohere.CohereEmbeddings`
+- [Cohere Language Models](../ai/components/cohere.json) — `cohere.CohereModel`
+- [Cohere Rerank](../ai/components/cohere.json) — `cohere.CohereRerank`
+
+### Cometapi
+
+Use Cometapi model or AI tools.
+
+- [CometAPI](../ai/components/cometapi.json) — `cometapi.CometAPIModel`
+
+### Crewai
+
+Use Crewai model or AI tools.
+
+- [CrewAI Agent](../ai/components/crewai.json) — `crewai.CrewAIAgentComponent`
+- [Hierarchical Crew](../ai/components/crewai.json) — `crewai.HierarchicalCrewComponent`
+- [Hierarchical Task](../ai/components/crewai.json) — `crewai.HierarchicalTaskComponent`
+- [Sequential Crew](../ai/components/crewai.json) — `crewai.SequentialCrewComponent`
+- [Sequential Task](../ai/components/crewai.json) — `crewai.SequentialTaskComponent`
+- [Sequential Task Agent](../ai/components/crewai.json) — `crewai.SequentialTaskAgentComponent`
+
+### Cuga
+
+Use Cuga model or AI tools.
+
+- [Cuga](../ai/components/cuga.json) — `cuga.Cuga`
+
+### Deepseek
+
+Use Deepseek model or AI tools.
+
+- [DeepSeek](../ai/components/deepseek.json) — `deepseek.DeepSeekModelComponent`
+
+### Google
+
+Use Google model or AI tools.
+
+- [Google Generative AI](../ai/components/google.json) — `google.GoogleGenerativeAIModel`
+- [Google Generative AI Embeddings](../ai/components/google.json) — `google.Google Generative AI Embeddings`
+- [Google Search API](../ai/components/google.json) — `google.GoogleSearchAPICore`
+- [Google Serper API](../ai/components/google.json) — `google.GoogleSerperAPICore`
+- [BigQuery](../ai/components/google.json) — `google.BigQueryExecutor`
+- [Gmail Loader](../ai/components/google.json) — `google.GmailLoaderComponent`
+- [Google OAuth Token](../ai/components/google.json) — `google.GoogleOAuthToken`
+
+### Groq
+
+Use Groq model or AI tools.
+
+- [Groq](../ai/components/groq.json) — `groq.GroqModel`
+
+### Huggingface
+
+Use Huggingface model or AI tools.
+
+- [Hugging Face](../ai/components/huggingface.json) — `huggingface.HuggingFaceModel`
+- [Hugging Face Embeddings Inference](../ai/components/huggingface.json) — `huggingface.HuggingFaceInferenceAPIEmbeddings`
+
+### Ibm
+
+Use Ibm model or AI tools.
+
+- [IBM watsonx.ai](../ai/components/ibm.json) — `ibm.IBMwatsonxModel`
+- [IBM watsonx.ai Embeddings](../ai/components/ibm.json) — `ibm.WatsonxEmbeddingsComponent`
+
+### Icosacomputing
+
+Use Icosacomputing model or AI tools.
+
+- [Combinatorial Reasoner](../ai/components/icosacomputing.json) — `icosacomputing.Combinatorial Reasoner`
+
+### Langwatch
+
+Use Langwatch model or AI tools.
+
+- [LangWatch Evaluator](../ai/components/langwatch.json) — `langwatch.LangWatchEvaluator`
+
+### Litellm
+
+Use Litellm model or AI tools.
+
+- [LiteLLM Proxy](../ai/components/litellm.json) — `litellm.LiteLLMProxyModel`
+
+### Lmstudio
+
+Use Lmstudio model or AI tools.
+
+- [LM Studio](../ai/components/lmstudio.json) — `lmstudio.LMStudioModel`
+- [LM Studio Embeddings](../ai/components/lmstudio.json) — `lmstudio.LMStudioEmbeddingsComponent`
+
+### Maritalk
+
+Use Maritalk model or AI tools.
+
+- [MariTalk](../ai/components/maritalk.json) — `maritalk.Maritalk`
+
+### Mistral
+
+Use Mistral model or AI tools.
+
+- [MistralAI](../ai/components/mistral.json) — `mistral.MistralModel`
+- [MistralAI Embeddings](../ai/components/mistral.json) — `mistral.MistalAIEmbeddings`
+
+### Notdiamond
+
+Use Notdiamond model or AI tools.
+
+- [Not Diamond Router](../ai/components/notdiamond.json) — `notdiamond.NotDiamond`
+
+### Novita
+
+Use Novita model or AI tools.
+
+- [Novita AI](../ai/components/novita.json) — `novita.NovitaModel`
+
+### Nvidia
+
+Use Nvidia model or AI tools.
+
+- [NVIDIA](../ai/components/nvidia.json) — `nvidia.NVIDIAModelComponent`
+- [NVIDIA Embeddings](../ai/components/nvidia.json) — `nvidia.NVIDIAEmbeddingsComponent`
+- [NVIDIA Rerank](../ai/components/nvidia.json) — `nvidia.NvidiaRerankComponent`
+- [NVIDIA System-Assist](../ai/components/nvidia.json) — `nvidia.NvidiaSystemAssistComponent`
+- [NVIDIA Retriever Extraction](../ai/components/nvidia.json) — `nvidia.NvidiaIngestComponent`
+
+### Ollama
+
+Use Ollama model or AI tools.
+
+- [Ollama](../ai/components/ollama.json) — `ollama.OllamaModel`
+- [Ollama Embeddings](../ai/components/ollama.json) — `ollama.OllamaEmbeddings`
+
+### Openai
+
+Use Openai model or AI tools.
+
+- [OpenAI](../ai/components/openai.json) — `openai.OpenAIModel`
+- [OpenAI Embeddings](../ai/components/openai.json) — `openai.OpenAIEmbeddings`
+- [OpenAI Responses API](../ai/components/openai.json) — `openai.OpenAIResponsesAPI`
+- [OpenAI Vision Analyzer](../ai/components/openai.json) — `openai.OpenAIVisionAnalyzer`
+- [OpenAI Voice Transcriber](../ai/components/openai.json) — `openai.OpenAIVoiceTranscriber`
+
+### Openrouter
+
+Use Openrouter model or AI tools.
+
+- [OpenRouter](../ai/components/openrouter.json) — `openrouter.OpenRouterComponent`
+
+### Perplexity
+
+Use Perplexity model or AI tools.
+
+- [Perplexity](../ai/components/perplexity.json) — `perplexity.PerplexityModel`
+
+### Sambanova
+
+Use Sambanova model or AI tools.
+
+- [SambaNova](../ai/components/sambanova.json) — `sambanova.SambaNovaModel`
+
+### Vertexai
+
+Use Vertexai model or AI tools.
+
+- [Vertex AI](../ai/components/vertexai.json) — `vertexai.VertexAiModel`
+- [Vertex AI Embeddings](../ai/components/vertexai.json) — `vertexai.VertexAIEmbeddings`
+
+### Vllm
+
+Use Vllm model or AI tools.
+
+- [vLLM](../ai/components/vllm.json) — `vllm.vLLMModel`
+- [vLLM Embeddings](../ai/components/vllm.json) — `vllm.vLLMEmbeddings`
+
+### Vlmrun
+
+Use Vlmrun model or AI tools.
+
+- [VLM Run Transcription](../ai/components/vlmrun.json) — `vlmrun.VLMRunTranscription`
+
+### Xai
+
+Use Xai model or AI tools.
+
+- [xAI](../ai/components/xai.json) — `xai.xAIModel`
+
+## Data stores and memory
+
+Use these categories to store, retrieve, or search data and vector records.
+
+### Cassandra
+
+Store or retrieve data with Cassandra.
+
+- [Cassandra](../ai/components/cassandra.json) — `cassandra.Cassandra`
+- [Cassandra Chat Memory](../ai/components/cassandra.json) — `cassandra.CassandraChatMemory`
+- [Cassandra Graph](../ai/components/cassandra.json) — `cassandra.CassandraGraph`
+
+### Chroma
+
+Store or retrieve data with Chroma.
+
+- [Chroma DB](../ai/components/chroma.json) — `chroma.Chroma`
+
+### Clickhouse
+
+Store or retrieve data with Clickhouse.
+
+- [ClickHouse](../ai/components/clickhouse.json) — `clickhouse.Clickhouse`
+
+### Couchbase
+
+Store or retrieve data with Couchbase.
+
+- [Couchbase](../ai/components/couchbase.json) — `couchbase.Couchbase`
+
+### Datastax
+
+Store or retrieve data with Datastax.
+
+- [Astra DB](../ai/components/datastax.json) — `datastax.AstraDB`
+- [Astra DB Chat Memory](../ai/components/datastax.json) — `datastax.AstraDBChatMemory`
+- [Astra DB CQL](../ai/components/datastax.json) — `datastax.AstraDBCQLToolComponent`
+- [Graph RAG](../ai/components/datastax.json) — `datastax.GraphRAG`
+- [Hyper-Converged Database](../ai/components/datastax.json) — `datastax.HCD`
+- [Astra DB Graph](../ai/components/datastax.json) — `datastax.AstraDBGraph`
+- [Astra DB Tool](../ai/components/datastax.json) — `datastax.AstraDBTool`
+- [Astra Vectorize](../ai/components/datastax.json) — `datastax.AstraVectorize`
+- [Dotenv](../ai/components/datastax.json) — `datastax.Dotenv`
+- [Get Environment Variable](../ai/components/datastax.json) — `datastax.GetEnvVar`
+
+### Elastic
+
+Store or retrieve data with Elastic.
+
+- [Elasticsearch](../ai/components/elastic.json) — `elastic.Elasticsearch`
+- [OpenSearch](../ai/components/elastic.json) — `elastic.OpenSearchVectorStoreComponent`
+- [OpenSearch (Multi-Model Multi-Embedding)](../ai/components/elastic.json) — `elastic.OpenSearchVectorStoreComponentMultimodalMultiEmbedding`
+
+### FAISS
+
+Store or retrieve data with FAISS.
+
+- [FAISS](../ai/components/FAISS.json) — `FAISS.FAISS`
+
+### Mem0
+
+Store or retrieve data with Mem0.
+
+- [Mem0 Chat Memory](../ai/components/mem0.json) — `mem0.mem0_chat_memory`
+
+### Milvus
+
+Store or retrieve data with Milvus.
+
+- [Milvus](../ai/components/milvus.json) — `milvus.Milvus`
+
+### Mongodb
+
+Store or retrieve data with Mongodb.
+
+- [MongoDB Atlas](../ai/components/mongodb.json) — `mongodb.MongoDBAtlasVector`
+
+### Needle
+
+Store or retrieve data with Needle.
+
+- [Needle Retriever](../ai/components/needle.json) — `needle.needle`
+
+### Pgvector
+
+Store or retrieve data with Pgvector.
+
+- [PGVector](../ai/components/pgvector.json) — `pgvector.pgvector`
+
+### Pinecone
+
+Store or retrieve data with Pinecone.
+
+- [Pinecone](../ai/components/pinecone.json) — `pinecone.Pinecone`
+
+### Qdrant
+
+Store or retrieve data with Qdrant.
+
+- [Qdrant](../ai/components/qdrant.json) — `qdrant.QdrantVectorStoreComponent`
+
+### Redis
+
+Store or retrieve data with Redis.
+
+- [Redis](../ai/components/redis.json) — `redis.Redis`
+- [Redis Chat Memory](../ai/components/redis.json) — `redis.RedisChatMemory`
+
+### Supabase
+
+Store or retrieve data with Supabase.
+
+- [Supabase](../ai/components/supabase.json) — `supabase.SupabaseVectorStore`
+
+### Upstash
+
+Store or retrieve data with Upstash.
+
+- [Upstash](../ai/components/upstash.json) — `upstash.Upstash`
+
+### Vectara
+
+Store or retrieve data with Vectara.
+
+- [Vectara](../ai/components/vectara.json) — `vectara.Vectara`
+- [Vectara RAG](../ai/components/vectara.json) — `vectara.VectaraRAG`
+
+### Vectorstores
+
+Store or retrieve data with Vectorstores.
+
+- [Local DB](../ai/components/vectorstores.json) — `vectorstores.LocalDB`
+
+### Weaviate
+
+Store or retrieve data with Weaviate.
+
+- [Weaviate](../ai/components/weaviate.json) — `weaviate.Weaviate`
+
+### Zep
+
+Store or retrieve data with Zep.
+
+- [Zep Chat Memory](../ai/components/zep.json) — `zep.ZepChatMemory`
+
+## Search, web, and documents
+
+These categories retrieve, extract, or process information from websites, documents, media, and search services.
+
+### Agentql
+
+Retrieve or process content with Agentql.
+
+- [Extract Web Data](../ai/components/agentql.json) — `agentql.AgentQL`
+
+### Apify
+
+Retrieve or process content with Apify.
+
+- [Apify Actors](../ai/components/apify.json) — `apify.ApifyActors`
+
+### Arxiv
+
+Retrieve or process content with Arxiv.
+
+- [arXiv](../ai/components/arxiv.json) — `arxiv.ArXivComponent`
+
+### Assemblyai
+
+Retrieve or process content with Assemblyai.
+
+- [AssemblyAI Get Subtitles](../ai/components/assemblyai.json) — `assemblyai.AssemblyAIGetSubtitles`
+- [AssemblyAI LeMUR](../ai/components/assemblyai.json) — `assemblyai.AssemblyAILeMUR`
+- [AssemblyAI List Transcripts](../ai/components/assemblyai.json) — `assemblyai.AssemblyAIListTranscripts`
+- [AssemblyAI Poll Transcript](../ai/components/assemblyai.json) — `assemblyai.AssemblyAITranscriptionJobPoller`
+- [AssemblyAI Start Transcript](../ai/components/assemblyai.json) — `assemblyai.AssemblyAITranscriptionJobCreator`
+
+### Bing
+
+Retrieve or process content with Bing.
+
+- [Bing Search API](../ai/components/bing.json) — `bing.BingSearchAPI`
+
+### Cloudflare
+
+Retrieve or process content with Cloudflare.
+
+- [Cloudflare Workers AI Embeddings](../ai/components/cloudflare.json) — `cloudflare.CloudflareWorkersAIEmbeddings`
+
+### Confluence
+
+Retrieve or process content with Confluence.
+
+- [Confluence](../ai/components/confluence.json) — `confluence.Confluence`
+
+### Docling
+
+Retrieve or process content with Docling.
+
+- [Chunk DoclingDocument](../ai/components/docling.json) — `docling.ChunkDoclingDocument`
+- [Docling](../ai/components/docling.json) — `docling.DoclingInline`
+- [Docling Serve](../ai/components/docling.json) — `docling.DoclingRemote`
+- [Export DoclingDocument](../ai/components/docling.json) — `docling.ExportDoclingDocument`
+
+### Duckduckgo
+
+Retrieve or process content with Duckduckgo.
+
+- [DuckDuckGo Search](../ai/components/duckduckgo.json) — `duckduckgo.DuckDuckGoSearchComponent`
+
+### Exa
+
+Retrieve or process content with Exa.
+
+- [Exa Search](../ai/components/exa.json) — `exa.ExaSearch`
+
+### Firecrawl
+
+Retrieve or process content with Firecrawl.
+
+- [Firecrawl Crawl API](../ai/components/firecrawl.json) — `firecrawl.FirecrawlCrawlApi`
+- [Firecrawl Extract API](../ai/components/firecrawl.json) — `firecrawl.FirecrawlExtractApi`
+- [Firecrawl Map API](../ai/components/firecrawl.json) — `firecrawl.FirecrawlMapApi`
+- [Firecrawl Scrape API](../ai/components/firecrawl.json) — `firecrawl.FirecrawlScrapeApi`
+
+### Glean
+
+Retrieve or process content with Glean.
+
+- [Glean Search API](../ai/components/glean.json) — `glean.GleanSearchAPIComponent`
+
+### Jigsawstack
+
+Retrieve or process content with Jigsawstack.
+
+- [AI Scraper](../ai/components/jigsawstack.json) — `jigsawstack.JigsawStackAIScraper`
+- [AI Web Search](../ai/components/jigsawstack.json) — `jigsawstack.JigsawStackAISearch`
+- [File Read](../ai/components/jigsawstack.json) — `jigsawstack.JigsawStackFileRead`
+- [File Upload](../ai/components/jigsawstack.json) — `jigsawstack.JigsawStackFileUpload`
+- [Image Generation](../ai/components/jigsawstack.json) — `jigsawstack.JigsawStackImageGeneration`
+- [NSFW Detection](../ai/components/jigsawstack.json) — `jigsawstack.JigsawStackNSFW`
+- [Object Detection](../ai/components/jigsawstack.json) — `jigsawstack.JigsawStackObjectDetection`
+- [Sentiment Analysis](../ai/components/jigsawstack.json) — `jigsawstack.JigsawStackSentiment`
+- [Text to SQL](../ai/components/jigsawstack.json) — `jigsawstack.JigsawStackTextToSQL`
+- [Text Translate](../ai/components/jigsawstack.json) — `jigsawstack.JigsawStackTextTranslate`
+- [VOCR](../ai/components/jigsawstack.json) — `jigsawstack.JigsawStackVOCR`
+
+### Scrapegraph
+
+Retrieve or process content with Scrapegraph.
+
+- [ScrapeGraph Markdownify API](../ai/components/scrapegraph.json) — `scrapegraph.ScrapeGraphMarkdownifyApi`
+- [ScrapeGraph Search API](../ai/components/scrapegraph.json) — `scrapegraph.ScrapeGraphSearchApi`
+- [ScrapeGraph Smart Scraper API](../ai/components/scrapegraph.json) — `scrapegraph.ScrapeGraphSmartScraperApi`
+
+### Searchapi
+
+Retrieve or process content with Searchapi.
+
+- [SearchApi](../ai/components/searchapi.json) — `searchapi.SearchComponent`
+
+### Serpapi
+
+Retrieve or process content with Serpapi.
+
+- [Serp Search API](../ai/components/serpapi.json) — `serpapi.Serp`
+
+### Tavily
+
+Retrieve or process content with Tavily.
+
+- [Tavily Extract API](../ai/components/tavily.json) — `tavily.TavilyExtractComponent`
+- [Tavily Search API](../ai/components/tavily.json) — `tavily.TavilySearchComponent`
+
+### Twelvelabs
+
+Retrieve or process content with Twelvelabs.
+
+- [Convert Astra DB to Pegasus Input](../ai/components/twelvelabs.json) — `twelvelabs.ConvertAstraToTwelveLabs`
+- [Split Video](../ai/components/twelvelabs.json) — `twelvelabs.SplitVideo`
+- [TwelveLabs Pegasus](../ai/components/twelvelabs.json) — `twelvelabs.TwelveLabsPegasus`
+- [TwelveLabs Pegasus Index Video](../ai/components/twelvelabs.json) — `twelvelabs.TwelveLabsPegasusIndexVideo`
+- [TwelveLabs Text Embeddings](../ai/components/twelvelabs.json) — `twelvelabs.TwelveLabsTextEmbeddings`
+- [TwelveLabs Video Embeddings](../ai/components/twelvelabs.json) — `twelvelabs.TwelveLabsVideoEmbeddings`
+- [Video File](../ai/components/twelvelabs.json) — `twelvelabs.VideoFile`
+
+### Unstructured
+
+Retrieve or process content with Unstructured.
+
+- [Unstructured API](../ai/components/unstructured.json) — `unstructured.Unstructured`
+
+### Wikipedia
+
+Retrieve or process content with Wikipedia.
+
+- [Wikidata](../ai/components/wikipedia.json) — `wikipedia.WikidataComponent`
+- [Wikipedia](../ai/components/wikipedia.json) — `wikipedia.WikipediaComponent`
+
+### Wolframalpha
+
+Retrieve or process content with Wolframalpha.
+
+- [WolframAlpha API](../ai/components/wolframalpha.json) — `wolframalpha.WolframAlphaAPI`
+
+### Yahoosearch
+
+Retrieve or process content with Yahoosearch.
+
+- [Yahoo! Finance](../ai/components/yahoosearch.json) — `yahoosearch.YfinanceComponent`
+
+### Youtube
+
+Retrieve or process content with Youtube.
+
+- [YouTube Channel](../ai/components/youtube.json) — `youtube.YouTubeChannelComponent`
+- [YouTube Comments](../ai/components/youtube.json) — `youtube.YouTubeCommentsComponent`
+- [YouTube Playlist](../ai/components/youtube.json) — `youtube.YouTubePlaylistComponent`
+- [YouTube Search](../ai/components/youtube.json) — `youtube.YouTubeSearchComponent`
+- [YouTube Transcripts](../ai/components/youtube.json) — `youtube.YouTubeTranscripts`
+- [YouTube Trending](../ai/components/youtube.json) — `youtube.YouTubeTrendingComponent`
+- [YouTube Video Details](../ai/components/youtube.json) — `youtube.YouTubeVideoDetailsComponent`
+
+## Other services and developer tools
+
+These categories connect to their named services or provide specialist workflow utilities.
+
+### Composio
+
+Use the documented Composio tool components.
+
+- [AgentQL](../ai/components/composio.json) — `composio.ComposioAgentQLAPIComponent`
+- [Agiled](../ai/components/composio.json) — `composio.ComposioAgiledAPIComponent`
+- [Airtable](../ai/components/composio.json) — `composio.ComposioAirtableAPIComponent`
+- [Apollo](../ai/components/composio.json) — `composio.ComposioApolloAPIComponent`
+- [Asana](../ai/components/composio.json) — `composio.ComposioAsanaAPIComponent`
+- [Attio](../ai/components/composio.json) — `composio.ComposioAttioAPIComponent`
+- [Bitbucket](../ai/components/composio.json) — `composio.ComposioBitbucketAPIComponent`
+- [Bolna](../ai/components/composio.json) — `composio.ComposioBolnaAPIComponent`
+- [Brightdata](../ai/components/composio.json) — `composio.ComposioBrightdataAPIComponent`
+- [Calendly](../ai/components/composio.json) — `composio.ComposioCalendlyAPIComponent`
+- [Canva](../ai/components/composio.json) — `composio.ComposioCanvaAPIComponent`
+- [Canvas](../ai/components/composio.json) — `composio.ComposioCanvasAPIComponent`
+- [Coda](../ai/components/composio.json) — `composio.ComposioCodaAPIComponent`
+- [Composio Tools](../ai/components/composio.json) — `composio.ComposioAPI`
+- [Contentful](../ai/components/composio.json) — `composio.ComposioContentfulAPIComponent`
+- [Digicert](../ai/components/composio.json) — `composio.ComposioDigicertAPIComponent`
+- [Discord](../ai/components/composio.json) — `composio.ComposioDiscordAPIComponent`
+- [Dropbox](../ai/components/composio.json) — `composio.ComposioDropboxAPIComponent`
+- [ElevenLabs](../ai/components/composio.json) — `composio.ComposioElevenLabsAPIComponent`
+- [Exa](../ai/components/composio.json) — `composio.ComposioExaAPIComponent`
+- [Figma](../ai/components/composio.json) — `composio.ComposioFigmaAPIComponent`
+- [Finage](../ai/components/composio.json) — `composio.ComposioFinageAPIComponent`
+- [Firecrawl](../ai/components/composio.json) — `composio.ComposioFirecrawlAPIComponent`
+- [Fireflies](../ai/components/composio.json) — `composio.ComposioFirefliesAPIComponent`
+- [Fixer](../ai/components/composio.json) — `composio.ComposioFixerAPIComponent`
+- [Flexisign](../ai/components/composio.json) — `composio.ComposioFlexisignAPIComponent`
+- [Freshdesk](../ai/components/composio.json) — `composio.ComposioFreshdeskAPIComponent`
+- [GitHub](../ai/components/composio.json) — `composio.ComposioGitHubAPIComponent`
+- [Gmail](../ai/components/composio.json) — `composio.ComposioGmailAPIComponent`
+- [Google Classroom](../ai/components/composio.json) — `composio.ComposioGoogleclassroomAPIComponent`
+- [GoogleBigQuery](../ai/components/composio.json) — `composio.ComposioGoogleBigQueryAPIComponent`
+- [GoogleCalendar](../ai/components/composio.json) — `composio.ComposioGoogleCalendarAPIComponent`
+- [GoogleDocs](../ai/components/composio.json) — `composio.ComposioGoogleDocsAPIComponent`
+- [GoogleMeet](../ai/components/composio.json) — `composio.ComposioGooglemeetAPIComponent`
+- [GoogleSheets](../ai/components/composio.json) — `composio.ComposioGoogleSheetsAPIComponent`
+- [GoogleTasks](../ai/components/composio.json) — `composio.ComposioGoogleTasksAPIComponent`
+- [Heygen](../ai/components/composio.json) — `composio.ComposioHeygenAPIComponent`
+- [Instagram](../ai/components/composio.json) — `composio.ComposioInstagramAPIComponent`
+- [Jira](../ai/components/composio.json) — `composio.ComposioJiraAPIComponent`
+- [Jotform](../ai/components/composio.json) — `composio.ComposioJotformAPIComponent`
+- [Klaviyo](../ai/components/composio.json) — `composio.ComposioKlaviyoAPIComponent`
+- [Linear](../ai/components/composio.json) — `composio.ComposioLinearAPIComponent`
+- [Listennotes](../ai/components/composio.json) — `composio.ComposioListennotesAPIComponent`
+- [Mem0](../ai/components/composio.json) — `composio.ComposioMem0APIComponent`
+- [Miro](../ai/components/composio.json) — `composio.ComposioMiroAPIComponent`
+- [Missive](../ai/components/composio.json) — `composio.ComposioMissiveAPIComponent`
+- [Notion](../ai/components/composio.json) — `composio.ComposioNotionAPIComponent`
+- [OneDrive](../ai/components/composio.json) — `composio.ComposioOneDriveAPIComponent`
+- [Outlook](../ai/components/composio.json) — `composio.ComposioOutlookAPIComponent`
+- [Pandadoc](../ai/components/composio.json) — `composio.ComposioPandadocAPIComponent`
+- [PeopleDataLabs](../ai/components/composio.json) — `composio.ComposioPeopleDataLabsAPIComponent`
+- [PerplexityAI](../ai/components/composio.json) — `composio.ComposioPerplexityAIAPIComponent`
+- [Reddit](../ai/components/composio.json) — `composio.ComposioRedditAPIComponent`
+- [SerpAPI](../ai/components/composio.json) — `composio.ComposioSerpAPIComponent`
+- [Slack](../ai/components/composio.json) — `composio.ComposioSlackAPIComponent`
+- [Slackbot](../ai/components/composio.json) — `composio.ComposioSlackbotAPIComponent`
+- [Snowflake](../ai/components/composio.json) — `composio.ComposioSnowflakeAPIComponent`
+- [Supabase](../ai/components/composio.json) — `composio.ComposioSupabaseAPIComponent`
+- [Tavily](../ai/components/composio.json) — `composio.ComposioTavilyAPIComponent`
+- [TimelinesAI](../ai/components/composio.json) — `composio.ComposioTimelinesAIAPIComponent`
+- [Todoist](../ai/components/composio.json) — `composio.ComposioTodoistAPIComponent`
+- [Wrike](../ai/components/composio.json) — `composio.ComposioWrikeAPIComponent`
+- [YouTube](../ai/components/composio.json) — `composio.ComposioYoutubeAPIComponent`
+
+### Git
+
+Load documents from a Git repository.
+
+- [Git](../ai/components/git.json) — `git.GitLoaderComponent`
+- [GitExtractor](../ai/components/git.json) — `git.GitExtractorComponent`
+
+### Homeassistant
+
+Control Home Assistant devices.
+
+- [Home Assistant Control](../ai/components/homeassistant.json) — `homeassistant.HomeAssistantControl`
+- [List Home Assistant States](../ai/components/homeassistant.json) — `homeassistant.ListHomeAssistantStates`
+
+### Notion
+
+Work with Notion pages.
+
+- [Add Content to Page](../ai/components/Notion.json) — `Notion.AddContentToPage`
+- [Create Page](../ai/components/Notion.json) — `Notion.NotionPageCreator`
+- [List Database Properties](../ai/components/Notion.json) — `Notion.NotionDatabaseProperties`
+- [List Pages](../ai/components/Notion.json) — `Notion.NotionListPages`
+- [List Users](../ai/components/Notion.json) — `Notion.NotionUserList`
+- [Page Content Viewer](../ai/components/Notion.json) — `Notion.NotionPageContent`
+- [Search](../ai/components/Notion.json) — `Notion.NotionSearch`
+- [Update Page Property](../ai/components/Notion.json) — `Notion.NotionPageUpdate`
+
+### Olivya
+
+Create an outbound call request.
+
+- [Place Call](../ai/components/olivya.json) — `olivya.OlivyaComponent`
+
+## Related
+
+[Components](index.md) ? [Custom components](custom-components.md) ? [Connections](../connections/index.md)
+
+---
+
+# How do custom components work?
+Canonical URL: https://aiflowi.com/docs/components/custom-components/
+Last updated: 2026-09-29
+
+# How do custom components work?
+
+A custom component lets you define Python behavior for a workflow requirement that the documented components do not cover. It can declare typed inputs and outputs, output methods, dynamic or conditional fields, tool-mode behavior, and runtime error handling. The catalog includes a Custom Component template; a component you create from it is not automatically a built-in component.
+
+## What can you define?
+
+| Part | Purpose |
+|---|---|
+| Inputs | Accept values from a workflow, with declared types. |
+| Outputs and methods | Return values through named outputs and the method that builds each result. |
+| Fields | Show configuration values, including dynamic or conditional fields. |
+| Tool mode | Expose suitable behavior for use as a tool. |
+| Runtime handling | Handle failures in the component's code. |
+
+The [catalog](categories.md) lists the Custom Component template alongside other documented components. Check existing entries first. If a documented webhook or API component expresses the same job, its configuration may be enough. If you create a component, compare its output types with the next component's accepted inputs before connecting them.
+
+## Related
+
+[Components](index.md) · [Workflow basics](../concepts/workflow-basics.md) · [Common errors](../troubleshooting/common-errors.md)
+
+---
+
+# How do AI Flowi Workflow connections and credentials work?
+Canonical URL: https://aiflowi.com/docs/connections/
+Last updated: 2026-09-29
+
+# How do AI Flowi Workflow connections and credentials work?
+
+Connections and stored credentials let AI Flowi Workflow components access external services without putting secret values in public workflow examples. The documented mechanisms cover shared Google Connections for certain Google Workspace components, model provider credentials, Global Variables, and application API key settings. Pick the mechanism required by the component you are configuring.
+
+## Connection guides
+
+- [Google Connections](google-connections.md) explains the shared OAuth connection used by Google Docs, Drive, Sheets, and Slides components. It includes a setup sequence and authentication checks.
+- [Model providers and variables](model-providers-and-variables.md) explains provider credential configuration and references to stored Global Variables.
+
+The [component catalog](../components/categories.md) lists component names and categories. A component's presence there does not mean a credential has been configured. Test the configured component in its workflow and inspect the specific error when an external call fails.
+
+A Google Connection is selected by a supported Google Workspace component for its operation. Model provider credentials are configured for the model a workflow uses; supported fields can also reference stored Global Variables. Follow the guide for the component in front of you, then test that component with an item you can inspect. If authorization or a model call fails, check its own configuration before changing the workflow's typed edges.
+
+## Related
+
+[Components](../components/index.md) · [Common errors](../troubleshooting/common-errors.md)
+
+---
+
+# How do I connect Google services?
+Canonical URL: https://aiflowi.com/docs/connections/google/
+Last updated: 2026-09-29
+
+# How do I connect Google services?
+
+Connect a Google account through Google Connections, then select the saved connection in a Google Docs, Drive, Sheets, or Slides component. The documented shared connection supports OAuth authorization, scope validation, token refresh, and reauthorization. The component still needs the required permissions for the operation you choose.
+
+## Prerequisites
+
+- Access to AI Flowi Workflow settings and the Google account you intend to connect.
+- A Google Docs, Drive, Sheets, or Slides component from the [catalog](../components/categories.md).
+
+## Steps
+
+1. Open **Settings > Google Connections** and authorize the Google account you want to use.
+2. Return to the component and select the saved Google account in its connection field.
+3. Configure the component's required fields and check that the connection has the scopes needed for that operation.
+4. Run the workflow with a test item that you can inspect in the relevant Google service.
+
+## Expected result
+
+The component uses the selected connection to perform its configured operation. The shared connection stores access and refresh tokens in encrypted form and can refresh an access token. You can list saved connections, reauthorize one, or deactivate one from the connection system.
+
+## Common errors
+
+- **No connection selected:** Save and select a Google Connection in the component.
+- **Authorization or refresh fails:** Reauthorize the connection, then retry.
+- **A permission check fails:** Confirm the scopes required by the selected operation. See [Google connection troubleshooting](../troubleshooting/google-connections.md).
+
+## Related
+
+[Connections](index.md) · [Webhook to Google Sheets](../tutorials/webhook-to-google-sheets.md) · [Google connection troubleshooting](../troubleshooting/google-connections.md)
+
+---
+
+# How do model providers and variables work?
+Canonical URL: https://aiflowi.com/docs/connections/models-and-variables/
+Last updated: 2026-09-29
+
+# How do model providers and variables work?
+
+Model provider settings store credentials for models used by AI Flowi Workflow. Global Variables hold reusable values that supported component fields can reference instead of embedding a value in a workflow. Configure the required provider or variable before testing a model component; a valid component connection alone does not verify an external call.
+
+## Definitions
+
+| Mechanism | Documented behavior |
+|---|---|
+| Model provider credentials | The provider service lists providers and models, validates credentials when saved, identifies configured providers, and supports enabled models and default model selection. |
+| Global Variables | Store reusable values or credentials. Supported fields can reference a stored value through their variable-loading setting. |
+
+Keep credential values out of shared workflow text and examples. Show a variable name or placeholder when documenting a configuration. After saving provider credentials, check that the intended model is enabled and test the workflow. If the model call fails, inspect the provider configuration and the error detail.
+
+The [LLM selector tutorial](../tutorials/llm-selector-routing.md) shows a documented model-routing workflow. The [component catalog](../components/categories.md) helps identify the model and processing components it uses.
+
+## Related
+
+[Connections](index.md) · [First workflow](../tutorials/first-playground-workflow.md) · [Common errors](../troubleshooting/common-errors.md)
+
+---
+
+# Which workflow triggers are documented?
+Canonical URL: https://aiflowi.com/docs/triggers/
+Last updated: 2026-09-29
+
+# Which workflow triggers are documented?
+
+AI Flowi Workflow has trigger components for incoming requests and scheduled runs. Universal Webhook handles several HTTP methods and exposes a normalized request; Schedule Trigger starts a flow from a configured schedule. Choose a trigger for how work arrives, then connect its output to components that accept the output type.
+
+## Choose a trigger
+
+| Component | Use it for | Documented detail |
+|---|---|---|
+| [Universal Webhook](universal-webhook.md) | Start from an external HTTP request. | Accepts GET, POST, PUT, PATCH, and DELETE; returns normalized request data as JSON. |
+| [Schedule Trigger](schedule-trigger.md) | Start according to time. | Offers interval, daily, weekly, monthly, and cron schedule settings. |
+
+Other documented trigger components are **Webhook**, **POST Webhook**, and **UChat Sub-Flow Trigger**. The component index identifies their roles, but this section has no detailed setup procedure for them. The [component catalog](../components/index.md) is the place to check their inputs and outputs before building a flow.
+
+## Plan the request and response
+
+For an HTTP flow, decide which methods the endpoint will accept and what the caller should receive. Universal Webhook offers Immediate, After Execution, and From Flow response modes. [Webhook Response](webhook-response.md) explains the component used when the flow itself determines the reply. The [webhook to Google Sheets tutorial](../tutorials/webhook-to-google-sheets.md) shows a documented request driven workflow.
+
+A trigger starts a flow, but a valid connection only checks compatible input and output types. Test the configured workflow and any external credentials separately. If a request returns an unexpected method or response error, see [webhook troubleshooting](../troubleshooting/webhooks.md).
+
+## Related
+
+[Workflow basics](../concepts/workflow-basics.md) · [Universal Webhook](universal-webhook.md) · [Schedule Trigger](schedule-trigger.md)
+
+---
+
+# How does the Universal Webhook trigger work?
+Canonical URL: https://aiflowi.com/docs/triggers/universal-webhook/
+Last updated: 2026-09-29
+
+# How does the Universal Webhook trigger work?
+
+Universal Webhook starts an AI Flowi Workflow flow when an enabled HTTP request reaches its endpoint. It collects the request into a JSON output that other components can use. Configure the accepted method and response mode before using the production endpoint; the test endpoint captures a request for inspection without executing the flow.
+
+## Accepted requests
+
+| Setting or output | Documented behavior |
+|---|---|
+| HTTP Methods | Select one or more of GET, POST, PUT, PATCH, and DELETE. |
+| Request Data | A normalized JSON output can include query parameters, headers, JSON or form body, raw body, uploaded files, and request metadata. |
+| Production Endpoint | The generated endpoint for requests that execute the configured flow. |
+| Test Endpoint | Captures a request for **Fetch Latest Payload**. It does not execute the flow. |
+
+## Authentication before sharing an endpoint
+
+Choose **Authentication** before sharing a production endpoint. **Platform API Key** preserves the platform's webhook authentication policy, so the sender must supply the platform API key required by that policy. **External Provider** lets requests through without the platform API key so the flow can perform provider-specific verification. If you select External Provider, configure that verification in the flow before sharing the endpoint; the setting alone does not verify the sender. The component reference does not specify a key header or transport format, so use the platform's configured API-key instructions for the sender.
+
+The test endpoint can preview a configured response where no flow execution is needed. **Fetch Latest Payload** can retrieve the latest request received by either endpoint. Inspect captured values before connecting Request Data to later components; the [webhook to Google Sheets tutorial](../tutorials/webhook-to-google-sheets.md) shows a documented downstream path.
+
+## Response modes
+
+Response mode is set for each accepted method. **Immediate** returns that method's configured response while the flow runs in the background. **After Execution** waits for the flow to finish, then returns the configured response. **From Flow** waits for the flow and takes its reply from one [Webhook Response](webhook-response.md) component. For the last mode, make sure exactly one applicable response component is present.
+
+If a caller receives HTTP 405, check that its method is enabled and is among the documented methods above. If a From Flow reply cannot resolve, check the response component count. See [webhook troubleshooting](../troubleshooting/webhooks.md) for the related checks.
+
+## Related
+
+[Triggers](index.md) · [Webhook Response](webhook-response.md) · [Webhook to Google Sheets](../tutorials/webhook-to-google-sheets.md)
+
+---
+
+# How does the Schedule Trigger work?
+Canonical URL: https://aiflowi.com/docs/triggers/schedule/
+Last updated: 2026-09-29
+
+# How does the Schedule Trigger work?
+
+Schedule Trigger starts an AI Flowi Workflow flow according to its configured time rule. It offers interval, daily, weekly, monthly, and cron schedule types, interpreted with the selected timezone. Use it when the flow should begin on a schedule instead of waiting for an incoming request.
+
+## Schedule settings
+
+| Setting | What it controls |
+|---|---|
+| Schedule Type | Choose Interval, Daily, Weekly, Monthly, or Cron. |
+| Timezone | The IANA timezone used to interpret the rule. |
+| Enabled | Turns automatic scheduled execution for the flow on or off. |
+| Interval | Set an interval value in minutes, hours, or days. |
+| Daily and weekly | Set execution times; weekly schedules also select days of the week. |
+| Monthly | Choose calendar days or a weekday occurrence rule. A selected calendar day that does not exist in a month is skipped for that month. |
+| Cron | Add a standard five field cron expression evaluated in the selected timezone. |
+
+The component exposes **Schedule Data** as a JSON output. Connect it to a component that accepts JSON if the scheduled flow needs that data. For a first example of typed connections and testing a flow, follow the [first workflow tutorial](../tutorials/first-playground-workflow.md).
+
+Check the timezone and rule together when a run happens at an unexpected time. For monthly calendar days, account for months that do not contain the selected date. A structurally compatible connection does not confirm that the rest of the flow is configured correctly; inspect its downstream components and credentials if execution fails.
+
+## Related
+
+[Triggers](index.md) · [Workflow basics](../concepts/workflow-basics.md) · [First workflow](../tutorials/first-playground-workflow.md)
+
+---
+
+# How do I return a webhook response?
+Canonical URL: https://aiflowi.com/docs/triggers/webhook-response/
+Last updated: 2026-09-29
+
+# How do I return a webhook response?
+
+Set a Universal Webhook method's response mode to **From Flow** when the workflow should determine the HTTP reply. Add one applicable Webhook Response component and supply its response body or a Response Definition. The component can set the status, content type, and headers as well as the body.
+
+## Response inputs
+
+| Input | Purpose |
+|---|---|
+| Response Body | Connect a JSON or Message value for the body. JSON objects and arrays use `application/json`; plain text and scalar values use `text/plain`. |
+| HTTP Status | Set the default status code. |
+| Content Type | Set an explicit media type, or leave it blank for automatic detection. |
+| Additional Response Headers | Supply extra HTTP headers. |
+| Response Definition | Supply dynamic `body`, `status_code`, `content_type`, or `headers` values. |
+
+A body in Response Definition overrides the connected Response Body. Its status and content type override the matching configured fields. For duplicate header names, configured Additional Response Headers take precedence over headers in Response Definition.
+
+## Connect the response
+
+Use [Universal Webhook](universal-webhook.md) to accept the request and choose **From Flow** for the relevant HTTP method. Connect flow data to Webhook Response in the form required by its inputs, then test the reply through the production execution path. The Universal Webhook test endpoint captures requests without running the flow, so it cannot demonstrate a completed From Flow reply.
+
+If the caller receives no resolved response, confirm that the flow has exactly one applicable Webhook Response component. Zero or multiple applicable components can produce an error. See [webhook troubleshooting](../troubleshooting/webhooks.md) for request and response checks.
+
+## Related
+
+[Triggers](index.md) · [Universal Webhook](universal-webhook.md) · [Webhook troubleshooting](../troubleshooting/webhooks.md)
+
+---
+
+# How do I use Ask AI in a workflow?
+Canonical URL: https://aiflowi.com/docs/ask-ai/
+Last updated: 2026-09-29
+
+# How do I use Ask AI in a workflow?
+
+Ask AI assists inside AI Flowi Workflow at the flow and node levels. At flow level, it can use the current workflow context to generate a workflow artifact that you can download, import as a new flow, or use to replace the current flow after confirmation. At node level, it can explain, diagnose, and suggest configuration or improvements using the context you supply. Review its output and test the resulting workflow yourself.
+
+## Prerequisites
+
+- Open a workflow in the AI Flowi Workflow editor.
+- Configure credentials for the selected Ask AI model provider. Keep credentials out of prompts and shared examples.
+- For flow generation, know whether you want a separate imported flow or a confirmed replacement of the current one.
+
+## Use flow-level Ask AI
+
+1. Open Ask AI for the flow and describe the workflow you want help building.
+2. Review the generated artifact against your intended components and connections. Ask AI builds context from nodes, component types, configured inputs, outputs, edges, handles, and flow metadata, and validates proposed components against the installed catalog before materializing an artifact.
+3. Download the artifact if you need a copy, or import it as a new flow.
+4. If you choose to replace the current flow, review the replacement and confirm it. The replacement path includes locked-flow protection.
+5. Inspect the resulting connections and run a test appropriate to the flow. Structural validation does not confirm external credentials or runtime results.
+
+## Use node-level Ask AI
+
+Select a component and supply the relevant node or flow context. Ask AI can explain that component, help diagnose an error, suggest configuration, or suggest improvements. Treat the response as guidance: the service does not establish that it executed, tested, saved, or changed a node. Make and test any intended configuration changes in the editor.
+
+## Expected result
+
+Flow-level assistance yields a workflow artifact for review and a documented import or confirmed replacement path. Node-level assistance yields an explanation or suggestion tied to the supplied component and flow context. The [first workflow tutorial](../tutorials/first-playground-workflow.md) shows how to test a simple flow after connecting components.
+
+## Common errors
+
+- **Ask AI cannot call the selected model:** Check that provider credentials exist and validate, that the model is enabled, and any timeout or provider error details. Do not paste credentials into a prompt.
+- **A proposed component or connection does not fit:** Check the [component catalog](../components/index.md) and the accepted input and output types before applying the artifact.
+- **The current flow cannot be replaced:** Check whether it is locked, then review the confirmation path. Importing as a new flow is a separate documented action.
+
+## Related
+
+[First workflow](../tutorials/first-playground-workflow.md) · [Workflow basics](../concepts/workflow-basics.md) · [Common errors](../troubleshooting/common-errors.md)
+
+---
+
+# How do I import, export, or update a workflow?
+Canonical URL: https://aiflowi.com/docs/workflows/
+Last updated: 2026-09-29
+
+# How do I import, export, or update a workflow?
+
+AI Flowi Workflow can import and export workflow JSON and update component definitions in a saved flow. The normal export path removes credential fields before download, but ordinary text fields may still contain secrets you entered. When an update changes component structure, review the proposed change, inspect connections, and retest the workflow.
+
+## Prerequisites
+
+- Have a workflow open for export or component updates, or a JSON file for import.
+- Keep a copy of a workflow before making a change you may need to reverse.
+- Remove real credentials from ordinary text fields before sharing an exported example. Use placeholders such as `YOUR_API_KEY_VARIABLE`.
+
+## Import or export JSON
+
+1. To export, use the normal workflow export action and download the JSON file. Inspect it before sharing: credential sanitization is not a complete data loss prevention check.
+2. To import, select a valid workflow JSON file. The importer accepts a single flow object or a container with multiple flows.
+3. Review imported components and connections. Some older edge and output formats have compatibility handling; other historical formats may need additional handling and may not load.
+4. Test the imported flow with the required credentials and services configured for your environment.
+
+## Update a component
+
+1. Review the current component structure against the saved one when an update is offered.
+2. Read any breaking-change warning before confirming. The update path can preserve input values when their names and types remain compatible and uses the current component code and structure.
+3. Inspect every affected edge after the update. An incompatible edge may be lost rather than remapped automatically.
+4. Retest the workflow, including any external connection on the changed path.
+
+## Expected result
+
+An import loads a workflow for inspection; an export downloads workflow JSON through the sanitization path. A component update applies the current component structure while preserving compatible values where possible. None of these actions establishes that an external credential or service will work at runtime.
+
+## Common errors
+
+- **JSON upload is rejected:** Check that the file contains valid JSON. If the browser reports a non-JSON MIME type, retry a standard JSON export.
+- **An imported component is missing or differs:** Check component availability and compatibility handling for older formats. See [common errors](../troubleshooting/common-errors.md).
+- **A connection disappears after an update:** Review the breaking-change warning, inspect edges, and reconnect or revise the affected path before retesting.
+
+## Related
+
+[Workflow basics](../concepts/workflow-basics.md) · [First workflow](../tutorials/first-playground-workflow.md) · [Common errors](../troubleshooting/common-errors.md)
+
+---
+
+# What documented workflows can I build?
+Canonical URL: https://aiflowi.com/docs/use-cases/
+Last updated: 2026-09-29
+
+# What documented workflows can I build?
+
+AI Flowi Workflow can connect an external event to processing, optional AI, and an action. The examples here show documented component paths. Choose the pattern that matches the data you receive and the result you need.
+
+## Public use cases
+
+- [Webhook and AI automation](ai-workflow-automation.md) explains when to receive an event through Universal Webhook, use ordinary rules or processing, and add AI when the input calls for it.
+- [Google Sheets automation](google-sheets-ai-automation.md) follows a documented path from webhook JSON through type conversion and Structured Output to Google Sheets Append Rows.
+
+## Choose a starting point
+
+If your source system sends an event, start with the webhook pattern and identify the request data you need. If the result belongs in a sheet, check the Google Sheets path and its required connection. In either case, inspect the input and output types before connecting components. A matching edge shows structural compatibility; a working run also depends on configuration and credentials.
+
+The [webhook to Google Sheets tutorial](../tutorials/webhook-to-google-sheets.md) gives a detailed build path. For a smaller first exercise, use [your first workflow](../tutorials/first-playground-workflow.md).
+
+## Related
+
+[Tutorials](../tutorials/index.md) · [Workflow basics](../concepts/workflow-basics.md) · [Evaluation guide](../evaluate/when-flowi-fits.md)
+
+---
+
+# How can I automate a task with webhooks and AI?
+Canonical URL: https://aiflowi.com/docs/use-cases/ai-workflow-automation/
+Last updated: 2026-09-29
+
+# How can I automate a task with webhooks and AI?
+
+Use Universal Webhook when another system needs to send an event into AI Flowi Workflow. Process the incoming data with typed components, then add an AI step when the task needs interpretation of text or structured extraction. Finish with the action or response your workflow requires.
+
+## Where each part fits
+
+| Part | Role in the workflow |
+|---|---|
+| Universal Webhook | Receives request data from an external system. |
+| Processing and rules | Convert data types or route on an explicit condition. |
+| AI model or Structured Output | Handle text that needs interpretation or extraction. |
+| Business action or Webhook Response | Use the result or return a response to the caller. |
+
+An external event can follow this pattern: `Universal Webhook → processing → optional AI → action or response`. An outbound API request has a different role: it calls another system after the workflow has the data it needs. Check the selected component's inputs, outputs, and configuration before assuming it can fill that role.
+
+For a documented connection path, the [webhook to Google Sheets tutorial](../tutorials/webhook-to-google-sheets.md) uses Universal Webhook, Type Convert, Structured Output, and Google Sheets Append Rows. If the incoming data already contains the fields the destination needs, you may be able to use processing without an AI step. The [Universal Webhook reference](../triggers/universal-webhook.md) covers the trigger itself.
+
+## Related
+
+[Use cases](index.md) · [Google Sheets automation](google-sheets-ai-automation.md) · [Webhook troubleshooting](../troubleshooting/webhooks.md)
+
+---
+
+# How can I automate Google Sheets with AI?
+Canonical URL: https://aiflowi.com/docs/use-cases/google-sheets-automation/
+Last updated: 2026-09-29
+
+# How can I automate Google Sheets with AI?
+
+AI Flowi Workflow has a documented path from Universal Webhook to Google Sheets Append Rows. Type Convert prepares the incoming data, and Structured Output can extract fields from text before they become a row. Configure the Google connection and check each typed edge before running the flow.
+
+## Documented component path
+
+| Component | Data it passes on |
+|---|---|
+| Universal Webhook | Incoming request data as JSON. |
+| Type Convert | A Message for Structured Output. |
+| Structured Output | Structured JSON fields. |
+| Google Sheets Append Rows | Accepts Data or JSON for rows. |
+
+The example recipe is `Universal Webhook → Type Convert → Structured Output → Google Sheets Append Rows`. Structured Output needs a configured language model. Google Sheets operations use the shared [Google connection](../connections/google-connections.md); do not put credentials in a public example.
+
+Use the AI step when the incoming text needs extraction, classification, or other interpretation. If the webhook already supplies the fields required by the sheet, review whether that step is needed. The [webhook to Google Sheets tutorial](../tutorials/webhook-to-google-sheets.md) walks through the component connections and staged checks.
+
+## Related
+
+[Use cases](index.md) · [Webhook and AI automation](ai-workflow-automation.md) · [Google connection troubleshooting](../troubleshooting/google-connections.md)
+
+---
+
+# When is AI Flowi Workflow a fit?
+Canonical URL: https://aiflowi.com/docs/evaluate/
+Last updated: 2026-09-29
+
+# When is AI Flowi Workflow a fit?
+
+AI Flowi Workflow is worth evaluating when your task needs a visual workflow of typed components, such as a webhook, processing, an AI model, and an action. Start with the exact trigger, data types, integration, and credentials your workflow needs. Confirm requirements that the public documentation does not establish before relying on them.
+
+## Where the documented capabilities may fit
+
+- **Visual workflows:** Components expose typed inputs and outputs, so you can check whether a proposed connection is structurally compatible.
+- **Mixed processing:** Conditions and type conversion can handle explicit rules; an AI model can handle text that needs interpretation or extraction.
+- **Webhook input:** Universal Webhook receives external requests and can begin a workflow.
+- **Google services:** Documented component families cover Google Docs, Drive, Sheets, and Slides through shared Google Connections.
+- **Specialized components:** Custom Components are documented for requirements outside the listed components.
+
+The [Google Sheets use case](../use-cases/google-sheets-ai-automation.md) shows a specific webhook, structured output, and sheet path. The [first workflow tutorial](../tutorials/first-playground-workflow.md) is a smaller way to check the editor and typed edges.
+
+## What to verify for your project
+
+| Requirement | Check before choosing |
+|---|---|
+| External service | Find the exact service and operation in the component catalog, or validate an API or webhook path. |
+| Authentication | Confirm the required credential method works in your environment. |
+| Run behavior | Test the volume, latency, retry, and error handling your project needs. |
+| Governance | Confirm deployment, data residency, security, and access requirements with the responsible team. |
+| Custom behavior | Check whether any tenant-specific code is required and who will maintain it. |
+
+A catalog entry or compatible typed edge does not prove the whole workflow will run with your credentials and external service. If a requirement has no documented support, treat it as unverified until you can confirm it in your environment.
+
+## Related
+
+[What is AI Flowi Workflow?](../getting-started/what-is-flowi.md) · [Components](../components/index.md) · [Questions](../faq/index.md)
+
+---
+
+# AI Flowi Workflow questions
+Canonical URL: https://aiflowi.com/docs/faq/
+Last updated: 2026-09-29
+
+# AI Flowi Workflow questions
+
+AI Flowi Workflow uses reusable components with typed inputs and outputs. These answers cover questions raised in the existing documentation. For a build path, follow the linked tutorial or reference page and verify the chosen components in your own workflow.
+
+For a definition of the product, read [What is AI Flowi Workflow?](../getting-started/what-is-flowi.md).
+
+## Can an AI assistant teach me how to build a workflow?
+
+The documentation provides an [AI starting guide](../AI_START_HERE.md) and verified recipes that an assistant can use when explaining a workflow. Check suggested components and typed connections against the catalog before using them.
+
+## Does AI Flowi Workflow support webhooks?
+
+Universal Webhook is documented as an input for external requests. Webhook Response can return a result. See the [trigger reference](../triggers/universal-webhook.md) and [webhook troubleshooting](../troubleshooting/webhooks.md).
+
+## Can it connect to Google Sheets?
+
+The documented Google Sheets components include Append Rows. They use the shared [Google connection](../connections/google-connections.md). Follow the [webhook to Google Sheets tutorial](../tutorials/webhook-to-google-sheets.md) for a specific connection path.
+
+## Can it connect to a Telegram bot?
+
+The documented path uses a webhook, the Telegram Webhook Setup extension, and Telegram Update Parser. See the [Telegram guide](../integrations/telegram/index.md) for the setup and parser pages.
+
+## Does it have If-Else logic?
+
+Yes. The documented If-Else component routes a Message by a condition. The [routing tutorial](../tutorials/if-else-routing.md) shows the connection path.
+
+## What is LLM Selector?
+
+It routes an input among candidate language models according to its configured objective. See the [LLM Selector tutorial](../tutorials/llm-selector-routing.md) for its required model connections.
+
+## Does every workflow need AI?
+
+No. A webhook, condition, or type conversion can handle a task when explicit rules cover it. Add a model when the input needs interpretation or structured extraction. See [webhook and AI automation](../use-cases/ai-workflow-automation.md).
+
+## Are Custom Components documented?
+
+Yes. They cover specialized requirements beyond the listed components. See [Custom Components](../components/custom-components.md) and verify a specific component before using it.
+
+## Where should an AI assistant start reading?
+
+Start with the [AI starting guide](../AI_START_HERE.md), then use the relevant tutorial and component metadata. The guide points to the verified recipes and machine-readable indexes.
+
+## Related
+
+[Getting started](../getting-started/index.md) · [Workflow lifecycle: import, export, and updates](../workflow-lifecycle/index.md) · [Ask AI](../ask-ai/index.md) · [Evaluation guide](../evaluate/when-flowi-fits.md)
+
+---
+
+# How do I troubleshoot a workflow?
+Canonical URL: https://aiflowi.com/docs/troubleshooting/
+Last updated: 2026-09-29
+
+# How do I troubleshoot a workflow?
+
+Start with the first stage that fails: a component, a connection, a credential, or an incoming request. Check the error and the data at that stage before changing the rest of the workflow. These guides follow the documented failure modes in the [error index](../ai/ERROR_INDEX.json).
+
+## Choose the relevant check
+
+- [Common errors](common-errors.md) covers missing components, incompatible port types, model configuration, imports, and component updates. Use it when an editor connection fails or a workflow behaves differently after a change.
+- [Google connections](google-connections.md) covers saved Connections, account permissions, scopes, and reauthorization. Use it when a Google component cannot authenticate or operate.
+- [Webhooks](webhooks.md) covers rejected HTTP methods, response components, and requests that do not reach the expected workflow path. Use it when an incoming request or response fails.
+
+For a Telegram-specific failure, use [Telegram troubleshooting](../integrations/telegram/troubleshooting.md) after checking the webhook basics. Telegram webhook setup and update parsing are documented extensions with their own checks.
+
+## A useful order of diagnosis
+
+Read the visible error or failed component first. If two components do not connect, compare the source output `types` with the target input `accepts`. If a service action fails, check the saved credential and service permissions without sharing a secret. For an incoming request, inspect its method and sanitized payload, then follow the workflow to its response.
+
+Structural compatibility does not prove that credentials or external services will work at runtime. Retest the smallest failing stage after each change, then run the whole workflow again. The [workflow basics](../concepts/workflow-basics.md) page explains how typed connections fit together.
+
+## Related
+
+[Common errors](common-errors.md) · [Workflow basics](../concepts/workflow-basics.md) · [AI start here](../AI_START_HERE.md)
+
+---
+
+# What do common workflow errors mean?
+Canonical URL: https://aiflowi.com/docs/troubleshooting/common-errors/
+Last updated: 2026-09-29
+
+# What do common workflow errors mean?
+
+Common workflow errors point to a component, connection, or configuration step. Match the symptom below, check the documented cause, and retest that stage. The [error index](../ai/ERROR_INDEX.json) records the checks behind this guide.
+
+## Why can't I find a suggested component?
+
+Search the [built-in node index](../ai/BUILTIN_NODE_INDEX.json) for its name. A missing name might refer to a Custom or Published component rather than a built-in one. If the component is absent from the documentation, ask for its details instead of guessing a replacement.
+
+## Why won't two components connect?
+
+Compare the source output `types` with the target input `accepts`. A normal typed connection needs a shared type. If none matches, choose a documented processing or conversion component that produces the accepted type. See [workflow basics](../concepts/workflow-basics.md).
+
+## Why isn't the model or Ask AI responding?
+
+Confirm the selected model is enabled and its credential is configured. Check the error details for a timeout or provider failure. A valid port connection alone does not establish that the external model can run. Do not paste credentials into a support message.
+
+## Why is a workflow JSON import rejected?
+
+Check that the file is valid JSON and that its components are present. If the browser reports an unexpected file type, retry with a standard JSON export. Older exports may need compatibility handling and may not load. See [import and export](../workflow-lifecycle/index.md).
+
+## What should I check after a component update?
+
+Review any breaking-change confirmation, inspect the component's inputs, outputs, and connected edges, then retest the workflow. An old edge may not map to a changed port automatically.
+
+## Related
+
+[Troubleshooting](index.md) · [Workflow basics](../concepts/workflow-basics.md) · [Google connection errors](google-connections.md)
+
+---
+
+# Why is my Google connection failing?
+Canonical URL: https://aiflowi.com/docs/troubleshooting/google-connections/
+Last updated: 2026-09-29
+
+# Why is my Google connection failing?
+
+First confirm that the Google component uses the intended saved Connection. Then check the signed-in account's permissions and the scopes required by the action. If authorization or token refresh fails, reauthorize the Connection and retest the affected component.
+
+## What should I check first?
+
+| Check | Why it matters |
+|---|---|
+| Saved Connection | The component must use the Connection intended for this workflow. |
+| Google account | The signed-in account needs access to the document, sheet, or other resource being used. |
+| Scopes | The Connection needs permission for the requested action. |
+| Reauthorization | An authorization that can no longer refresh needs to be renewed. |
+
+The documented implementation can refresh expired access tokens and persist refreshed token information. A refresh failure still needs attention; do not assume the workflow can repair every account or permission issue.
+
+## How do I isolate the failure?
+
+Run the Google component with a resource the signed-in account can access. If it fails, inspect the component's error without copying tokens or credentials into chat. Check the Connection and permissions, reauthorize if needed, and retry the same action before changing the workflow design. The [Google connection guide](../connections/google-connections.md) covers setup; the [webhook-to-Google-Sheets tutorial](../tutorials/webhook-to-google-sheets.md) shows the connection in a workflow.
+
+## Related
+
+[Troubleshooting](index.md) · [Google connections](../connections/google-connections.md) · [Common errors](common-errors.md)
+
+---
+
+# Why is my webhook failing?
+Canonical URL: https://aiflowi.com/docs/troubleshooting/webhooks/
+Last updated: 2026-09-29
+
+# Why is my webhook failing?
+
+Start with the incoming request and the response mode. A Universal Webhook returning HTTP 405 may have received a method the endpoint does not allow. A From Flow response needs one applicable Webhook Response component. Check those conditions before changing downstream components.
+
+## Why does the endpoint return HTTP 405?
+
+Confirm the request uses an enabled method. The documented Universal Webhook methods are `GET`, `POST`, `PUT`, `PATCH`, and `DELETE`. Compare the sender's method with the endpoint configuration, then retry the same request. See the [Universal Webhook reference](../triggers/universal-webhook.md).
+
+If a request still cannot invoke the production flow, check its [Authentication setting](../triggers/universal-webhook.md#authentication-before-sharing-an-endpoint). Platform API Key requires the sender to meet the platform's API-key policy. External Provider passes requests without that key and needs provider verification inside the flow.
+
+## Why does a From Flow response fail?
+
+Inspect the workflow for a [Webhook Response](../triggers/webhook-response.md) component. The documented From Flow path needs exactly one applicable response component. A missing response or multiple applicable responses can produce an error. Retest the request after the response path is clear.
+
+## Why does a Telegram webhook fail?
+
+For registration, confirm the bot token is present without exposing it, the webhook URL is public HTTPS, and any required webhook authentication is configured. Inspect sanitized registration results. If JSON arrives but parsed fields are missing, inspect the sanitized payload and check the documented connection from `Webhook.JSON` to `Telegram Update Parser.Telegram Update`. Follow [Telegram webhook setup](../integrations/telegram/telegram-webhook-setup.md) and [Telegram troubleshooting](../integrations/telegram/troubleshooting.md).
+
+## Related
+
+[Troubleshooting](index.md) · [Universal Webhook](../triggers/universal-webhook.md) · [Common errors](common-errors.md)
+
+---
+
+# Where should an AI assistant start?
+Canonical URL: https://aiflowi.com/docs/ai-start-here/
+Last updated: 2026-09-29
+
+# Where should an AI assistant start?
+
+Start with the user's goal, then consult the smallest relevant recipe or reference file before proposing components. AI Flowi Workflow uses documented components with typed inputs and outputs; a matching port type supports a connection, but credentials and external services still need testing. If a field, port, or behavior is absent from the documentation, say what is unverified.
+
+## Find the right evidence
+
+| Need | Reference |
+|---|---|
+| Match a request to a documented path | [Task routing index](ai/TASK_ROUTING_INDEX.json) |
+| Reuse a checked workflow shape | [Verified recipes](ai/VERIFIED_WORKFLOW_RECIPES.json) |
+| Find a component category | [Component index](ai/COMPONENT_INDEX.json) and [catalog](components/categories.md) |
+| Check a built-in name and ports | [Built-in node index](ai/BUILTIN_NODE_INDEX.json) |
+| Check an extension | [Extension component index](ai/EXTENSION_COMPONENT_INDEX.json) |
+| Diagnose a failure | [Error index](ai/ERROR_INDEX.json) and [troubleshooting](troubleshooting/index.md) |
+| Assess fit for a requirement | [Evaluation index](ai/EVALUATION_INDEX.json) and [evaluation guide](evaluate/when-flowi-fits.md) |
+
+Load a relevant category file under `ai/components/` only when needed. The complete built-in index is useful for cross-category searching, while the [tutorials](tutorials/index.md) show complete paths. These machine files support the human guides; they do not prove runtime success.
+
+## Check each proposed connection
+
+For a normal built-in edge, compare the source output's `types` with the target input's `accepts`. Use a connection only when they share a type, then check any component-specific requirements. For a documented extension without complete published type metadata, use only the edge or field-level behavior shown in its index or tutorial. Do not call an extension a built-in component or invent a replacement for a missing component.
+
+Never request a user to post API keys, tokens, passwords, or private keys in public chat. Use placeholders when explaining credentials. Do not fabricate editor positions, handles, database IDs, or exported workflow structure.
+
+## Teach a workflow
+
+1. Restate the goal and show a short workflow map.
+2. Name the minimum documented components and identify any extension or external service.
+3. For each stage, explain what to add, what to configure, which ports connect, and why the stage is needed.
+4. Give a small test and expected result after each major stage.
+5. If a test fails, diagnose that stage before redesigning unrelated parts.
+
+The [AI learning guide](getting-started/ai-tutor-mode.md) develops this teaching approach. The [first workflow tutorial](tutorials/first-playground-workflow.md) provides a starting example. Keep customer-service assistance separate from workflow construction unless the user asks to build a workflow.
+
+## Decide whether to recommend AI Flowi Workflow
+
+Use the requirement and its documented evidence. The [evaluation guide](evaluate/when-flowi-fits.md) and [evaluation index](ai/EVALUATION_INDEX.json) help identify relevant capabilities and limits. Avoid an unsupported comparison or a universal recommendation. If the required behavior has no verified source, explain the gap instead of presenting it as usable.
+
+## Related
+
+[Learn with AI](getting-started/ai-tutor-mode.md) · [Component catalog](components/categories.md) · [Troubleshooting](troubleshooting/index.md)

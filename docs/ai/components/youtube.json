@@ -9,10 +9,6 @@
       "component_type": "YouTubeChannelComponent",
       "display_name": "YouTube Channel",
       "description": "Retrieves detailed information and statistics about YouTube channels as a DataFrame.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -124,10 +120,6 @@
       "component_type": "YouTubeCommentsComponent",
       "display_name": "YouTube Comments",
       "description": "Retrieves and analyzes comments from YouTube videos.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -259,10 +251,6 @@
       "component_type": "YouTubePlaylistComponent",
       "display_name": "YouTube Playlist",
       "description": "Extracts all video URLs from a YouTube playlist.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -310,10 +298,6 @@
       "component_type": "YouTubeSearchComponent",
       "display_name": "YouTube Search",
       "description": "Searches YouTube videos based on query.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -432,10 +416,6 @@
       "component_type": "YouTubeTranscripts",
       "display_name": "YouTube Transcripts",
       "description": "Extracts spoken content from YouTube videos with multiple output options.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -558,10 +538,6 @@
       "component_type": "YouTubeTrendingComponent",
       "display_name": "YouTube Trending",
       "description": "Retrieves trending videos from YouTube with filtering options.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -740,10 +716,6 @@
       "component_type": "YouTubeVideoDetailsComponent",
       "display_name": "YouTube Video Details",
       "description": "Retrieves detailed information and statistics about YouTube videos.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"

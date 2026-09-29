@@ -9,10 +9,6 @@
       "component_type": "ALTK Agent",
       "display_name": "ALTK Agent",
       "description": "Advanced agent with both pre-tool validation and post-tool processing capabilities.",
-      "status": "BETA",
-      "legacy": false,
-      "beta": true,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"

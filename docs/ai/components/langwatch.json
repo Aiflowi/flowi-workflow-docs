@@ -9,10 +9,6 @@
       "component_type": "LangWatchEvaluator",
       "display_name": "LangWatch Evaluator",
       "description": "Evaluates various aspects of language models using LangWatch's evaluation endpoints.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"

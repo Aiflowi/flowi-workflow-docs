@@ -9,10 +9,6 @@
       "component_type": "ZepChatMemory",
       "display_name": "Zep Chat Memory",
       "description": "Retrieves and store chat messages from Zep.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['helpers.Memory']"
       ],

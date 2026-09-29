@@ -9,10 +9,6 @@
       "component_type": "NotDiamond",
       "display_name": "Not Diamond Router",
       "description": "Call the right model at the right time with the world's most powerful AI model router.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message",

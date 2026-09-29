@@ -9,10 +9,6 @@
       "component_type": "Vectara",
       "display_name": "Vectara",
       "description": "Vectara Vector Store with search capabilities",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -187,10 +183,6 @@
       "component_type": "VectaraRAG",
       "display_name": "Vectara RAG",
       "description": "Vectara's full end to end RAG",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -261,7 +253,7 @@
           "load_from_db": false,
           "tool_mode": false,
           "real_time_refresh": false,
-          "info": "The maximum number of search results to be available to the prompt."
+          "info": "The maximum number of search results to be documented to the prompt."
         },
         {
           "name": "prompt",

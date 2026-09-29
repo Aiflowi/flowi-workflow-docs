@@ -9,10 +9,6 @@
       "component_type": "WikidataComponent",
       "display_name": "Wikidata",
       "description": "Performs a search using the Wikidata API.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -60,10 +56,6 @@
       "component_type": "WikipediaComponent",
       "display_name": "Wikipedia",
       "description": "Call Wikipedia API.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -136,7 +128,7 @@
         },
         {
           "name": "load_all_available_meta",
-          "display_name": "Load all available meta",
+          "display_name": "Load all documented meta",
           "input_type": "BoolInput",
           "value_type": "bool",
           "accepts": [],

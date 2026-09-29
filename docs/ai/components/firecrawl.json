@@ -9,10 +9,6 @@
       "component_type": "FirecrawlCrawlApi",
       "display_name": "Firecrawl Crawl API",
       "description": "Crawls a URL and returns the results.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -146,10 +142,6 @@
       "component_type": "FirecrawlExtractApi",
       "display_name": "Firecrawl Extract API",
       "description": "Extracts data from a URL.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -266,10 +258,6 @@
       "component_type": "FirecrawlMapApi",
       "display_name": "Firecrawl Map API",
       "description": "Maps a URL and returns the results.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -381,10 +369,6 @@
       "component_type": "FirecrawlScrapeApi",
       "display_name": "Firecrawl Scrape API",
       "description": "Scrapes a URL and returns the results.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"

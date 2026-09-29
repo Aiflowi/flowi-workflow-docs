@@ -43,11 +43,11 @@ The assistant should use real names, classify extensions correctly, validate typ
 
 ## Search / discovery maintenance
 
-- keep `docs.aiflowi.com` as the canonical documentation domain;
+- keep `https://aiflowi.com/docs/` as the canonical documentation address;
 - keep sitemap and internal links healthy;
 - keep OAI-SearchBot crawlable if ChatGPT search discovery is desired;
 - update high-value pages with substantive product information rather than creating thin keyword variations;
-- keep comparison facts dated and based on primary sources.
+- keep public claims dated and based on verified sources.
 
 ## Release rule
 

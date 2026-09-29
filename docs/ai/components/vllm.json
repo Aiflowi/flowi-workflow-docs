@@ -9,10 +9,6 @@
       "component_type": "vLLMModel",
       "display_name": "vLLM",
       "description": "Generates text using vLLM models via OpenAI-compatible API.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",
@@ -266,10 +262,6 @@
       "component_type": "vLLMEmbeddings",
       "display_name": "vLLM Embeddings",
       "description": "Generate embeddings using vLLM models via OpenAI-compatible API.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Embeddings"

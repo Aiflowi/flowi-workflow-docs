@@ -9,10 +9,6 @@
       "component_type": "Maritalk",
       "display_name": "MariTalk",
       "description": "Generates text using MariTalk LLMs.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",

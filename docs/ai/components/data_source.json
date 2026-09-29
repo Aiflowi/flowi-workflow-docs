@@ -9,10 +9,6 @@
       "component_type": "APIRequest",
       "display_name": "API Request",
       "description": "Make HTTP requests using URL or cURL commands.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -242,10 +238,6 @@
       "component_type": "MockDataGenerator",
       "display_name": "Mock Data",
       "description": "Generate mock data for testing and development.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -302,10 +294,6 @@
       "component_type": "SQLComponent",
       "display_name": "SQL Database",
       "description": "Executes SQL queries on SQLAlchemy-compatible databases.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -400,10 +388,6 @@
       "component_type": "URLComponent",
       "display_name": "URL",
       "description": "Fetch content from one or more web pages, following links recursively.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message",
@@ -633,10 +617,6 @@
       "component_type": "UnifiedWebSearch",
       "display_name": "Web Search",
       "description": "Search the web, news, or RSS feeds.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -801,10 +781,6 @@
       "component_type": "CSVtoData",
       "display_name": "Load CSV",
       "description": "Load a CSV file, CSV from a file path, or a valid CSV string and convert it to a list of Data",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['data.File']"
       ],
@@ -906,10 +882,6 @@
       "component_type": "JSONtoData",
       "display_name": "Load JSON",
       "description": "Convert a JSON file, JSON from a file path, or a JSON string to a Data object or a list of Data objects",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['data.File']"
       ],
@@ -993,10 +965,6 @@
       "component_type": "NewsSearch",
       "display_name": "News Search",
       "description": "Searches Google News via RSS. Returns clean article data.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -1140,10 +1108,6 @@
       "component_type": "RSSReaderSimple",
       "display_name": "RSS Reader",
       "description": "Fetches and parses an RSS feed.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [],
       "base_classes": [
         "Table"

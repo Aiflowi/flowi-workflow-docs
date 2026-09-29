@@ -9,10 +9,6 @@
       "component_type": "needle",
       "display_name": "Needle Retriever",
       "description": "A retriever that uses the Needle API to search collections.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"

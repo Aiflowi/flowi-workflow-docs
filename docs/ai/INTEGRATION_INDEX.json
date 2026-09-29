@@ -7,13 +7,10 @@
       "category": "FAISS",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "FAISS.FAISS",
-          "display_name": "FAISS",
-          "status": "AVAILABLE"
+          "display_name": "FAISS"
         }
       ]
     },
@@ -21,48 +18,38 @@
       "category": "Notion",
       "component_count": 8,
       "available": 8,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "Notion.AddContentToPage",
-          "display_name": "Add Content to Page ",
-          "status": "AVAILABLE"
+          "display_name": "Add Content to Page "
         },
         {
           "id": "Notion.NotionDatabaseProperties",
-          "display_name": "List Database Properties ",
-          "status": "AVAILABLE"
+          "display_name": "List Database Properties "
         },
         {
           "id": "Notion.NotionListPages",
-          "display_name": "List Pages ",
-          "status": "AVAILABLE"
+          "display_name": "List Pages "
         },
         {
           "id": "Notion.NotionPageContent",
-          "display_name": "Page Content Viewer ",
-          "status": "AVAILABLE"
+          "display_name": "Page Content Viewer "
         },
         {
           "id": "Notion.NotionPageCreator",
-          "display_name": "Create Page ",
-          "status": "AVAILABLE"
+          "display_name": "Create Page "
         },
         {
           "id": "Notion.NotionPageUpdate",
-          "display_name": "Update Page Property ",
-          "status": "AVAILABLE"
+          "display_name": "Update Page Property "
         },
         {
           "id": "Notion.NotionSearch",
-          "display_name": "Search ",
-          "status": "AVAILABLE"
+          "display_name": "Search "
         },
         {
           "id": "Notion.NotionUserList",
-          "display_name": "List Users ",
-          "status": "AVAILABLE"
+          "display_name": "List Users "
         }
       ]
     },
@@ -70,23 +57,18 @@
       "category": "agentics",
       "component_count": 3,
       "available": 3,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "agentics.AgenerateComponent",
-          "display_name": "aGenerate",
-          "status": "AVAILABLE"
+          "display_name": "aGenerate"
         },
         {
           "id": "agentics.AMapComponent",
-          "display_name": "aMap",
-          "status": "AVAILABLE"
+          "display_name": "aMap"
         },
         {
           "id": "agentics.AreduceComponent",
-          "display_name": "aReduce",
-          "status": "AVAILABLE"
+          "display_name": "aReduce"
         }
       ]
     },
@@ -94,13 +76,10 @@
       "category": "agentql",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "agentql.AgentQL",
-          "display_name": "Extract Web Data",
-          "status": "AVAILABLE"
+          "display_name": "Extract Web Data"
         }
       ]
     },
@@ -108,18 +87,14 @@
       "category": "aiml",
       "component_count": 2,
       "available": 2,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "aiml.AIMLEmbeddings",
-          "display_name": "AI/ML API Embeddings",
-          "status": "AVAILABLE"
+          "display_name": "AI/ML API Embeddings"
         },
         {
           "id": "aiml.AIMLModel",
-          "display_name": "AI/ML API",
-          "status": "AVAILABLE"
+          "display_name": "AI/ML API"
         }
       ]
     },
@@ -127,13 +102,10 @@
       "category": "altk",
       "component_count": 1,
       "available": 0,
-      "beta": 1,
-      "legacy": 0,
       "components": [
         {
           "id": "altk.ALTK Agent",
-          "display_name": "ALTK Agent",
-          "status": "BETA"
+          "display_name": "ALTK Agent"
         }
       ]
     },
@@ -141,28 +113,22 @@
       "category": "amazon",
       "component_count": 4,
       "available": 2,
-      "beta": 1,
-      "legacy": 1,
       "components": [
         {
           "id": "amazon.AmazonBedrockConverseModel",
-          "display_name": "Amazon Bedrock Converse",
-          "status": "BETA"
+          "display_name": "Amazon Bedrock Converse"
         },
         {
           "id": "amazon.AmazonBedrockEmbeddings",
-          "display_name": "Amazon Bedrock Embeddings",
-          "status": "AVAILABLE"
+          "display_name": "Amazon Bedrock Embeddings"
         },
         {
           "id": "amazon.AmazonBedrockModel",
-          "display_name": "Amazon Bedrock",
-          "status": "LEGACY"
+          "display_name": "Amazon Bedrock"
         },
         {
           "id": "amazon.s3bucketuploader",
-          "display_name": "S3 Bucket Uploader",
-          "status": "AVAILABLE"
+          "display_name": "S3 Bucket Uploader"
         }
       ]
     },
@@ -170,13 +136,10 @@
       "category": "anthropic",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "anthropic.AnthropicModel",
-          "display_name": "Anthropic",
-          "status": "AVAILABLE"
+          "display_name": "Anthropic"
         }
       ]
     },
@@ -184,13 +147,10 @@
       "category": "apify",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "apify.ApifyActors",
-          "display_name": "Apify Actors",
-          "status": "AVAILABLE"
+          "display_name": "Apify Actors"
         }
       ]
     },
@@ -198,13 +158,10 @@
       "category": "arxiv",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "arxiv.ArXivComponent",
-          "display_name": "arXiv",
-          "status": "AVAILABLE"
+          "display_name": "arXiv"
         }
       ]
     },
@@ -212,33 +169,26 @@
       "category": "assemblyai",
       "component_count": 5,
       "available": 5,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "assemblyai.AssemblyAIGetSubtitles",
-          "display_name": "AssemblyAI Get Subtitles",
-          "status": "AVAILABLE"
+          "display_name": "AssemblyAI Get Subtitles"
         },
         {
           "id": "assemblyai.AssemblyAILeMUR",
-          "display_name": "AssemblyAI LeMUR",
-          "status": "AVAILABLE"
+          "display_name": "AssemblyAI LeMUR"
         },
         {
           "id": "assemblyai.AssemblyAIListTranscripts",
-          "display_name": "AssemblyAI List Transcripts",
-          "status": "AVAILABLE"
+          "display_name": "AssemblyAI List Transcripts"
         },
         {
           "id": "assemblyai.AssemblyAITranscriptionJobCreator",
-          "display_name": "AssemblyAI Start Transcript",
-          "status": "AVAILABLE"
+          "display_name": "AssemblyAI Start Transcript"
         },
         {
           "id": "assemblyai.AssemblyAITranscriptionJobPoller",
-          "display_name": "AssemblyAI Poll Transcript",
-          "status": "AVAILABLE"
+          "display_name": "AssemblyAI Poll Transcript"
         }
       ]
     },
@@ -246,18 +196,14 @@
       "category": "azure",
       "component_count": 2,
       "available": 2,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "azure.AzureOpenAIEmbeddings",
-          "display_name": "Azure OpenAI Embeddings",
-          "status": "AVAILABLE"
+          "display_name": "Azure OpenAI Embeddings"
         },
         {
           "id": "azure.AzureOpenAIModel",
-          "display_name": "Azure OpenAI",
-          "status": "AVAILABLE"
+          "display_name": "Azure OpenAI"
         }
       ]
     },
@@ -265,13 +211,10 @@
       "category": "baidu",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "baidu.BaiduQianfanChatModel",
-          "display_name": "Qianfan",
-          "status": "AVAILABLE"
+          "display_name": "Qianfan"
         }
       ]
     },
@@ -279,13 +222,10 @@
       "category": "bing",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "bing.BingSearchAPI",
-          "display_name": "Bing Search API",
-          "status": "AVAILABLE"
+          "display_name": "Bing Search API"
         }
       ]
     },
@@ -293,23 +233,18 @@
       "category": "cassandra",
       "component_count": 3,
       "available": 3,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "cassandra.Cassandra",
-          "display_name": "Cassandra",
-          "status": "AVAILABLE"
+          "display_name": "Cassandra"
         },
         {
           "id": "cassandra.CassandraChatMemory",
-          "display_name": "Cassandra Chat Memory",
-          "status": "AVAILABLE"
+          "display_name": "Cassandra Chat Memory"
         },
         {
           "id": "cassandra.CassandraGraph",
-          "display_name": "Cassandra Graph",
-          "status": "AVAILABLE"
+          "display_name": "Cassandra Graph"
         }
       ]
     },
@@ -317,13 +252,10 @@
       "category": "chroma",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "chroma.Chroma",
-          "display_name": "Chroma DB",
-          "status": "AVAILABLE"
+          "display_name": "Chroma DB"
         }
       ]
     },
@@ -331,23 +263,18 @@
       "category": "cleanlab",
       "component_count": 3,
       "available": 3,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "cleanlab.CleanlabEvaluator",
-          "display_name": "Cleanlab Evaluator",
-          "status": "AVAILABLE"
+          "display_name": "Cleanlab Evaluator"
         },
         {
           "id": "cleanlab.CleanlabRAGEvaluator",
-          "display_name": "Cleanlab RAG Evaluator",
-          "status": "AVAILABLE"
+          "display_name": "Cleanlab RAG Evaluator"
         },
         {
           "id": "cleanlab.CleanlabRemediator",
-          "display_name": "Cleanlab Remediator",
-          "status": "AVAILABLE"
+          "display_name": "Cleanlab Remediator"
         }
       ]
     },
@@ -355,13 +282,10 @@
       "category": "clickhouse",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "clickhouse.Clickhouse",
-          "display_name": "ClickHouse",
-          "status": "AVAILABLE"
+          "display_name": "ClickHouse"
         }
       ]
     },
@@ -369,13 +293,10 @@
       "category": "cloudflare",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "cloudflare.CloudflareWorkersAIEmbeddings",
-          "display_name": "Cloudflare Workers AI Embeddings",
-          "status": "AVAILABLE"
+          "display_name": "Cloudflare Workers AI Embeddings"
         }
       ]
     },
@@ -383,23 +304,18 @@
       "category": "cohere",
       "component_count": 3,
       "available": 3,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "cohere.CohereEmbeddings",
-          "display_name": "Cohere Embeddings",
-          "status": "AVAILABLE"
+          "display_name": "Cohere Embeddings"
         },
         {
           "id": "cohere.CohereModel",
-          "display_name": "Cohere Language Models",
-          "status": "AVAILABLE"
+          "display_name": "Cohere Language Models"
         },
         {
           "id": "cohere.CohereRerank",
-          "display_name": "Cohere Rerank",
-          "status": "AVAILABLE"
+          "display_name": "Cohere Rerank"
         }
       ]
     },
@@ -407,13 +323,10 @@
       "category": "cometapi",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "cometapi.CometAPIModel",
-          "display_name": "CometAPI",
-          "status": "AVAILABLE"
+          "display_name": "CometAPI"
         }
       ]
     },
@@ -421,323 +334,258 @@
       "category": "composio",
       "component_count": 63,
       "available": 63,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "composio.ComposioAgentQLAPIComponent",
-          "display_name": "AgentQL",
-          "status": "AVAILABLE"
+          "display_name": "AgentQL"
         },
         {
           "id": "composio.ComposioAgiledAPIComponent",
-          "display_name": "Agiled",
-          "status": "AVAILABLE"
+          "display_name": "Agiled"
         },
         {
           "id": "composio.ComposioAirtableAPIComponent",
-          "display_name": "Airtable",
-          "status": "AVAILABLE"
+          "display_name": "Airtable"
         },
         {
           "id": "composio.ComposioAPI",
-          "display_name": "Composio Tools",
-          "status": "AVAILABLE"
+          "display_name": "Composio Tools"
         },
         {
           "id": "composio.ComposioApolloAPIComponent",
-          "display_name": "Apollo",
-          "status": "AVAILABLE"
+          "display_name": "Apollo"
         },
         {
           "id": "composio.ComposioAsanaAPIComponent",
-          "display_name": "Asana",
-          "status": "AVAILABLE"
+          "display_name": "Asana"
         },
         {
           "id": "composio.ComposioAttioAPIComponent",
-          "display_name": "Attio",
-          "status": "AVAILABLE"
+          "display_name": "Attio"
         },
         {
           "id": "composio.ComposioBitbucketAPIComponent",
-          "display_name": "Bitbucket",
-          "status": "AVAILABLE"
+          "display_name": "Bitbucket"
         },
         {
           "id": "composio.ComposioBolnaAPIComponent",
-          "display_name": "Bolna",
-          "status": "AVAILABLE"
+          "display_name": "Bolna"
         },
         {
           "id": "composio.ComposioBrightdataAPIComponent",
-          "display_name": "Brightdata",
-          "status": "AVAILABLE"
+          "display_name": "Brightdata"
         },
         {
           "id": "composio.ComposioCalendlyAPIComponent",
-          "display_name": "Calendly",
-          "status": "AVAILABLE"
+          "display_name": "Calendly"
         },
         {
           "id": "composio.ComposioCanvaAPIComponent",
-          "display_name": "Canva",
-          "status": "AVAILABLE"
+          "display_name": "Canva"
         },
         {
           "id": "composio.ComposioCanvasAPIComponent",
-          "display_name": "Canvas",
-          "status": "AVAILABLE"
+          "display_name": "Canvas"
         },
         {
           "id": "composio.ComposioCodaAPIComponent",
-          "display_name": "Coda",
-          "status": "AVAILABLE"
+          "display_name": "Coda"
         },
         {
           "id": "composio.ComposioContentfulAPIComponent",
-          "display_name": "Contentful",
-          "status": "AVAILABLE"
+          "display_name": "Contentful"
         },
         {
           "id": "composio.ComposioDigicertAPIComponent",
-          "display_name": "Digicert",
-          "status": "AVAILABLE"
+          "display_name": "Digicert"
         },
         {
           "id": "composio.ComposioDiscordAPIComponent",
-          "display_name": "Discord",
-          "status": "AVAILABLE"
+          "display_name": "Discord"
         },
         {
           "id": "composio.ComposioDropboxAPIComponent",
-          "display_name": "Dropbox",
-          "status": "AVAILABLE"
+          "display_name": "Dropbox"
         },
         {
           "id": "composio.ComposioElevenLabsAPIComponent",
-          "display_name": "ElevenLabs",
-          "status": "AVAILABLE"
+          "display_name": "ElevenLabs"
         },
         {
           "id": "composio.ComposioExaAPIComponent",
-          "display_name": "Exa",
-          "status": "AVAILABLE"
+          "display_name": "Exa"
         },
         {
           "id": "composio.ComposioFigmaAPIComponent",
-          "display_name": "Figma",
-          "status": "AVAILABLE"
+          "display_name": "Figma"
         },
         {
           "id": "composio.ComposioFinageAPIComponent",
-          "display_name": "Finage",
-          "status": "AVAILABLE"
+          "display_name": "Finage"
         },
         {
           "id": "composio.ComposioFirecrawlAPIComponent",
-          "display_name": "Firecrawl",
-          "status": "AVAILABLE"
+          "display_name": "Firecrawl"
         },
         {
           "id": "composio.ComposioFirefliesAPIComponent",
-          "display_name": "Fireflies",
-          "status": "AVAILABLE"
+          "display_name": "Fireflies"
         },
         {
           "id": "composio.ComposioFixerAPIComponent",
-          "display_name": "Fixer",
-          "status": "AVAILABLE"
+          "display_name": "Fixer"
         },
         {
           "id": "composio.ComposioFlexisignAPIComponent",
-          "display_name": "Flexisign",
-          "status": "AVAILABLE"
+          "display_name": "Flexisign"
         },
         {
           "id": "composio.ComposioFreshdeskAPIComponent",
-          "display_name": "Freshdesk",
-          "status": "AVAILABLE"
+          "display_name": "Freshdesk"
         },
         {
           "id": "composio.ComposioGitHubAPIComponent",
-          "display_name": "GitHub",
-          "status": "AVAILABLE"
+          "display_name": "GitHub"
         },
         {
           "id": "composio.ComposioGmailAPIComponent",
-          "display_name": "Gmail",
-          "status": "AVAILABLE"
+          "display_name": "Gmail"
         },
         {
           "id": "composio.ComposioGoogleBigQueryAPIComponent",
-          "display_name": "GoogleBigQuery",
-          "status": "AVAILABLE"
+          "display_name": "GoogleBigQuery"
         },
         {
           "id": "composio.ComposioGoogleCalendarAPIComponent",
-          "display_name": "GoogleCalendar",
-          "status": "AVAILABLE"
+          "display_name": "GoogleCalendar"
         },
         {
           "id": "composio.ComposioGoogleclassroomAPIComponent",
-          "display_name": "Google Classroom",
-          "status": "AVAILABLE"
+          "display_name": "Google Classroom"
         },
         {
           "id": "composio.ComposioGoogleDocsAPIComponent",
-          "display_name": "GoogleDocs",
-          "status": "AVAILABLE"
+          "display_name": "GoogleDocs"
         },
         {
           "id": "composio.ComposioGooglemeetAPIComponent",
-          "display_name": "GoogleMeet",
-          "status": "AVAILABLE"
+          "display_name": "GoogleMeet"
         },
         {
           "id": "composio.ComposioGoogleSheetsAPIComponent",
-          "display_name": "GoogleSheets",
-          "status": "AVAILABLE"
+          "display_name": "GoogleSheets"
         },
         {
           "id": "composio.ComposioGoogleTasksAPIComponent",
-          "display_name": "GoogleTasks",
-          "status": "AVAILABLE"
+          "display_name": "GoogleTasks"
         },
         {
           "id": "composio.ComposioHeygenAPIComponent",
-          "display_name": "Heygen",
-          "status": "AVAILABLE"
+          "display_name": "Heygen"
         },
         {
           "id": "composio.ComposioInstagramAPIComponent",
-          "display_name": "Instagram",
-          "status": "AVAILABLE"
+          "display_name": "Instagram"
         },
         {
           "id": "composio.ComposioJiraAPIComponent",
-          "display_name": "Jira",
-          "status": "AVAILABLE"
+          "display_name": "Jira"
         },
         {
           "id": "composio.ComposioJotformAPIComponent",
-          "display_name": "Jotform",
-          "status": "AVAILABLE"
+          "display_name": "Jotform"
         },
         {
           "id": "composio.ComposioKlaviyoAPIComponent",
-          "display_name": "Klaviyo",
-          "status": "AVAILABLE"
+          "display_name": "Klaviyo"
         },
         {
           "id": "composio.ComposioLinearAPIComponent",
-          "display_name": "Linear",
-          "status": "AVAILABLE"
+          "display_name": "Linear"
         },
         {
           "id": "composio.ComposioListennotesAPIComponent",
-          "display_name": "Listennotes",
-          "status": "AVAILABLE"
+          "display_name": "Listennotes"
         },
         {
           "id": "composio.ComposioMem0APIComponent",
-          "display_name": "Mem0",
-          "status": "AVAILABLE"
+          "display_name": "Mem0"
         },
         {
           "id": "composio.ComposioMiroAPIComponent",
-          "display_name": "Miro",
-          "status": "AVAILABLE"
+          "display_name": "Miro"
         },
         {
           "id": "composio.ComposioMissiveAPIComponent",
-          "display_name": "Missive",
-          "status": "AVAILABLE"
+          "display_name": "Missive"
         },
         {
           "id": "composio.ComposioNotionAPIComponent",
-          "display_name": "Notion",
-          "status": "AVAILABLE"
+          "display_name": "Notion"
         },
         {
           "id": "composio.ComposioOneDriveAPIComponent",
-          "display_name": "OneDrive",
-          "status": "AVAILABLE"
+          "display_name": "OneDrive"
         },
         {
           "id": "composio.ComposioOutlookAPIComponent",
-          "display_name": "Outlook",
-          "status": "AVAILABLE"
+          "display_name": "Outlook"
         },
         {
           "id": "composio.ComposioPandadocAPIComponent",
-          "display_name": "Pandadoc",
-          "status": "AVAILABLE"
+          "display_name": "Pandadoc"
         },
         {
           "id": "composio.ComposioPeopleDataLabsAPIComponent",
-          "display_name": "PeopleDataLabs",
-          "status": "AVAILABLE"
+          "display_name": "PeopleDataLabs"
         },
         {
           "id": "composio.ComposioPerplexityAIAPIComponent",
-          "display_name": "PerplexityAI",
-          "status": "AVAILABLE"
+          "display_name": "PerplexityAI"
         },
         {
           "id": "composio.ComposioRedditAPIComponent",
-          "display_name": "Reddit",
-          "status": "AVAILABLE"
+          "display_name": "Reddit"
         },
         {
           "id": "composio.ComposioSerpAPIComponent",
-          "display_name": "SerpAPI",
-          "status": "AVAILABLE"
+          "display_name": "SerpAPI"
         },
         {
           "id": "composio.ComposioSlackAPIComponent",
-          "display_name": "Slack",
-          "status": "AVAILABLE"
+          "display_name": "Slack"
         },
         {
           "id": "composio.ComposioSlackbotAPIComponent",
-          "display_name": "Slackbot",
-          "status": "AVAILABLE"
+          "display_name": "Slackbot"
         },
         {
           "id": "composio.ComposioSnowflakeAPIComponent",
-          "display_name": "Snowflake",
-          "status": "AVAILABLE"
+          "display_name": "Snowflake"
         },
         {
           "id": "composio.ComposioSupabaseAPIComponent",
-          "display_name": "Supabase",
-          "status": "AVAILABLE"
+          "display_name": "Supabase"
         },
         {
           "id": "composio.ComposioTavilyAPIComponent",
-          "display_name": "Tavily",
-          "status": "AVAILABLE"
+          "display_name": "Tavily"
         },
         {
           "id": "composio.ComposioTimelinesAIAPIComponent",
-          "display_name": "TimelinesAI",
-          "status": "AVAILABLE"
+          "display_name": "TimelinesAI"
         },
         {
           "id": "composio.ComposioTodoistAPIComponent",
-          "display_name": "Todoist",
-          "status": "AVAILABLE"
+          "display_name": "Todoist"
         },
         {
           "id": "composio.ComposioWrikeAPIComponent",
-          "display_name": "Wrike",
-          "status": "AVAILABLE"
+          "display_name": "Wrike"
         },
         {
           "id": "composio.ComposioYoutubeAPIComponent",
-          "display_name": "YouTube",
-          "status": "AVAILABLE"
+          "display_name": "YouTube"
         }
       ]
     },
@@ -745,13 +593,10 @@
       "category": "confluence",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "confluence.Confluence",
-          "display_name": "Confluence",
-          "status": "AVAILABLE"
+          "display_name": "Confluence"
         }
       ]
     },
@@ -759,13 +604,10 @@
       "category": "couchbase",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "couchbase.Couchbase",
-          "display_name": "Couchbase",
-          "status": "AVAILABLE"
+          "display_name": "Couchbase"
         }
       ]
     },
@@ -773,38 +615,30 @@
       "category": "crewai",
       "component_count": 6,
       "available": 0,
-      "beta": 0,
-      "legacy": 6,
       "components": [
         {
           "id": "crewai.CrewAIAgentComponent",
-          "display_name": "CrewAI Agent",
-          "status": "LEGACY"
+          "display_name": "CrewAI Agent"
         },
         {
           "id": "crewai.HierarchicalCrewComponent",
-          "display_name": "Hierarchical Crew",
-          "status": "LEGACY"
+          "display_name": "Hierarchical Crew"
         },
         {
           "id": "crewai.HierarchicalTaskComponent",
-          "display_name": "Hierarchical Task",
-          "status": "LEGACY"
+          "display_name": "Hierarchical Task"
         },
         {
           "id": "crewai.SequentialCrewComponent",
-          "display_name": "Sequential Crew",
-          "status": "LEGACY"
+          "display_name": "Sequential Crew"
         },
         {
           "id": "crewai.SequentialTaskAgentComponent",
-          "display_name": "Sequential Task Agent",
-          "status": "LEGACY"
+          "display_name": "Sequential Task Agent"
         },
         {
           "id": "crewai.SequentialTaskComponent",
-          "display_name": "Sequential Task",
-          "status": "LEGACY"
+          "display_name": "Sequential Task"
         }
       ]
     },
@@ -812,13 +646,10 @@
       "category": "cuga",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "cuga.Cuga",
-          "display_name": "Cuga",
-          "status": "AVAILABLE"
+          "display_name": "Cuga"
         }
       ]
     },
@@ -826,13 +657,10 @@
       "category": "custom_component",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "custom_component.CustomComponent",
-          "display_name": "Custom Component",
-          "status": "AVAILABLE"
+          "display_name": "Custom Component"
         }
       ]
     },
@@ -840,53 +668,42 @@
       "category": "data_source",
       "component_count": 9,
       "available": 5,
-      "beta": 0,
-      "legacy": 4,
       "components": [
         {
           "id": "data_source.APIRequest",
-          "display_name": "API Request",
-          "status": "AVAILABLE"
+          "display_name": "API Request"
         },
         {
           "id": "data_source.CSVtoData",
-          "display_name": "Load CSV",
-          "status": "LEGACY"
+          "display_name": "Load CSV"
         },
         {
           "id": "data_source.JSONtoData",
-          "display_name": "Load JSON",
-          "status": "LEGACY"
+          "display_name": "Load JSON"
         },
         {
           "id": "data_source.MockDataGenerator",
-          "display_name": "Mock Data",
-          "status": "AVAILABLE"
+          "display_name": "Mock Data"
         },
         {
           "id": "data_source.NewsSearch",
-          "display_name": "News Search",
-          "status": "LEGACY"
+          "display_name": "News Search"
         },
         {
           "id": "data_source.RSSReaderSimple",
-          "display_name": "RSS Reader",
-          "status": "LEGACY"
+          "display_name": "RSS Reader"
         },
         {
           "id": "data_source.SQLComponent",
-          "display_name": "SQL Database",
-          "status": "AVAILABLE"
+          "display_name": "SQL Database"
         },
         {
           "id": "data_source.UnifiedWebSearch",
-          "display_name": "Web Search",
-          "status": "AVAILABLE"
+          "display_name": "Web Search"
         },
         {
           "id": "data_source.URLComponent",
-          "display_name": "URL",
-          "status": "AVAILABLE"
+          "display_name": "URL"
         }
       ]
     },
@@ -894,58 +711,46 @@
       "category": "datastax",
       "component_count": 10,
       "available": 5,
-      "beta": 0,
-      "legacy": 5,
       "components": [
         {
           "id": "datastax.AstraDB",
-          "display_name": "Astra DB",
-          "status": "AVAILABLE"
+          "display_name": "Astra DB"
         },
         {
           "id": "datastax.AstraDBChatMemory",
-          "display_name": "Astra DB Chat Memory",
-          "status": "AVAILABLE"
+          "display_name": "Astra DB Chat Memory"
         },
         {
           "id": "datastax.AstraDBCQLToolComponent",
-          "display_name": "Astra DB CQL",
-          "status": "AVAILABLE"
+          "display_name": "Astra DB CQL"
         },
         {
           "id": "datastax.AstraDBGraph",
-          "display_name": "Astra DB Graph",
-          "status": "LEGACY"
+          "display_name": "Astra DB Graph"
         },
         {
           "id": "datastax.AstraDBTool",
-          "display_name": "Astra DB Tool",
-          "status": "LEGACY"
+          "display_name": "Astra DB Tool"
         },
         {
           "id": "datastax.AstraVectorize",
-          "display_name": "Astra Vectorize",
-          "status": "LEGACY"
+          "display_name": "Astra Vectorize"
         },
         {
           "id": "datastax.Dotenv",
-          "display_name": "Dotenv",
-          "status": "LEGACY"
+          "display_name": "Dotenv"
         },
         {
           "id": "datastax.GetEnvVar",
-          "display_name": "Get Environment Variable",
-          "status": "LEGACY"
+          "display_name": "Get Environment Variable"
         },
         {
           "id": "datastax.GraphRAG",
-          "display_name": "Graph RAG",
-          "status": "AVAILABLE"
+          "display_name": "Graph RAG"
         },
         {
           "id": "datastax.HCD",
-          "display_name": "Hyper-Converged Database",
-          "status": "AVAILABLE"
+          "display_name": "Hyper-Converged Database"
         }
       ]
     },
@@ -953,13 +758,10 @@
       "category": "deepseek",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "deepseek.DeepSeekModelComponent",
-          "display_name": "DeepSeek",
-          "status": "AVAILABLE"
+          "display_name": "DeepSeek"
         }
       ]
     },
@@ -967,28 +769,22 @@
       "category": "docling",
       "component_count": 4,
       "available": 4,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "docling.ChunkDoclingDocument",
-          "display_name": "Chunk DoclingDocument",
-          "status": "AVAILABLE"
+          "display_name": "Chunk DoclingDocument"
         },
         {
           "id": "docling.DoclingInline",
-          "display_name": "Docling",
-          "status": "AVAILABLE"
+          "display_name": "Docling"
         },
         {
           "id": "docling.DoclingRemote",
-          "display_name": "Docling Serve",
-          "status": "AVAILABLE"
+          "display_name": "Docling Serve"
         },
         {
           "id": "docling.ExportDoclingDocument",
-          "display_name": "Export DoclingDocument",
-          "status": "AVAILABLE"
+          "display_name": "Export DoclingDocument"
         }
       ]
     },
@@ -996,13 +792,10 @@
       "category": "duckduckgo",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "duckduckgo.DuckDuckGoSearchComponent",
-          "display_name": "DuckDuckGo Search",
-          "status": "AVAILABLE"
+          "display_name": "DuckDuckGo Search"
         }
       ]
     },
@@ -1010,23 +803,18 @@
       "category": "elastic",
       "component_count": 3,
       "available": 3,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "elastic.Elasticsearch",
-          "display_name": "Elasticsearch",
-          "status": "AVAILABLE"
+          "display_name": "Elasticsearch"
         },
         {
           "id": "elastic.OpenSearchVectorStoreComponent",
-          "display_name": "OpenSearch",
-          "status": "AVAILABLE"
+          "display_name": "OpenSearch"
         },
         {
           "id": "elastic.OpenSearchVectorStoreComponentMultimodalMultiEmbedding",
-          "display_name": "OpenSearch (Multi-Model Multi-Embedding)",
-          "status": "AVAILABLE"
+          "display_name": "OpenSearch (Multi-Model Multi-Embedding)"
         }
       ]
     },
@@ -1034,18 +822,14 @@
       "category": "embeddings",
       "component_count": 2,
       "available": 0,
-      "beta": 0,
-      "legacy": 2,
       "components": [
         {
           "id": "embeddings.EmbeddingSimilarityComponent",
-          "display_name": "Embedding Similarity",
-          "status": "LEGACY"
+          "display_name": "Embedding Similarity"
         },
         {
           "id": "embeddings.TextEmbedderComponent",
-          "display_name": "Text Embedder",
-          "status": "LEGACY"
+          "display_name": "Text Embedder"
         }
       ]
     },
@@ -1053,13 +837,10 @@
       "category": "exa",
       "component_count": 1,
       "available": 0,
-      "beta": 1,
-      "legacy": 0,
       "components": [
         {
           "id": "exa.ExaSearch",
-          "display_name": "Exa Search",
-          "status": "BETA"
+          "display_name": "Exa Search"
         }
       ]
     },
@@ -1067,33 +848,26 @@
       "category": "files_and_knowledge",
       "component_count": 5,
       "available": 4,
-      "beta": 0,
-      "legacy": 1,
       "components": [
         {
           "id": "files_and_knowledge.Directory",
-          "display_name": "Directory",
-          "status": "LEGACY"
+          "display_name": "Directory"
         },
         {
           "id": "files_and_knowledge.File",
-          "display_name": "Read File",
-          "status": "AVAILABLE"
+          "display_name": "Read File"
         },
         {
           "id": "files_and_knowledge.KnowledgeBase",
-          "display_name": "Knowledge Base",
-          "status": "AVAILABLE"
+          "display_name": "Knowledge Base"
         },
         {
           "id": "files_and_knowledge.KnowledgeIngestion",
-          "display_name": "Knowledge Ingestion",
-          "status": "AVAILABLE"
+          "display_name": "Knowledge Ingestion"
         },
         {
           "id": "files_and_knowledge.SaveToFile",
-          "display_name": "Write File",
-          "status": "AVAILABLE"
+          "display_name": "Write File"
         }
       ]
     },
@@ -1101,28 +875,22 @@
       "category": "firecrawl",
       "component_count": 4,
       "available": 4,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "firecrawl.FirecrawlCrawlApi",
-          "display_name": "Firecrawl Crawl API",
-          "status": "AVAILABLE"
+          "display_name": "Firecrawl Crawl API"
         },
         {
           "id": "firecrawl.FirecrawlExtractApi",
-          "display_name": "Firecrawl Extract API",
-          "status": "AVAILABLE"
+          "display_name": "Firecrawl Extract API"
         },
         {
           "id": "firecrawl.FirecrawlMapApi",
-          "display_name": "Firecrawl Map API",
-          "status": "AVAILABLE"
+          "display_name": "Firecrawl Map API"
         },
         {
           "id": "firecrawl.FirecrawlScrapeApi",
-          "display_name": "Firecrawl Scrape API",
-          "status": "AVAILABLE"
+          "display_name": "Firecrawl Scrape API"
         }
       ]
     },
@@ -1130,63 +898,50 @@
       "category": "flow_controls",
       "component_count": 11,
       "available": 4,
-      "beta": 3,
-      "legacy": 4,
       "components": [
         {
           "id": "flow_controls.ConditionalRouter",
-          "display_name": "If-Else",
-          "status": "AVAILABLE"
+          "display_name": "If-Else"
         },
         {
           "id": "flow_controls.DataConditionalRouter",
-          "display_name": "Condition",
-          "status": "LEGACY"
+          "display_name": "Condition"
         },
         {
           "id": "flow_controls.FlowTool",
-          "display_name": "Flow as Tool",
-          "status": "LEGACY"
+          "display_name": "Flow as Tool"
         },
         {
           "id": "flow_controls.HTTPMethodRouter",
-          "display_name": "HTTP Method Router",
-          "status": "AVAILABLE"
+          "display_name": "HTTP Method Router"
         },
         {
           "id": "flow_controls.Listen",
-          "display_name": "Listen",
-          "status": "BETA"
+          "display_name": "Listen"
         },
         {
           "id": "flow_controls.LoopComponent",
-          "display_name": "Loop",
-          "status": "AVAILABLE"
+          "display_name": "Loop"
         },
         {
           "id": "flow_controls.Notify",
-          "display_name": "Notify",
-          "status": "BETA"
+          "display_name": "Notify"
         },
         {
           "id": "flow_controls.Pass",
-          "display_name": "Pass",
-          "status": "LEGACY"
+          "display_name": "Pass"
         },
         {
           "id": "flow_controls.RunFlow",
-          "display_name": "Run Flow",
-          "status": "BETA"
+          "display_name": "Run Flow"
         },
         {
           "id": "flow_controls.SubFlow",
-          "display_name": "Sub Flow",
-          "status": "LEGACY"
+          "display_name": "Sub Flow"
         },
         {
           "id": "flow_controls.VerificationRouter",
-          "display_name": "Verification Router",
-          "status": "AVAILABLE"
+          "display_name": "Verification Router"
         }
       ]
     },
@@ -1194,18 +949,14 @@
       "category": "git",
       "component_count": 2,
       "available": 2,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "git.GitExtractorComponent",
-          "display_name": "GitExtractor",
-          "status": "AVAILABLE"
+          "display_name": "GitExtractor"
         },
         {
           "id": "git.GitLoaderComponent",
-          "display_name": "Git",
-          "status": "AVAILABLE"
+          "display_name": "Git"
         }
       ]
     },
@@ -1213,13 +964,10 @@
       "category": "glean",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "glean.GleanSearchAPIComponent",
-          "display_name": "Glean Search API",
-          "status": "AVAILABLE"
+          "display_name": "Glean Search API"
         }
       ]
     },
@@ -1227,43 +975,34 @@
       "category": "google",
       "component_count": 7,
       "available": 4,
-      "beta": 1,
-      "legacy": 2,
       "components": [
         {
           "id": "google.BigQueryExecutor",
-          "display_name": "BigQuery",
-          "status": "BETA"
+          "display_name": "BigQuery"
         },
         {
           "id": "google.GmailLoaderComponent",
-          "display_name": "Gmail Loader",
-          "status": "LEGACY"
+          "display_name": "Gmail Loader"
         },
         {
           "id": "google.Google Generative AI Embeddings",
-          "display_name": "Google Generative AI Embeddings",
-          "status": "AVAILABLE"
+          "display_name": "Google Generative AI Embeddings"
         },
         {
           "id": "google.GoogleGenerativeAIModel",
-          "display_name": "Google Generative AI",
-          "status": "AVAILABLE"
+          "display_name": "Google Generative AI"
         },
         {
           "id": "google.GoogleOAuthToken",
-          "display_name": "Google OAuth Token",
-          "status": "LEGACY"
+          "display_name": "Google OAuth Token"
         },
         {
           "id": "google.GoogleSearchAPICore",
-          "display_name": "Google Search API",
-          "status": "AVAILABLE"
+          "display_name": "Google Search API"
         },
         {
           "id": "google.GoogleSerperAPICore",
-          "display_name": "Google Serper API",
-          "status": "AVAILABLE"
+          "display_name": "Google Serper API"
         }
       ]
     },
@@ -1271,223 +1010,178 @@
       "category": "google_docs",
       "component_count": 43,
       "available": 43,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "google_docs.GoogleDocsAppendText",
-          "display_name": "Append Text",
-          "status": "AVAILABLE"
+          "display_name": "Append Text"
         },
         {
           "id": "google_docs.GoogleDocsCreateDocument",
-          "display_name": "Create Document",
-          "status": "AVAILABLE"
+          "display_name": "Create Document"
         },
         {
           "id": "google_docs.GoogleDocsCreateFooter",
-          "display_name": "Create Footer",
-          "status": "AVAILABLE"
+          "display_name": "Create Footer"
         },
         {
           "id": "google_docs.GoogleDocsCreateFootnote",
-          "display_name": "Create Footnote",
-          "status": "AVAILABLE"
+          "display_name": "Create Footnote"
         },
         {
           "id": "google_docs.GoogleDocsCreateHeader",
-          "display_name": "Create Header",
-          "status": "AVAILABLE"
+          "display_name": "Create Header"
         },
         {
           "id": "google_docs.GoogleDocsCreateList",
-          "display_name": "Create List",
-          "status": "AVAILABLE"
+          "display_name": "Create List"
         },
         {
           "id": "google_docs.GoogleDocsCreateNamedRange",
-          "display_name": "Create Named Range",
-          "status": "AVAILABLE"
+          "display_name": "Create Named Range"
         },
         {
           "id": "google_docs.GoogleDocsDeleteContent",
-          "display_name": "Delete Content",
-          "status": "AVAILABLE"
+          "display_name": "Delete Content"
         },
         {
           "id": "google_docs.GoogleDocsDeleteFooter",
-          "display_name": "Delete Footer",
-          "status": "AVAILABLE"
+          "display_name": "Delete Footer"
         },
         {
           "id": "google_docs.GoogleDocsDeleteHeader",
-          "display_name": "Delete Header",
-          "status": "AVAILABLE"
+          "display_name": "Delete Header"
         },
         {
           "id": "google_docs.GoogleDocsDeleteNamedRange",
-          "display_name": "Delete Named Range",
-          "status": "AVAILABLE"
+          "display_name": "Delete Named Range"
         },
         {
           "id": "google_docs.GoogleDocsDeleteTable",
-          "display_name": "Delete Table",
-          "status": "AVAILABLE"
+          "display_name": "Delete Table"
         },
         {
           "id": "google_docs.GoogleDocsDeleteTableColumn",
-          "display_name": "Delete Table Column",
-          "status": "AVAILABLE"
+          "display_name": "Delete Table Column"
         },
         {
           "id": "google_docs.GoogleDocsDeleteTableRow",
-          "display_name": "Delete Table Row",
-          "status": "AVAILABLE"
+          "display_name": "Delete Table Row"
         },
         {
           "id": "google_docs.GoogleDocsFormatDocument",
-          "display_name": "Format Document",
-          "status": "AVAILABLE"
+          "display_name": "Format Document"
         },
         {
           "id": "google_docs.GoogleDocsFormatParagraph",
-          "display_name": "Format Paragraph",
-          "status": "AVAILABLE"
+          "display_name": "Format Paragraph"
         },
         {
           "id": "google_docs.GoogleDocsFormatSection",
-          "display_name": "Format Section",
-          "status": "AVAILABLE"
+          "display_name": "Format Section"
         },
         {
           "id": "google_docs.GoogleDocsFormatTableCells",
-          "display_name": "Format Table Cells",
-          "status": "AVAILABLE"
+          "display_name": "Format Table Cells"
         },
         {
           "id": "google_docs.GoogleDocsFormatText",
-          "display_name": "Format Text",
-          "status": "AVAILABLE"
+          "display_name": "Format Text"
         },
         {
           "id": "google_docs.GoogleDocsGetDocument",
-          "display_name": "Get Document",
-          "status": "AVAILABLE"
+          "display_name": "Get Document"
         },
         {
           "id": "google_docs.GoogleDocsGetText",
-          "display_name": "Get Text",
-          "status": "AVAILABLE"
+          "display_name": "Get Text"
         },
         {
           "id": "google_docs.GoogleDocsInsertHeading",
-          "display_name": "Insert Heading",
-          "status": "AVAILABLE"
+          "display_name": "Insert Heading"
         },
         {
           "id": "google_docs.GoogleDocsInsertImage",
-          "display_name": "Insert Image",
-          "status": "AVAILABLE"
+          "display_name": "Insert Image"
         },
         {
           "id": "google_docs.GoogleDocsInsertPageBreak",
-          "display_name": "Insert Page Break",
-          "status": "AVAILABLE"
+          "display_name": "Insert Page Break"
         },
         {
           "id": "google_docs.GoogleDocsInsertSectionBreak",
-          "display_name": "Insert Section Break",
-          "status": "AVAILABLE"
+          "display_name": "Insert Section Break"
         },
         {
           "id": "google_docs.GoogleDocsInsertTable",
-          "display_name": "Insert Table",
-          "status": "AVAILABLE"
+          "display_name": "Insert Table"
         },
         {
           "id": "google_docs.GoogleDocsInsertTableColumn",
-          "display_name": "Insert Table Column",
-          "status": "AVAILABLE"
+          "display_name": "Insert Table Column"
         },
         {
           "id": "google_docs.GoogleDocsInsertTableRow",
-          "display_name": "Insert Table Row",
-          "status": "AVAILABLE"
+          "display_name": "Insert Table Row"
         },
         {
           "id": "google_docs.GoogleDocsInsertText",
-          "display_name": "Insert Text",
-          "status": "AVAILABLE"
+          "display_name": "Insert Text"
         },
         {
           "id": "google_docs.GoogleDocsListNamedRanges",
-          "display_name": "List Named Ranges",
-          "status": "AVAILABLE"
+          "display_name": "List Named Ranges"
         },
         {
           "id": "google_docs.GoogleDocsListTables",
-          "display_name": "List Tables",
-          "status": "AVAILABLE"
+          "display_name": "List Tables"
         },
         {
           "id": "google_docs.GoogleDocsMergeTableCells",
-          "display_name": "Merge Table Cells",
-          "status": "AVAILABLE"
+          "display_name": "Merge Table Cells"
         },
         {
           "id": "google_docs.GoogleDocsPinTableHeaderRows",
-          "display_name": "Pin Table Header Rows",
-          "status": "AVAILABLE"
+          "display_name": "Pin Table Header Rows"
         },
         {
           "id": "google_docs.GoogleDocsPopulateTable",
-          "display_name": "Populate Table",
-          "status": "AVAILABLE"
+          "display_name": "Populate Table"
         },
         {
           "id": "google_docs.GoogleDocsRemoveList",
-          "display_name": "Remove List",
-          "status": "AVAILABLE"
+          "display_name": "Remove List"
         },
         {
           "id": "google_docs.GoogleDocsReplaceImage",
-          "display_name": "Replace Image",
-          "status": "AVAILABLE"
+          "display_name": "Replace Image"
         },
         {
           "id": "google_docs.GoogleDocsReplaceNamedRangeContent",
-          "display_name": "Replace Named Range Content",
-          "status": "AVAILABLE"
+          "display_name": "Replace Named Range Content"
         },
         {
           "id": "google_docs.GoogleDocsReplaceText",
-          "display_name": "Replace Text",
-          "status": "AVAILABLE"
+          "display_name": "Replace Text"
         },
         {
           "id": "google_docs.GoogleDocsSetTableCellText",
-          "display_name": "Set Table Cell Text",
-          "status": "AVAILABLE"
+          "display_name": "Set Table Cell Text"
         },
         {
           "id": "google_docs.GoogleDocsSetTableColumnWidth",
-          "display_name": "Set Table Column Width",
-          "status": "AVAILABLE"
+          "display_name": "Set Table Column Width"
         },
         {
           "id": "google_docs.GoogleDocsSetTableRowHeight",
-          "display_name": "Set Table Row Height",
-          "status": "AVAILABLE"
+          "display_name": "Set Table Row Height"
         },
         {
           "id": "google_docs.GoogleDocsTemplateMerge",
-          "display_name": "Template Merge",
-          "status": "AVAILABLE"
+          "display_name": "Template Merge"
         },
         {
           "id": "google_docs.GoogleDocsUnmergeTableCells",
-          "display_name": "Unmerge Table Cells",
-          "status": "AVAILABLE"
+          "display_name": "Unmerge Table Cells"
         }
       ]
     },
@@ -1495,83 +1189,66 @@
       "category": "google_drive",
       "component_count": 15,
       "available": 13,
-      "beta": 0,
-      "legacy": 2,
       "components": [
         {
           "id": "google_drive.GoogleDriveComponent",
-          "display_name": "Google Drive Loader",
-          "status": "LEGACY"
+          "display_name": "Google Drive Loader"
         },
         {
           "id": "google_drive.GoogleDriveCopyFile",
-          "display_name": "Copy File",
-          "status": "AVAILABLE"
+          "display_name": "Copy File"
         },
         {
           "id": "google_drive.GoogleDriveCreateFolder",
-          "display_name": "Create Folder",
-          "status": "AVAILABLE"
+          "display_name": "Create Folder"
         },
         {
           "id": "google_drive.GoogleDriveDeleteFile",
-          "display_name": "Delete Permanently",
-          "status": "AVAILABLE"
+          "display_name": "Delete Permanently"
         },
         {
           "id": "google_drive.GoogleDriveDownloadFile",
-          "display_name": "Download File",
-          "status": "AVAILABLE"
+          "display_name": "Download File"
         },
         {
           "id": "google_drive.GoogleDriveExportFile",
-          "display_name": "Export File",
-          "status": "AVAILABLE"
+          "display_name": "Export File"
         },
         {
           "id": "google_drive.GoogleDriveGetFile",
-          "display_name": "Get File",
-          "status": "AVAILABLE"
+          "display_name": "Get File"
         },
         {
           "id": "google_drive.GoogleDriveListFiles",
-          "display_name": "List Files",
-          "status": "AVAILABLE"
+          "display_name": "List Files"
         },
         {
           "id": "google_drive.GoogleDriveMoveFile",
-          "display_name": "Move File",
-          "status": "AVAILABLE"
+          "display_name": "Move File"
         },
         {
           "id": "google_drive.GoogleDriveRenameFile",
-          "display_name": "Rename File",
-          "status": "AVAILABLE"
+          "display_name": "Rename File"
         },
         {
           "id": "google_drive.GoogleDriveRestoreFile",
-          "display_name": "Restore File",
-          "status": "AVAILABLE"
+          "display_name": "Restore File"
         },
         {
           "id": "google_drive.GoogleDriveSearchComponent",
-          "display_name": "Google Drive Search",
-          "status": "LEGACY"
+          "display_name": "Google Drive Search"
         },
         {
           "id": "google_drive.GoogleDriveTrashFile",
-          "display_name": "Trash File",
-          "status": "AVAILABLE"
+          "display_name": "Trash File"
         },
         {
           "id": "google_drive.GoogleDriveUploadFile",
-          "display_name": "Upload File",
-          "status": "AVAILABLE"
+          "display_name": "Upload File"
         },
         {
           "id": "google_drive.GoogleDriveWorkspaceApiRequest",
-          "display_name": "Workspace API Request",
-          "status": "AVAILABLE"
+          "display_name": "Workspace API Request"
         }
       ]
     },
@@ -1579,123 +1256,98 @@
       "category": "google_sheets",
       "component_count": 23,
       "available": 23,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "google_sheets.GoogleSheetsAddSheet",
-          "display_name": "Add Sheet",
-          "status": "AVAILABLE"
+          "display_name": "Add Sheet"
         },
         {
           "id": "google_sheets.GoogleSheetsAppendRows",
-          "display_name": "Append Rows",
-          "status": "AVAILABLE"
+          "display_name": "Append Rows"
         },
         {
           "id": "google_sheets.GoogleSheetsBulkUpsertRows",
-          "display_name": "Bulk Upsert Rows",
-          "status": "AVAILABLE"
+          "display_name": "Bulk Upsert Rows"
         },
         {
           "id": "google_sheets.GoogleSheetsClearRange",
-          "display_name": "Clear Range",
-          "status": "AVAILABLE"
+          "display_name": "Clear Range"
         },
         {
           "id": "google_sheets.GoogleSheetsClearSheet",
-          "display_name": "Clear Sheet",
-          "status": "AVAILABLE"
+          "display_name": "Clear Sheet"
         },
         {
           "id": "google_sheets.GoogleSheetsCopySheet",
-          "display_name": "Copy Sheet",
-          "status": "AVAILABLE"
+          "display_name": "Copy Sheet"
         },
         {
           "id": "google_sheets.GoogleSheetsCreateSpreadsheet",
-          "display_name": "Create Spreadsheet",
-          "status": "AVAILABLE"
+          "display_name": "Create Spreadsheet"
         },
         {
           "id": "google_sheets.GoogleSheetsDeleteColumns",
-          "display_name": "Delete Columns",
-          "status": "AVAILABLE"
+          "display_name": "Delete Columns"
         },
         {
           "id": "google_sheets.GoogleSheetsDeleteRows",
-          "display_name": "Delete Rows",
-          "status": "AVAILABLE"
+          "display_name": "Delete Rows"
         },
         {
           "id": "google_sheets.GoogleSheetsDeleteSheet",
-          "display_name": "Delete Sheet",
-          "status": "AVAILABLE"
+          "display_name": "Delete Sheet"
         },
         {
           "id": "google_sheets.GoogleSheetsDuplicateSheet",
-          "display_name": "Duplicate Sheet",
-          "status": "AVAILABLE"
+          "display_name": "Duplicate Sheet"
         },
         {
           "id": "google_sheets.GoogleSheetsFindReplace",
-          "display_name": "Find & Replace",
-          "status": "AVAILABLE"
+          "display_name": "Find & Replace"
         },
         {
           "id": "google_sheets.GoogleSheetsGetSpreadsheet",
-          "display_name": "Get Spreadsheet",
-          "status": "AVAILABLE"
+          "display_name": "Get Spreadsheet"
         },
         {
           "id": "google_sheets.GoogleSheetsInsertColumns",
-          "display_name": "Insert Columns",
-          "status": "AVAILABLE"
+          "display_name": "Insert Columns"
         },
         {
           "id": "google_sheets.GoogleSheetsInsertRows",
-          "display_name": "Insert Rows",
-          "status": "AVAILABLE"
+          "display_name": "Insert Rows"
         },
         {
           "id": "google_sheets.GoogleSheetsListSheets",
-          "display_name": "List Sheets",
-          "status": "AVAILABLE"
+          "display_name": "List Sheets"
         },
         {
           "id": "google_sheets.GoogleSheetsReadRange",
-          "display_name": "Read Range",
-          "status": "AVAILABLE"
+          "display_name": "Read Range"
         },
         {
           "id": "google_sheets.GoogleSheetsRenameSheet",
-          "display_name": "Rename Sheet",
-          "status": "AVAILABLE"
+          "display_name": "Rename Sheet"
         },
         {
           "id": "google_sheets.GoogleSheetsResizeSheet",
-          "display_name": "Resize Sheet",
-          "status": "AVAILABLE"
+          "display_name": "Resize Sheet"
         },
         {
           "id": "google_sheets.GoogleSheetsSearchDeleteRow",
-          "display_name": "Search & Delete Row",
-          "status": "AVAILABLE"
+          "display_name": "Search & Delete Row"
         },
         {
           "id": "google_sheets.GoogleSheetsSearchRow",
-          "display_name": "Search Row",
-          "status": "AVAILABLE"
+          "display_name": "Search Row"
         },
         {
           "id": "google_sheets.GoogleSheetsUpdateRange",
-          "display_name": "Update Range",
-          "status": "AVAILABLE"
+          "display_name": "Update Range"
         },
         {
           "id": "google_sheets.GoogleSheetsUpsertRow",
-          "display_name": "Upsert Row",
-          "status": "AVAILABLE"
+          "display_name": "Upsert Row"
         }
       ]
     },
@@ -1703,283 +1355,226 @@
       "category": "google_slides",
       "component_count": 55,
       "available": 55,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "google_slides.GoogleSlidesAddSlide",
-          "display_name": "Add Slide",
-          "status": "AVAILABLE"
+          "display_name": "Add Slide"
         },
         {
           "id": "google_slides.GoogleSlidesConnectShapes",
-          "display_name": "Connect Shapes",
-          "status": "AVAILABLE"
+          "display_name": "Connect Shapes"
         },
         {
           "id": "google_slides.GoogleSlidesCreateLine",
-          "display_name": "Create Line",
-          "status": "AVAILABLE"
+          "display_name": "Create Line"
         },
         {
           "id": "google_slides.GoogleSlidesCreatePresentation",
-          "display_name": "Create Presentation",
-          "status": "AVAILABLE"
+          "display_name": "Create Presentation"
         },
         {
           "id": "google_slides.GoogleSlidesCreateShape",
-          "display_name": "Create Shape",
-          "status": "AVAILABLE"
+          "display_name": "Create Shape"
         },
         {
           "id": "google_slides.GoogleSlidesCreateTable",
-          "display_name": "Create Table",
-          "status": "AVAILABLE"
+          "display_name": "Create Table"
         },
         {
           "id": "google_slides.GoogleSlidesCreateTextBox",
-          "display_name": "Create Text Box",
-          "status": "AVAILABLE"
+          "display_name": "Create Text Box"
         },
         {
           "id": "google_slides.GoogleSlidesDeletePageElement",
-          "display_name": "Delete Page Element",
-          "status": "AVAILABLE"
+          "display_name": "Delete Page Element"
         },
         {
           "id": "google_slides.GoogleSlidesDeleteSlide",
-          "display_name": "Delete Slide",
-          "status": "AVAILABLE"
+          "display_name": "Delete Slide"
         },
         {
           "id": "google_slides.GoogleSlidesDeleteTableColumn",
-          "display_name": "Delete Table Column",
-          "status": "AVAILABLE"
+          "display_name": "Delete Table Column"
         },
         {
           "id": "google_slides.GoogleSlidesDeleteTableRow",
-          "display_name": "Delete Table Row",
-          "status": "AVAILABLE"
+          "display_name": "Delete Table Row"
         },
         {
           "id": "google_slides.GoogleSlidesDeleteText",
-          "display_name": "Delete Text",
-          "status": "AVAILABLE"
+          "display_name": "Delete Text"
         },
         {
           "id": "google_slides.GoogleSlidesDuplicateSlide",
-          "display_name": "Duplicate Slide",
-          "status": "AVAILABLE"
+          "display_name": "Duplicate Slide"
         },
         {
           "id": "google_slides.GoogleSlidesFormatLine",
-          "display_name": "Format Line",
-          "status": "AVAILABLE"
+          "display_name": "Format Line"
         },
         {
           "id": "google_slides.GoogleSlidesFormatParagraph",
-          "display_name": "Format Paragraph",
-          "status": "AVAILABLE"
+          "display_name": "Format Paragraph"
         },
         {
           "id": "google_slides.GoogleSlidesFormatTableBorders",
-          "display_name": "Format Table Borders",
-          "status": "AVAILABLE"
+          "display_name": "Format Table Borders"
         },
         {
           "id": "google_slides.GoogleSlidesFormatTableCells",
-          "display_name": "Format Table Cells",
-          "status": "AVAILABLE"
+          "display_name": "Format Table Cells"
         },
         {
           "id": "google_slides.GoogleSlidesFormatText",
-          "display_name": "Format Text",
-          "status": "AVAILABLE"
+          "display_name": "Format Text"
         },
         {
           "id": "google_slides.GoogleSlidesFormatVideo",
-          "display_name": "Format Video",
-          "status": "AVAILABLE"
+          "display_name": "Format Video"
         },
         {
           "id": "google_slides.GoogleSlidesGetImageInfo",
-          "display_name": "Get Image Info",
-          "status": "AVAILABLE"
+          "display_name": "Get Image Info"
         },
         {
           "id": "google_slides.GoogleSlidesGetPresentation",
-          "display_name": "Get Presentation",
-          "status": "AVAILABLE"
+          "display_name": "Get Presentation"
         },
         {
           "id": "google_slides.GoogleSlidesGetSlide",
-          "display_name": "Get Slide",
-          "status": "AVAILABLE"
+          "display_name": "Get Slide"
         },
         {
           "id": "google_slides.GoogleSlidesGetSpeakerNotes",
-          "display_name": "Get Speaker Notes",
-          "status": "AVAILABLE"
+          "display_name": "Get Speaker Notes"
         },
         {
           "id": "google_slides.GoogleSlidesGetTableCellText",
-          "display_name": "Get Table Cell Text",
-          "status": "AVAILABLE"
+          "display_name": "Get Table Cell Text"
         },
         {
           "id": "google_slides.GoogleSlidesGetText",
-          "display_name": "Get Text",
-          "status": "AVAILABLE"
+          "display_name": "Get Text"
         },
         {
           "id": "google_slides.GoogleSlidesGroupElements",
-          "display_name": "Group Elements",
-          "status": "AVAILABLE"
+          "display_name": "Group Elements"
         },
         {
           "id": "google_slides.GoogleSlidesInsertImage",
-          "display_name": "Insert Image",
-          "status": "AVAILABLE"
+          "display_name": "Insert Image"
         },
         {
           "id": "google_slides.GoogleSlidesInsertSheetsChart",
-          "display_name": "Insert Sheets Chart",
-          "status": "AVAILABLE"
+          "display_name": "Insert Sheets Chart"
         },
         {
           "id": "google_slides.GoogleSlidesInsertTableColumn",
-          "display_name": "Insert Table Column",
-          "status": "AVAILABLE"
+          "display_name": "Insert Table Column"
         },
         {
           "id": "google_slides.GoogleSlidesInsertTableRow",
-          "display_name": "Insert Table Row",
-          "status": "AVAILABLE"
+          "display_name": "Insert Table Row"
         },
         {
           "id": "google_slides.GoogleSlidesInsertText",
-          "display_name": "Insert Text",
-          "status": "AVAILABLE"
+          "display_name": "Insert Text"
         },
         {
           "id": "google_slides.GoogleSlidesInsertVideo",
-          "display_name": "Insert Video",
-          "status": "AVAILABLE"
+          "display_name": "Insert Video"
         },
         {
           "id": "google_slides.GoogleSlidesListPageElements",
-          "display_name": "List Page Elements",
-          "status": "AVAILABLE"
+          "display_name": "List Page Elements"
         },
         {
           "id": "google_slides.GoogleSlidesListSlides",
-          "display_name": "List Slides",
-          "status": "AVAILABLE"
+          "display_name": "List Slides"
         },
         {
           "id": "google_slides.GoogleSlidesListTables",
-          "display_name": "List Tables",
-          "status": "AVAILABLE"
+          "display_name": "List Tables"
         },
         {
           "id": "google_slides.GoogleSlidesMergeTableCells",
-          "display_name": "Merge Table Cells",
-          "status": "AVAILABLE"
+          "display_name": "Merge Table Cells"
         },
         {
           "id": "google_slides.GoogleSlidesMovePageElement",
-          "display_name": "Move Page Element",
-          "status": "AVAILABLE"
+          "display_name": "Move Page Element"
         },
         {
           "id": "google_slides.GoogleSlidesMoveSlide",
-          "display_name": "Move Slide",
-          "status": "AVAILABLE"
+          "display_name": "Move Slide"
         },
         {
           "id": "google_slides.GoogleSlidesPopulateTable",
-          "display_name": "Populate Table",
-          "status": "AVAILABLE"
+          "display_name": "Populate Table"
         },
         {
           "id": "google_slides.GoogleSlidesRefreshSheetsChart",
-          "display_name": "Refresh Sheets Chart",
-          "status": "AVAILABLE"
+          "display_name": "Refresh Sheets Chart"
         },
         {
           "id": "google_slides.GoogleSlidesReplaceAllText",
-          "display_name": "Replace All Text",
-          "status": "AVAILABLE"
+          "display_name": "Replace All Text"
         },
         {
           "id": "google_slides.GoogleSlidesReplaceImage",
-          "display_name": "Replace Image",
-          "status": "AVAILABLE"
+          "display_name": "Replace Image"
         },
         {
           "id": "google_slides.GoogleSlidesReplaceShapesWithImage",
-          "display_name": "Replace Shapes With Image",
-          "status": "AVAILABLE"
+          "display_name": "Replace Shapes With Image"
         },
         {
           "id": "google_slides.GoogleSlidesReplaceShapesWithSheetsChart",
-          "display_name": "Replace Shapes With Sheets Chart",
-          "status": "AVAILABLE"
+          "display_name": "Replace Shapes With Sheets Chart"
         },
         {
           "id": "google_slides.GoogleSlidesReplaceText",
-          "display_name": "Replace Text",
-          "status": "AVAILABLE"
+          "display_name": "Replace Text"
         },
         {
           "id": "google_slides.GoogleSlidesResizePageElement",
-          "display_name": "Resize Page Element",
-          "status": "AVAILABLE"
+          "display_name": "Resize Page Element"
         },
         {
           "id": "google_slides.GoogleSlidesRotatePageElement",
-          "display_name": "Rotate Page Element",
-          "status": "AVAILABLE"
+          "display_name": "Rotate Page Element"
         },
         {
           "id": "google_slides.GoogleSlidesSetElementAltText",
-          "display_name": "Set Element Alt Text",
-          "status": "AVAILABLE"
+          "display_name": "Set Element Alt Text"
         },
         {
           "id": "google_slides.GoogleSlidesSetImageProperties",
-          "display_name": "Set Image Properties",
-          "status": "AVAILABLE"
+          "display_name": "Set Image Properties"
         },
         {
           "id": "google_slides.GoogleSlidesSetSlideBackground",
-          "display_name": "Set Slide Background",
-          "status": "AVAILABLE"
+          "display_name": "Set Slide Background"
         },
         {
           "id": "google_slides.GoogleSlidesSetTableCellText",
-          "display_name": "Set Table Cell Text",
-          "status": "AVAILABLE"
+          "display_name": "Set Table Cell Text"
         },
         {
           "id": "google_slides.GoogleSlidesTemplateMerge",
-          "display_name": "Template Merge",
-          "status": "AVAILABLE"
+          "display_name": "Template Merge"
         },
         {
           "id": "google_slides.GoogleSlidesUngroupElements",
-          "display_name": "Ungroup Elements",
-          "status": "AVAILABLE"
+          "display_name": "Ungroup Elements"
         },
         {
           "id": "google_slides.GoogleSlidesUnmergeTableCells",
-          "display_name": "Unmerge Table Cells",
-          "status": "AVAILABLE"
+          "display_name": "Unmerge Table Cells"
         },
         {
           "id": "google_slides.GoogleSlidesUpdateSpeakerNotes",
-          "display_name": "Update Speaker Notes",
-          "status": "AVAILABLE"
+          "display_name": "Update Speaker Notes"
         }
       ]
     },
@@ -1987,13 +1582,10 @@
       "category": "groq",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "groq.GroqModel",
-          "display_name": "Groq",
-          "status": "AVAILABLE"
+          "display_name": "Groq"
         }
       ]
     },
@@ -2001,18 +1593,14 @@
       "category": "homeassistant",
       "component_count": 2,
       "available": 2,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "homeassistant.HomeAssistantControl",
-          "display_name": "Home Assistant Control",
-          "status": "AVAILABLE"
+          "display_name": "Home Assistant Control"
         },
         {
           "id": "homeassistant.ListHomeAssistantStates",
-          "display_name": "List Home Assistant States",
-          "status": "AVAILABLE"
+          "display_name": "List Home Assistant States"
         }
       ]
     },
@@ -2020,18 +1608,14 @@
       "category": "huggingface",
       "component_count": 2,
       "available": 2,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "huggingface.HuggingFaceInferenceAPIEmbeddings",
-          "display_name": "Hugging Face Embeddings Inference",
-          "status": "AVAILABLE"
+          "display_name": "Hugging Face Embeddings Inference"
         },
         {
           "id": "huggingface.HuggingFaceModel",
-          "display_name": "Hugging Face",
-          "status": "AVAILABLE"
+          "display_name": "Hugging Face"
         }
       ]
     },
@@ -2039,18 +1623,14 @@
       "category": "ibm",
       "component_count": 2,
       "available": 2,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "ibm.IBMwatsonxModel",
-          "display_name": "IBM watsonx.ai",
-          "status": "AVAILABLE"
+          "display_name": "IBM watsonx.ai"
         },
         {
           "id": "ibm.WatsonxEmbeddingsComponent",
-          "display_name": "IBM watsonx.ai Embeddings",
-          "status": "AVAILABLE"
+          "display_name": "IBM watsonx.ai Embeddings"
         }
       ]
     },
@@ -2058,13 +1638,10 @@
       "category": "icosacomputing",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "icosacomputing.Combinatorial Reasoner",
-          "display_name": "Combinatorial Reasoner",
-          "status": "AVAILABLE"
+          "display_name": "Combinatorial Reasoner"
         }
       ]
     },
@@ -2072,78 +1649,62 @@
       "category": "input_output",
       "component_count": 14,
       "available": 14,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "input_output.ChatInput",
-          "display_name": "Chat Input",
-          "status": "AVAILABLE"
+          "display_name": "Chat Input"
         },
         {
           "id": "input_output.ChatOutput",
-          "display_name": "Chat Output",
-          "status": "AVAILABLE"
+          "display_name": "Chat Output"
         },
         {
           "id": "input_output.MetaInstagramSendMessage",
-          "display_name": "Meta Instagram Send Message",
-          "status": "AVAILABLE"
+          "display_name": "Meta Instagram Send Message"
         },
         {
           "id": "input_output.MetaMessengerSendMessage",
-          "display_name": "Meta Messenger Send Message",
-          "status": "AVAILABLE"
+          "display_name": "Meta Messenger Send Message"
         },
         {
           "id": "input_output.MetaWhatsAppSendMessage",
-          "display_name": "Meta WhatsApp Send Message",
-          "status": "AVAILABLE"
+          "display_name": "Meta WhatsApp Send Message"
         },
         {
           "id": "input_output.ScheduleTrigger",
-          "display_name": "Schedule Trigger",
-          "status": "AVAILABLE"
+          "display_name": "Schedule Trigger"
         },
         {
           "id": "input_output.TextInput",
-          "display_name": "Text Input",
-          "status": "AVAILABLE"
+          "display_name": "Text Input"
         },
         {
           "id": "input_output.TextOutput",
-          "display_name": "Text Output",
-          "status": "AVAILABLE"
+          "display_name": "Text Output"
         },
         {
           "id": "input_output.UChatSubFlowTrigger",
-          "display_name": "UChat Sub-Flow Trigger",
-          "status": "AVAILABLE"
+          "display_name": "UChat Sub-Flow Trigger"
         },
         {
           "id": "input_output.UChatUserFieldsSetter",
-          "display_name": "UChat User Fields Setter",
-          "status": "AVAILABLE"
+          "display_name": "UChat User Fields Setter"
         },
         {
           "id": "input_output.UniversalWebhook",
-          "display_name": "Universal Webhook",
-          "status": "AVAILABLE"
+          "display_name": "Universal Webhook"
         },
         {
           "id": "input_output.Webhook",
-          "display_name": "Webhook",
-          "status": "AVAILABLE"
+          "display_name": "Webhook"
         },
         {
           "id": "input_output.Webhook2",
-          "display_name": "POST Webhook",
-          "status": "AVAILABLE"
+          "display_name": "POST Webhook"
         },
         {
           "id": "input_output.WebhookResponse",
-          "display_name": "Webhook Response",
-          "status": "AVAILABLE"
+          "display_name": "Webhook Response"
         }
       ]
     },
@@ -2151,63 +1712,50 @@
       "category": "jigsawstack",
       "component_count": 11,
       "available": 11,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "jigsawstack.JigsawStackAIScraper",
-          "display_name": "AI Scraper",
-          "status": "AVAILABLE"
+          "display_name": "AI Scraper"
         },
         {
           "id": "jigsawstack.JigsawStackAISearch",
-          "display_name": "AI Web Search",
-          "status": "AVAILABLE"
+          "display_name": "AI Web Search"
         },
         {
           "id": "jigsawstack.JigsawStackFileRead",
-          "display_name": "File Read",
-          "status": "AVAILABLE"
+          "display_name": "File Read"
         },
         {
           "id": "jigsawstack.JigsawStackFileUpload",
-          "display_name": "File Upload",
-          "status": "AVAILABLE"
+          "display_name": "File Upload"
         },
         {
           "id": "jigsawstack.JigsawStackImageGeneration",
-          "display_name": "Image Generation",
-          "status": "AVAILABLE"
+          "display_name": "Image Generation"
         },
         {
           "id": "jigsawstack.JigsawStackNSFW",
-          "display_name": "NSFW Detection",
-          "status": "AVAILABLE"
+          "display_name": "NSFW Detection"
         },
         {
           "id": "jigsawstack.JigsawStackObjectDetection",
-          "display_name": "Object Detection",
-          "status": "AVAILABLE"
+          "display_name": "Object Detection"
         },
         {
           "id": "jigsawstack.JigsawStackSentiment",
-          "display_name": "Sentiment Analysis",
-          "status": "AVAILABLE"
+          "display_name": "Sentiment Analysis"
         },
         {
           "id": "jigsawstack.JigsawStackTextToSQL",
-          "display_name": "Text to SQL",
-          "status": "AVAILABLE"
+          "display_name": "Text to SQL"
         },
         {
           "id": "jigsawstack.JigsawStackTextTranslate",
-          "display_name": "Text Translate",
-          "status": "AVAILABLE"
+          "display_name": "Text Translate"
         },
         {
           "id": "jigsawstack.JigsawStackVOCR",
-          "display_name": "VOCR",
-          "status": "AVAILABLE"
+          "display_name": "VOCR"
         }
       ]
     },
@@ -2215,138 +1763,110 @@
       "category": "langchain_utilities",
       "component_count": 26,
       "available": 13,
-      "beta": 4,
-      "legacy": 9,
       "components": [
         {
           "id": "langchain_utilities.CharacterTextSplitter",
-          "display_name": "Character Text Splitter",
-          "status": "AVAILABLE"
+          "display_name": "Character Text Splitter"
         },
         {
           "id": "langchain_utilities.ConversationChain",
-          "display_name": "ConversationChain",
-          "status": "LEGACY"
+          "display_name": "ConversationChain"
         },
         {
           "id": "langchain_utilities.CSVAgent",
-          "display_name": "CSV Agent",
-          "status": "AVAILABLE"
+          "display_name": "CSV Agent"
         },
         {
           "id": "langchain_utilities.HtmlLinkExtractor",
-          "display_name": "HTML Link Extractor",
-          "status": "AVAILABLE"
+          "display_name": "HTML Link Extractor"
         },
         {
           "id": "langchain_utilities.JsonAgent",
-          "display_name": "JsonAgent",
-          "status": "LEGACY"
+          "display_name": "JsonAgent"
         },
         {
           "id": "langchain_utilities.LangChain Hub Prompt",
-          "display_name": "Prompt Hub",
-          "status": "BETA"
+          "display_name": "Prompt Hub"
         },
         {
           "id": "langchain_utilities.LangChainFakeEmbeddings",
-          "display_name": "Fake Embeddings",
-          "status": "AVAILABLE"
+          "display_name": "Fake Embeddings"
         },
         {
           "id": "langchain_utilities.LanguageRecursiveTextSplitter",
-          "display_name": "Language Recursive Text Splitter",
-          "status": "AVAILABLE"
+          "display_name": "Language Recursive Text Splitter"
         },
         {
           "id": "langchain_utilities.LLMCheckerChain",
-          "display_name": "LLMCheckerChain",
-          "status": "LEGACY"
+          "display_name": "LLMCheckerChain"
         },
         {
           "id": "langchain_utilities.LLMMathChain",
-          "display_name": "LLMMathChain",
-          "status": "LEGACY"
+          "display_name": "LLMMathChain"
         },
         {
           "id": "langchain_utilities.NaturalLanguageTextSplitter",
-          "display_name": "Natural Language Text Splitter",
-          "status": "AVAILABLE"
+          "display_name": "Natural Language Text Splitter"
         },
         {
           "id": "langchain_utilities.OpenAIToolsAgent",
-          "display_name": "OpenAI Tools Agent",
-          "status": "AVAILABLE"
+          "display_name": "OpenAI Tools Agent"
         },
         {
           "id": "langchain_utilities.OpenAPIAgent",
-          "display_name": "OpenAPI Agent",
-          "status": "AVAILABLE"
+          "display_name": "OpenAPI Agent"
         },
         {
           "id": "langchain_utilities.RecursiveCharacterTextSplitter",
-          "display_name": "Recursive Character Text Splitter",
-          "status": "AVAILABLE"
+          "display_name": "Recursive Character Text Splitter"
         },
         {
           "id": "langchain_utilities.RetrievalQA",
-          "display_name": "Retrieval QA",
-          "status": "LEGACY"
+          "display_name": "Retrieval QA"
         },
         {
           "id": "langchain_utilities.RunnableExecutor",
-          "display_name": "Runnable Executor",
-          "status": "BETA"
+          "display_name": "Runnable Executor"
         },
         {
           "id": "langchain_utilities.SelfQueryRetriever",
-          "display_name": "Self Query Retriever",
-          "status": "LEGACY"
+          "display_name": "Self Query Retriever"
         },
         {
           "id": "langchain_utilities.SemanticTextSplitter",
-          "display_name": "Semantic Text Splitter",
-          "status": "BETA"
+          "display_name": "Semantic Text Splitter"
         },
         {
           "id": "langchain_utilities.SpiderTool",
-          "display_name": "Spider Web Crawler & Scraper",
-          "status": "AVAILABLE"
+          "display_name": "Spider Web Crawler & Scraper"
         },
         {
           "id": "langchain_utilities.SQLAgent",
-          "display_name": "SQLAgent",
-          "status": "AVAILABLE"
+          "display_name": "SQLAgent"
         },
         {
           "id": "langchain_utilities.SQLDatabase",
-          "display_name": "SQLDatabase",
-          "status": "AVAILABLE"
+          "display_name": "SQLDatabase"
         },
         {
           "id": "langchain_utilities.SQLGenerator",
-          "display_name": "Natural Language to SQL",
-          "status": "LEGACY"
+          "display_name": "Natural Language to SQL"
         },
         {
           "id": "langchain_utilities.ToolCallingAgent",
-          "display_name": "Tool Calling Agent",
-          "status": "AVAILABLE"
+          "display_name": "Tool Calling Agent"
         },
         {
           "id": "langchain_utilities.VectorStoreInfo",
-          "display_name": "VectorStoreInfo",
-          "status": "LEGACY"
+          "display_name": "VectorStoreInfo"
         },
         {
           "id": "langchain_utilities.VectorStoreRouterAgent",
-          "display_name": "VectorStoreRouterAgent",
-          "status": "LEGACY"
+          "display_name": "VectorStoreRouterAgent"
         },
         {
           "id": "langchain_utilities.XMLAgent",
-          "display_name": "XML Agent",
-          "status": "BETA"
+          "display_name": "XML Agent"
         }
       ]
     },
@@ -2354,13 +1874,10 @@
       "category": "langwatch",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "langwatch.LangWatchEvaluator",
-          "display_name": "LangWatch Evaluator",
-          "status": "AVAILABLE"
+          "display_name": "LangWatch Evaluator"
         }
       ]
     },
@@ -2368,13 +1885,10 @@
       "category": "litellm",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "litellm.LiteLLMProxyModel",
-          "display_name": "LiteLLM Proxy",
-          "status": "AVAILABLE"
+          "display_name": "LiteLLM Proxy"
         }
       ]
     },
@@ -2382,38 +1896,30 @@
       "category": "llm_operations",
       "component_count": 6,
       "available": 6,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "llm_operations.BatchRunComponent",
-          "display_name": "Batch Run",
-          "status": "AVAILABLE"
+          "display_name": "Batch Run"
         },
         {
           "id": "llm_operations.GuardrailValidator",
-          "display_name": "Guardrails",
-          "status": "AVAILABLE"
+          "display_name": "Guardrails"
         },
         {
           "id": "llm_operations.LLMSelectorComponent",
-          "display_name": "LLM Selector",
-          "status": "AVAILABLE"
+          "display_name": "LLM Selector"
         },
         {
           "id": "llm_operations.Smart Transform",
-          "display_name": "Smart Transform",
-          "status": "AVAILABLE"
+          "display_name": "Smart Transform"
         },
         {
           "id": "llm_operations.SmartRouter",
-          "display_name": "Smart Router",
-          "status": "AVAILABLE"
+          "display_name": "Smart Router"
         },
         {
           "id": "llm_operations.StructuredOutput",
-          "display_name": "Structured Output",
-          "status": "AVAILABLE"
+          "display_name": "Structured Output"
         }
       ]
     },
@@ -2421,18 +1927,14 @@
       "category": "lmstudio",
       "component_count": 2,
       "available": 2,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "lmstudio.LMStudioEmbeddingsComponent",
-          "display_name": "LM Studio Embeddings",
-          "status": "AVAILABLE"
+          "display_name": "LM Studio Embeddings"
         },
         {
           "id": "lmstudio.LMStudioModel",
-          "display_name": "LM Studio",
-          "status": "AVAILABLE"
+          "display_name": "LM Studio"
         }
       ]
     },
@@ -2440,13 +1942,10 @@
       "category": "maritalk",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "maritalk.Maritalk",
-          "display_name": "MariTalk",
-          "status": "AVAILABLE"
+          "display_name": "MariTalk"
         }
       ]
     },
@@ -2454,13 +1953,10 @@
       "category": "mem0",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "mem0.mem0_chat_memory",
-          "display_name": "Mem0 Chat Memory",
-          "status": "AVAILABLE"
+          "display_name": "Mem0 Chat Memory"
         }
       ]
     },
@@ -2468,13 +1964,10 @@
       "category": "milvus",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "milvus.Milvus",
-          "display_name": "Milvus",
-          "status": "AVAILABLE"
+          "display_name": "Milvus"
         }
       ]
     },
@@ -2482,18 +1975,14 @@
       "category": "mistral",
       "component_count": 2,
       "available": 2,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "mistral.MistalAIEmbeddings",
-          "display_name": "MistralAI Embeddings",
-          "status": "AVAILABLE"
+          "display_name": "MistralAI Embeddings"
         },
         {
           "id": "mistral.MistralModel",
-          "display_name": "MistralAI",
-          "status": "AVAILABLE"
+          "display_name": "MistralAI"
         }
       ]
     },
@@ -2501,43 +1990,34 @@
       "category": "models_and_agents",
       "component_count": 7,
       "available": 6,
-      "beta": 1,
-      "legacy": 0,
       "components": [
         {
           "id": "models_and_agents.Agent",
-          "display_name": "Agent",
-          "status": "AVAILABLE"
+          "display_name": "Agent"
         },
         {
           "id": "models_and_agents.EmbeddingModel",
-          "display_name": "Embedding Model",
-          "status": "AVAILABLE"
+          "display_name": "Embedding Model"
         },
         {
           "id": "models_and_agents.LanguageModelComponent",
-          "display_name": "Language Model",
-          "status": "AVAILABLE"
+          "display_name": "Language Model"
         },
         {
           "id": "models_and_agents.MCPTools",
-          "display_name": "MCP Tools",
-          "status": "AVAILABLE"
+          "display_name": "MCP Tools"
         },
         {
           "id": "models_and_agents.Memory",
-          "display_name": "Message History",
-          "status": "AVAILABLE"
+          "display_name": "Message History"
         },
         {
           "id": "models_and_agents.policies",
-          "display_name": "Policies",
-          "status": "BETA"
+          "display_name": "Policies"
         },
         {
           "id": "models_and_agents.Prompt Template",
-          "display_name": "Prompt Template",
-          "status": "AVAILABLE"
+          "display_name": "Prompt Template"
         }
       ]
     },
@@ -2545,13 +2025,10 @@
       "category": "mongodb",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "mongodb.MongoDBAtlasVector",
-          "display_name": "MongoDB Atlas",
-          "status": "AVAILABLE"
+          "display_name": "MongoDB Atlas"
         }
       ]
     },
@@ -2559,13 +2036,10 @@
       "category": "needle",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "needle.needle",
-          "display_name": "Needle Retriever",
-          "status": "AVAILABLE"
+          "display_name": "Needle Retriever"
         }
       ]
     },
@@ -2573,13 +2047,10 @@
       "category": "notdiamond",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "notdiamond.NotDiamond",
-          "display_name": "Not Diamond Router",
-          "status": "AVAILABLE"
+          "display_name": "Not Diamond Router"
         }
       ]
     },
@@ -2587,13 +2058,10 @@
       "category": "novita",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "novita.NovitaModel",
-          "display_name": "Novita AI",
-          "status": "AVAILABLE"
+          "display_name": "Novita AI"
         }
       ]
     },
@@ -2601,33 +2069,26 @@
       "category": "nvidia",
       "component_count": 5,
       "available": 4,
-      "beta": 1,
-      "legacy": 0,
       "components": [
         {
           "id": "nvidia.NVIDIAEmbeddingsComponent",
-          "display_name": "NVIDIA Embeddings",
-          "status": "AVAILABLE"
+          "display_name": "NVIDIA Embeddings"
         },
         {
           "id": "nvidia.NvidiaIngestComponent",
-          "display_name": "NVIDIA Retriever Extraction",
-          "status": "BETA"
+          "display_name": "NVIDIA Retriever Extraction"
         },
         {
           "id": "nvidia.NVIDIAModelComponent",
-          "display_name": "NVIDIA",
-          "status": "AVAILABLE"
+          "display_name": "NVIDIA"
         },
         {
           "id": "nvidia.NvidiaRerankComponent",
-          "display_name": "NVIDIA Rerank",
-          "status": "AVAILABLE"
+          "display_name": "NVIDIA Rerank"
         },
         {
           "id": "nvidia.NvidiaSystemAssistComponent",
-          "display_name": "NVIDIA System-Assist",
-          "status": "AVAILABLE"
+          "display_name": "NVIDIA System-Assist"
         }
       ]
     },
@@ -2635,13 +2096,10 @@
       "category": "olivya",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "olivya.OlivyaComponent",
-          "display_name": "Place Call",
-          "status": "AVAILABLE"
+          "display_name": "Place Call"
         }
       ]
     },
@@ -2649,18 +2107,14 @@
       "category": "ollama",
       "component_count": 2,
       "available": 2,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "ollama.OllamaEmbeddings",
-          "display_name": "Ollama Embeddings",
-          "status": "AVAILABLE"
+          "display_name": "Ollama Embeddings"
         },
         {
           "id": "ollama.OllamaModel",
-          "display_name": "Ollama",
-          "status": "AVAILABLE"
+          "display_name": "Ollama"
         }
       ]
     },
@@ -2668,33 +2122,26 @@
       "category": "openai",
       "component_count": 5,
       "available": 5,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "openai.OpenAIEmbeddings",
-          "display_name": "OpenAI Embeddings",
-          "status": "AVAILABLE"
+          "display_name": "OpenAI Embeddings"
         },
         {
           "id": "openai.OpenAIModel",
-          "display_name": "OpenAI",
-          "status": "AVAILABLE"
+          "display_name": "OpenAI"
         },
         {
           "id": "openai.OpenAIResponsesAPI",
-          "display_name": "OpenAI Responses API",
-          "status": "AVAILABLE"
+          "display_name": "OpenAI Responses API"
         },
         {
           "id": "openai.OpenAIVisionAnalyzer",
-          "display_name": "OpenAI Vision Analyzer",
-          "status": "AVAILABLE"
+          "display_name": "OpenAI Vision Analyzer"
         },
         {
           "id": "openai.OpenAIVoiceTranscriber",
-          "display_name": "OpenAI Voice Transcriber",
-          "status": "AVAILABLE"
+          "display_name": "OpenAI Voice Transcriber"
         }
       ]
     },
@@ -2702,13 +2149,10 @@
       "category": "openrouter",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "openrouter.OpenRouterComponent",
-          "display_name": "OpenRouter",
-          "status": "AVAILABLE"
+          "display_name": "OpenRouter"
         }
       ]
     },
@@ -2716,13 +2160,10 @@
       "category": "perplexity",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "perplexity.PerplexityModel",
-          "display_name": "Perplexity",
-          "status": "AVAILABLE"
+          "display_name": "Perplexity"
         }
       ]
     },
@@ -2730,13 +2171,10 @@
       "category": "pgvector",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "pgvector.pgvector",
-          "display_name": "PGVector",
-          "status": "AVAILABLE"
+          "display_name": "PGVector"
         }
       ]
     },
@@ -2744,13 +2182,10 @@
       "category": "pinecone",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "pinecone.Pinecone",
-          "display_name": "Pinecone",
-          "status": "AVAILABLE"
+          "display_name": "Pinecone"
         }
       ]
     },
@@ -2758,193 +2193,154 @@
       "category": "processing",
       "component_count": 37,
       "available": 18,
-      "beta": 0,
-      "legacy": 19,
       "components": [
         {
           "id": "processing.AlterMetadata",
-          "display_name": "Alter Metadata",
-          "status": "LEGACY"
+          "display_name": "Alter Metadata"
         },
         {
           "id": "processing.AudioURLExtractor",
-          "display_name": "Audio URL Extractor",
-          "status": "AVAILABLE"
+          "display_name": "Audio URL Extractor"
         },
         {
           "id": "processing.CombineText",
-          "display_name": "Combine Text",
-          "status": "LEGACY"
+          "display_name": "Combine Text"
         },
         {
           "id": "processing.CreateData",
-          "display_name": "Create Data",
-          "status": "LEGACY"
+          "display_name": "Create Data"
         },
         {
           "id": "processing.CreateList",
-          "display_name": "Create List",
-          "status": "LEGACY"
+          "display_name": "Create List"
         },
         {
           "id": "processing.DataFrameOperations",
-          "display_name": "Table Operations",
-          "status": "AVAILABLE"
+          "display_name": "Table Operations"
         },
         {
           "id": "processing.DataOperations",
-          "display_name": "JSON Operations",
-          "status": "AVAILABLE"
+          "display_name": "JSON Operations"
         },
         {
           "id": "processing.DataToDataFrame",
-          "display_name": "Data → DataFrame",
-          "status": "LEGACY"
+          "display_name": "Data → DataFrame"
         },
         {
           "id": "processing.DynamicCreateData",
-          "display_name": "Dynamic Create Data",
-          "status": "AVAILABLE"
+          "display_name": "Dynamic Create Data"
         },
         {
           "id": "processing.ExcelRowQuery",
-          "display_name": "Excel Row Query",
-          "status": "AVAILABLE"
+          "display_name": "Excel Row Query"
         },
         {
           "id": "processing.ExcelRowUpsert",
-          "display_name": "Excel Row Upsert",
-          "status": "AVAILABLE"
+          "display_name": "Excel Row Upsert"
         },
         {
           "id": "processing.ExtractaKey",
-          "display_name": "Extract Key",
-          "status": "LEGACY"
+          "display_name": "Extract Key"
         },
         {
           "id": "processing.FilterData",
-          "display_name": "Filter Data",
-          "status": "LEGACY"
+          "display_name": "Filter Data"
         },
         {
           "id": "processing.FilterDataValues",
-          "display_name": "Filter Values",
-          "status": "LEGACY"
+          "display_name": "Filter Values"
         },
         {
           "id": "processing.ImageURLExtractor",
-          "display_name": "Image URL Extractor",
-          "status": "AVAILABLE"
+          "display_name": "Image URL Extractor"
         },
         {
           "id": "processing.JSONArrayExtractor",
-          "display_name": "JSON Array Extractor",
-          "status": "AVAILABLE"
+          "display_name": "JSON Array Extractor"
         },
         {
           "id": "processing.JSONCleaner",
-          "display_name": "JSON Cleaner",
-          "status": "LEGACY"
+          "display_name": "JSON Cleaner"
         },
         {
           "id": "processing.JSONKeyExtractor",
-          "display_name": "JSON Key Extractor",
-          "status": "AVAILABLE"
+          "display_name": "JSON Key Extractor"
         },
         {
           "id": "processing.JSONObjectBuilder",
-          "display_name": "JSON Object Builder",
-          "status": "AVAILABLE"
+          "display_name": "JSON Object Builder"
         },
         {
           "id": "processing.JSONStringParser",
-          "display_name": "JSON String Parser",
-          "status": "AVAILABLE"
+          "display_name": "JSON String Parser"
         },
         {
           "id": "processing.MediaURLCleaner",
-          "display_name": "Media URL Cleaner",
-          "status": "AVAILABLE"
+          "display_name": "Media URL Cleaner"
         },
         {
           "id": "processing.MergeDataComponent",
-          "display_name": "Combine Data",
-          "status": "LEGACY"
+          "display_name": "Combine Data"
         },
         {
           "id": "processing.MessagetoData",
-          "display_name": "Message to Data",
-          "status": "LEGACY"
+          "display_name": "Message to Data"
         },
         {
           "id": "processing.MetaWebhookSignatureVerification",
-          "display_name": "Meta Webhook Signature Verification",
-          "status": "AVAILABLE"
+          "display_name": "Meta Webhook Signature Verification"
         },
         {
           "id": "processing.MetaWebhookVerification",
-          "display_name": "Meta Webhook Verification",
-          "status": "AVAILABLE"
+          "display_name": "Meta Webhook Verification"
         },
         {
           "id": "processing.OutputParser",
-          "display_name": "Output Parser",
-          "status": "LEGACY"
+          "display_name": "Output Parser"
         },
         {
           "id": "processing.ParseData",
-          "display_name": "Data to Message",
-          "status": "LEGACY"
+          "display_name": "Data to Message"
         },
         {
           "id": "processing.ParseDataFrame",
-          "display_name": "Parse DataFrame",
-          "status": "LEGACY"
+          "display_name": "Parse DataFrame"
         },
         {
           "id": "processing.ParseJSONData",
-          "display_name": "Parse JSON",
-          "status": "LEGACY"
+          "display_name": "Parse JSON"
         },
         {
           "id": "processing.ParserComponent",
-          "display_name": "Parser",
-          "status": "AVAILABLE"
+          "display_name": "Parser"
         },
         {
           "id": "processing.RegexExtractorComponent",
-          "display_name": "Regex Extractor",
-          "status": "LEGACY"
+          "display_name": "Regex Extractor"
         },
         {
           "id": "processing.SelectData",
-          "display_name": "Select Data",
-          "status": "LEGACY"
+          "display_name": "Select Data"
         },
         {
           "id": "processing.SplitText",
-          "display_name": "Split Text",
-          "status": "AVAILABLE"
+          "display_name": "Split Text"
         },
         {
           "id": "processing.StoreMessage",
-          "display_name": "Message Store",
-          "status": "LEGACY"
+          "display_name": "Message Store"
         },
         {
           "id": "processing.TextOperations",
-          "display_name": "Text Operations",
-          "status": "AVAILABLE"
+          "display_name": "Text Operations"
         },
         {
           "id": "processing.TypeConverterComponent",
-          "display_name": "Type Convert",
-          "status": "AVAILABLE"
+          "display_name": "Type Convert"
         },
         {
           "id": "processing.UpdateData",
-          "display_name": "Update Data",
-          "status": "LEGACY"
+          "display_name": "Update Data"
         }
       ]
     },
@@ -2952,13 +2348,10 @@
       "category": "prototypes",
       "component_count": 1,
       "available": 0,
-      "beta": 0,
-      "legacy": 1,
       "components": [
         {
           "id": "prototypes.PythonFunction",
-          "display_name": "Python Function",
-          "status": "LEGACY"
+          "display_name": "Python Function"
         }
       ]
     },
@@ -2966,13 +2359,10 @@
       "category": "qdrant",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "qdrant.QdrantVectorStoreComponent",
-          "display_name": "Qdrant",
-          "status": "AVAILABLE"
+          "display_name": "Qdrant"
         }
       ]
     },
@@ -2980,18 +2370,14 @@
       "category": "redis",
       "component_count": 2,
       "available": 2,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "redis.Redis",
-          "display_name": "Redis",
-          "status": "AVAILABLE"
+          "display_name": "Redis"
         },
         {
           "id": "redis.RedisChatMemory",
-          "display_name": "Redis Chat Memory",
-          "status": "AVAILABLE"
+          "display_name": "Redis Chat Memory"
         }
       ]
     },
@@ -2999,13 +2385,10 @@
       "category": "sambanova",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "sambanova.SambaNovaModel",
-          "display_name": "SambaNova",
-          "status": "AVAILABLE"
+          "display_name": "SambaNova"
         }
       ]
     },
@@ -3013,23 +2396,18 @@
       "category": "scrapegraph",
       "component_count": 3,
       "available": 3,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "scrapegraph.ScrapeGraphMarkdownifyApi",
-          "display_name": "ScrapeGraph Markdownify API",
-          "status": "AVAILABLE"
+          "display_name": "ScrapeGraph Markdownify API"
         },
         {
           "id": "scrapegraph.ScrapeGraphSearchApi",
-          "display_name": "ScrapeGraph Search API",
-          "status": "AVAILABLE"
+          "display_name": "ScrapeGraph Search API"
         },
         {
           "id": "scrapegraph.ScrapeGraphSmartScraperApi",
-          "display_name": "ScrapeGraph Smart Scraper API",
-          "status": "AVAILABLE"
+          "display_name": "ScrapeGraph Smart Scraper API"
         }
       ]
     },
@@ -3037,13 +2415,10 @@
       "category": "searchapi",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "searchapi.SearchComponent",
-          "display_name": "SearchApi",
-          "status": "AVAILABLE"
+          "display_name": "SearchApi"
         }
       ]
     },
@@ -3051,13 +2426,10 @@
       "category": "serpapi",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "serpapi.Serp",
-          "display_name": "Serp Search API",
-          "status": "AVAILABLE"
+          "display_name": "Serp Search API"
         }
       ]
     },
@@ -3065,13 +2437,10 @@
       "category": "supabase",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "supabase.SupabaseVectorStore",
-          "display_name": "Supabase",
-          "status": "AVAILABLE"
+          "display_name": "Supabase"
         }
       ]
     },
@@ -3079,18 +2448,14 @@
       "category": "tavily",
       "component_count": 2,
       "available": 2,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "tavily.TavilyExtractComponent",
-          "display_name": "Tavily Extract API",
-          "status": "AVAILABLE"
+          "display_name": "Tavily Extract API"
         },
         {
           "id": "tavily.TavilySearchComponent",
-          "display_name": "Tavily Search API",
-          "status": "AVAILABLE"
+          "display_name": "Tavily Search API"
         }
       ]
     },
@@ -3098,68 +2463,54 @@
       "category": "tools",
       "component_count": 12,
       "available": 0,
-      "beta": 0,
-      "legacy": 12,
       "components": [
         {
           "id": "tools.CalculatorTool",
-          "display_name": "Calculator",
-          "status": "LEGACY"
+          "display_name": "Calculator"
         },
         {
           "id": "tools.GoogleSearchAPI",
-          "display_name": "Google Search API [DEPRECATED]",
-          "status": "LEGACY"
+          "display_name": "Google Search API [DEPRECATED]"
         },
         {
           "id": "tools.GoogleSerperAPI",
-          "display_name": "Google Serper API [DEPRECATED]",
-          "status": "LEGACY"
+          "display_name": "Google Serper API [DEPRECATED]"
         },
         {
           "id": "tools.PythonCodeStructuredTool",
-          "display_name": "Python Code Structured",
-          "status": "LEGACY"
+          "display_name": "Python Code Structured"
         },
         {
           "id": "tools.PythonREPLTool",
-          "display_name": "Python REPL",
-          "status": "LEGACY"
+          "display_name": "Python REPL"
         },
         {
           "id": "tools.SearchAPI",
-          "display_name": "Search API",
-          "status": "LEGACY"
+          "display_name": "Search API"
         },
         {
           "id": "tools.SearXNGTool",
-          "display_name": "SearXNG Search",
-          "status": "LEGACY"
+          "display_name": "SearXNG Search"
         },
         {
           "id": "tools.SerpAPI",
-          "display_name": "Serp Search API",
-          "status": "LEGACY"
+          "display_name": "Serp Search API"
         },
         {
           "id": "tools.TavilyAISearch",
-          "display_name": "Tavily Search API",
-          "status": "LEGACY"
+          "display_name": "Tavily Search API"
         },
         {
           "id": "tools.WikidataAPI",
-          "display_name": "Wikidata API",
-          "status": "LEGACY"
+          "display_name": "Wikidata API"
         },
         {
           "id": "tools.WikipediaAPI",
-          "display_name": "Wikipedia API",
-          "status": "LEGACY"
+          "display_name": "Wikipedia API"
         },
         {
           "id": "tools.YahooFinanceTool",
-          "display_name": "Yahoo! Finance",
-          "status": "LEGACY"
+          "display_name": "Yahoo! Finance"
         }
       ]
     },
@@ -3167,43 +2518,34 @@
       "category": "twelvelabs",
       "component_count": 7,
       "available": 7,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "twelvelabs.ConvertAstraToTwelveLabs",
-          "display_name": "Convert Astra DB to Pegasus Input",
-          "status": "AVAILABLE"
+          "display_name": "Convert Astra DB to Pegasus Input"
         },
         {
           "id": "twelvelabs.SplitVideo",
-          "display_name": "Split Video",
-          "status": "AVAILABLE"
+          "display_name": "Split Video"
         },
         {
           "id": "twelvelabs.TwelveLabsPegasus",
-          "display_name": "TwelveLabs Pegasus",
-          "status": "AVAILABLE"
+          "display_name": "TwelveLabs Pegasus"
         },
         {
           "id": "twelvelabs.TwelveLabsPegasusIndexVideo",
-          "display_name": "TwelveLabs Pegasus Index Video",
-          "status": "AVAILABLE"
+          "display_name": "TwelveLabs Pegasus Index Video"
         },
         {
           "id": "twelvelabs.TwelveLabsTextEmbeddings",
-          "display_name": "TwelveLabs Text Embeddings",
-          "status": "AVAILABLE"
+          "display_name": "TwelveLabs Text Embeddings"
         },
         {
           "id": "twelvelabs.TwelveLabsVideoEmbeddings",
-          "display_name": "TwelveLabs Video Embeddings",
-          "status": "AVAILABLE"
+          "display_name": "TwelveLabs Video Embeddings"
         },
         {
           "id": "twelvelabs.VideoFile",
-          "display_name": "Video File",
-          "status": "AVAILABLE"
+          "display_name": "Video File"
         }
       ]
     },
@@ -3211,13 +2553,10 @@
       "category": "unstructured",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "unstructured.Unstructured",
-          "display_name": "Unstructured API",
-          "status": "AVAILABLE"
+          "display_name": "Unstructured API"
         }
       ]
     },
@@ -3225,13 +2564,10 @@
       "category": "upstash",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "upstash.Upstash",
-          "display_name": "Upstash",
-          "status": "AVAILABLE"
+          "display_name": "Upstash"
         }
       ]
     },
@@ -3239,28 +2575,22 @@
       "category": "utilities",
       "component_count": 4,
       "available": 3,
-      "beta": 0,
-      "legacy": 1,
       "components": [
         {
           "id": "utilities.CalculatorComponent",
-          "display_name": "Calculator",
-          "status": "AVAILABLE"
+          "display_name": "Calculator"
         },
         {
           "id": "utilities.CurrentDate",
-          "display_name": "Current Date",
-          "status": "AVAILABLE"
+          "display_name": "Current Date"
         },
         {
           "id": "utilities.IDGenerator",
-          "display_name": "ID Generator",
-          "status": "LEGACY"
+          "display_name": "ID Generator"
         },
         {
           "id": "utilities.PythonREPLComponent",
-          "display_name": "Python Interpreter",
-          "status": "AVAILABLE"
+          "display_name": "Python Interpreter"
         }
       ]
     },
@@ -3268,18 +2598,14 @@
       "category": "vectara",
       "component_count": 2,
       "available": 2,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "vectara.Vectara",
-          "display_name": "Vectara",
-          "status": "AVAILABLE"
+          "display_name": "Vectara"
         },
         {
           "id": "vectara.VectaraRAG",
-          "display_name": "Vectara RAG",
-          "status": "AVAILABLE"
+          "display_name": "Vectara RAG"
         }
       ]
     },
@@ -3287,13 +2613,10 @@
       "category": "vectorstores",
       "component_count": 1,
       "available": 0,
-      "beta": 0,
-      "legacy": 1,
       "components": [
         {
           "id": "vectorstores.LocalDB",
-          "display_name": "Local DB",
-          "status": "LEGACY"
+          "display_name": "Local DB"
         }
       ]
     },
@@ -3301,18 +2624,14 @@
       "category": "vertexai",
       "component_count": 2,
       "available": 2,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "vertexai.VertexAIEmbeddings",
-          "display_name": "Vertex AI Embeddings",
-          "status": "AVAILABLE"
+          "display_name": "Vertex AI Embeddings"
         },
         {
           "id": "vertexai.VertexAiModel",
-          "display_name": "Vertex AI",
-          "status": "AVAILABLE"
+          "display_name": "Vertex AI"
         }
       ]
     },
@@ -3320,18 +2639,14 @@
       "category": "vllm",
       "component_count": 2,
       "available": 2,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "vllm.vLLMEmbeddings",
-          "display_name": "vLLM Embeddings",
-          "status": "AVAILABLE"
+          "display_name": "vLLM Embeddings"
         },
         {
           "id": "vllm.vLLMModel",
-          "display_name": "vLLM",
-          "status": "AVAILABLE"
+          "display_name": "vLLM"
         }
       ]
     },
@@ -3339,13 +2654,10 @@
       "category": "vlmrun",
       "component_count": 1,
       "available": 0,
-      "beta": 1,
-      "legacy": 0,
       "components": [
         {
           "id": "vlmrun.VLMRunTranscription",
-          "display_name": "VLM Run Transcription",
-          "status": "BETA"
+          "display_name": "VLM Run Transcription"
         }
       ]
     },
@@ -3353,13 +2665,10 @@
       "category": "weaviate",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "weaviate.Weaviate",
-          "display_name": "Weaviate",
-          "status": "AVAILABLE"
+          "display_name": "Weaviate"
         }
       ]
     },
@@ -3367,18 +2676,14 @@
       "category": "wikipedia",
       "component_count": 2,
       "available": 2,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "wikipedia.WikidataComponent",
-          "display_name": "Wikidata",
-          "status": "AVAILABLE"
+          "display_name": "Wikidata"
         },
         {
           "id": "wikipedia.WikipediaComponent",
-          "display_name": "Wikipedia",
-          "status": "AVAILABLE"
+          "display_name": "Wikipedia"
         }
       ]
     },
@@ -3386,13 +2691,10 @@
       "category": "wolframalpha",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "wolframalpha.WolframAlphaAPI",
-          "display_name": "WolframAlpha API",
-          "status": "AVAILABLE"
+          "display_name": "WolframAlpha API"
         }
       ]
     },
@@ -3400,13 +2702,10 @@
       "category": "xai",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "xai.xAIModel",
-          "display_name": "xAI",
-          "status": "AVAILABLE"
+          "display_name": "xAI"
         }
       ]
     },
@@ -3414,13 +2713,10 @@
       "category": "yahoosearch",
       "component_count": 1,
       "available": 1,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "yahoosearch.YfinanceComponent",
-          "display_name": "Yahoo! Finance",
-          "status": "AVAILABLE"
+          "display_name": "Yahoo! Finance"
         }
       ]
     },
@@ -3428,43 +2724,34 @@
       "category": "youtube",
       "component_count": 7,
       "available": 7,
-      "beta": 0,
-      "legacy": 0,
       "components": [
         {
           "id": "youtube.YouTubeChannelComponent",
-          "display_name": "YouTube Channel",
-          "status": "AVAILABLE"
+          "display_name": "YouTube Channel"
         },
         {
           "id": "youtube.YouTubeCommentsComponent",
-          "display_name": "YouTube Comments",
-          "status": "AVAILABLE"
+          "display_name": "YouTube Comments"
         },
         {
           "id": "youtube.YouTubePlaylistComponent",
-          "display_name": "YouTube Playlist",
-          "status": "AVAILABLE"
+          "display_name": "YouTube Playlist"
         },
         {
           "id": "youtube.YouTubeSearchComponent",
-          "display_name": "YouTube Search",
-          "status": "AVAILABLE"
+          "display_name": "YouTube Search"
         },
         {
           "id": "youtube.YouTubeTranscripts",
-          "display_name": "YouTube Transcripts",
-          "status": "AVAILABLE"
+          "display_name": "YouTube Transcripts"
         },
         {
           "id": "youtube.YouTubeTrendingComponent",
-          "display_name": "YouTube Trending",
-          "status": "AVAILABLE"
+          "display_name": "YouTube Trending"
         },
         {
           "id": "youtube.YouTubeVideoDetailsComponent",
-          "display_name": "YouTube Video Details",
-          "status": "AVAILABLE"
+          "display_name": "YouTube Video Details"
         }
       ]
     },
@@ -3472,13 +2759,10 @@
       "category": "zep",
       "component_count": 1,
       "available": 0,
-      "beta": 0,
-      "legacy": 1,
       "components": [
         {
           "id": "zep.ZepChatMemory",
-          "display_name": "Zep Chat Memory",
-          "status": "LEGACY"
+          "display_name": "Zep Chat Memory"
         }
       ]
     }
@@ -3487,7 +2771,6 @@
   "documented_extensions": [
     {
       "integration": "Telegram Bot",
-      "status": "AVAILABLE",
       "classification": "DOCUMENTED_FLOWI_EXTENSION",
       "built_in": false,
       "documentation": "../integrations/telegram/index.md"

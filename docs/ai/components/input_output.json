@@ -9,10 +9,6 @@
       "component_type": "ChatInput",
       "display_name": "Chat Input",
       "description": "Get chat inputs from the Playground.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -164,10 +160,6 @@
       "component_type": "ChatOutput",
       "display_name": "Chat Output",
       "description": "Display a chat message in the Playground.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -343,10 +335,6 @@
       "component_type": "MetaInstagramSendMessage",
       "display_name": "Meta Instagram Send Message",
       "description": "Sends text or media messages to an Instagram-scoped recipient through the Instagram Messaging API.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Data",
@@ -538,10 +526,6 @@
       "component_type": "MetaMessengerSendMessage",
       "display_name": "Meta Messenger Send Message",
       "description": "Sends text or media messages to a Facebook Page-scoped recipient through the Messenger Platform Send API.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Data",
@@ -734,10 +718,6 @@
       "component_type": "MetaWhatsAppSendMessage",
       "display_name": "Meta WhatsApp Send Message",
       "description": "Sends text or media messages through the WhatsApp Cloud API. Supports replying to a specific WhatsApp message and Custom JSON payloads.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Data",
@@ -984,10 +964,6 @@
       "component_type": "Webhook2",
       "display_name": "POST Webhook",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1064,10 +1040,6 @@
       "component_type": "ScheduleTrigger",
       "display_name": "Schedule Trigger",
       "description": "Starts this flow automatically according to a configured schedule.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1248,7 +1220,7 @@
           "load_from_db": false,
           "tool_mode": false,
           "real_time_refresh": false,
-          "info": "Internal runtime metadata injected by the Langflow scheduler."
+          "info": "Internal runtime metadata injected by the AI Flowi Workflow scheduler."
         },
         {
           "name": "schedule_type",
@@ -1357,10 +1329,6 @@
       "component_type": "TextInput",
       "display_name": "Text Input",
       "description": "Get user text inputs.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -1424,10 +1392,6 @@
       "component_type": "TextOutput",
       "display_name": "Text Output",
       "description": "Sends text output via API.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -1475,10 +1439,6 @@
       "component_type": "UChatSubFlowTrigger",
       "display_name": "UChat Sub-Flow Trigger",
       "description": "Triggers a UChat sub-flow after the subscriber fields have been updated successfully.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -1596,10 +1556,6 @@
       "component_type": "UChatUserFieldsSetter",
       "display_name": "UChat User Fields Setter",
       "description": "Accepts a top-level JSON array of field objects and sets the subscriber's UChat user fields.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -1700,10 +1656,6 @@
       "component_type": "UniversalWebhook",
       "display_name": "Universal Webhook",
       "description": "Receives GET, POST, PUT, PATCH, and DELETE webhook requests, captures query parameters, headers, JSON, form data, raw body, files, and metadata, and exposes the complete normalized request as JSON.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1724,7 +1676,7 @@
           "load_from_db": false,
           "tool_mode": false,
           "real_time_refresh": false,
-          "info": "Platform API Key preserves the existing Langflow webhook authentication policy. External Provider allows the request through without the platform API key so the flow can perform provider-specific verification, such as Meta hub.verify_token or X-Hub-Signature-256 validation.",
+          "info": "Platform API Key preserves the existing AI Flowi Workflow webhook authentication policy. External Provider allows the request through without the platform API key so the flow can perform provider-specific verification, such as Meta hub.verify_token or X-Hub-Signature-256 validation.",
           "options": [
             "Platform API Key",
             "External Provider"
@@ -1838,7 +1790,7 @@
           "load_from_db": false,
           "tool_mode": false,
           "real_time_refresh": true,
-          "info": "Generated production webhook URL. Copy only; the URL is managed by Langflow."
+          "info": "Generated production webhook URL. Copy only; the URL is managed by AI Flowi Workflow."
         },
         {
           "name": "files_data",
@@ -2268,10 +2220,6 @@
       "component_type": "Webhook",
       "display_name": "Webhook",
       "description": "",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -2349,10 +2297,6 @@
       "component_type": "WebhookResponse",
       "display_name": "Webhook Response",
       "description": "Returns a connected JSON or Message value as the Universal Webhook From Flow response body, or accepts a Response Definition containing a dynamic body, HTTP status, content type, and headers.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Data",

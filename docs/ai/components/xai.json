@@ -9,10 +9,6 @@
       "component_type": "xAIModel",
       "display_name": "xAI",
       "description": "Generates text using xAI models like Grok.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",

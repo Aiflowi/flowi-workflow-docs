@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
 
-User-agent: OAI-SearchBot
-Allow: /
-
-Sitemap: https://docs.aiflowi.com/sitemap.xml
+Sitemap: https://aiflowi.com/sitemap_index.xml

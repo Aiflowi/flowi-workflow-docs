@@ -9,10 +9,6 @@
       "component_type": "ScrapeGraphMarkdownifyApi",
       "display_name": "ScrapeGraph Markdownify API",
       "description": "Given a URL, it will return the markdownified content of the website.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -76,10 +72,6 @@
       "component_type": "ScrapeGraphSearchApi",
       "display_name": "ScrapeGraph Search API",
       "description": "Given a search prompt, it will return search results using ScrapeGraph's search functionality.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -143,10 +135,6 @@
       "component_type": "ScrapeGraphSmartScraperApi",
       "display_name": "ScrapeGraph Smart Scraper API",
       "description": "Given a URL, it will return the structured data of the website.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"

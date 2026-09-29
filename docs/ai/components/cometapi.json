@@ -9,10 +9,6 @@
       "component_type": "CometAPIModel",
       "display_name": "CometAPI",
       "description": "All AI Models in One API 500+ AI Models",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",

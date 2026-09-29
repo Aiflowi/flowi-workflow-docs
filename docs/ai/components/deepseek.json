@@ -9,10 +9,6 @@
       "component_type": "DeepSeekModelComponent",
       "display_name": "DeepSeek",
       "description": "Generate text using DeepSeek LLMs.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",

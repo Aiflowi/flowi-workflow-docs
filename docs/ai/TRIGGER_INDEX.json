@@ -4,7 +4,6 @@
   "triggers": [
     {
       "component_id": "input_output.UniversalWebhook",
-      "status": "AVAILABLE",
       "role": "HTTP trigger",
       "notes": [
         "Verified methods: GET, POST, PUT, PATCH, DELETE.",
@@ -13,34 +12,29 @@
     },
     {
       "component_id": "input_output.ScheduleTrigger",
-      "status": "AVAILABLE",
       "role": "schedule trigger",
       "notes": []
     },
     {
       "component_id": "input_output.Webhook",
-      "status": "AVAILABLE",
-      "role": "legacy/general webhook entry",
+      "role": "older/general webhook entry",
       "notes": [
         "Exists in current catalog; prefer feature-specific documentation when choosing between webhook variants."
       ]
     },
     {
       "component_id": "input_output.Webhook2",
-      "status": "AVAILABLE",
       "role": "POST webhook",
       "notes": []
     },
     {
       "component_id": "input_output.UChatSubFlowTrigger",
-      "status": "AVAILABLE",
       "role": "UChat sub-flow trigger",
       "notes": []
     }
   ],
   "response_component": {
     "component_id": "input_output.WebhookResponse",
-    "status": "AVAILABLE",
     "notes": [
       "Used with Universal Webhook From Flow response mode."
     ]

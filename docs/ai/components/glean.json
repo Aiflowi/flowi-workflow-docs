@@ -9,10 +9,6 @@
       "component_type": "GleanSearchAPIComponent",
       "display_name": "Glean Search API",
       "description": "Search using Glean's API.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"

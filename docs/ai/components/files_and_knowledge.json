@@ -9,10 +9,6 @@
       "component_type": "KnowledgeBase",
       "display_name": "Knowledge Base",
       "description": "Search and retrieve data from knowledge.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -141,10 +137,6 @@
       "component_type": "KnowledgeIngestion",
       "display_name": "Knowledge Ingestion",
       "description": "Create or update knowledge in AI Flowi Workflow.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -280,10 +272,6 @@
       "component_type": "File",
       "display_name": "Read File",
       "description": "Loads and returns the content from uploaded files.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -518,7 +506,7 @@
           "load_from_db": false,
           "tool_mode": false,
           "real_time_refresh": false,
-          "info": "Export processed documents to Markdown format. Only available when advanced mode is enabled."
+          "info": "Export processed documents to Markdown format. Only documented when advanced mode is enabled."
         },
         {
           "name": "md_image_placeholder",
@@ -566,7 +554,7 @@
           "load_from_db": false,
           "tool_mode": false,
           "real_time_refresh": false,
-          "info": "OCR engine to use. Only available when pipeline is set to 'standard'.",
+          "info": "OCR engine to use. Only documented when pipeline is set to 'standard'.",
           "options": [
             "None",
             "easyocr"
@@ -728,10 +716,6 @@
       "component_type": "SaveToFile",
       "display_name": "Write File",
       "description": "Save data to local file, AWS S3, or Google Drive in the selected format.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -1024,10 +1008,6 @@
       "component_type": "Directory",
       "display_name": "Directory",
       "description": "Recursively load files from a directory.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['data.File']"
       ],

@@ -9,10 +9,6 @@
       "component_type": "SearchComponent",
       "display_name": "SearchApi",
       "description": "Calls the SearchApi API with result limiting. Supports Google, Bing and DuckDuckGo.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"

@@ -9,10 +9,6 @@
       "component_type": "Cuga",
       "display_name": "Cuga",
       "description": "Define the Cuga agent's instructions, then assign it a task.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"

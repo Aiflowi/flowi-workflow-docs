@@ -1,59 +1,36 @@
 ---
-title: Telegram Bot Integration with Flowi Workflow
-description: Connect a Telegram Bot to Flowi Workflow using the built-in Webhook plus the documented Telegram Webhook Setup and Telegram Update Parser extensions.
+title: How does the Telegram integration work?
+description: Learn how AI Flowi Workflow registers a Telegram webhook, receives updates, and parses message fields for downstream workflow steps.
+canonical_url: https://aiflowi.com/docs/integrations/telegram/
+last_updated: 2026-09-29
+author: Ai Flowi
 ---
 
-# Telegram Bot Integration with Flowi Workflow
+# How does the Telegram integration work?
 
-Flowi can receive Telegram Bot updates through a webhook-based architecture.
+Telegram sends bot updates to a public HTTPS endpoint exposed by the built-in Webhook component. Telegram Webhook Setup registers that endpoint with Telegram; Telegram Update Parser handles incoming JSON after registration. The setup component is separate from the path that processes each update.
 
-## Direct answer
+## Components and roles
 
-The documented inbound pattern is:
+| Component | Role |
+|---|---|
+| Webhook | Receives the Telegram update as JSON. |
+| Telegram Webhook Setup | Documented extension that registers the webhook endpoint. |
+| Telegram Update Parser | Documented extension that extracts common fields from an update. |
 
-`Telegram Bot API → Flowi Webhook → Telegram Update Parser → Flowi logic / AI / business actions`
+The setup path takes a bot token and Webhook URL, with an optional API key when the deployment requires one. The runtime path starts when Telegram sends an update to Webhook. Connect `Webhook.JSON` to `Telegram Update Parser.Telegram Update`, then pass documented parser fields to the next workflow step.
 
-**Telegram Webhook Setup** is a separate setup component. It registers the Flowi webhook URL with Telegram and is not part of the per-message runtime path.
+The parser documents `chat_id`, `user_id`, `username`, `text`, and `command`. Its exact public output type metadata is not supplied. Check the ports and types in your environment before connecting downstream components.
 
-## Component classification
+## Choose a guide
 
-| Component | Classification | Purpose |
-|---|---|---|
-| Webhook | Built-in Flowi component | Receives Telegram's HTTPS POST update as JSON |
-| Telegram Webhook Setup | Documented Flowi extension | Registers the Flowi webhook URL with Telegram Bot API |
-| Telegram Update Parser | Documented Flowi extension | Extracts common Telegram fields for downstream use |
+- [Set up the Telegram webhook](telegram-webhook-setup.md) to register the endpoint.
+- [Parse Telegram updates](telegram-update-parser.md) to understand the inbound data.
+- [Build a Telegram AI bot](telegram-ai-bot.md) to follow the full workflow path.
+- [Troubleshoot Telegram](troubleshooting.md) when registration, parsing, or replies fail.
 
-The machine-readable extension definition is [`../../ai/EXTENSION_COMPONENT_INDEX.json`](../../ai/EXTENSION_COMPONENT_INDEX.json).
+Keep the bot token in its secret input and check registration output before sharing it, since a webhook URL may contain authentication information.
 
-## Setup path vs runtime path
+## Related
 
-**Setup path — run when registering or changing the webhook:**
-
-`Bot Token + Flowi Webhook URL + optional Flowi API Key → Telegram Webhook Setup → Telegram setWebhook`
-
-**Runtime path — runs for incoming Telegram updates:**
-
-`Telegram user → Telegram Bot API → Flowi Webhook.JSON → Telegram Update Parser → next Flowi components`
-
-Keeping these two paths separate is important. Do not connect Telegram Webhook Setup into the normal message-processing chain simply because it is related to Telegram.
-
-## Parsed fields
-
-The documented Telegram Update Parser extracts commonly used fields including:
-
-- `chat_id`
-- `user_id`
-- `username`
-- `text`
-- `command`
-
-The parser's full internal implementation and exact public output type metadata are not included in this public repository, so an AI assistant must not invent additional fields or types.
-
-## Security
-
-- Telegram bot tokens are secrets. Never paste them into a public prompt or repository.
-- Use the secret input field for the bot token.
-- Treat webhook registration results and webhook URLs as sensitive if your deployment embeds authentication information in the URL.
-- Use only public HTTPS webhook endpoints.
-
-Continue with [Telegram Webhook Setup](telegram-webhook-setup.md), [Telegram Update Parser](telegram-update-parser.md), or the [Telegram AI Bot tutorial](telegram-ai-bot.md).
+[Integrations](../index.md) · [Webhook troubleshooting](../../troubleshooting/webhooks.md) · [Workflow basics](../../concepts/workflow-basics.md)

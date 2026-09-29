@@ -9,10 +9,6 @@
       "component_type": "VLMRunTranscription",
       "display_name": "VLM Run Transcription",
       "description": "Extract structured data from audio and video using [VLM Run AI](https://app.vlm.run)",
-      "status": "BETA",
-      "legacy": false,
-      "beta": true,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"

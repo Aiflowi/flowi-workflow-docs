@@ -1,20 +1,27 @@
-# Custom Components
+---
+title: How do custom components work?
+description: See when to use a custom Python component in AI Flowi Workflow and what its input, output, and runtime definitions can include.
+canonical_url: https://aiflowi.com/docs/components/custom-components/
+last_updated: 2026-09-29
+author: Ai Flowi
+---
 
-Flowi supports Custom Components for requirements that are not cleanly covered by existing built-in components.
+# How do custom components work?
 
-Custom Components can define:
+A custom component lets you define Python behavior for a workflow requirement that the documented components do not cover. It can declare typed inputs and outputs, output methods, dynamic or conditional fields, tool-mode behavior, and runtime error handling. The catalog includes a Custom Component template; a component you create from it is not automatically a built-in component.
 
-- typed inputs;
-- typed outputs;
-- output methods;
-- dynamic or conditional fields;
-- tool-mode behavior;
-- runtime error handling.
+## What can you define?
 
-## Recommended order
+| Part | Purpose |
+|---|---|
+| Inputs | Accept values from a workflow, with declared types. |
+| Outputs and methods | Return values through named outputs and the method that builds each result. |
+| Fields | Show configuration values, including dynamic or conditional fields. |
+| Tool mode | Expose suitable behavior for use as a tool. |
+| Runtime handling | Handle failures in the component's code. |
 
-1. Use an `AVAILABLE` built-in component where possible.
-2. Use documented webhook/API connectivity when appropriate.
-3. Use a Custom Component when the requirement cannot be represented safely and clearly with current built-ins.
+The [catalog](categories.md) lists the Custom Component template alongside other documented components. Check existing entries first. If a documented webhook or API component expresses the same job, its configuration may be enough. If you create a component, compare its output types with the next component's accepted inputs before connecting them.
 
-A Custom Component is not automatically an official Flowi built-in component.
+## Related
+
+[Components](index.md) · [Workflow basics](../concepts/workflow-basics.md) · [Common errors](../troubleshooting/common-errors.md)

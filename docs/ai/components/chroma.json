@@ -9,10 +9,6 @@
       "component_type": "Chroma",
       "display_name": "Chroma DB",
       "description": "Chroma Vector Store with search capabilities",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",

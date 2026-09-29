@@ -9,10 +9,6 @@
       "component_type": "CohereEmbeddings",
       "display_name": "Cohere Embeddings",
       "description": "Generate embeddings using Cohere models.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Embeddings"
@@ -142,10 +138,6 @@
       "component_type": "CohereModel",
       "display_name": "Cohere Language Models",
       "description": "Generate text using Cohere LLMs.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",
@@ -272,10 +264,6 @@
       "component_type": "CohereRerank",
       "display_name": "Cohere Rerank",
       "description": "Rerank documents using the Cohere API.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"

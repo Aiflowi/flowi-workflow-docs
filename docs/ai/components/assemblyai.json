@@ -9,10 +9,6 @@
       "component_type": "AssemblyAIGetSubtitles",
       "display_name": "AssemblyAI Get Subtitles",
       "description": "Export your transcript in SRT or VTT format for subtitles and closed captions",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -113,10 +109,6 @@
       "component_type": "AssemblyAILeMUR",
       "display_name": "AssemblyAI LeMUR",
       "description": "Apply Large Language Models to spoken data using the AssemblyAI LeMUR framework",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -310,10 +302,6 @@
       "component_type": "AssemblyAIListTranscripts",
       "display_name": "AssemblyAI List Transcripts",
       "description": "Retrieve a list of transcripts from AssemblyAI with filtering options",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -432,10 +420,6 @@
       "component_type": "AssemblyAITranscriptionJobPoller",
       "display_name": "AssemblyAI Poll Transcript",
       "description": "Poll for the status of a transcription job using AssemblyAI",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -516,10 +500,6 @@
       "component_type": "AssemblyAITranscriptionJobCreator",
       "display_name": "AssemblyAI Start Transcript",
       "description": "Create a transcription job for an audio file using AssemblyAI with advanced options",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"

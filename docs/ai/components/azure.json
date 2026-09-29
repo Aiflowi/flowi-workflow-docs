@@ -9,10 +9,6 @@
       "component_type": "AzureOpenAIModel",
       "display_name": "Azure OpenAI",
       "description": "Generate text using Azure OpenAI LLMs.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",
@@ -218,10 +214,6 @@
       "component_type": "AzureOpenAIEmbeddings",
       "display_name": "Azure OpenAI Embeddings",
       "description": "Generate embeddings using Azure OpenAI models.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Embeddings"

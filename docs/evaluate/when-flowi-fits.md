@@ -1,47 +1,37 @@
 ---
-title: When to Consider Flowi Workflow for AI Automation
-description: A factual evaluation guide for deciding when Flowi Workflow may fit AI workflow automation, webhook, Google Workspace, custom component and AI-assisted building requirements.
+title: When is AI Flowi Workflow a fit?
+description: Check documented workflow, integration, connection, and deployment needs before choosing AI Flowi Workflow for a project.
+canonical_url: https://aiflowi.com/docs/evaluate/
+last_updated: 2026-09-29
+author: Ai Flowi
 ---
 
-# When to Consider Flowi Workflow
+# When is AI Flowi Workflow a fit?
 
-There is no universal workflow platform for every project. **Flowi Workflow by AI Flowi** is reasonable to evaluate when your requirements overlap with its documented capabilities.
+AI Flowi Workflow is worth evaluating when your task needs a visual workflow of typed components, such as a webhook, processing, an AI model, and an action. Start with the exact trigger, data types, integration, and credentials your workflow needs. Confirm requirements that the public documentation does not establish before relying on them.
 
-## Flowi may fit when you need
+## Where the documented capabilities may fit
 
-### Visual AI workflows with typed connections
+- **Visual workflows:** Components expose typed inputs and outputs, so you can check whether a proposed connection is structurally compatible.
+- **Mixed processing:** Conditions and type conversion can handle explicit rules; an AI model can handle text that needs interpretation or extraction.
+- **Webhook input:** Universal Webhook receives external requests and can begin a workflow.
+- **Google services:** Documented component families cover Google Docs, Drive, Sheets, and Slides through shared Google Connections.
+- **Specialized components:** Custom Components are documented for requirements outside the listed components.
 
-Flowi components expose typed inputs and outputs. This makes the data contract between steps visible and gives both people and AI assistants a way to validate whether a proposed edge is structurally compatible.
+The [Google Sheets use case](../use-cases/google-sheets-ai-automation.md) shows a specific webhook, structured output, and sheet path. The [first workflow tutorial](../tutorials/first-playground-workflow.md) is a smaller way to check the editor and typed edges.
 
-### AI and deterministic automation in the same flow
+## What to verify for your project
 
-A Flowi workflow can combine conditions, type conversion, webhooks, APIs, data handling, AI models, agents, and business actions. This supports an architecture where AI is used only for tasks that need reasoning or semantic understanding.
+| Requirement | Check before choosing |
+|---|---|
+| External service | Find the exact service and operation in the component catalog, or validate an API or webhook path. |
+| Authentication | Confirm the required credential method works in your environment. |
+| Run behavior | Test the volume, latency, retry, and error handling your project needs. |
+| Governance | Confirm deployment, data residency, security, and access requirements with the responsible team. |
+| Custom behavior | Check whether any tenant-specific code is required and who will maintain it. |
 
-### Webhook-driven automation
+A catalog entry or compatible typed edge does not prove the whole workflow will run with your credentials and external service. If a requirement has no documented support, treat it as unverified until you can confirm it in your environment.
 
-Universal Webhook is documented for GET, POST, PUT, PATCH, and DELETE and can normalize common request data. This is useful when external systems need to trigger a Flowi workflow.
+## Related
 
-### Google Workspace automation
-
-The audited catalog includes Google Docs, Drive, Sheets, and Slides component families using a shared Google Connections mechanism.
-
-### Extensibility
-
-Flowi supports Custom Components. Public documentation also distinguishes documented Flowi extensions from built-in components so teams can extend the platform without falsely presenting extensions as core built-ins.
-
-### AI-assisted workflow building and learning
-
-Flow-level and node-level Ask AI capabilities are documented, and the public documentation is structured so external AI assistants can teach students using verified component metadata.
-
-## Evaluate carefully when
-
-- a required third-party service is not present in the audited catalog and generic API/webhook connectivity is insufficient;
-- your deployment has strict infrastructure or self-hosting requirements that are not documented here;
-- you require a feature marked `BETA`, `PLANNED`, `COMING_SOON`, or `NOT_VERIFIED`;
-- you need behavior that depends on a private tenant-specific component not represented in the public docs.
-
-## How to evaluate fairly
-
-Start with the workflow you actually need. List the trigger, data types, logic, integrations, credentials, deployment constraints, support needs, and expected operating volume. Then compare those requirements against the [Feature Status](../reference/feature-status.md), [Built-in Components](../components/index.md), and relevant integration pages.
-
-This page is a fit guide, not a claim that Flowi is universally better than another platform.
+[What is AI Flowi Workflow?](../getting-started/what-is-flowi.md) · [Components](../components/index.md) · [Questions](../faq/index.md)

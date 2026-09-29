@@ -9,10 +9,6 @@
       "component_type": "AgentQL",
       "display_name": "Extract Web Data",
       "description": "Extracts structured data from a web page using an AgentQL query or a Natural Language description.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -69,7 +65,7 @@
         },
         {
           "name": "is_stealth_mode_enabled",
-          "display_name": "Enable Stealth Mode (Beta)",
+          "display_name": "Enable Stealth Mode (preview)",
           "input_type": "BoolInput",
           "value_type": "bool",
           "accepts": [],

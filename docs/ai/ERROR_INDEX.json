@@ -10,7 +10,7 @@
       "check": [
         "Search BUILTIN_NODE_INDEX.json.",
         "Check whether it is a Custom or Published component.",
-        "Check Legacy/replacement metadata."
+        "Check older/replacement metadata."
       ],
       "rule": "Do not invent a built-in component."
     },
@@ -27,12 +27,12 @@
     {
       "id": "LEGACY_COMPONENT_IN_NEW_FLOW",
       "area": "migration",
-      "symptom": "A new workflow uses a component marked Legacy.",
+      "symptom": "A new workflow uses a component marked older.",
       "check": [
-        "Read replacements on the Legacy component.",
+        "Read replacements on the older component.",
         "If replacement is empty, do not invent one."
       ],
-      "rule": "Avoid Legacy components for new workflows."
+      "rule": "Avoid older components for new workflows."
     },
     {
       "id": "GOOGLE_CONNECTION_MISSING_OR_EXPIRED",
@@ -80,10 +80,10 @@
       "symptom": "Workflow JSON upload is rejected or does not load correctly.",
       "check": [
         "Confirm the file is valid JSON.",
-        "Check component availability and legacy compatibility.",
+        "Check component availability and older compatibility.",
         "If the browser reports a non-JSON MIME type, retry with a standard JSON export."
       ],
-      "rule": "Import includes legacy compatibility handling but cannot guarantee arbitrary historical formats."
+      "rule": "Import includes older compatibility handling but cannot guarantee arbitrary historical formats."
     },
     {
       "id": "COMPONENT_UPDATE_BREAKING_CHANGE",

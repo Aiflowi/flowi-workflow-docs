@@ -1,41 +1,35 @@
 ---
-title: Telegram Update Parser in Flowi Workflow
-description: Parse Telegram Bot API webhook JSON into chat ID, user ID, username, text and command fields for use in a Flowi workflow.
+title: How do I parse Telegram updates?
+description: Connect Webhook JSON to Telegram Update Parser and use its documented chat, user, text, and command fields in a workflow.
+canonical_url: https://aiflowi.com/docs/integrations/telegram-update-parser/
+last_updated: 2026-09-29
+author: Ai Flowi
 ---
 
-# Telegram Update Parser
+# How do I parse Telegram updates?
 
-**Telegram Update Parser** is a documented Flowi extension used after the built-in Webhook receives a Telegram update.
+Connect the built-in Webhook's JSON output to the Telegram Update Parser's Telegram Update input. The parser is a documented extension that extracts commonly used values from an incoming Telegram Bot API update. Its exact public output type metadata is not supplied, so inspect the available ports before connecting the next component.
 
-## Verified runtime edge
+## Documented connection
 
-`Webhook.JSON → Telegram Update Parser.Telegram Update`
+| From | To | Purpose |
+|---|---|---|
+| `Webhook.JSON` | `Telegram Update Parser.Telegram Update` | Pass the incoming update to the parser. |
 
-The connection is part of the documented working architecture.
+Webhook receives the update; the parser does not register the endpoint. Follow [Telegram webhook setup](telegram-webhook-setup.md) first if Telegram has not been directed to the Webhook URL.
 
-## Documented parsed fields
+## Documented fields
 
-The component description identifies these fields:
+| Field | What it identifies |
+|---|---|
+| `chat_id` | The chat associated with the update. |
+| `user_id` | The user associated with the update. |
+| `username` | The user's name field. |
+| `text` | Message text. |
+| `command` | A command extracted from the update. |
 
-- `chat_id`
-- `user_id`
-- `username`
-- `text`
-- `command`
+The parser output is labelled **Parsed Telegram Message**. Use the fields needed by your workflow, then check the next component's accepted input types. The documented connection into the parser does not establish the type of every later connection.
 
-Its output is labelled **Parsed Telegram Message** in the Flowi UI.
+## Related
 
-## Why parse the update
-
-Telegram sends a nested JSON update. Downstream Flowi logic usually needs simple values such as the message text and chat ID. The parser creates a clean boundary between Telegram's external event format and the rest of the Flowi workflow.
-
-## After the parser
-
-Depending on the workflow goal, parsed data can feed into:
-
-- routing and conditions;
-- an AI model or agent;
-- Google Sheets or another business system;
-- an API call that sends a reply back through Telegram.
-
-Only connect fields and ports that are documented in your current Flowi environment. The parser's internal source and complete public type schema are intentionally not included in this repository.
+[Telegram integration](index.md) · [Telegram AI bot tutorial](telegram-ai-bot.md) · [Telegram troubleshooting](troubleshooting.md)

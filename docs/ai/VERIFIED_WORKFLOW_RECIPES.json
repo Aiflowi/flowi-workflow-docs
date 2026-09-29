@@ -9,7 +9,6 @@
     {
       "id": "playground-ai-chat",
       "title": "Playground AI Chat",
-      "status": "VERIFIED_STRUCTURE",
       "architecture": [
         "input_output.ChatInput",
         "deepseek.DeepSeekModelComponent",
@@ -46,7 +45,6 @@
     {
       "id": "if-else-routing",
       "title": "Deterministic If-Else Routing",
-      "status": "VERIFIED_STRUCTURE",
       "architecture": [
         "input_output.ChatInput",
         "flow_controls.ConditionalRouter"
@@ -68,7 +66,6 @@
     {
       "id": "llm-selector-routing",
       "title": "LLM Selector Routing",
-      "status": "VERIFIED_STRUCTURE",
       "architecture": [
         "input_output.ChatInput",
         "llm_operations.LLMSelectorComponent",
@@ -109,7 +106,6 @@
     {
       "id": "webhook-structured-google-sheets",
       "title": "Webhook to Structured Output to Google Sheets",
-      "status": "VERIFIED_STRUCTURE",
       "architecture": [
         "input_output.UniversalWebhook",
         "processing.TypeConverterComponent",
@@ -162,7 +158,6 @@
     {
       "id": "telegram-inbound",
       "title": "Telegram Inbound Webhook",
-      "status": "VERIFIED_EXTENSION_EDGE",
       "architecture": [
         "input_output.Webhook",
         "extension.TelegramUpdateParser"

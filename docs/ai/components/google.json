@@ -9,10 +9,6 @@
       "component_type": "GoogleGenerativeAIModel",
       "display_name": "Google Generative AI",
       "description": "Generate text using Google Generative AI.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",
@@ -251,10 +247,6 @@
       "component_type": "Google Generative AI Embeddings",
       "display_name": "Google Generative AI Embeddings",
       "description": "Connect to Google's generative AI embeddings service using the GoogleGenerativeAIEmbeddings class, found in the langchain-google-genai package.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Embeddings"
@@ -316,10 +308,6 @@
       "component_type": "GoogleSearchAPICore",
       "display_name": "Google Search API",
       "description": "Call Google Search API and return results as a DataFrame.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -411,10 +399,6 @@
       "component_type": "GoogleSerperAPICore",
       "display_name": "Google Serper API",
       "description": "Call the Serper.dev Google Search API.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -491,10 +475,6 @@
       "component_type": "BigQueryExecutor",
       "display_name": "BigQuery",
       "description": "Execute SQL queries on Google BigQuery.",
-      "status": "BETA",
-      "legacy": false,
-      "beta": true,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -574,10 +554,6 @@
       "component_type": "GmailLoaderComponent",
       "display_name": "Gmail Loader",
       "description": "Loads emails from Gmail using provided credentials.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['composio.ComposioGmailAPIComponent']"
       ],
@@ -661,10 +637,6 @@
       "component_type": "GoogleOAuthToken",
       "display_name": "Google OAuth Token",
       "description": "Generates a JSON string with your Google OAuth token.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [],
       "base_classes": [
         "JSON"

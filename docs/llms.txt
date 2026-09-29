@@ -1,40 +1,41 @@
-# Flowi Workflow by AI Flowi
+# AI Flowi Workflow documentation
+> Guides for building and troubleshooting documented AI Flowi Workflow workflows.
 
-Canonical documentation: https://docs.aiflowi.com/
-GitHub documentation: https://github.com/ai-flowi/flowi-docs
-
-## AI entry
-https://docs.aiflowi.com/AI_START_HERE/
-
-## Learn / tutorials
-https://docs.aiflowi.com/getting-started/ai-tutor-mode/
-https://docs.aiflowi.com/tutorials/
-https://docs.aiflowi.com/tutorials/first-playground-workflow/
-https://docs.aiflowi.com/tutorials/if-else-routing/
-https://docs.aiflowi.com/tutorials/llm-selector-routing/
-https://docs.aiflowi.com/tutorials/webhook-to-google-sheets/
-https://docs.aiflowi.com/integrations/telegram/
-https://docs.aiflowi.com/integrations/telegram/telegram-ai-bot/
-
-## Evaluation / answers
-https://docs.aiflowi.com/faq/
-https://docs.aiflowi.com/evaluate/when-flowi-fits/
-https://docs.aiflowi.com/reference/feature-status/
-https://docs.aiflowi.com/compare/flowi-vs-n8n/
-https://docs.aiflowi.com/compare/flowi-vs-make/
-
-## Machine-readable references
-https://docs.aiflowi.com/ai/ENTITY.json
-https://docs.aiflowi.com/ai/TASK_ROUTING_INDEX.json
-https://docs.aiflowi.com/ai/VERIFIED_WORKFLOW_RECIPES.json
-https://docs.aiflowi.com/ai/EVALUATION_INDEX.json
-https://docs.aiflowi.com/ai/COMPONENT_INDEX.json
-https://docs.aiflowi.com/ai/EXTENSION_COMPONENT_INDEX.json
-https://docs.aiflowi.com/ai/FEATURE_STATUS.json
-https://docs.aiflowi.com/ai/CONNECTION_INDEX.json
-https://docs.aiflowi.com/ai/TRIGGER_INDEX.json
-https://docs.aiflowi.com/ai/ERROR_INDEX.json
-https://docs.aiflowi.com/ai/CAPABILITY_TRUTH_MAP.json
-https://docs.aiflowi.com/ai/BUILTIN_NODE_INDEX.json
-
-Rule: Only documented components and capabilities should be treated as official Flowi features. Documented Flowi extensions must be labelled as extensions rather than built-ins.
+- [AI Flowi Workflow documentation](https://aiflowi.com/docs/) — 2026-09-29: Learn AI Flowi Workflow through its concepts, verified tutorials, component guidance, and troubleshooting pages.
+- [How do I start with AI Flowi Workflow?](https://aiflowi.com/docs/getting-started/) — 2026-09-29: Follow a practical path from workflow concepts to a first Playground test, then learn routing, webhooks, and AI-assisted study.
+- [What is AI Flowi Workflow?](https://aiflowi.com/docs/getting-started/what-is-ai-flowi-workflow/) — 2026-09-29: Understand AI Flowi Workflow's visual editor, reusable components, typed connections, and the roles of triggers, logic, AI, and actions.
+- [How do workflows and connections work?](https://aiflowi.com/docs/getting-started/workflow-basics/) — 2026-09-29: Learn how AI Flowi Workflow components use settings, typed inputs, and outputs, and what to check before running a connected flow.
+- [How do I use an AI assistant to learn AI Flowi Workflow?](https://aiflowi.com/docs/getting-started/learn-with-ai/) — 2026-09-29: Give a web-capable AI assistant the documentation entry page, request a workflow map, and check suggested components, ports, and tests.
+- [AI Flowi Workflow tutorials](https://aiflowi.com/docs/tutorials/) — 2026-09-29: Choose a verified AI Flowi Workflow tutorial for Playground chat, fixed-condition routing, model selection, or webhook data sent to Google Sheets.
+- [How do I build my first workflow?](https://aiflowi.com/docs/tutorials/first-workflow/) — 2026-09-29: Connect Chat Input, an AI model, and Chat Output in the AI Flowi Workflow Playground, then send a message to check the result.
+- [How do I route a workflow with If-Else?](https://aiflowi.com/docs/tutorials/if-else-routing/) — 2026-09-29: Connect Chat Input to If-Else, configure a fixed text condition, and test the True and False Message outputs in AI Flowi Workflow.
+- [How do I route between language models?](https://aiflowi.com/docs/tutorials/llm-selector-routing/) — 2026-09-29: Set up LLM Selector with a judge model and candidate models, then inspect its Message output and routing decision in AI Flowi Workflow.
+- [How do I send webhook data to Google Sheets?](https://aiflowi.com/docs/tutorials/webhook-to-google-sheets/) — 2026-09-29: Receive webhook JSON, convert it to a Message, structure fields with a model, and append the resulting JSON to Google Sheets.
+- [Which documented integrations can I use?](https://aiflowi.com/docs/integrations/) — 2026-09-29: Find documented AI Flowi Workflow integration paths for Telegram and Google services, with setup, connection, and troubleshooting guides.
+- [How does the Telegram integration work?](https://aiflowi.com/docs/integrations/telegram/) — 2026-09-29: Learn how AI Flowi Workflow registers a Telegram webhook, receives updates, and parses message fields for downstream workflow steps.
+- [How do I set up a Telegram webhook?](https://aiflowi.com/docs/integrations/telegram-webhook-setup/) — 2026-09-29: Register a public HTTPS Webhook endpoint with Telegram using the Telegram Webhook Setup extension in AI Flowi Workflow.
+- [How do I parse Telegram updates?](https://aiflowi.com/docs/integrations/telegram-update-parser/) — 2026-09-29: Connect Webhook JSON to Telegram Update Parser and use its documented chat, user, text, and command fields in a workflow.
+- [How do I build a Telegram AI bot?](https://aiflowi.com/docs/integrations/telegram-ai-bot/) — 2026-09-29: Build a Telegram message workflow with Webhook, Telegram Update Parser, workflow logic, and an optional Bot API reply.
+- [Why is my Telegram workflow failing?](https://aiflowi.com/docs/integrations/telegram-troubleshooting/) — 2026-09-29: Diagnose Telegram webhook registration, incoming update parsing, type mismatches, and missing Bot API replies in AI Flowi Workflow.
+- [How do AI Flowi Workflow components work?](https://aiflowi.com/docs/components/) — 2026-09-29: Learn how components connect in AI Flowi Workflow, then use the catalog or custom component guide to choose the next step.
+- [Which components are documented?](https://aiflowi.com/docs/components/catalog/) — 2026-09-29: Browse the AI Flowi Workflow component catalog by category, with documented component names and a short guide to each group.
+- [How do custom components work?](https://aiflowi.com/docs/components/custom-components/) — 2026-09-29: See when to use a custom Python component in AI Flowi Workflow and what its input, output, and runtime definitions can include.
+- [How do AI Flowi Workflow connections and credentials work?](https://aiflowi.com/docs/connections/) — 2026-09-29: Understand Google Connections, model provider credentials, and stored variables used by AI Flowi Workflow components.
+- [How do I connect Google services?](https://aiflowi.com/docs/connections/google/) — 2026-09-29: Set up a shared Google Connection for documented Docs, Drive, Sheets, and Slides components, and check common authentication errors.
+- [How do model providers and variables work?](https://aiflowi.com/docs/connections/models-and-variables/) — 2026-09-29: Learn how AI Flowi Workflow stores model provider credentials and lets component fields reference reusable Global Variables.
+- [Which workflow triggers are documented?](https://aiflowi.com/docs/triggers/) — 2026-09-29: Compare documented AI Flowi Workflow triggers for HTTP requests and schedules, then choose a response pattern for webhook callers.
+- [How does the Universal Webhook trigger work?](https://aiflowi.com/docs/triggers/universal-webhook/) — 2026-09-29: Learn which HTTP methods Universal Webhook accepts, what request data it exposes, and how its test and response modes differ.
+- [How does the Schedule Trigger work?](https://aiflowi.com/docs/triggers/schedule/) — 2026-09-29: See the documented schedule settings for starting an AI Flowi Workflow flow by interval, day, week, month, or cron expression.
+- [How do I return a webhook response?](https://aiflowi.com/docs/triggers/webhook-response/) — 2026-09-29: Use Webhook Response with Universal Webhook From Flow mode to set a reply body, HTTP status, content type, and headers.
+- [How do I use Ask AI in a workflow?](https://aiflowi.com/docs/ask-ai/) — 2026-09-29: Use Ask AI to generate a workflow from flow context or get node-level explanations and suggestions, then review changes before applying them.
+- [How do I import, export, or update a workflow?](https://aiflowi.com/docs/workflows/) — 2026-09-29: Learn the documented JSON import and export paths, credential sanitization limit, and checks for component updates in AI Flowi Workflow.
+- [What documented workflows can I build?](https://aiflowi.com/docs/use-cases/) — 2026-09-29: Explore documented AI Flowi Workflow patterns for webhook and AI automation or sending structured results to Google Sheets.
+- [How can I automate a task with webhooks and AI?](https://aiflowi.com/docs/use-cases/ai-workflow-automation/) — 2026-09-29: See how AI Flowi Workflow combines a webhook trigger, processing, optional AI, and a response or business action.
+- [How can I automate Google Sheets with AI?](https://aiflowi.com/docs/use-cases/google-sheets-automation/) — 2026-09-29: Follow a documented webhook to Google Sheets pattern with type conversion, structured extraction, and a shared Google connection.
+- [When is AI Flowi Workflow a fit?](https://aiflowi.com/docs/evaluate/) — 2026-09-29: Check documented workflow, integration, connection, and deployment needs before choosing AI Flowi Workflow for a project.
+- [AI Flowi Workflow questions](https://aiflowi.com/docs/faq/) — 2026-09-29: Answers to documented questions about AI Flowi Workflow, components, webhooks, Google Sheets, Ask AI, and learning resources.
+- [How do I troubleshoot a workflow?](https://aiflowi.com/docs/troubleshooting/) — 2026-09-29: Find checks for component connections, Google credentials, webhook requests, and workflow errors in AI Flowi Workflow.
+- [What do common workflow errors mean?](https://aiflowi.com/docs/troubleshooting/common-errors/) — 2026-09-29: Diagnose missing components, incompatible connections, model setup, JSON imports, and component update errors in AI Flowi Workflow.
+- [Why is my Google connection failing?](https://aiflowi.com/docs/troubleshooting/google-connections/) — 2026-09-29: Check a saved Google Connection, account permissions, required scopes, and reauthorization when a workflow cannot use a Google service.
+- [Why is my webhook failing?](https://aiflowi.com/docs/troubleshooting/webhooks/) — 2026-09-29: Diagnose a rejected webhook method, missing response component, or Telegram request path using documented AI Flowi Workflow checks.
+- [Where should an AI assistant start?](https://aiflowi.com/docs/ai-start-here/) — 2026-09-29: Use the AI Flowi Workflow guide to find verified recipes, component ports, extensions, and troubleshooting steps before teaching a workflow.

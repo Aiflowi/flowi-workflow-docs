@@ -9,10 +9,6 @@
       "component_type": "Elasticsearch",
       "display_name": "Elasticsearch",
       "description": "Elasticsearch Vector Store with with advanced, customizable search capabilities.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -289,10 +285,6 @@
       "component_type": "OpenSearchVectorStoreComponent",
       "display_name": "OpenSearch",
       "description": "Store and search documents using OpenSearch with hybrid semantic and keyword search capabilities.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -743,10 +735,6 @@
       "component_type": "OpenSearchVectorStoreComponentMultimodalMultiEmbedding",
       "display_name": "OpenSearch (Multi-Model Multi-Embedding)",
       "description": "Store and search documents using OpenSearch with multi-model hybrid semantic and keyword search. To search use the tools search_documents and raw_search. Search documents takes a query for vector search, for example\n  {search_query: \"components in openrag\"}",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -856,7 +844,7 @@
           "load_from_db": false,
           "tool_mode": false,
           "real_time_refresh": false,
-          "info": "Name of the embedding model to use for ingestion. This selects which embedding from the list will be used to embed documents. Matches on deployment, model, model_id, or model_name. For duplicate deployments, use combined format: 'deployment:model' (e.g., 'text-embedding-ada-002:text-embedding-3-large'). Leave empty to use the first embedding. Error message will show all available identifiers."
+          "info": "Name of the embedding model to use for ingestion. This selects which embedding from the list will be used to embed documents. Matches on deployment, model, model_id, or model_name. For duplicate deployments, use combined format: 'deployment:model' (e.g., 'text-embedding-ada-002:text-embedding-3-large'). Leave empty to use the first embedding. Error message will show all documented identifiers."
         },
         {
           "name": "engine",
@@ -1165,7 +1153,7 @@
         },
         {
           "name": "vector_field",
-          "display_name": "Legacy Vector Field Name",
+          "display_name": "older Vector Field Name",
           "input_type": "StrInput",
           "value_type": "str",
           "accepts": [],
@@ -1177,7 +1165,7 @@
           "load_from_db": false,
           "tool_mode": false,
           "real_time_refresh": false,
-          "info": "Legacy field name for backward compatibility. New documents use dynamic fields (chunk_embedding_{model_name}) based on the embedding_model_name."
+          "info": "older field name for backward compatibility. New documents use dynamic fields (chunk_embedding_{model_name}) based on the embedding_model_name."
         },
         {
           "name": "verify_certs",

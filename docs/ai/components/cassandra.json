@@ -9,10 +9,6 @@
       "component_type": "Cassandra",
       "display_name": "Cassandra",
       "description": "Cassandra Vector Store with search capabilities",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -386,10 +382,6 @@
       "component_type": "CassandraChatMemory",
       "display_name": "Cassandra Chat Memory",
       "description": "Retrieves and store chat messages from Apache Cassandra.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Memory"
@@ -541,10 +533,6 @@
       "component_type": "CassandraGraph",
       "display_name": "Cassandra Graph",
       "description": "Cassandra Graph Vector Store",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",

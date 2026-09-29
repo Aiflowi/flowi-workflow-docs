@@ -9,10 +9,6 @@
       "component_type": "AudioURLExtractor",
       "display_name": "Audio URL Extractor",
       "description": "Extracts recognized audio URLs from an incoming message and returns one URL per line.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -60,10 +56,6 @@
       "component_type": "DynamicCreateData",
       "display_name": "Dynamic Create Data",
       "description": "Dynamically create a Data with a specified number of fields.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -142,10 +134,6 @@
       "component_type": "ExcelRowQuery",
       "display_name": "Excel Row Query",
       "description": "Finds the first matching Excel row using a pandas query expression and optional dynamic variables.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -280,10 +268,6 @@
       "component_type": "ExcelRowUpsert",
       "display_name": "Excel Row Upsert",
       "description": "Finds one Excel row using a pandas query, then updates it or appends a new row. Without Write Data, returns the first match.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -437,10 +421,6 @@
       "component_type": "ImageURLExtractor",
       "display_name": "Image URL Extractor",
       "description": "Extracts recognized image URLs from an incoming message and returns one URL per line.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -487,11 +467,7 @@
       "category": "processing",
       "component_type": "JSONArrayExtractor",
       "display_name": "JSON Array Extractor",
-      "description": "Extracts a top-level array from a JSON object and returns its objects as Langflow Data items.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
+      "description": "Extracts a top-level array from a JSON object and returns its objects as AI Flowi Workflow Data items.",
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -558,10 +534,6 @@
       "component_type": "JSONKeyExtractor",
       "display_name": "JSON Key Extractor",
       "description": "Extracts selected top-level keys from a JSON object. Objects and arrays retain their JSON structure; a single scalar is returned as a Message.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -630,10 +602,6 @@
       "component_type": "JSONObjectBuilder",
       "display_name": "JSON Object Builder",
       "description": "Creates a JSON object from configurable keys. Each key becomes a separate connectable input.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -740,10 +708,6 @@
       "component_type": "DataOperations",
       "display_name": "JSON Operations",
       "description": "Perform various operations on a JSON object.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -985,11 +949,7 @@
       "category": "processing",
       "component_type": "JSONStringParser",
       "display_name": "JSON String Parser",
-      "description": "Parses a string containing a JSON object into Langflow Data. Invalid JSON raises an exception.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
+      "description": "Parses a string containing a JSON object into AI Flowi Workflow Data. Invalid JSON raises an exception.",
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1012,7 +972,7 @@
           "load_from_db": false,
           "tool_mode": false,
           "real_time_refresh": false,
-          "info": "Strict JSON object text. The input may be plain text or a Langflow Message."
+          "info": "Strict JSON object text. The input may be plain text or a AI Flowi Workflow Message."
         }
       ],
       "outputs": [
@@ -1037,10 +997,6 @@
       "component_type": "MediaURLCleaner",
       "display_name": "Media URL Cleaner",
       "description": "Removes recognized image and audio URLs from an incoming message and returns the remaining clean text.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -1088,10 +1044,6 @@
       "component_type": "MetaWebhookSignatureVerification",
       "display_name": "Meta Webhook Signature Verification",
       "description": "Validates Meta X-Hub-Signature-256 using the App Secret and the exact Universal Webhook raw_body. Returns one JSON object containing the verification result, verified payload, original request data, response definition, and any error.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Data",
@@ -1158,10 +1110,6 @@
       "component_type": "MetaWebhookVerification",
       "display_name": "Meta Webhook Verification",
       "description": "Validates Meta webhook verification requests for WhatsApp, Instagram, and Facebook. Connect its Response Definition output to Webhook Response.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Data",
@@ -1228,10 +1176,6 @@
       "component_type": "ParserComponent",
       "display_name": "Parser",
       "description": "Extracts text using a template.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Message"
@@ -1338,10 +1282,6 @@
       "component_type": "SplitText",
       "display_name": "Split Text",
       "description": "Split text into chunks based on specified criteria.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -1499,10 +1439,6 @@
       "component_type": "DataFrameOperations",
       "display_name": "Table Operations",
       "description": "Perform various operations on a Table.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"
@@ -1821,10 +1757,6 @@
       "component_type": "TextOperations",
       "display_name": "Text Operations",
       "description": "Perform various text processing operations including text-to-DataFrame conversion.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [],
       "component_tool_mode": false,
@@ -2191,10 +2123,6 @@
       "component_type": "TypeConverterComponent",
       "display_name": "Type Convert",
       "description": "Convert between different types (Message, JSON, Table)",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -2311,10 +2239,6 @@
       "component_type": "AlterMetadata",
       "display_name": "Alter Metadata",
       "description": "Adds/Removes Metadata Dictionary on inputs",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['processing.DataOperations']"
       ],
@@ -2433,10 +2357,6 @@
       "component_type": "MergeDataComponent",
       "display_name": "Combine Data",
       "description": "Combines data using different operations",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['processing.DataOperations']"
       ],
@@ -2508,10 +2428,6 @@
       "component_type": "CombineText",
       "display_name": "Combine Text",
       "description": "Concatenate two text sources into a single text chunk using a specified delimiter.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['processing.DataOperations']"
       ],
@@ -2597,10 +2513,6 @@
       "component_type": "CreateData",
       "display_name": "Create Data",
       "description": "Dynamically create a Data with a specified number of fields.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['processing.DataOperations']"
       ],
@@ -2682,10 +2594,6 @@
       "component_type": "CreateList",
       "display_name": "Create List",
       "description": "Creates a list of texts.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -2745,10 +2653,6 @@
       "component_type": "ParseData",
       "display_name": "Data to Message",
       "description": "Convert Data objects into Messages using any {field_name} from input data.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['processing.DataOperations',",
         "'processing.TypeConverterComponent']"
@@ -2847,10 +2751,6 @@
       "component_type": "DataToDataFrame",
       "display_name": "Data → DataFrame",
       "description": "Converts one or multiple Data objects into a DataFrame. Each Data object corresponds to one row. Fields from `.data` become columns, and the `.text` (if present) is placed in a 'text' column.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['processing.DataOperations',",
         "'processing.TypeConverterComponent']"
@@ -2902,10 +2802,6 @@
       "component_type": "ExtractaKey",
       "display_name": "Extract Key",
       "description": "Extract a specific key from a Data object or a list of Data objects and return the extracted value(s) as Data object(s).",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['processing.DataOperations']"
       ],
@@ -2972,10 +2868,6 @@
       "component_type": "FilterData",
       "display_name": "Filter Data",
       "description": "Filters a Data object based on a list of keys.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": true,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['processing.DataOperations']"
       ],
@@ -3044,10 +2936,6 @@
       "component_type": "FilterDataValues",
       "display_name": "Filter Values",
       "description": "Filter a list of data items based on a specified key, filter value, and comparison operator. Check advanced options to select match comparision.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": true,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['processing.DataOperations']"
       ],
@@ -3159,10 +3047,6 @@
       "component_type": "JSONCleaner",
       "display_name": "JSON Cleaner",
       "description": "Cleans the messy and sometimes incorrect JSON strings produced by LLMs so that they are fully compliant with the JSON spec.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['processing.ParserComponent']"
       ],
@@ -3260,10 +3144,6 @@
       "component_type": "StoreMessage",
       "display_name": "Message Store",
       "description": "Stores a chat message or text into AI Flowi Workflow tables or an external memory.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['helpers.Memory']"
       ],
@@ -3386,10 +3266,6 @@
       "component_type": "MessagetoData",
       "display_name": "Message to Data",
       "description": "Convert a Message object to a Data object",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": true,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['processing.TypeConverterComponent']"
       ],
@@ -3439,10 +3315,6 @@
       "component_type": "OutputParser",
       "display_name": "Output Parser",
       "description": "Transforms the output of an LLM into a specified format.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['processing.StructuredOutput',",
         "'processing.ParserComponent']"
@@ -3507,10 +3379,6 @@
       "component_type": "ParseDataFrame",
       "display_name": "Parse DataFrame",
       "description": "Convert a DataFrame into plain text following a specified template. Each column in the DataFrame is treated as a possible template key, e.g. {col_name}.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['processing.DataFrameOperations',",
         "'processing.TypeConverterComponent']"
@@ -3596,10 +3464,6 @@
       "component_type": "ParseJSONData",
       "display_name": "Parse JSON",
       "description": "Convert and extract JSON fields.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['processing.ParserComponent']"
       ],
@@ -3669,10 +3533,6 @@
       "component_type": "RegexExtractorComponent",
       "display_name": "Regex Extractor",
       "description": "Extract patterns from text using regular expressions.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['processing.ParserComponent']"
       ],
@@ -3754,10 +3614,6 @@
       "component_type": "SelectData",
       "display_name": "Select Data",
       "description": "Select a single data from a list of data.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['processing.DataOperations']"
       ],
@@ -3824,10 +3680,6 @@
       "component_type": "UpdateData",
       "display_name": "Update Data",
       "description": "Dynamically update or append data with the specified fields.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [
         "['processing.DataOperations']"
       ],

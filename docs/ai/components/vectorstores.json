@@ -9,10 +9,6 @@
       "component_type": "LocalDB",
       "display_name": "Local DB",
       "description": "Local Vector Store with search capabilities",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [],
       "base_classes": [
         "Table"

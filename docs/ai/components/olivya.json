@@ -9,10 +9,6 @@
       "component_type": "OlivyaComponent",
       "display_name": "Place Call",
       "description": "A component to create an outbound call request from Olivya's platform.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"

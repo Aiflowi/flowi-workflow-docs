@@ -9,10 +9,6 @@
       "component_type": "CloudflareWorkersAIEmbeddings",
       "display_name": "Cloudflare Workers AI Embeddings",
       "description": "Generate embeddings using Cloudflare Workers AI models.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Embeddings"

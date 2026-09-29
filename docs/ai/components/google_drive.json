@@ -9,10 +9,6 @@
       "component_type": "GoogleDriveCopyFile",
       "display_name": "Copy File",
       "description": "Creates a copy of a Google Drive file.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -128,10 +124,6 @@
       "component_type": "GoogleDriveCreateFolder",
       "display_name": "Create Folder",
       "description": "Creates a folder in Google Drive using a connected Google account.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -248,10 +240,6 @@
       "component_type": "GoogleDriveDeleteFile",
       "display_name": "Delete Permanently",
       "description": "Permanently deletes a Google Drive file or folder.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -347,10 +335,6 @@
       "component_type": "GoogleDriveDownloadFile",
       "display_name": "Download File",
       "description": "Downloads a regular file from Google Drive and returns a Flowi-compatible server file.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -431,10 +415,6 @@
       "component_type": "GoogleDriveExportFile",
       "display_name": "Export File",
       "description": "Exports Google Docs, Sheets or Slides into standard file formats.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -455,7 +435,7 @@
           "load_from_db": false,
           "tool_mode": false,
           "real_time_refresh": false,
-          "info": "Available formats depend on the source Google Workspace file type.",
+          "info": "documented formats depend on the source Google Workspace file type.",
           "options": [
             "PDF",
             "DOCX",
@@ -539,10 +519,6 @@
       "component_type": "GoogleDriveGetFile",
       "display_name": "Get File",
       "description": "Gets metadata for a Google Drive file or folder using a connected Google account.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -623,10 +599,6 @@
       "component_type": "GoogleDriveListFiles",
       "display_name": "List Files",
       "description": "Lists files from a connected Google Drive account using Flowi-managed OAuth credentials.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -760,10 +732,6 @@
       "component_type": "GoogleDriveMoveFile",
       "display_name": "Move File",
       "description": "Moves a Google Drive file or folder to another folder.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -860,10 +828,6 @@
       "component_type": "GoogleDriveRenameFile",
       "display_name": "Rename File",
       "description": "Renames a Google Drive file or folder.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -960,10 +924,6 @@
       "component_type": "GoogleDriveRestoreFile",
       "display_name": "Restore File",
       "description": "Restores a Google Drive file or folder from trash.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1043,10 +1003,6 @@
       "component_type": "GoogleDriveTrashFile",
       "display_name": "Trash File",
       "description": "Moves a Google Drive file or folder to trash.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1126,10 +1082,6 @@
       "component_type": "GoogleDriveUploadFile",
       "display_name": "Upload File",
       "description": "Uploads a Flowi file to Google Drive using a connected Google account.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1279,10 +1231,6 @@
       "component_type": "GoogleDriveWorkspaceApiRequest",
       "display_name": "Workspace API Request",
       "description": "Runs advanced Google Drive, Docs, Sheets, or Slides API methods using the connected user's Google OAuth account.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1447,7 +1395,7 @@
         },
         {
           "name": "available_methods",
-          "display_name": "Available Methods",
+          "display_name": "documented Methods",
           "method": "list_methods",
           "types": [
             "JSON"
@@ -1466,10 +1414,6 @@
       "component_type": "GoogleDriveComponent",
       "display_name": "Google Drive Loader",
       "description": "Loads documents from Google Drive using provided credentials.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1533,10 +1477,6 @@
       "component_type": "GoogleDriveSearchComponent",
       "display_name": "Google Drive Search",
       "description": "Searches Google Drive files using provided credentials and query parameters.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [],
       "base_classes": [
         "JSON",

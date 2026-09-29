@@ -9,10 +9,6 @@
       "component_type": "NovitaModel",
       "display_name": "Novita AI",
       "description": "Generates text using Novita AI LLMs (OpenAI compatible).",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",

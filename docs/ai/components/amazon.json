@@ -9,10 +9,6 @@
       "component_type": "AmazonBedrockEmbeddings",
       "display_name": "Amazon Bedrock Embeddings",
       "description": "Generate embeddings using Amazon Bedrock models.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Embeddings"
@@ -197,10 +193,6 @@
       "component_type": "s3bucketuploader",
       "display_name": "S3 Bucket Uploader",
       "description": "Uploads files to S3 bucket.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "NoneType"
@@ -304,7 +296,7 @@
           "load_from_db": false,
           "tool_mode": false,
           "real_time_refresh": false,
-          "info": "Choose the strategy to upload the file. By Data means that the source file is parsed and stored as LangFlow data. By File Name means that the source file is uploaded as is.",
+          "info": "Choose the strategy to upload the file. By Data means that the source file is parsed and stored as AI Flowi Workflow data. By File Name means that the source file is uploaded as is.",
           "options": [
             "Store Data",
             "Store Original File"
@@ -349,10 +341,6 @@
       "component_type": "AmazonBedrockConverseModel",
       "display_name": "Amazon Bedrock Converse",
       "description": "Generate text using Amazon Bedrock LLMs with the modern Converse API for improved conversation handling.",
-      "status": "BETA",
-      "legacy": false,
-      "beta": true,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",
@@ -521,7 +509,7 @@
           "load_from_db": false,
           "tool_mode": false,
           "real_time_refresh": false,
-          "info": "List of available model IDs to choose from.",
+          "info": "List of documented model IDs to choose from.",
           "options": [
             "amazon.titan-text-express-v1",
             "amazon.titan-text-lite-v1",
@@ -731,11 +719,7 @@
       "category": "amazon",
       "component_type": "AmazonBedrockModel",
       "display_name": "Amazon Bedrock",
-      "description": "Generate text using Amazon Bedrock LLMs with the legacy ChatBedrock API. This component is deprecated. Please use Amazon Bedrock Converse instead for better compatibility, newer features, and improved conversation handling.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
+      "description": "Generate text using Amazon Bedrock LLMs with the older ChatBedrock API. This component is deprecated. Please use Amazon Bedrock Converse instead for better compatibility, newer features, and improved conversation handling.",
       "replacements": [],
       "base_classes": [
         "LanguageModel",
@@ -856,7 +840,7 @@
           "load_from_db": false,
           "tool_mode": false,
           "real_time_refresh": false,
-          "info": "List of available model IDs to choose from.",
+          "info": "List of documented model IDs to choose from.",
           "options": [
             "amazon.titan-text-express-v1",
             "amazon.titan-text-lite-v1",

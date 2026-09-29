@@ -9,10 +9,6 @@
       "component_type": "MistralModel",
       "display_name": "MistralAI",
       "description": "Generates text using MistralAI LLMs.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",
@@ -283,10 +279,6 @@
       "component_type": "MistalAIEmbeddings",
       "display_name": "MistralAI Embeddings",
       "description": "Generate embeddings using MistralAI models.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Embeddings"

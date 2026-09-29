@@ -9,10 +9,6 @@
       "component_type": "VertexAiModel",
       "display_name": "Vertex AI",
       "description": "Generate text using Vertex AI LLMs.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",
@@ -261,10 +257,6 @@
       "component_type": "VertexAIEmbeddings",
       "display_name": "Vertex AI Embeddings",
       "description": "Generate embeddings using Google Cloud Vertex AI models.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Embeddings"

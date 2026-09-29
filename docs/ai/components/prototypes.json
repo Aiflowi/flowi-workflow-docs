@@ -9,10 +9,6 @@
       "component_type": "PythonFunction",
       "display_name": "Python Function",
       "description": "Define and execute a Python function that returns a Data object or a Message.",
-      "status": "LEGACY",
-      "legacy": true,
-      "beta": false,
-      "recommended_for_new_flows": false,
       "replacements": [],
       "base_classes": [
         "Callable",

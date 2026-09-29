@@ -9,10 +9,6 @@
       "component_type": "Unstructured",
       "display_name": "Unstructured API",
       "description": "Uses Unstructured.io API to extract clean text from raw source documents. Supports a wide range of file types.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Table"

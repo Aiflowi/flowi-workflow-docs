@@ -1,50 +1,40 @@
 ---
-title: If-Else Routing in Flowi Workflow
-description: Learn deterministic routing in Flowi using the built-in If-Else component and typed Message connections.
+title: How do I route a workflow with If-Else?
+description: Connect Chat Input to If-Else, configure a fixed text condition, and test the True and False Message outputs in AI Flowi Workflow.
+canonical_url: https://aiflowi.com/docs/tutorials/if-else-routing/
+last_updated: 2026-09-29
+author: Ai Flowi
 ---
 
-# If-Else Routing
+# How do I route a workflow with If-Else?
 
-## Goal
+Use If-Else when a decision can be written as an explicit condition. Chat Input sends a `Message` to If-Else's Text Input, and If-Else exposes separate True and False `Message` outputs. Test a matching and a nonmatching message before building downstream actions.
 
-Route a message into one of two branches using an explicit condition rather than asking an LLM to make every decision.
+## Prerequisites
 
-## Workflow map
+- Access to the AI Flowi Workflow editor and Playground.
+- A rule you can express with one of the component's operators, such as `contains`.
+- A Message-compatible destination for each branch you choose to use. See [workflow basics](../concepts/workflow-basics.md).
 
-`Chat Input → If-Else → True branch / False branch`
+## Steps
 
-## Component
+1. Add **Chat Input** and **If-Else** (`flow_controls.ConditionalRouter`).
+2. Connect Chat Input's `Chat Message` output to If-Else's `Text Input`. Both sides use `Message`.
+3. Choose an **Operator** and set **Match Text**. For example, select `contains` and enter `urgent`. The component also documents equals, not equals, starts with, ends with, regex, and numeric comparison operators.
+4. Set **Case Sensitive** if your condition needs it. The optional **Case True** and **Case False** values can supply branch messages.
+5. Connect **True** and **False** to the Message-compatible components that should receive each result.
+6. Send one message containing `urgent` and one without it. Inspect which output carries each message.
 
-The built-in **If-Else** component is `flow_controls.ConditionalRouter` and is `AVAILABLE`.
+## Expected result
 
-Important documented inputs include:
+The matching test follows the True output; the other follows the False output. These outputs are typed `Message`. The verified recipe establishes the Chat Input to If-Else edge; the components you put after either branch need their own compatible inputs and configuration.
 
-- `Text Input` — accepts `Message`;
-- `Match Text` — the comparison value;
-- `Operator` — supports equals, not equals, contains, starts with, ends with, regex, and numeric comparison operators;
-- `Case Sensitive` — optional;
-- `Case True` and `Case False` — optional Message values.
+## Common errors
 
-It outputs `True` and `False`, both as `Message`.
+- **The first edge will not connect:** Check that you selected Chat Input's Message output and If-Else's Text Input.
+- **The wrong branch runs:** Review Operator, Match Text, and Case Sensitive, then retest both examples.
+- **A downstream component rejects the branch:** Check whether its input accepts `Message`. See [common errors](../troubleshooting/common-errors.md).
 
-## Build steps
+## Related
 
-1. Add **Chat Input**.
-2. Add **If-Else**.
-3. Connect `Chat Input.Chat Message → If-Else.Text Input`.
-4. Choose the operator and configure `Match Text`.
-5. Connect the **True** output to the component that should run when the condition matches.
-6. Connect the **False** output to the alternative branch.
-
-## Example
-
-To detect whether a message contains the word `urgent`:
-
-- Operator: `contains`
-- Match Text: `urgent`
-
-Use deterministic routing when a rule can be written explicitly. Use an AI classifier or LLM-based router when the decision depends on meaning rather than a fixed rule.
-
-## Test
-
-Send one message that should match and one that should not. Verify that only the expected branch receives the message.
+[First workflow](first-playground-workflow.md) · [Components](../components/index.md) · [Workflow basics](../concepts/workflow-basics.md)

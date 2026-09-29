@@ -9,10 +9,6 @@
       "component_type": "GoogleDocsAppendText",
       "display_name": "Append Text",
       "description": "Appends text to the end of a Google Doc or selected tab.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -127,10 +123,6 @@
       "component_type": "GoogleDocsCreateDocument",
       "display_name": "Create Document",
       "description": "Creates a Google Doc and optionally inserts initial text.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -227,10 +219,6 @@
       "component_type": "GoogleDocsCreateFooter",
       "display_name": "Create Footer",
       "description": "Creates the default document footer and optionally inserts text.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -327,10 +315,6 @@
       "component_type": "GoogleDocsCreateFootnote",
       "display_name": "Create Footnote",
       "description": "Creates a footnote reference and optionally inserts footnote text.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -418,7 +402,7 @@
           "load_from_db": false,
           "tool_mode": false,
           "real_time_refresh": false,
-          "info": "Used only when Placement is AT_INDEX. Named insertion_index avoids Langflow's index() method collision."
+          "info": "Used only when Placement is AT_INDEX. Named insertion_index avoids AI Flowi Workflow's index() method collision."
         },
         {
           "name": "placement",
@@ -479,10 +463,6 @@
       "component_type": "GoogleDocsCreateHeader",
       "display_name": "Create Header",
       "description": "Creates the default document header and optionally inserts text.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -579,10 +559,6 @@
       "component_type": "GoogleDocsCreateList",
       "display_name": "Create List",
       "description": "Applies a bulleted or numbered list preset to paragraphs in a range.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -731,10 +707,6 @@
       "component_type": "GoogleDocsCreateNamedRange",
       "display_name": "Create Named Range",
       "description": "Creates a named range over a Google Docs character range.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -878,10 +850,6 @@
       "component_type": "GoogleDocsDeleteContent",
       "display_name": "Delete Content",
       "description": "Deletes document content between two Google Docs indexes.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1025,10 +993,6 @@
       "component_type": "GoogleDocsDeleteFooter",
       "display_name": "Delete Footer",
       "description": "Deletes a Google Docs footer by its footer ID.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1157,10 +1121,6 @@
       "component_type": "GoogleDocsDeleteHeader",
       "display_name": "Delete Header",
       "description": "Deletes a Google Docs header by its header ID.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1289,10 +1249,6 @@
       "component_type": "GoogleDocsDeleteNamedRange",
       "display_name": "Delete Named Range",
       "description": "Deletes a named range by ID, or all ranges sharing a name.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1440,10 +1396,6 @@
       "component_type": "GoogleDocsDeleteTable",
       "display_name": "Delete Table",
       "description": "Deletes an entire Google Docs table by its 1-based Table Number.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1570,10 +1522,6 @@
       "component_type": "GoogleDocsDeleteTableColumn",
       "display_name": "Delete Table Column",
       "description": "Deletes the table column spanning a selected reference cell.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1730,10 +1678,6 @@
       "component_type": "GoogleDocsDeleteTableRow",
       "display_name": "Delete Table Row",
       "description": "Deletes the table row spanning a selected reference cell.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -1890,10 +1834,6 @@
       "component_type": "GoogleDocsFormatDocument",
       "display_name": "Format Document",
       "description": "Updates common document-level page, margin, and background settings.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -2120,10 +2060,6 @@
       "component_type": "GoogleDocsFormatParagraph",
       "display_name": "Format Paragraph",
       "description": "Applies paragraph style, alignment, and spacing to a range.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -2347,10 +2283,6 @@
       "component_type": "GoogleDocsFormatSection",
       "display_name": "Format Section",
       "description": "Updates margins and page numbering for sections overlapping a range.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -2589,10 +2521,6 @@
       "component_type": "GoogleDocsFormatTableCells",
       "display_name": "Format Table Cells",
       "description": "Sets fill color, vertical alignment, or padding for table cells.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -2819,10 +2747,6 @@
       "component_type": "GoogleDocsFormatText",
       "display_name": "Format Text",
       "description": "Applies character-level formatting to a Google Docs range.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -3097,10 +3021,6 @@
       "component_type": "GoogleDocsGetDocument",
       "display_name": "Get Document",
       "description": "Returns the Google Docs API representation of a document.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -3195,10 +3115,6 @@
       "component_type": "GoogleDocsGetText",
       "display_name": "Get Text",
       "description": "Extracts plain text from all tabs in a Google Doc.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -3278,10 +3194,6 @@
       "component_type": "GoogleDocsInsertHeading",
       "display_name": "Insert Heading",
       "description": "Inserts heading text and applies a Google Docs named heading style.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -3455,10 +3367,6 @@
       "component_type": "GoogleDocsInsertImage",
       "display_name": "Insert Image",
       "description": "Inserts an inline image from a publicly accessible image URL.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -3641,10 +3549,6 @@
       "component_type": "GoogleDocsInsertPageBreak",
       "display_name": "Insert Page Break",
       "description": "Inserts a page break at an index or at the end of the document.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -3776,10 +3680,6 @@
       "component_type": "GoogleDocsInsertSectionBreak",
       "display_name": "Insert Section Break",
       "description": "Inserts a continuous or next-page section break.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -3930,10 +3830,6 @@
       "component_type": "GoogleDocsInsertTable",
       "display_name": "Insert Table",
       "description": "Inserts an empty table at an index or at the end of a Google Doc.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -4095,10 +3991,6 @@
       "component_type": "GoogleDocsInsertTableColumn",
       "display_name": "Insert Table Column",
       "description": "Inserts a table column left or right of a reference column.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -4259,10 +4151,6 @@
       "component_type": "GoogleDocsInsertTableRow",
       "display_name": "Insert Table Row",
       "description": "Inserts a table row above or below a reference row.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -4423,10 +4311,6 @@
       "component_type": "GoogleDocsInsertText",
       "display_name": "Insert Text",
       "description": "Inserts text at a specific Google Docs character index.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -4557,10 +4441,6 @@
       "component_type": "GoogleDocsListNamedRanges",
       "display_name": "List Named Ranges",
       "description": "Lists Google Docs named ranges across all tabs or one selected tab.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -4658,10 +4538,6 @@
       "component_type": "GoogleDocsListTables",
       "display_name": "List Tables",
       "description": "Lists tables in document order for the selected/default tab.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -4758,10 +4634,6 @@
       "component_type": "GoogleDocsMergeTableCells",
       "display_name": "Merge Table Cells",
       "description": "Merges a rectangular table-cell range into its upper-left cell.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -4933,10 +4805,6 @@
       "component_type": "GoogleDocsPinTableHeaderRows",
       "display_name": "Pin Table Header Rows",
       "description": "Sets how many leading table rows repeat as table headers.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -5064,10 +4932,6 @@
       "component_type": "GoogleDocsPopulateTable",
       "display_name": "Populate Table",
       "description": "Populates an existing Google Docs table from object or array rows.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -5261,10 +5125,6 @@
       "component_type": "GoogleDocsRemoveList",
       "display_name": "Remove List",
       "description": "Removes bullets or numbering from paragraphs overlapping a range.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -5391,10 +5251,6 @@
       "component_type": "GoogleDocsReplaceImage",
       "display_name": "Replace Image",
       "description": "Replaces an existing Google Docs inline image by object ID.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -5526,10 +5382,6 @@
       "component_type": "GoogleDocsReplaceNamedRangeContent",
       "display_name": "Replace Named Range Content",
       "description": "Replaces the content of a named range by ID or name.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -5680,10 +5532,6 @@
       "component_type": "GoogleDocsReplaceText",
       "display_name": "Replace Text",
       "description": "Replaces every matching text occurrence in a Google Doc.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -5845,10 +5693,6 @@
       "component_type": "GoogleDocsSetTableCellText",
       "display_name": "Set Table Cell Text",
       "description": "Replaces the text in one table cell using 1-based coordinates.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -6009,10 +5853,6 @@
       "component_type": "GoogleDocsSetTableColumnWidth",
       "display_name": "Set Table Column Width",
       "description": "Sets a fixed width for one table column in points.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -6154,10 +5994,6 @@
       "component_type": "GoogleDocsSetTableRowHeight",
       "display_name": "Set Table Row Height",
       "description": "Sets the minimum height of one table row in points.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -6299,10 +6135,6 @@
       "component_type": "GoogleDocsTemplateMerge",
       "display_name": "Template Merge",
       "description": "Replaces multiple template placeholders in one Google Docs batch.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"
@@ -6468,10 +6300,6 @@
       "component_type": "GoogleDocsUnmergeTableCells",
       "display_name": "Unmerge Table Cells",
       "description": "Unmerges merged cells intersecting a rectangular table range.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON"

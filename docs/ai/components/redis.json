@@ -9,10 +9,6 @@
       "component_type": "Redis",
       "display_name": "Redis",
       "description": "Implementation of Vector Store using Redis",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",
@@ -187,10 +183,6 @@
       "component_type": "RedisChatMemory",
       "display_name": "Redis Chat Memory",
       "description": "Retrieves and store chat messages from Redis.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "Memory"

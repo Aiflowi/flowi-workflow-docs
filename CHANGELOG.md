@@ -10,5 +10,5 @@
 - Added direct-answer FAQ and product-fit/limitation pages for answer engines and user evaluation.
 - Expanded entity disambiguation and machine-readable entity topics.
 - Expanded `llms.txt` and added `llms-full.txt` as optional AI discovery aids.
-- Added a publication checklist covering GitHub, docs.aiflowi.com, Search Console, OAI-SearchBot, sitemap, testing, and content-quality rules.
+- Added a publication checklist for the canonical website, sitemap, crawler access, testing, and content quality.
 - Preserved the rule that the public repository contains no Flowi product implementation source code or private component Python source.

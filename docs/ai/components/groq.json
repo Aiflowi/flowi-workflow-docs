@@ -9,10 +9,6 @@
       "component_type": "GroqModel",
       "display_name": "Groq",
       "description": "Generate text using Groq.",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "LanguageModel",
@@ -101,7 +97,7 @@
           "load_from_db": false,
           "tool_mode": false,
           "real_time_refresh": false,
-          "info": "The name of the model to use. Add your Groq API key to access additional available models.",
+          "info": "The name of the model to use. Add your Groq API key to access additional documented models.",
           "options": [
             "llama-3.1-8b-instant",
             "llama-3.3-70b-versatile"

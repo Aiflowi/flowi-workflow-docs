@@ -1,42 +1,28 @@
 ---
-title: AI Workflow Automation with Flowi
-description: Learn how Flowi combines triggers, deterministic processing, AI models, routing and business actions to automate real workflows without using AI for every step.
+title: How can I automate a task with webhooks and AI?
+description: See how AI Flowi Workflow combines a webhook trigger, processing, optional AI, and a response or business action.
+canonical_url: https://aiflowi.com/docs/use-cases/ai-workflow-automation/
+last_updated: 2026-09-29
+author: Ai Flowi
 ---
 
-# AI Workflow Automation with Flowi
+# How can I automate a task with webhooks and AI?
 
-## Direct answer
+Use Universal Webhook when another system needs to send an event into AI Flowi Workflow. Process the incoming data with typed components, then add an AI step when the task needs interpretation of text or structured extraction. Finish with the action or response your workflow requires.
 
-An AI workflow uses ordinary automation for predictable steps and adds AI only where reasoning, extraction, classification, generation, or semantic routing is useful.
+## Where each part fits
 
-A common Flowi architecture is:
+| Part | Role in the workflow |
+|---|---|
+| Universal Webhook | Receives request data from an external system. |
+| Processing and rules | Convert data types or route on an explicit condition. |
+| AI model or Structured Output | Handle text that needs interpretation or extraction. |
+| Business action or Webhook Response | Use the result or return a response to the caller. |
 
-`Trigger → Normalize Data → Rules / AI → Validation → Business Action → Output`
+An external event can follow this pattern: `Universal Webhook → processing → optional AI → action or response`. An outbound API request has a different role: it calls another system after the workflow has the data it needs. Check the selected component's inputs, outputs, and configuration before assuming it can fill that role.
 
-## Why not put AI in every node?
+For a documented connection path, the [webhook to Google Sheets tutorial](../tutorials/webhook-to-google-sheets.md) uses Universal Webhook, Type Convert, Structured Output, and Google Sheets Append Rows. If the incoming data already contains the fields the destination needs, you may be able to use processing without an AI step. The [Universal Webhook reference](../triggers/universal-webhook.md) covers the trigger itself.
 
-Deterministic operations are usually easier to test and reproduce. Examples include receiving a webhook, checking an explicit condition, converting a data type, writing a row, or calling a known API. AI is most valuable where the workflow must understand unstructured content or make a semantic decision.
+## Related
 
-## Flowi building blocks
-
-Documented Flowi component families cover:
-
-- chat and webhook inputs;
-- If-Else and other flow controls;
-- model and agent components;
-- LLM Selector and Structured Output;
-- type/data processing;
-- API requests;
-- Google Workspace operations;
-- files and knowledge;
-- Custom Components for specialized requirements.
-
-## Example patterns
-
-- `Chat Input → AI Model → Chat Output`
-- `Chat Input → If-Else → branch`
-- `Chat Input → LLM Selector → result`
-- `Universal Webhook → Structured Output → Google Sheets`
-- `Telegram Bot API → Webhook → Telegram Update Parser → AI/Logic`
-
-For verified component IDs and typed edges, use the [Tutorials](../tutorials/index.md) and [`VERIFIED_WORKFLOW_RECIPES.json`](../ai/VERIFIED_WORKFLOW_RECIPES.json).
+[Use cases](index.md) · [Google Sheets automation](google-sheets-ai-automation.md) · [Webhook troubleshooting](../troubleshooting/webhooks.md)

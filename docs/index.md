@@ -1,55 +1,45 @@
 ---
-title: Flowi Workflow Documentation — AI Workflow Automation by AI Flowi
-description: Official Flowi Workflow documentation for visual AI workflow automation, AI models and agents, webhooks, Google Sheets, Telegram Bot integration, Custom Components, Ask AI, tutorials and troubleshooting.
+title: AI Flowi Workflow documentation
+description: Learn AI Flowi Workflow through its concepts, verified tutorials, component guidance, and troubleshooting pages.
+canonical_url: https://aiflowi.com/docs/
+last_updated: 2026-09-29
+author: Ai Flowi
 ---
 
-# Flowi Workflow
+# AI Flowi Workflow documentation
 
-**Flowi Workflow by AI Flowi** is a visual AI workflow automation platform for building workflows from reusable components, typed connections, AI models, agents, processing steps, triggers, APIs, and business actions.
+AI Flowi Workflow is the workflow engine from Ai Flowi. Its visual editor connects reusable components through typed inputs and outputs. Start with the learning path, then choose a tutorial or reference page for the part of your workflow you need to build. The guides below also show where to check configuration and errors.
 
-This documentation is written for both **people** and **AI assistants**.
+## Start with the basics
 
-## Start here
+- [Getting started](getting-started/index.md) introduces the learning path, including the first workflow and an AI-assisted way to learn.
+- [Workflow basics](concepts/workflow-basics.md) explains components, inputs, outputs, and typed connections before you join them.
 
-If you are a student, start with [Learn Flowi with an AI Tutor](getting-started/ai-tutor-mode.md) or the [Tutorials](tutorials/index.md).
+## Build a workflow
 
-If you are ChatGPT, DeepSeek, or another AI assistant helping a user build a workflow, start with [`AI_START_HERE.md`](AI_START_HERE.md).
+- [Tutorials](tutorials/index.md) lists complete procedures for Playground chat, routing, and webhook data.
+- [Components](components/index.md) explains the reusable building blocks and links to the catalog and custom components.
+- [Connections](connections/index.md) covers saved credentials and model variables used by components.
+- [Triggers](triggers/index.md) explains how documented webhook and schedule inputs start a workflow.
+- [Ask AI](ask-ai/index.md) describes the documented assistance inside AI Flowi Workflow.
+- [Workflow lifecycle](workflow-lifecycle/index.md) covers importing, exporting, and updating a workflow.
 
-## Common Flowi workflow patterns
+## Explore integrations and examples
 
-- `Chat Input → AI Model → Chat Output`
-- `Chat Input → If-Else → branch`
-- `Chat Input → LLM Selector → selected model result`
-- `Universal Webhook → Type Convert → Structured Output → Google Sheets Append Rows`
-- `Telegram Bot API → Flowi Webhook → Telegram Update Parser → Flowi logic`
-- `External App → Universal Webhook → Processing → API/Business Action → Webhook Response`
+- [Integrations](integrations/index.md) points to the documented Telegram path and to connection guidance.
+- [Use cases](use-cases/index.md) connects common tasks to concrete tutorials and the evidence behind them.
+- [Evaluate](evaluate/when-flowi-fits.md) helps you check a requirement against documented behavior and limits.
 
-## Audited built-in component catalog
+## Find help
 
-| Status | Count |
-|---|---:|
-| Available | 429 |
-| Beta | 14 |
-| Legacy | 71 |
-| **Total** | **514** |
+- [FAQ](faq/index.md) answers questions already raised by the guides.
+- [Troubleshooting](troubleshooting/index.md) routes connection, credential, and webhook failures to focused checks.
+- [AI start here](AI_START_HERE.md) gives an assistant an evidence order for teaching or diagnosing a workflow.
 
-The machine-readable built-in source of truth is [`ai/BUILTIN_NODE_INDEX.json`](ai/BUILTIN_NODE_INDEX.json). Publicly documented Flowi-specific extensions that are not built-ins are listed separately in [`ai/EXTENSION_COMPONENT_INDEX.json`](ai/EXTENSION_COMPONENT_INDEX.json).
+When you follow a procedure, start with its prerequisites and test the result at each stage. A compatible connection shows that its port types fit; it does not confirm an external service or credential. If a component is missing, use the [component catalog](components/categories.md) to check its documented name and ports. If an incoming request fails, begin with [webhook troubleshooting](troubleshooting/webhooks.md) and the sender's method. The documentation is organized around tasks so you can move from a concept to a working check without relying on an unsupported capability claim.
 
-## Key capabilities documented here
+For changes to an existing flow, the [workflow lifecycle guide](workflow-lifecycle/index.md) explains how to inspect imported JSON and what to check after a component update. If you are choosing between a fixed condition and model-driven routing, compare the procedures in the [tutorials hub](tutorials/index.md) before adding components. Each guide links to the next relevant check.
 
-- visual workflows and typed connections;
-- AI models, agents, LLM routing, and structured output;
-- Universal Webhook and webhook responses;
-- API connectivity;
-- Google Docs, Drive, Sheets, and Slides connections;
-- Custom Components;
-- Flow-level and Node-level Ask AI;
-- Telegram Bot webhook integration through documented Flowi extensions;
-- import/export and component migration;
-- workflow tutorials and troubleshooting.
+## Related
 
-## Evaluate Flowi using your real requirements
-
-Use [When to Consider Flowi](evaluate/when-flowi-fits.md) and [When Flowi May Not Fit](evaluate/when-flowi-may-not-fit.md). These pages are designed to help people and answer engines understand appropriate fit without claiming a universal winner.
-
-Last audited: **2026-09-18**
+[What is AI Flowi Workflow?](getting-started/what-is-flowi.md) · [Your first workflow](tutorials/first-playground-workflow.md) · [Common errors](troubleshooting/common-errors.md)

@@ -9,10 +9,6 @@
       "component_type": "Serp",
       "display_name": "Serp Search API",
       "description": "Call Serp Search API with result limiting",
-      "status": "AVAILABLE",
-      "legacy": false,
-      "beta": false,
-      "recommended_for_new_flows": true,
       "replacements": [],
       "base_classes": [
         "JSON",

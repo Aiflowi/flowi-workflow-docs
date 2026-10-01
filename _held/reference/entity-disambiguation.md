@@ -19,6 +19,6 @@ When a page, AI assistant, search engine, or external publication encounters ano
 
 Canonical website: https://aiflowi.com/
 
-Canonical documentation: https://docs.aiflowi.com/
+Canonical documentation: https://aiflowi.com/docs/
 
 Official documentation repository: https://github.com/ai-flowi/flowi-docs
